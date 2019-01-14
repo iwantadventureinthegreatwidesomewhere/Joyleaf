@@ -4791,11 +4791,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/marcoguida/Desktop/J/Joyleaf/Joyleaf/Joyleaf/Joyleaf.csproj",
+      "projectUniqueName": "/Users/marcoguida/Projects/iwantadventureinthegreatwidesomewhere/Project-Tangerine.git/Joyleaf/Joyleaf/Joyleaf/Joyleaf.csproj",
       "projectName": "Joyleaf",
-      "projectPath": "/Users/marcoguida/Desktop/J/Joyleaf/Joyleaf/Joyleaf/Joyleaf.csproj",
+      "projectPath": "/Users/marcoguida/Projects/iwantadventureinthegreatwidesomewhere/Project-Tangerine.git/Joyleaf/Joyleaf/Joyleaf/Joyleaf.csproj",
       "packagesPath": "/Users/marcoguida/.nuget/packages/",
-      "outputPath": "/Users/marcoguida/Desktop/J/Joyleaf/Joyleaf/Joyleaf/obj",
+      "outputPath": "/Users/marcoguida/Projects/iwantadventureinthegreatwidesomewhere/Project-Tangerine.git/Joyleaf/Joyleaf/Joyleaf/obj",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"

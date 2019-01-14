@@ -2382,11 +2382,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/marcoguida/Desktop/J/Joyleaf/Joyleaf/Joyleaf.iOS/Joyleaf.iOS.csproj",
+      "projectUniqueName": "/Users/marcoguida/Projects/iwantadventureinthegreatwidesomewhere/Project-Tangerine.git/Joyleaf/Joyleaf/Joyleaf.iOS/Joyleaf.iOS.csproj",
       "projectName": "Joyleaf.iOS",
-      "projectPath": "/Users/marcoguida/Desktop/J/Joyleaf/Joyleaf/Joyleaf.iOS/Joyleaf.iOS.csproj",
+      "projectPath": "/Users/marcoguida/Projects/iwantadventureinthegreatwidesomewhere/Project-Tangerine.git/Joyleaf/Joyleaf/Joyleaf.iOS/Joyleaf.iOS.csproj",
       "packagesPath": "/Users/marcoguida/.nuget/packages/",
-      "outputPath": "/Users/marcoguida/Desktop/J/Joyleaf/Joyleaf/Joyleaf.iOS/obj",
+      "outputPath": "/Users/marcoguida/Projects/iwantadventureinthegreatwidesomewhere/Project-Tangerine.git/Joyleaf/Joyleaf/Joyleaf.iOS/obj",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/marcoguida/.config/NuGet/NuGet.Config"
@@ -2400,8 +2400,8 @@
       "frameworks": {
         "xamarinios10": {
           "projectReferences": {
-            "/Users/marcoguida/Desktop/J/Joyleaf/Joyleaf/Joyleaf/Joyleaf.csproj": {
-              "projectPath": "/Users/marcoguida/Desktop/J/Joyleaf/Joyleaf/Joyleaf/Joyleaf.csproj"
+            "/Users/marcoguida/Projects/iwantadventureinthegreatwidesomewhere/Project-Tangerine.git/Joyleaf/Joyleaf/Joyleaf/Joyleaf.csproj": {
+              "projectPath": "/Users/marcoguida/Projects/iwantadventureinthegreatwidesomewhere/Project-Tangerine.git/Joyleaf/Joyleaf/Joyleaf/Joyleaf.csproj"
             }
           }
         }
