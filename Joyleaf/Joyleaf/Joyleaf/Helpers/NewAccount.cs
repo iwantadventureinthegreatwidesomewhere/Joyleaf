@@ -3,7 +3,6 @@ using Firebase.Database;
 
 namespace Joyleaf
 {
-
     public class NewAccount
     {
         public string firstName;
