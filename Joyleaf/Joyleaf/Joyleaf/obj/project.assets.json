@@ -4823,43 +4823,43 @@
     "frameworks": {
       "netstandard2.0": {
         "dependencies": {
-          "Xamarin.Forms": {
+          "FirebaseAuthentication.net": {
             "target": "Package",
-            "version": "3.1.0.637273"
-          },
-          "Xam.Plugin.Connectivity": {
-            "target": "Package",
-            "version": "3.2.0"
-          },
-          "Xam.Plugins.Settings": {
-            "target": "Package",
-            "version": "3.1.1"
+            "version": "[3.0.7, )"
           },
           "FirebaseDatabase.net": {
             "target": "Package",
-            "version": "3.3.3"
-          },
-          "FirebaseAuthentication.net": {
-            "target": "Package",
-            "version": "3.0.7"
-          },
-          "Newtonsoft.Json": {
-            "target": "Package",
-            "version": "11.0.2"
-          },
-          "Refractored.XamForms.PullToRefresh": {
-            "target": "Package",
-            "version": "2.2.2"
+            "version": "[3.3.3, )"
           },
           "HtmlAgilityPack": {
             "target": "Package",
-            "version": "1.8.9"
+            "version": "[1.8.9, )"
           },
           "NETStandard.Library": {
             "suppressParent": "All",
             "target": "Package",
-            "version": "2.0.3",
+            "version": "[2.0.3, )",
             "autoReferenced": true
+          },
+          "Newtonsoft.Json": {
+            "target": "Package",
+            "version": "[11.0.2, )"
+          },
+          "Refractored.XamForms.PullToRefresh": {
+            "target": "Package",
+            "version": "[2.2.2, )"
+          },
+          "Xam.Plugin.Connectivity": {
+            "target": "Package",
+            "version": "[3.2.0, )"
+          },
+          "Xam.Plugins.Settings": {
+            "target": "Package",
+            "version": "[3.1.1, )"
+          },
+          "Xamarin.Forms": {
+            "target": "Package",
+            "version": "[3.1.0.637273, )"
           }
         },
         "imports": [

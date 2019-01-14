@@ -1773,29 +1773,29 @@
     "frameworks": {
       "monoandroid81": {
         "dependencies": {
-          "Xamarin.Forms": {
-            "target": "Package",
-            "version": "3.1.0.637273"
-          },
           "Xamarin.Android.Support.Design": {
             "target": "Package",
-            "version": "27.0.2.1"
-          },
-          "Xamarin.Android.Support.v7.AppCompat": {
-            "target": "Package",
-            "version": "27.0.2.1"
+            "version": "[27.0.2.1, )"
           },
           "Xamarin.Android.Support.v4": {
             "target": "Package",
-            "version": "27.0.2.1"
+            "version": "[27.0.2.1, )"
+          },
+          "Xamarin.Android.Support.v7.AppCompat": {
+            "target": "Package",
+            "version": "[27.0.2.1, )"
           },
           "Xamarin.Android.Support.v7.CardView": {
             "target": "Package",
-            "version": "27.0.2.1"
+            "version": "[27.0.2.1, )"
           },
           "Xamarin.Android.Support.v7.MediaRouter": {
             "target": "Package",
-            "version": "27.0.2.1"
+            "version": "[27.0.2.1, )"
+          },
+          "Xamarin.Forms": {
+            "target": "Package",
+            "version": "[3.1.0.637273, )"
           }
         }
       }

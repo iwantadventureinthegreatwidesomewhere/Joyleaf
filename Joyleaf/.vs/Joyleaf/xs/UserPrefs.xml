@@ -1,15 +1,15 @@
-﻿<Properties StartupConfiguration="{9BA44B81-8113-4346-99FB-94AE557221F4}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Joyleaf/Joyleaf/Helpers/NewAccount.cs">
+﻿<Properties StartupConfiguration="{928BF896-B912-476D-86D7-5A6B2B2B065A}|Default">
+  <MonoDevelop.Ide.ItemProperties.Joyleaf.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.634C2E62-9263-43A6-BEA6-7ABED2BA9510" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Joyleaf Status">
     <Files>
       <File FileName="Joyleaf Status" />
-      <File FileName="Joyleaf/Joyleaf/Helpers/NewAccount.cs" Line="6" Column="5" />
     </Files>
   </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.Joyleaf.Android PreferredExecutionTarget="Android.Android_Accelerated_Oreo" />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.ItemProperties.Joyleaf.Android PreferredExecutionTarget="Android.Android_Accelerated_Oreo" />
 </Properties>
