@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:system="clr-namespace:System;assembly=netstandard"
+             xmlns:customControls="clr-namespace:Joyleaf.CustomControls;assembly=Joyleaf"
+             x:Class="Joyleaf.EmailPage"
+             BackgroundColor="White">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="57*"/>
+        </Grid.RowDefinitions>
+        <StackLayout Margin="20,0" Grid.Row="1" VerticalOptions="CenterAndExpand">
+            <Label
+                Text="Email Address"
+                TextColor="#79768B"
+                FontSize="23"
+                FontAttributes="Bold"
+                HorizontalOptions="StartAndExpand"
+                Margin="8,10,0,0"
+                />
+            <customControls:NewEntryEmailVerify
+                x:Name="EmailField"
+                TextChanged="TextfieldChanged"
+                Placeholder="Email"
+                Keyboard="Email"
+                HeightRequest="45"
+                HorizontalOptions="Fill"
+                FontSize="14"
+                ReturnType="Next"
+                Text="{Binding EmailAddress, Mode=TwoWay}"
+                Margin="0,15,0,0">
+                <customControls:NewEntryEmailVerify.BackgroundColor>
+                        <OnPlatform x:TypeArguments="Color">
+                            <On Platform="iOS" Value="#fafafa"/>
+                        </OnPlatform>
+                </customControls:NewEntryEmailVerify.BackgroundColor>
+            </customControls:NewEntryEmailVerify>
+            <customControls:NewButton
+                 x:Name="btnNext"
+                 Clicked="Next_Click"
+                 IsEnabled="false"
+                 FontAttributes="Bold"
+                 BackgroundColor="#4000b1b0"
+                 TextColor="White"
+                 HeightRequest="45"
+                 HorizontalOptions="Fill"
+                 Margin="0,30,0,0">
+                 <customControls:NewButton.Text>
+                     <OnPlatform x:TypeArguments="system:String">
+                         <On Platform="iOS" Value="Next"/> 
+                         <On Platform="Android" Value="NEXT"/>
+                     </OnPlatform>
+                 </customControls:NewButton.Text>
+             </customControls:NewButton>
+        </StackLayout>
+    </Grid>
+</ContentPage>
