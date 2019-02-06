@@ -28,7 +28,7 @@
                 HorizontalOptions="StartAndExpand"
                 Margin="8,20,0,0"
                 />
-            <customControls:NewEntry
+            <customControls:CustomEntry
                 x:Name="FirstNameField"
                 TextChanged="TextfieldChanged"
                 Placeholder="First name"
@@ -38,13 +38,13 @@
                 ReturnType="Next"
                 Text="{Binding FirstName, Mode=TwoWay}"
                 Margin="0,15,0,0">
-                <customControls:NewEntry.BackgroundColor>
+                <customControls:CustomEntry.BackgroundColor>
                         <OnPlatform x:TypeArguments="Color">
                             <On Platform="iOS" Value="#fafafa"/>
                         </OnPlatform>
-                </customControls:NewEntry.BackgroundColor>
-            </customControls:NewEntry>
-            <customControls:NewEntry
+                </customControls:CustomEntry.BackgroundColor>
+            </customControls:CustomEntry>
+            <customControls:CustomEntry
                 x:Name="LastNameField"
                 TextChanged="TextfieldChanged"
                 Placeholder="Last name"
@@ -54,13 +54,13 @@
                 ReturnType="Next"
                 Text="{Binding LastName, Mode=TwoWay}"
                 Margin="0,7,0,0">
-                <customControls:NewEntry.BackgroundColor>
+                <customControls:CustomEntry.BackgroundColor>
                         <OnPlatform x:TypeArguments="Color">
                             <On Platform="iOS" Value="#fafafa"/>
                         </OnPlatform>
-                </customControls:NewEntry.BackgroundColor>
-            </customControls:NewEntry>
-            <customControls:NewButton
+                </customControls:CustomEntry.BackgroundColor>
+            </customControls:CustomEntry>
+            <customControls:CustomButton
                  x:Name="btnNext"
                  Clicked="Next_Click"
                  IsEnabled="false"
@@ -70,13 +70,13 @@
                  HeightRequest="45"
                  HorizontalOptions="Fill"
                  Margin="0,30,0,0">
-                 <customControls:NewButton.Text>
+                 <customControls:CustomButton.Text>
                      <OnPlatform x:TypeArguments="system:String">
                          <On Platform="iOS" Value="Next"/> 
                          <On Platform="Android" Value="NEXT"/>
                      </OnPlatform>
-                 </customControls:NewButton.Text>
-             </customControls:NewButton>
+                 </customControls:CustomButton.Text>
+             </customControls:CustomButton>
         </StackLayout>
     </Grid>
 </ContentPage>

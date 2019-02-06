@@ -17,16 +17,16 @@ namespace Joyleaf {
     public partial class EmailPage : global::Xamarin.Forms.ContentPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
-        private global::Joyleaf.CustomControls.NewEntryEmailVerify EmailField;
+        private global::Joyleaf.CustomControls.CustomEntry EmailField;
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
-        private global::Joyleaf.CustomControls.NewButton btnNext;
+        private global::Joyleaf.CustomControls.CustomButton btnNext;
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
         private void InitializeComponent() {
             global::Xamarin.Forms.Xaml.Extensions.LoadFromXaml(this, typeof(EmailPage));
-            EmailField = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Joyleaf.CustomControls.NewEntryEmailVerify>(this, "EmailField");
-            btnNext = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Joyleaf.CustomControls.NewButton>(this, "btnNext");
+            EmailField = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Joyleaf.CustomControls.CustomEntry>(this, "EmailField");
+            btnNext = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Joyleaf.CustomControls.CustomButton>(this, "btnNext");
         }
     }
 }

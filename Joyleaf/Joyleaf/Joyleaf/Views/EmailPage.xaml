@@ -20,7 +20,7 @@
                 HorizontalOptions="StartAndExpand"
                 Margin="8,10,0,0"
                 />
-            <customControls:NewEntryEmailVerify
+            <customControls:CustomEntry
                 x:Name="EmailField"
                 TextChanged="TextfieldChanged"
                 Placeholder="Email"
@@ -31,13 +31,13 @@
                 ReturnType="Next"
                 Text="{Binding EmailAddress, Mode=TwoWay}"
                 Margin="0,15,0,0">
-                <customControls:NewEntryEmailVerify.BackgroundColor>
+                <customControls:CustomEntry.BackgroundColor>
                         <OnPlatform x:TypeArguments="Color">
                             <On Platform="iOS" Value="#fafafa"/>
                         </OnPlatform>
-                </customControls:NewEntryEmailVerify.BackgroundColor>
-            </customControls:NewEntryEmailVerify>
-            <customControls:NewButton
+                </customControls:CustomEntry.BackgroundColor>
+            </customControls:CustomEntry>
+            <customControls:CustomButton
                  x:Name="btnNext"
                  Clicked="Next_Click"
                  IsEnabled="false"
@@ -47,13 +47,13 @@
                  HeightRequest="45"
                  HorizontalOptions="Fill"
                  Margin="0,30,0,0">
-                 <customControls:NewButton.Text>
+                 <customControls:CustomButton.Text>
                      <OnPlatform x:TypeArguments="system:String">
                          <On Platform="iOS" Value="Next"/> 
                          <On Platform="Android" Value="NEXT"/>
                      </OnPlatform>
-                 </customControls:NewButton.Text>
-             </customControls:NewButton>
+                 </customControls:CustomButton.Text>
+             </customControls:CustomButton>
         </StackLayout>
     </Grid>
 </ContentPage>

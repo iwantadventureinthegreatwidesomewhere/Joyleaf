@@ -28,13 +28,13 @@
                 <StackLayout>
                     <Image 
                 Source="colorlogo"
-                HeightRequest="75"
+                HeightRequest="65"
                 Margin="-10,0,0,8"/>
             <StackLayout 
                 VerticalOptions="FillAndExpand" 
                 HorizontalOptions="Fill"
-                Margin="17">
-                <customControls:NewEntryEmailVerify
+                Margin="30">
+                <customControls:CustomEntry
                     x:Name="UsernameField"
                     TextChanged="TextfieldChanged"
                     HorizontalOptions="Fill"
@@ -46,13 +46,13 @@
                     Unfocused="VisualElement_OffFocused"
                     Text="{Binding Username, Mode=TwoWay}"
                     FontSize="14">
-                    <customControls:NewEntryEmailVerify.BackgroundColor>
+                    <customControls:CustomEntry.BackgroundColor>
                         <OnPlatform x:TypeArguments="Color">
                             <On Platform="iOS" Value="#fafafa"/>
                         </OnPlatform>
-                    </customControls:NewEntryEmailVerify.BackgroundColor>
-                </customControls:NewEntryEmailVerify>
-                <customControls:NewEntry
+                    </customControls:CustomEntry.BackgroundColor>
+                </customControls:CustomEntry>
+                <customControls:CustomEntry
                     x:Name="PasswordField"
                     Text="{Binding Password}"
                     TextChanged="TextfieldChanged"
@@ -65,17 +65,12 @@
                     Focused="VisualElement_OnFocused"
                     Unfocused="VisualElement_OffFocused"
                     FontSize="14">
-                    <customControls:NewEntry.BackgroundColor>
-                        <OnPlatform x:TypeArguments="Color">
-                            <On Platform="iOS" Value="#fafafa"/>
-                        </OnPlatform>
-                    </customControls:NewEntry.BackgroundColor>
-                    </customControls:NewEntry>
+                    </customControls:CustomEntry>
                 <Button 
                     Text="Forgot Password?"
                     Clicked="ForgotPassword_Click"
                     FontAttributes="Bold"
-                    TextColor="#00b1b0"
+                    TextColor="#afafaf"
                     BackgroundColor="Transparent"
                     HorizontalOptions="Start">
                     <Button.FontSize>
@@ -91,23 +86,24 @@
                         </OnPlatform>
                     </Button.Margin>
                 </Button>
-                <customControls:NewButton
+                <customControls:CustomButton
                     x:Name="btnLogIn"
                     IsEnabled="false"
                     Clicked="LogIn_Click"
                     FontAttributes="Bold"
-                    BackgroundColor="#4000b1b0"
+                    BackgroundColor="#4023C7A5"
                     TextColor="White"
                     HeightRequest="45"
                     HorizontalOptions="Fill"
-                    Margin="0,10,0,0">
-                    <customControls:NewButton.Text>
+                    Margin="0,10,0,0"
+                    FontSize = "13">
+                    <customControls:CustomButton.Text>
                         <OnPlatform x:TypeArguments="system:String">
-                            <On Platform="iOS" Value="Log In"/> 
-                            <On Platform="Android" Value="LOG IN"/>
+                            <On Platform="iOS" Value="SIGN IN"/> 
+                            <On Platform="Android" Value="SIGN IN"/>
                         </OnPlatform>
-                    </customControls:NewButton.Text>
-                </customControls:NewButton>
+                    </customControls:CustomButton.Text>
+                </customControls:CustomButton>
               </StackLayout>
             </StackLayout>
         </StackLayout>
@@ -121,7 +117,7 @@
             <Label 
                 Text="New to Joyleaf?"
                 FontAttributes="Bold"
-                TextColor="#79768B">
+                TextColor="#5b5a5a">
                 <Label.Margin>
                     <OnPlatform x:TypeArguments="Thickness">
                         <On Platform="iOS" Value="0,13.5,-2,0"/> 
@@ -137,9 +133,9 @@
             </Label>
             <Button
                 Clicked="SignUp_Click"
-                Text="Sign Up."
+                Text="Sign up now."
                 FontAttributes="Bold"
-                TextColor="#00b1b0"
+                TextColor="#23C7A5"
                 BackgroundColor="Transparent">
                 <Button.FontSize>
                     <OnPlatform x:TypeArguments="system:Double">

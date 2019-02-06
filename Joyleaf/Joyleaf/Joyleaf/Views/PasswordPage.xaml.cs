@@ -62,7 +62,7 @@ namespace Joyleaf
             if (CrossConnectivity.Current.IsConnected)
             {
 
-                if (PasswordField.verifyText(PasswordField.Text) && ConfirmPasswordField.verifyText(ConfirmPasswordField.Text))
+                if (PasswordField.VerifyText(PasswordField.Text, @"^[ -~]+$") && ConfirmPasswordField.VerifyText(ConfirmPasswordField.Text, @"^[ -~]+$"))
                 {
 
                     if (string.Equals(PasswordField.Text, ConfirmPasswordField.Text))

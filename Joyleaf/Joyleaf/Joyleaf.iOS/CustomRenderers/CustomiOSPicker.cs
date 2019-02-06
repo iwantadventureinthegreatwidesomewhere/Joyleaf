@@ -5,21 +5,23 @@ using UIKit;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
 
-[assembly: ExportRenderer(typeof(NewStorePicker), typeof(NewiOSStorePicker))]
+[assembly: ExportRenderer(typeof(CustomPicker), typeof(CustomiOSPicker))]
+
 namespace Joyleaf.iOS.CustomRenderers
 {
-    public class NewiOSStorePicker : PickerRenderer
+    public class CustomiOSPicker : PickerRenderer
     {
         protected override void OnElementChanged(ElementChangedEventArgs<Picker> e)
         {
             base.OnElementChanged(e);
 
-            if (this.Control == null)
+            if (Control == null)
             {
                 return;
             }
 
-            Control.BorderStyle = UITextBorderStyle.None;
+            Control.LeftView = new UIView(new CGRect(0, 0, 10, Control.Frame.Height));
+            Control.LeftViewMode = UITextFieldViewMode.Always;
         }
     }
 }

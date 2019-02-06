@@ -4,39 +4,50 @@ using Joyleaf.iOS.CustomRenderers;
 using UIKit;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
+
 using ReturnType = Joyleaf.CustomTypes.ReturnType;
 
-[assembly: ExportRenderer (typeof(NewEntry), typeof(NewiOSTextfield))]
+[assembly: ExportRenderer (typeof(CustomEntry), typeof(CustomiOSEntry))]
+
 namespace Joyleaf.iOS.CustomRenderers
 {
-    public class NewiOSTextfield : EntryRenderer
+    public class CustomiOSEntry : EntryRenderer
     {
         protected override void OnElementChanged (ElementChangedEventArgs<Entry> e)
         {
             base.OnElementChanged(e);
 
-            if (this.Control == null)
+            if (Control == null)
             {
                 return;
             }
-            
-            //adds clear button to UITextfields
-            
-            var entry = this.Control as UITextField;
+
+            UITextField entry = Control as UITextField;
+
+            entry.Layer.CornerRadius = 23;
+
+            entry.BackgroundColor = UIColor.FromRGB(244, 243, 250);
+
+            entry.Layer.BorderColor = UIColor.FromRGB(244, 243, 250).CGColor;
+            entry.Layer.BorderWidth = 1;
 
             entry.ClearButtonMode = UITextFieldViewMode.WhileEditing;
-            Control.LeftView = new UIView(new CGRect(0, 0, 10, Control.Frame.Height));
-            Control.LeftViewMode = UITextFieldViewMode.Always;
+
+            entry.LeftView = new UIView(new CGRect(0, 0, 10, Control.Frame.Height));
+            entry.LeftViewMode = UITextFieldViewMode.Always;
+
             entry.EnablesReturnKeyAutomatically = true;
             
-            //modifies return key for UITextfields
-            
-            NewEntry entryReturnKey = (NewEntry)this.Element;
+            CustomEntry entryReturnKey = (CustomEntry) Element;
 
-            if (this.Control != null){
-                if(entryReturnKey != null){
+            if (Control != null)
+            {
+                if (entryReturnKey != null)
+                {
                     SetReturnType(entryReturnKey);
-                    Control.ShouldReturn += (UITextField tf) => {
+
+                    entry.ShouldReturn += (UITextField tf) => 
+                    {
                         entryReturnKey.InvokeCompleted();
                         return true;
                     };
@@ -44,11 +55,12 @@ namespace Joyleaf.iOS.CustomRenderers
             }
         }
         
-        private void SetReturnType(NewEntry entryReturnKey){
-            
+        private void SetReturnType(CustomEntry entryReturnKey)
+        {
             ReturnType type = entryReturnKey.ReturnType;
 
-            switch (type){
+            switch (type)
+            {
                 case ReturnType.Done:
                     Control.ReturnKeyType = UIReturnKeyType.Done;
                     break;

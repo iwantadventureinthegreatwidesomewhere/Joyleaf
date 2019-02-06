@@ -2,6 +2,8 @@
   <MonoDevelop.Ide.ItemProperties.Joyleaf.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.634C2E62-9263-43A6-BEA6-7ABED2BA9510" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Joyleaf Status">
     <Files>
+      <File FileName="Joyleaf/Joyleaf/Services/FirebaseBackend.cs" Line="54" Column="20" />
+      <File FileName="Joyleaf/Joyleaf/Views/MainPage.xaml.cs" Line="98" Column="17" />
       <File FileName="Joyleaf Status" />
     </Files>
   </MonoDevelop.Ide.Workbench>
@@ -12,4 +14,5 @@
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.Joyleaf HideGettingStarted="True" />
 </Properties>

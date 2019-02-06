@@ -17,20 +17,20 @@ namespace Joyleaf {
     public partial class NamePage : global::Xamarin.Forms.ContentPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
-        private global::Joyleaf.CustomControls.NewEntry FirstNameField;
+        private global::Joyleaf.CustomControls.CustomEntry FirstNameField;
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
-        private global::Joyleaf.CustomControls.NewEntry LastNameField;
+        private global::Joyleaf.CustomControls.CustomEntry LastNameField;
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
-        private global::Joyleaf.CustomControls.NewButton btnNext;
+        private global::Joyleaf.CustomControls.CustomButton btnNext;
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
         private void InitializeComponent() {
             global::Xamarin.Forms.Xaml.Extensions.LoadFromXaml(this, typeof(NamePage));
-            FirstNameField = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Joyleaf.CustomControls.NewEntry>(this, "FirstNameField");
-            LastNameField = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Joyleaf.CustomControls.NewEntry>(this, "LastNameField");
-            btnNext = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Joyleaf.CustomControls.NewButton>(this, "btnNext");
+            FirstNameField = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Joyleaf.CustomControls.CustomEntry>(this, "FirstNameField");
+            LastNameField = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Joyleaf.CustomControls.CustomEntry>(this, "LastNameField");
+            btnNext = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Joyleaf.CustomControls.CustomButton>(this, "btnNext");
         }
     }
 }

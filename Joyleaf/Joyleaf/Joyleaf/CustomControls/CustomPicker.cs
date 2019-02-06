@@ -2,8 +2,7 @@
 
 namespace Joyleaf.CustomControls
 {
-    public class NewPicker : Picker
+    public class CustomPicker : Picker
     {
     }
 }
-

@@ -9,6 +9,10 @@
     <EmbeddedResource Remove="Resources\**" />
     <None Remove="Models\**" />
     <None Remove="Resources\**" />
+    <Compile Remove="CustomControls\NewStorePicker.cs" />
+    <Compile Remove="CustomControls\NewStoreTitle.cs" />
+    <Compile Remove="Services\WebTester.cs" />
+    <Compile Remove="CustomControls\NewEntryEmailVerify.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Ressources\blacklogo.png" />
@@ -27,8 +31,6 @@
     <PackageReference Include="FirebaseDatabase.net" Version="3.3.3" />
     <PackageReference Include="FirebaseAuthentication.net" Version="3.0.7" />
     <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
-    <PackageReference Include="Refractored.XamForms.PullToRefresh" Version="2.2.2" />
-    <PackageReference Include="HtmlAgilityPack" Version="1.8.9" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="Pages\LoginPage.xaml.cs">

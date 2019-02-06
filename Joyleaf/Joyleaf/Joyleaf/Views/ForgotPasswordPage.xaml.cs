@@ -31,7 +31,7 @@ namespace Joyleaf
                 if (CrossConnectivity.Current.IsConnected)
                 {
 
-                    if (EmailField.verifyEmail(EmailField.Text))
+                    if (EmailField.VerifyText(EmailField.Text, @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$"))
                     {
 
                         if(_viewModel.SendForgotPassword()){
@@ -56,7 +56,7 @@ namespace Joyleaf
             if (CrossConnectivity.Current.IsConnected)
             {
 
-                if (EmailField.verifyEmail(EmailField.Text))
+                if (EmailField.VerifyText(EmailField.Text, @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$"))
                 {
 
                 }

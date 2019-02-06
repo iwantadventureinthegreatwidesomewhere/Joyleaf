@@ -20,7 +20,7 @@
                 HorizontalOptions="StartAndExpand"
                 Margin="8,10,0,0"
                 />
-            <customControls:NewPicker
+            <customControls:CustomPicker
                 x:Name="locationPicker"
                 SelectedIndexChanged="PickerChanged"
                 HeightRequest="45"
@@ -33,13 +33,13 @@
                         <x:String>Quebec</x:String>
                     </x:Array>
                 </Picker.ItemsSource>
-                <customControls:NewPicker.BackgroundColor>
+                <customControls:CustomPicker.BackgroundColor>
                         <OnPlatform x:TypeArguments="Color">
                             <On Platform="iOS" Value="#fafafa"/>
                         </OnPlatform>
-                </customControls:NewPicker.BackgroundColor>
-            </customControls:NewPicker>
-            <customControls:NewButton
+                </customControls:CustomPicker.BackgroundColor>
+            </customControls:CustomPicker>
+            <customControls:CustomButton
                  x:Name="btnNext"
                  Clicked="Next_Click"
                  IsEnabled="false"
@@ -49,13 +49,13 @@
                  HeightRequest="45"
                  HorizontalOptions="Fill"
                  Margin="0,30,0,0">
-                 <customControls:NewButton.Text>
+                 <customControls:CustomButton.Text>
                      <OnPlatform x:TypeArguments="system:String">
                          <On Platform="iOS" Value="Create Account"/> 
                          <On Platform="Android" Value="CREATE ACCOUNT"/>
                      </OnPlatform>
-                 </customControls:NewButton.Text>
-             </customControls:NewButton>
+                 </customControls:CustomButton.Text>
+             </customControls:CustomButton>
         </StackLayout>
     </Grid>
 </ContentPage>

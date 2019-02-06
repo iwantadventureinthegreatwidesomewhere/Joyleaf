@@ -32,7 +32,7 @@ namespace Joyleaf
                 if (CrossConnectivity.Current.IsConnected)
                 {
 
-                    if (FirstNameField.verifyText(FirstNameField.Text) && LastNameField.verifyText(LastNameField.Text))
+                    if (FirstNameField.VerifyText(FirstNameField.Text, @"^[ -~]+$") && LastNameField.VerifyText(LastNameField.Text, @"^[ -~]+$"))
                     {
                         await Navigation.PushAsync(new EmailPage(FirstNameField.Text, LastNameField.Text));
                     }
@@ -54,7 +54,7 @@ namespace Joyleaf
             if (CrossConnectivity.Current.IsConnected)
             {
 
-                if (FirstNameField.verifyText(FirstNameField.Text) && LastNameField.verifyText(LastNameField.Text))
+                if (FirstNameField.VerifyText(FirstNameField.Text, @"^[ -~]+$") && LastNameField.VerifyText(LastNameField.Text, @"^[ -~]+$"))
                 {
                     await Navigation.PushAsync(new EmailPage(FirstNameField.Text, LastNameField.Text));
                 }

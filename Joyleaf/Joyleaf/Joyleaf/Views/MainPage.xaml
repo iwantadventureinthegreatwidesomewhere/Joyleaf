@@ -61,12 +61,7 @@
                             </StackLayout>
                     </StackLayout>
                     <StackLayout Grid.Column="1" VerticalOptions="EndAndExpand">
-                        <customControls:NewSearchBar
-                            HorizontalOptions="FillAndExpand"
-                            Placeholder="Search strains"
-                            HeightRequest="36"
-                            BackgroundColor="#1e9797"
-                            FontSize="14"/>
+                        
                     </StackLayout>
                 </Grid>
             </Grid>

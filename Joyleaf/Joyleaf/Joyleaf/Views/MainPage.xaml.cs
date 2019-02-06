@@ -95,16 +95,6 @@ namespace Joyleaf
         public async void RefreshContent(){
             await Task.Run(() =>
             {
-                //start test
-                var list = Services.WebTester.GetImageURL("https://www.saq.com/webapp/wcs/stores/servlet/SearchDisplay?pageSize=20&searchTerm=*&catalogId=50000&showOnly=product&beginIndex=0&langId=-2&storeId=20002&categoryIdentifier=06&orderBy=1");
-                foreach (var e in list)
-                {
-                    var samplePicker = new Hashtable();
-                    samplePicker.Add(0, "1g - $5.99");
-                    var item = new StoreItem("Fresh New Awesome Product", e, samplePicker);
-                    Device.BeginInvokeOnMainThread(() => { ItemList.Children.Add(item); });
-                }
-                //end test
 
 
 

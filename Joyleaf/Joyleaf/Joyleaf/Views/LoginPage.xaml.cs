@@ -17,7 +17,8 @@ namespace Joyleaf
             NavigationPage.SetHasNavigationBar(this, false);
 
             InitializeComponent();
-            //App.Current.MainPage.DisplayAlert("sad", "asd", "sads");
+
+            btnLogIn.CornerRadius = 23;
 
             UsernameField.Completed += (object sender, EventArgs e) => PasswordField.Focus();
 		    PasswordField.Completed += (object sender, EventArgs e) => LogIn_Click();
@@ -92,12 +93,12 @@ namespace Joyleaf
 
             if (!(string.IsNullOrEmpty(UsernameField.Text)) && !(string.IsNullOrEmpty(PasswordField.Text)))
             {
-                btnLogIn.BackgroundColor = Color.FromHex("#00b1b0");
+                btnLogIn.BackgroundColor = Color.FromHex("#23C7A5");
                 btnLogIn.IsEnabled = true;
             }
             else
             {
-                btnLogIn.BackgroundColor = Color.FromHex("#4000b1b0");
+                btnLogIn.BackgroundColor = Color.FromHex("#4023C7A5");
                 btnLogIn.IsEnabled = false;
             }
         }
