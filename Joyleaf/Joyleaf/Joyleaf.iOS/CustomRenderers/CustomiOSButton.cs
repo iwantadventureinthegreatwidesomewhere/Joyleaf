@@ -4,7 +4,7 @@ using UIKit;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
 
-[assembly: ExportRenderer (typeof(CustomButton), typeof(CustomiOSButton))]
+[assembly: ExportRenderer(typeof(CustomButton), typeof(CustomiOSButton))]
 
 namespace Joyleaf.iOS.CustomRenderers
 {
@@ -14,7 +14,7 @@ namespace Joyleaf.iOS.CustomRenderers
         {
             base.OnElementChanged(e);
 
-            if (Control != null)
+            if(Control != null)
             {
                 Control.SetTitleColor(UIColor.White, UIControlState.Disabled);
             }

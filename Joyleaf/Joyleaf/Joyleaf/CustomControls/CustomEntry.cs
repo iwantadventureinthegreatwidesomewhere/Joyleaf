@@ -20,14 +20,23 @@ namespace Joyleaf.CustomControls
 
         public new ReturnType ReturnType
         {
-            get { return (ReturnType)GetValue(ReturnTypeProperty); }
-            set { SetValue(ReturnTypeProperty, value); }
+            get
+            {
+                return (ReturnType) GetValue(ReturnTypeProperty);
+            }
+
+            set
+            { 
+                SetValue(ReturnTypeProperty, value); 
+            }
         }
 
         public void InvokeCompleted()
         {
-            if (Completed != null)
+            if(Completed != null)
+            {
                 Completed.Invoke(this, null);
+            }
         }
 
 
@@ -35,8 +44,10 @@ namespace Joyleaf.CustomControls
         {
             Regex textRegex = new Regex(pattern);
 
-            if (string.IsNullOrWhiteSpace(text))
+            if(string.IsNullOrWhiteSpace(text))
+            {
                 return false;
+            }
 
             return textRegex.IsMatch(text);
         }

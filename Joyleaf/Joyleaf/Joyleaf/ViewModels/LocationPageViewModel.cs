@@ -14,11 +14,7 @@ namespace Joyleaf
         }
 
         public void CreateAccount(string firstName, string lastName, string email, string password, string location){
-            NewAccount account = new NewAccount();
-            account.firstName = firstName;
-            account.lastName = lastName;
-            account.email = email;
-            account.location = location;
+            Account account = new Account(firstName, lastName, email, location);
             FirebaseBackend.SignUp(account, password);
         }
     }

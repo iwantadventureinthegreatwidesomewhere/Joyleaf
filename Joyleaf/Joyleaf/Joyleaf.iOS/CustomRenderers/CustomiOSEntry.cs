@@ -7,17 +7,17 @@ using Xamarin.Forms.Platform.iOS;
 
 using ReturnType = Joyleaf.CustomTypes.ReturnType;
 
-[assembly: ExportRenderer (typeof(CustomEntry), typeof(CustomiOSEntry))]
+[assembly: ExportRenderer(typeof(CustomEntry), typeof(CustomiOSEntry))]
 
 namespace Joyleaf.iOS.CustomRenderers
 {
     public class CustomiOSEntry : EntryRenderer
     {
-        protected override void OnElementChanged (ElementChangedEventArgs<Entry> e)
+        protected override void OnElementChanged(ElementChangedEventArgs<Entry> e)
         {
             base.OnElementChanged(e);
 
-            if (Control == null)
+            if(Control == null)
             {
                 return;
             }
@@ -40,9 +40,9 @@ namespace Joyleaf.iOS.CustomRenderers
             
             CustomEntry entryReturnKey = (CustomEntry) Element;
 
-            if (Control != null)
+            if(Control != null)
             {
-                if (entryReturnKey != null)
+                if(entryReturnKey != null)
                 {
                     SetReturnType(entryReturnKey);
 
@@ -59,7 +59,7 @@ namespace Joyleaf.iOS.CustomRenderers
         {
             ReturnType type = entryReturnKey.ReturnType;
 
-            switch (type)
+            switch(type)
             {
                 case ReturnType.Done:
                     Control.ReturnKeyType = UIReturnKeyType.Done;

@@ -2,22 +2,23 @@
 using Firebase.Database;
 using Firebase.Database.Query;
 using Newtonsoft.Json;
-using System.Threading.Tasks;
 using System;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace Joyleaf
 {
-
     static  class FirebaseBackend
     {
+        static public void SignUp(Account account, string password)
+        {
+            try
+            {
+                FirebaseAuthProvider authProvider = new FirebaseAuthProvider(new FirebaseConfig(Helpers.Constants.FIREBASE_DATABASE_API_KEY));
 
-        static public void SignUp(NewAccount account, string password){
-            try{
-                FirebaseAuthProvider authProvider = new FirebaseAuthProvider(new FirebaseConfig("AIzaSyDzp-mTwM_FacdwvNWk-6-M350NqDdXc94"));
-                FirebaseClient firebase = new FirebaseClient("https://joyleaf-c142c.firebaseio.com/");
-                //saves to Firebase cloud
-                var auth = Task.Run(() =>
+                FirebaseClient firebase = new FirebaseClient(Helpers.Constants.FIREBASE_DATABASE_URL);
+
+                FirebaseAuthLink auth = Task.Run(() =>
                 {
                     var t = authProvider.CreateUserWithEmailAndPasswordAsync(account.email, password);
                     return t;
@@ -28,8 +29,9 @@ namespace Joyleaf
                 main.EnableLoader();
                 App.Current.MainPage = new NavigationPage(main);
             }
-            catch(Exception e){
-                App.Current.MainPage.DisplayAlert("Error", "Whoops, looks like there is a problem on our end. Please try again later.", "OK");
+            catch (Exception)
+            {
+                Application.Current.MainPage.DisplayAlert("Error", "Whoops, looks like there is a problem on our end. Please try again later.", "OK");
             }
         }
 
@@ -118,7 +120,7 @@ namespace Joyleaf
             }
         }
 
-        static public NewAccount GetAccount(FirebaseAuthLink auth){
+        static public Account GetAccount(FirebaseAuthLink auth){
             try{
                 FirebaseClient firebase = new FirebaseClient("https://joyleaf-c142c.firebaseio.com/",
                                                             new FirebaseOptions
@@ -127,7 +129,7 @@ namespace Joyleaf
                                                             });
                 var a = Task.Run(() =>
                 {
-                    var t = firebase.Child("users").Child(auth.User.LocalId).OnceSingleAsync<NewAccount>();
+                    var t = firebase.Child("users").Child(auth.User.LocalId).OnceSingleAsync<Account>();
                     return t;
                 }).Result;
                 return a;

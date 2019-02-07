@@ -3,22 +3,23 @@ using Plugin.Settings.Abstractions;
 
 namespace Joyleaf
 {
-  
-  public static class Settings
-{
-    private static ISettings AppSettings
+    public static class Settings
     {
-        get
+        private static ISettings AppSettings
         {
-            return CrossSettings.Current;
+            get
+            { 
+                return CrossSettings.Current; 
+            }
         }
-    }
+
         public static string FirebaseAuth
         {
             get
-            {
-                return AppSettings.GetValueOrDefault("FirebaseAuth", "");
+            { 
+                return AppSettings.GetValueOrDefault("FirebaseAuth", ""); 
             }
+
             set
             {
                 AppSettings.AddOrUpdateValue("FirebaseAuth", value);
