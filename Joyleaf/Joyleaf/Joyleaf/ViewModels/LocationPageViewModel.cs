@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using System;
+using Xamarin.Forms;
 
 namespace Joyleaf
 {
@@ -14,8 +15,18 @@ namespace Joyleaf
         }
 
         public void CreateAccount(string firstName, string lastName, string email, string password, string location){
+
             Account account = new Account(firstName, lastName, email, location);
-            FirebaseBackend.SignUp(account, password);
+
+            try
+            {
+                FirebaseBackend.SignUp(account, password);
+                Application.Current.MainPage = new NavigationPage(new MainPage());
+            }
+            catch(Exception)
+            {
+                Application.Current.MainPage.DisplayAlert("Incorrect password for " + email, "The password you entered is incorrect. Please try again.", "Try Again");
+            }
         }
     }
 }

@@ -1,8 +1,9 @@
-﻿using Xamarin.Forms;
+﻿using System;
+using Xamarin.Forms;
 
 namespace Joyleaf
 {
-    
+
     public class LoginPageViewModel : MainPageViewModel
     {
         private Page Page { get; set; }
@@ -16,7 +17,14 @@ namespace Joyleaf
 
         public void Login()
         {
-            FirebaseBackend.SignIn(Username, Password);
+            try
+            {
+                FirebaseBackend.SignIn(Username, Password);
+            }
+            catch(Exception)
+            {
+                Application.Current.MainPage.DisplayAlert("Error", "Whoops, looks like there is a problem on our end. Please try again later.", "OK");
+            }
         }
     }
 }

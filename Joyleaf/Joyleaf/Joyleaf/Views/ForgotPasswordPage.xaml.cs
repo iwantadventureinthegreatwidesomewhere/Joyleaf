@@ -33,10 +33,7 @@ namespace Joyleaf
 
                     if (EmailField.VerifyText(EmailField.Text, @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$"))
                     {
-
-                        if(_viewModel.SendForgotPassword()){
-                            await Navigation.PopToRootAsync();
-                        }
+                        _viewModel.SendPasswordReset();
                     }
                     else
                     {

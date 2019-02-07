@@ -10,7 +10,7 @@ namespace Joyleaf
         public App ()
         {
             if(CrossConnectivity.Current.IsConnected){
-                if (FirebaseBackend.IsValidAuth())
+                if (FirebaseBackend.IsSavedAuthValid())
                 {
                     var main = new MainPage();
                     main.EnableLoader();

@@ -37,10 +37,23 @@ namespace Joyleaf
 
                     if (EmailField.VerifyText(EmailField.Text, @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$"))
                     {
-
-                        if(FirebaseBackend.EmailAvailable(EmailField.Text)){
-                            await Navigation.PushAsync(new PasswordPage(firstName, lastName, EmailField.Text));
+                        try
+                        {
+                            if(FirebaseBackend.IsEmailAvailable(EmailField.Text))
+                            {
+                                await Navigation.PushAsync(new PasswordPage(firstName, lastName, EmailField.Text));
+                            }
+                            else
+                            {
+                                await Application.Current.MainPage.DisplayAlert("Email is taken", "That email belongs to an existing account. Try another.", "OK");
+                            }
                         }
+                        catch(Exception)
+                        {
+                            await Application.Current.MainPage.DisplayAlert("Error", "Whoops, looks like there is a problem on our end. Please try again later.", "OK");
+                        }
+
+
                     }
                     else
                     {

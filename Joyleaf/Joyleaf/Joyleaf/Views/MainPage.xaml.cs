@@ -2,6 +2,7 @@
 using Xamarin.Forms.Xaml;
 using Firebase.Auth;
 using Joyleaf.CustomTypes;
+using System;
 using System.Collections;
 using Plugin.Connectivity;
 using System.Threading.Tasks;
@@ -13,15 +14,24 @@ namespace Joyleaf
 	{
         //firebase
         FirebaseAuthProvider authProvider = new FirebaseAuthProvider(new FirebaseConfig("AIzaSyDzp-mTwM_FacdwvNWk-6-M350NqDdXc94"));
-        FirebaseAuth auth = FirebaseBackend.DeserializeAuth();
+        FirebaseAuth auth = FirebaseBackend.GetAuth();
         FirebaseAuthLink authLink;
         //wheel
         ActivityIndicator Wheel;
 
         public MainPage(){
             //fetch account
+            Account account;
             authLink = new FirebaseAuthLink(authProvider, auth);
-            var account = FirebaseBackend.GetAccount(authLink);
+            try
+            {
+                account = FirebaseBackend.GetAccount(authLink);
+            }
+            catch(Exception)
+            {
+                account = null;
+            }
+
 
             //initialize wheel
             Wheel = new ActivityIndicator();
@@ -40,7 +50,7 @@ namespace Joyleaf
 
             //initialize master bar text
             var MasterBarText = new Label();
-            MasterBarText.Text = "Hello, " + account.firstName;
+            //MasterBarText.Text = "Hello, " + account.firstName;
             MasterBarText.TextColor = Color.White;
             MasterBarText.FontAttributes = FontAttributes.Bold;
 
