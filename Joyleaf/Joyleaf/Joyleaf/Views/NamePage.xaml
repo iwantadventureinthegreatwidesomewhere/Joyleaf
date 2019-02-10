@@ -55,18 +55,14 @@
             BackgroundColor="#4023C7A5"
             Clicked="NextButtonClick"
             FontAttributes="Bold"
+            FontSize="13"
             HeightRequest="45"
             HorizontalOptions="Fill"
             IsEnabled="false"
             Margin="0,30,0,0"
-            TextColor="White">
-            <customControls:CustomButton.Text>
-                <OnPlatform x:TypeArguments="system:String">
-                    <On Platform="iOS" Value="Next"/>
-                    <On Platform="Android" Value="NEXT"/>
-                </OnPlatform>
-            </customControls:CustomButton.Text>
-        </customControls:CustomButton>
+            Text="NEXT"
+            TextColor="White"
+        />
         
     </StackLayout>
     

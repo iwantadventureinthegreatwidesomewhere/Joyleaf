@@ -117,7 +117,7 @@
             <Label 
                 Text="New to Joyleaf?"
                 FontAttributes="Bold"
-                TextColor="#000000">
+                TextColor="#333333">
                 <Label.Margin>
                     <OnPlatform x:TypeArguments="Thickness">
                         <On Platform="iOS" Value="0,13.5,-2,0"/> 

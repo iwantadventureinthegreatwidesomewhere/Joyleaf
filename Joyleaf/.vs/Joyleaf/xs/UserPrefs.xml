@@ -2,7 +2,6 @@
   <MonoDevelop.Ide.ItemProperties.Joyleaf.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.634C2E62-9263-43A6-BEA6-7ABED2BA9510" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Joyleaf Status">
     <Files>
-      <File FileName="Joyleaf/Joyleaf/Views/ForgotPasswordPage.xaml" Line="16" Column="31" />
       <File FileName="Joyleaf Status" />
     </Files>
   </MonoDevelop.Ide.Workbench>
