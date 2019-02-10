@@ -1,62 +1,31 @@
-﻿using System;
+﻿using Plugin.Connectivity;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using Plugin.Connectivity;
 
 namespace Joyleaf
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 
 	public partial class NamePage : ContentPage
-	{
-        private readonly NamePageViewModel _viewModel;
-        
-		public NamePage ()
+	{ 
+		public NamePage()
 		{
-            _viewModel = new NamePageViewModel(this);
-            BindingContext = _viewModel;
+            InitializeComponent();
 
-			InitializeComponent ();
+            NextButton.CornerRadius = 23;
 
-            FirstNameField.Completed += (object sender, EventArgs e) => LastNameField.Focus();
-            LastNameField.Completed += (object sender, EventArgs e) => Next_Click();
+            FirstNameEntry.Completed += (object sender, EventArgs e) => LastNameEntry.Focus();
+            LastNameEntry.Completed += NextButtonClick;
 		}
 
-        async private void Next_Click()
+        private async void NextButtonClick(object sender, EventArgs e)
         {
-            LastNameField.Unfocus();
-
-            if (!(string.IsNullOrEmpty(FirstNameField.Text)) && !(string.IsNullOrEmpty(LastNameField.Text)))
+            if(CrossConnectivity.Current.IsConnected)
             {
-
-                if (CrossConnectivity.Current.IsConnected)
+                if(FirstNameEntry.VerifyText(@"^[ -~]+$") && LastNameEntry.VerifyText(@"^[ -~]+$"))
                 {
-
-                    if (FirstNameField.VerifyText(FirstNameField.Text, @"^[ -~]+$") && LastNameField.VerifyText(LastNameField.Text, @"^[ -~]+$"))
-                    {
-                        await Navigation.PushAsync(new EmailPage(FirstNameField.Text, LastNameField.Text));
-                    }
-                    else
-                    {
-                        await DisplayAlert("Invalid name", "The name you entered is invalid. Please try again.", "Try Again");
-                    }
-                }
-                else
-                {
-                    await DisplayAlert("Connection error", "Please check your network connection, then try again.", "OK");
-                }
-            }
-        } 
-
-        async private void Next_Click(object sender, EventArgs e)
-        {
-
-            if (CrossConnectivity.Current.IsConnected)
-            {
-
-                if (FirstNameField.VerifyText(FirstNameField.Text, @"^[ -~]+$") && LastNameField.VerifyText(LastNameField.Text, @"^[ -~]+$"))
-                {
-                    await Navigation.PushAsync(new EmailPage(FirstNameField.Text, LastNameField.Text));
+                    await Navigation.PushAsync(new EmailPage(FirstNameEntry.Text, LastNameEntry.Text));
                 }
                 else
                 {
@@ -69,18 +38,17 @@ namespace Joyleaf
             }
         }
 
-        private void TextfieldChanged(object sender, EventArgs e)
+        private void TextChanged(object sender, EventArgs e)
         {
-            
-            if (!(string.IsNullOrEmpty(FirstNameField.Text)) && !(string.IsNullOrEmpty(LastNameField.Text)))
+            if(!string.IsNullOrEmpty(FirstNameEntry.Text) && !string.IsNullOrEmpty(LastNameEntry.Text))
             {
-                btnNext.BackgroundColor = Color.FromHex("#00b1b0");
-                btnNext.IsEnabled = true;
+                NextButton.BackgroundColor = Color.FromHex("#23C7A5");
+                NextButton.IsEnabled = true;
             }
             else
             {
-                btnNext.BackgroundColor = Color.FromHex("#4000b1b0");
-                btnNext.IsEnabled = false;
+                NextButton.BackgroundColor = Color.FromHex("#4023C7A5");
+                NextButton.IsEnabled = false;
             }
         }
 	}

@@ -20,6 +20,15 @@ namespace Joyleaf.iOS.CustomRenderers
                 return;
             }
 
+            Control.Layer.CornerRadius = 23;
+
+            Control.BackgroundColor = UIColor.FromRGB(244, 243, 250);
+
+            Control.Layer.BorderColor = UIColor.FromRGB(244, 243, 250).CGColor;
+            Control.Layer.BorderWidth = 1;
+
+            Control.Layer.MasksToBounds = true;
+
             Control.LeftView = new UIView(new CGRect(0, 0, 10, Control.Frame.Height));
             Control.LeftViewMode = UITextFieldViewMode.Always;
         }

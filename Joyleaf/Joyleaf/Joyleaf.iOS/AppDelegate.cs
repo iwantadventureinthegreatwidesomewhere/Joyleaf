@@ -22,19 +22,11 @@ namespace Joyleaf.iOS
         //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
-            global::Xamarin.Forms.Forms.Init();
+            Xamarin.Forms.Forms.Init();
+
             LoadApplication(new App());
 
-            UINavigationBar.Appearance.TintColor = UIColor.FromRGB(0, 177, 176);
-
-            //image color of selected tab
-            UITabBar.Appearance.SelectedImageTintColor = UIColor.FromRGB(0,177,176);
-
-            //text color of selected tab
-            UITabBarItem.Appearance.SetTitleTextAttributes(
-            new UITextAttributes()
-            {TextColor = UIColor.FromRGB(0,177,176)},
-            UIControlState.Selected);
+            UINavigationBar.Appearance.TintColor = UIColor.FromRGB(35,199,165);
 
             return base.FinishedLaunching(app, options);
         }

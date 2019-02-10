@@ -1,82 +1,73 @@
 <?xml version="1.0" encoding="utf-8" ?>
+
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:system="clr-namespace:System;assembly=netstandard"
              xmlns:customControls="clr-namespace:Joyleaf.CustomControls;assembly=Joyleaf"
+             xmlns:system="clr-namespace:System;assembly=netstandard"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Joyleaf.NamePage"
              BackgroundColor="White">
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="3*" />
-            <RowDefinition Height="50*" />
-            <RowDefinition Height="47*" />
-        </Grid.RowDefinitions>
-        <StackLayout Margin="20,0" Grid.Row="1" VerticalOptions="StartAndExpand">
-            <Label 
-                Text="Create Your Account"
-                TextColor="#00b1b0"
-                FontSize="27"
-                FontAttributes="Bold"
-                HorizontalOptions="StartAndExpand"
-                Margin="8,0"
-                />
-            <Label
-                Text="What's your name?"
-                TextColor="#79768B"
-                FontSize="20"
-                FontAttributes="Bold"
-                HorizontalOptions="StartAndExpand"
-                Margin="8,20,0,0"
-                />
-            <customControls:CustomEntry
-                x:Name="FirstNameField"
-                TextChanged="TextfieldChanged"
-                Placeholder="First name"
-                HeightRequest="45"
-                HorizontalOptions="Fill"
-                FontSize="14"
-                ReturnType="Next"
-                Text="{Binding FirstName, Mode=TwoWay}"
-                Margin="0,15,0,0">
-                <customControls:CustomEntry.BackgroundColor>
-                        <OnPlatform x:TypeArguments="Color">
-                            <On Platform="iOS" Value="#fafafa"/>
-                        </OnPlatform>
-                </customControls:CustomEntry.BackgroundColor>
-            </customControls:CustomEntry>
-            <customControls:CustomEntry
-                x:Name="LastNameField"
-                TextChanged="TextfieldChanged"
-                Placeholder="Last name"
-                HeightRequest="45"
-                HorizontalOptions="Fill"
-                FontSize="14"
-                ReturnType="Next"
-                Text="{Binding LastName, Mode=TwoWay}"
-                Margin="0,7,0,0">
-                <customControls:CustomEntry.BackgroundColor>
-                        <OnPlatform x:TypeArguments="Color">
-                            <On Platform="iOS" Value="#fafafa"/>
-                        </OnPlatform>
-                </customControls:CustomEntry.BackgroundColor>
-            </customControls:CustomEntry>
-            <customControls:CustomButton
-                 x:Name="btnNext"
-                 Clicked="Next_Click"
-                 IsEnabled="false"
-                 FontAttributes="Bold"
-                 BackgroundColor="#4000b1b0"
-                 TextColor="White"
-                 HeightRequest="45"
-                 HorizontalOptions="Fill"
-                 Margin="0,30,0,0">
-                 <customControls:CustomButton.Text>
-                     <OnPlatform x:TypeArguments="system:String">
-                         <On Platform="iOS" Value="Next"/> 
-                         <On Platform="Android" Value="NEXT"/>
-                     </OnPlatform>
-                 </customControls:CustomButton.Text>
-             </customControls:CustomButton>
-        </StackLayout>
-    </Grid>
+    
+    <StackLayout Margin="30">
+        
+        <Label
+            FontAttributes="Bold"
+            FontSize="25"
+            HorizontalOptions="StartAndExpand"
+            Margin="10"
+            Text="What's your name?"
+            TextColor="#000000"
+        />
+        
+        <customControls:CustomEntry
+            x:Name="FirstNameEntry"
+            FontSize="14"
+            HeightRequest="45"
+            HorizontalOptions="Fill"
+            Margin="0,15,0,0"
+            Placeholder="First name"
+            ReturnType="Next"
+            TextChanged="TextChanged">
+            <customControls:CustomEntry.BackgroundColor>
+                <OnPlatform x:TypeArguments="Color">
+                    <On Platform="iOS" Value="#fafafa"/>
+                </OnPlatform>
+            </customControls:CustomEntry.BackgroundColor>
+        </customControls:CustomEntry>
+        
+        <customControls:CustomEntry
+            x:Name="LastNameEntry"
+            FontSize="14"
+            HeightRequest="45"
+            HorizontalOptions="Fill"
+            Margin="0,7,0,0"
+            Placeholder="Last name"
+            ReturnType="Next"
+            TextChanged="TextChanged">
+            <customControls:CustomEntry.BackgroundColor>
+                <OnPlatform x:TypeArguments="Color">
+                    <On Platform="iOS" Value="#fafafa"/>
+                </OnPlatform>
+            </customControls:CustomEntry.BackgroundColor>
+        </customControls:CustomEntry>
+        
+        <customControls:CustomButton
+            x:Name="NextButton"
+            BackgroundColor="#4023C7A5"
+            Clicked="NextButtonClick"
+            FontAttributes="Bold"
+            HeightRequest="45"
+            HorizontalOptions="Fill"
+            IsEnabled="false"
+            Margin="0,30,0,0"
+            TextColor="White">
+            <customControls:CustomButton.Text>
+                <OnPlatform x:TypeArguments="system:String">
+                    <On Platform="iOS" Value="Next"/>
+                    <On Platform="Android" Value="NEXT"/>
+                </OnPlatform>
+            </customControls:CustomButton.Text>
+        </customControls:CustomButton>
+        
+    </StackLayout>
+    
 </ContentPage>

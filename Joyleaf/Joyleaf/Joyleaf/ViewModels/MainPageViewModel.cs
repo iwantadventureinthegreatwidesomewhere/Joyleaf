@@ -1,5 +1,4 @@
-﻿
-namespace Joyleaf
+﻿namespace Joyleaf
 {
     public class MainPageViewModel
     {

@@ -40,16 +40,16 @@ namespace Joyleaf.CustomControls
         }
 
 
-        public bool VerifyText(string text, string pattern)
+        public bool VerifyText(string pattern)
         {
             Regex textRegex = new Regex(pattern);
 
-            if(string.IsNullOrWhiteSpace(text))
+            if(string.IsNullOrWhiteSpace(Text))
             {
                 return false;
             }
 
-            return textRegex.IsMatch(text);
+            return textRegex.IsMatch(Text);
         }
     }
 }

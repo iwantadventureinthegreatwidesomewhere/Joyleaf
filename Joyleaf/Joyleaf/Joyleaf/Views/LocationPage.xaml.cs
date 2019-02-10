@@ -1,37 +1,42 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using Plugin.Connectivity;
+﻿using Plugin.Connectivity;
+using System;
 using Xamarin.Forms;
 
 namespace Joyleaf
 {
     public partial class LocationPage : ContentPage
     {
-        private readonly LocationPageViewModel _viewModel;
-        string firstName;
-        string lastName;
-        string email;
-        string password;
+        private string firstName, lastName, email, password;
+        private string selectedItem;
 
         public LocationPage(string firstName, string lastName, string email, string password)
         {
-            _viewModel = new LocationPageViewModel(this);
-            BindingContext = _viewModel;
             this.firstName = firstName;
             this.lastName = lastName;
             this.email = email;
             this.password = password;
 
             InitializeComponent();
+
+            NextButton.CornerRadius = 23;
         }
 
-        async void Next_Click(object sender, EventArgs e)
+        private async void NextButtonClick(object sender, EventArgs e)
         {
+            if(CrossConnectivity.Current.IsConnected)
+            {
+                string location = (string)LocationPicker.ItemsSource[LocationPicker.SelectedIndex];
 
-            if(CrossConnectivity.Current.IsConnected){
-                string location = (string)locationPicker.ItemsSource[locationPicker.SelectedIndex];
-                _viewModel.CreateAccount(firstName, lastName, email, password, location);
+                Account account = new Account(firstName, lastName, email, location);
+
+                try
+                {
+                    FirebaseBackend.SignUp(account, password);
+                }
+                catch(Exception)
+                {
+                    await Application.Current.MainPage.DisplayAlert("Error", "Whoops, looks like there is a problem on our end. Please try again later.", "OK");
+                }
             }
             else
             {
@@ -41,17 +46,17 @@ namespace Joyleaf
 
         private void PickerChanged(object sender, EventArgs e)
         {
-            _viewModel.SelectedItem = (string)locationPicker.ItemsSource[locationPicker.SelectedIndex];
+            selectedItem = (string)LocationPicker.ItemsSource[LocationPicker.SelectedIndex];
 
-            if (locationPicker.SelectedIndex != -1)
+            if (LocationPicker.SelectedIndex != -1)
             {
-                btnNext.BackgroundColor = Color.FromHex("#00b1b0");
-                btnNext.IsEnabled = true;
+                NextButton.BackgroundColor = Color.FromHex("#23C7A5");
+                NextButton.IsEnabled = true;
             }
             else
             {
-                btnNext.BackgroundColor = Color.FromHex("#4000b1b0");
-                btnNext.IsEnabled = false;
+                NextButton.BackgroundColor = Color.FromHex("#4023C7A5");
+                NextButton.IsEnabled = false;
             }
         }
     }

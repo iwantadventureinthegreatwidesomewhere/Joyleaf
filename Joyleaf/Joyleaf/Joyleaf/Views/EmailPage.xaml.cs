@@ -1,7 +1,7 @@
-﻿using System;
+﻿using Plugin.Connectivity;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using Plugin.Connectivity;
 
 namespace Joyleaf
 {
@@ -9,73 +9,41 @@ namespace Joyleaf
 
     public partial class EmailPage : ContentPage
     {
-        private readonly EmailPageViewModel _viewModel;
-        string firstName;
-        string lastName;
+        private string firstName, lastName;
         
         public EmailPage(string firstName, string lastName)
         {
-            _viewModel = new EmailPageViewModel(this);
-            BindingContext = _viewModel;
             this.firstName = firstName;
             this.lastName = lastName;
 
             InitializeComponent();
 
-            EmailField.Completed += (object sender, EventArgs e) => Next_Click();
+            NextButton.CornerRadius = 23;
+
+            EmailEntry.Completed += NextButtonClick;
         }
 
-        async private void Next_Click()
+        private async void NextButtonClick(object sender, EventArgs e)
         {
-            EmailField.Unfocus();
-
-            if (!(string.IsNullOrEmpty(EmailField.Text)))
+            if(CrossConnectivity.Current.IsConnected)
             {
-
-                if (CrossConnectivity.Current.IsConnected)
+                if(EmailEntry.VerifyText(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$"))
                 {
-
-                    if (EmailField.VerifyText(EmailField.Text, @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$"))
+                    try
                     {
-                        try
+                        if(FirebaseBackend.IsEmailAvailable(EmailEntry.Text))
                         {
-                            if(FirebaseBackend.IsEmailAvailable(EmailField.Text))
-                            {
-                                await Navigation.PushAsync(new PasswordPage(firstName, lastName, EmailField.Text));
-                            }
-                            else
-                            {
-                                await Application.Current.MainPage.DisplayAlert("Email is taken", "That email belongs to an existing account. Try another.", "OK");
-                            }
+                            await Navigation.PushAsync(new PasswordPage(firstName, lastName, EmailEntry.Text));
                         }
-                        catch(Exception)
+                        else
                         {
-                            await Application.Current.MainPage.DisplayAlert("Error", "Whoops, looks like there is a problem on our end. Please try again later.", "OK");
+                            await Application.Current.MainPage.DisplayAlert("Email is taken", "That email belongs to an existing account. Try another.", "OK");
                         }
-
-
                     }
-                    else
+                    catch(Exception)
                     {
-                        await DisplayAlert("Invalid email", "The email address you entered is invalid. Please try again.", "Try Again");
+                        await Application.Current.MainPage.DisplayAlert("Error", "Whoops, looks like there is a problem on our end. Please try again later.", "OK");
                     }
-                }
-                else
-                {
-                    await DisplayAlert("Connection error", "Please check your network connection, then try again.", "OK");
-                }
-            }
-        }
-
-        async private void Next_Click(object sender, EventArgs e)
-        {
-
-            if (CrossConnectivity.Current.IsConnected)
-            {
-
-                if (EmailField.VerifyText(EmailField.Text, @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$"))
-                {
-                    await Navigation.PushAsync(new PasswordPage(firstName, lastName, EmailField.Text));
                 }
                 else
                 {
@@ -88,18 +56,17 @@ namespace Joyleaf
             }
         }
 
-        private void TextfieldChanged(object sender, EventArgs e)
+        private void TextChanged(object sender, EventArgs e)
         {
-            
-            if (!(string.IsNullOrEmpty(EmailField.Text)))
+            if(!(string.IsNullOrEmpty(EmailEntry.Text)))
             {
-                btnNext.BackgroundColor = Color.FromHex("#00b1b0");
-                btnNext.IsEnabled = true;
+                NextButton.BackgroundColor = Color.FromHex("#23C7A5");
+                NextButton.IsEnabled = true;
             }
             else
             {
-                btnNext.BackgroundColor = Color.FromHex("#4000b1b0");
-                btnNext.IsEnabled = false;
+                NextButton.BackgroundColor = Color.FromHex("#4023C7A5");
+                NextButton.IsEnabled = false;
             }
         }
     }

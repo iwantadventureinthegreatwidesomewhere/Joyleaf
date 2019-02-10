@@ -31,7 +31,11 @@ namespace Joyleaf.iOS.CustomRenderers
             entry.Layer.BorderColor = UIColor.FromRGB(244, 243, 250).CGColor;
             entry.Layer.BorderWidth = 1;
 
+            Control.Layer.MasksToBounds = true;
+
             entry.ClearButtonMode = UITextFieldViewMode.WhileEditing;
+
+            entry.AutocorrectionType = UITextAutocorrectionType.No;
 
             entry.LeftView = new UIView(new CGRect(0, 0, 10, Control.Frame.Height));
             entry.LeftViewMode = UITextFieldViewMode.Always;
