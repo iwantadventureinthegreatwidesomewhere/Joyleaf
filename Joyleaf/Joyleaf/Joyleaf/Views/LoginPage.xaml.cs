@@ -1,59 +1,24 @@
-﻿using System;
+﻿using Plugin.Connectivity;
+using System;
 using Xamarin.Forms;
-using Plugin.Connectivity;
 
 namespace Joyleaf
 {
-    
-	public partial class LoginPage : ContentPage
-	{
-	    private readonly LoginPageViewModel _viewModel;
-
+    public partial class LoginPage : ContentPage
+    {
         public LoginPage()
         {
-            _viewModel = new LoginPageViewModel(this);
-            BindingContext = _viewModel;
-
             NavigationPage.SetHasNavigationBar(this, false);
 
             InitializeComponent();
 
-            btnLogIn.CornerRadius = 23;
+            SignInButton.CornerRadius = 23;
 
-            UsernameField.Completed += (object sender, EventArgs e) => PasswordField.Focus();
-		    PasswordField.Completed += (object sender, EventArgs e) => LogIn_Click();
+            EmailEntry.Completed += (object sender, EventArgs e) => PasswordEntry.Focus();
+            PasswordEntry.Completed += SignInButtonClick;
         }
 
-        async private void LogIn_Click()
-        {
-            PasswordField.Unfocus();
-
-            if (!(string.IsNullOrEmpty(UsernameField.Text)) && !(string.IsNullOrEmpty(PasswordField.Text)))
-            {
-                if (CrossConnectivity.Current.IsConnected)
-                {
-                    _viewModel.Login();
-                }
-                else
-                {
-                    await DisplayAlert("Connection error", "Please check your network connection, then try again.", "OK");
-                }
-            }
-        }
-
-		async private void LogIn_Click(object sender, EventArgs e)
-	    {
-            if (CrossConnectivity.Current.IsConnected)
-            {
-                _viewModel.Login();
-            }
-            else
-            {
-                await DisplayAlert("Connection error", "Please check your network connection, then try again.", "OK");
-            }
-	    }
-
-        async private void ForgotPassword_Click(object sender, EventArgs e)
+        private async void ForgotPasswordButtonClick(object sender, EventArgs e)
         {
             if (CrossConnectivity.Current.IsConnected)
             {
@@ -65,9 +30,30 @@ namespace Joyleaf
             }
         }
 
-        async private void SignUp_Click(object sender, EventArgs e)
-		{
+        private async void SignInButtonClick(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(EmailEntry.Text) && !string.IsNullOrEmpty(PasswordEntry.Text))
+            {
+                if (CrossConnectivity.Current.IsConnected)
+                {
+                    try
+                    {
+                        FirebaseBackend.SignIn(EmailEntry.Text, PasswordEntry.Text);
+                    }
+                    catch (Exception)
+                    {
+                        await Application.Current.MainPage.DisplayAlert("Error", "Whoops, looks like there is a problem on our end. Please try again later.", "OK");
+                    }
+                }
+                else
+                {
+                    await DisplayAlert("Connection error", "Please check your network connection, then try again.", "OK");
+                }
+            }
+        }
 
+        private async void SignUpButtonClick(object sender, EventArgs e)
+        {
             if (CrossConnectivity.Current.IsConnected)
             {
                 await Navigation.PushAsync(new NamePage());
@@ -76,37 +62,38 @@ namespace Joyleaf
             {
                 await DisplayAlert("Connection error", "Please check your network connection, then try again.", "OK");
             }
-		}
-
-	    private void VisualElement_OnFocused(object sender, FocusEventArgs e)
-	    {
-            SigninContent.TranslateTo(0, -50, 400, Easing.CubicInOut);
         }
 
-        private void VisualElement_OffFocused(object sender, FocusEventArgs e)
-        {
-            SigninContent.TranslateTo(0, 0, 350, Easing.CubicOut);
-        }
-
-        private void TextfieldChanged(object sender, EventArgs e)
+        private void TextChanged(object sender, EventArgs e)
         {
 
-            if (!(string.IsNullOrEmpty(UsernameField.Text)) && !(string.IsNullOrEmpty(PasswordField.Text)))
+            if (!(string.IsNullOrEmpty(EmailEntry.Text)) && !(string.IsNullOrEmpty(PasswordEntry.Text)))
             {
-                btnLogIn.BackgroundColor = Color.FromHex("#23C7A5");
-                btnLogIn.IsEnabled = true;
+                SignInButton.BackgroundColor = Color.FromHex("#23C7A5");
+                SignInButton.IsEnabled = true;
             }
             else
             {
-                btnLogIn.BackgroundColor = Color.FromHex("#4023C7A5");
-                btnLogIn.IsEnabled = false;
+                SignInButton.BackgroundColor = Color.FromHex("#4023C7A5");
+                SignInButton.IsEnabled = false;
             }
+        }
+
+        private void EntryOnFocus(object sender, FocusEventArgs e)
+        {
+            SignInStack.TranslateTo(0, -50, 400, Easing.CubicInOut);
+        }
+
+        private void EntryOffFocus(object sender, FocusEventArgs e)
+        {
+            SignInStack.TranslateTo(0, 0, 350, Easing.CubicOut);
         }
 
         protected override void OnAppearing()
         {
-            if(!CrossConnectivity.Current.IsConnected){
-                App.Current.MainPage.DisplayAlert("Connection error", "Please check your network connection, then try again.", "OK");
+            if (!CrossConnectivity.Current.IsConnected)
+            {
+                Application.Current.MainPage.DisplayAlert("Connection error", "Please check your network connection, then try again.", "OK");
             }
         }
     }

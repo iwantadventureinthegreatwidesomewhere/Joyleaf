@@ -24,30 +24,30 @@ namespace Joyleaf
 
         private async void NextButtonClick(object sender, EventArgs e)
         {
-            if(CrossConnectivity.Current.IsConnected)
+            if (CrossConnectivity.Current.IsConnected)
             {
-                if(PasswordEntry.VerifyText(@"^[ -~]+$") && ConfirmPasswordEntry.VerifyText(@"^[ -~]+$"))
+                if (PasswordEntry.VerifyText(@"^[ -~]+$") && ConfirmPasswordEntry.VerifyText(@"^[ -~]+$"))
                 {
-                    if(string.Equals(PasswordEntry.Text, ConfirmPasswordEntry.Text))
+                    if (string.Equals(PasswordEntry.Text, ConfirmPasswordEntry.Text))
                     {
                         var count = 0;
                         bool hasUppercase = false;
                         bool hasLowercase = false;
                         bool hasNumber = false;
 
-                        foreach(char c in PasswordEntry.Text)
+                        foreach (char c in PasswordEntry.Text)
                         {
-                            if('A' <= c && c <= 'Z')
+                            if ('A' <= c && c <= 'Z')
                             {
                                 hasUppercase = true;
                             }
 
-                            if('a' <= c && c <= 'z')
+                            if ('a' <= c && c <= 'z')
                             {
                                 hasLowercase = true;
                             }
 
-                            if('0' <= c && c <= '9')
+                            if ('0' <= c && c <= '9')
                             {
                                 hasNumber = true;
                             }
@@ -55,7 +55,7 @@ namespace Joyleaf
                             count++;
                         }
 
-                        if(count >= 6 && hasUppercase && hasLowercase && hasNumber)
+                        if (count >= 6 && hasUppercase && hasLowercase && hasNumber)
                         {
                             await Navigation.PushAsync(new LocationPage(firstName, lastName, email, PasswordEntry.Text));
                         }
@@ -83,7 +83,7 @@ namespace Joyleaf
 
         private void TextChanged(object sender, EventArgs e)
         {
-            
+
             if (!(string.IsNullOrEmpty(PasswordEntry.Text)) && !(string.IsNullOrEmpty(ConfirmPasswordEntry.Text)))
             {
                 NextButton.BackgroundColor = Color.FromHex("#23C7A5");

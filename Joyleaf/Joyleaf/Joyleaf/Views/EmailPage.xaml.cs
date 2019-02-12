@@ -10,7 +10,7 @@ namespace Joyleaf
     public partial class EmailPage : ContentPage
     {
         private string firstName, lastName;
-        
+
         public EmailPage(string firstName, string lastName)
         {
             this.firstName = firstName;
@@ -25,13 +25,13 @@ namespace Joyleaf
 
         private async void NextButtonClick(object sender, EventArgs e)
         {
-            if(CrossConnectivity.Current.IsConnected)
+            if (CrossConnectivity.Current.IsConnected)
             {
-                if(EmailEntry.VerifyText(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$"))
+                if (EmailEntry.VerifyText(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$"))
                 {
                     try
                     {
-                        if(FirebaseBackend.IsEmailAvailable(EmailEntry.Text))
+                        if (FirebaseBackend.IsEmailAvailable(EmailEntry.Text))
                         {
                             await Navigation.PushAsync(new PasswordPage(firstName, lastName, EmailEntry.Text));
                         }
@@ -40,7 +40,7 @@ namespace Joyleaf
                             await Application.Current.MainPage.DisplayAlert("Email is taken", "That email belongs to an existing account. Try another.", "OK");
                         }
                     }
-                    catch(Exception)
+                    catch (Exception)
                     {
                         await Application.Current.MainPage.DisplayAlert("Error", "Whoops, looks like there is a problem on our end. Please try again later.", "OK");
                     }
@@ -58,7 +58,7 @@ namespace Joyleaf
 
         private void TextChanged(object sender, EventArgs e)
         {
-            if(!(string.IsNullOrEmpty(EmailEntry.Text)))
+            if (!(string.IsNullOrEmpty(EmailEntry.Text)))
             {
                 NextButton.BackgroundColor = Color.FromHex("#23C7A5");
                 NextButton.IsEnabled = true;

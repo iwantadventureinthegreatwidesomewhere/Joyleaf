@@ -2,14 +2,15 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Plugin.Connectivity;
 
-[assembly: XamlCompilation (XamlCompilationOptions.Compile)]
+[assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace Joyleaf
 {
     public partial class App : Application
     {
-        public App ()
+        public App()
         {
-            if(CrossConnectivity.Current.IsConnected){
+            if (CrossConnectivity.Current.IsConnected)
+            {
                 if (FirebaseBackend.IsSavedAuthValid())
                 {
                     var main = new MainPage();
@@ -21,12 +22,14 @@ namespace Joyleaf
                     MainPage = new NavigationPage(new LoginPage());
                 }
             }
-            else{
+            else
+            {
                 MainPage = new NavigationPage(new LoginPage());
             }
         }
 
-        protected override void OnResume(){
+        protected override void OnResume()
+        {
 
 
 

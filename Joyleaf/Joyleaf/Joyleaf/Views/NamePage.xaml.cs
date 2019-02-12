@@ -5,25 +5,25 @@ using Xamarin.Forms.Xaml;
 
 namespace Joyleaf
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
+    [XamlCompilation(XamlCompilationOptions.Compile)]
 
-	public partial class NamePage : ContentPage
-	{ 
-		public NamePage()
-		{
+    public partial class NamePage : ContentPage
+    {
+        public NamePage()
+        {
             InitializeComponent();
 
             NextButton.CornerRadius = 23;
 
             FirstNameEntry.Completed += (object sender, EventArgs e) => LastNameEntry.Focus();
             LastNameEntry.Completed += NextButtonClick;
-		}
+        }
 
         private async void NextButtonClick(object sender, EventArgs e)
         {
-            if(CrossConnectivity.Current.IsConnected)
+            if (CrossConnectivity.Current.IsConnected)
             {
-                if(FirstNameEntry.VerifyText(@"^[ -~]+$") && LastNameEntry.VerifyText(@"^[ -~]+$"))
+                if (FirstNameEntry.VerifyText(@"^[ -~]+$") && LastNameEntry.VerifyText(@"^[ -~]+$"))
                 {
                     await Navigation.PushAsync(new EmailPage(FirstNameEntry.Text, LastNameEntry.Text));
                 }
@@ -40,7 +40,7 @@ namespace Joyleaf
 
         private void TextChanged(object sender, EventArgs e)
         {
-            if(!string.IsNullOrEmpty(FirstNameEntry.Text) && !string.IsNullOrEmpty(LastNameEntry.Text))
+            if (!string.IsNullOrEmpty(FirstNameEntry.Text) && !string.IsNullOrEmpty(LastNameEntry.Text))
             {
                 NextButton.BackgroundColor = Color.FromHex("#23C7A5");
                 NextButton.IsEnabled = true;
@@ -51,5 +51,5 @@ namespace Joyleaf
                 NextButton.IsEnabled = false;
             }
         }
-	}
+    }
 }

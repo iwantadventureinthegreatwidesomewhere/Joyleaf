@@ -8,7 +8,7 @@ using Xamarin.Forms;
 
 namespace Joyleaf
 {
-    static  class FirebaseBackend
+    static class FirebaseBackend
     {
         public static void SignIn(string email, string password)
         {
@@ -26,7 +26,7 @@ namespace Joyleaf
 
                 Application.Current.MainPage = new NavigationPage(new MainPage());
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 if (e.InnerException.Message.Contains("INVALID_EMAIL") || e.InnerException.Message.Contains("INVALID_PASSWORD"))
                 {
@@ -60,7 +60,7 @@ namespace Joyleaf
 
         public static void SendPasswordReset(string email)
         {
-            if(!IsEmailAvailable(email))
+            if (!IsEmailAvailable(email))
             {
                 FirebaseAuthProvider authProvider = new FirebaseAuthProvider(new FirebaseConfig(Helpers.Constants.FIREBASE_DATABASE_API_KEY));
 
@@ -88,14 +88,14 @@ namespace Joyleaf
 
                 return false;
             }
-            catch(Exception e)
+            catch (Exception e)
             {
-                if(e.InnerException.Message.Contains("EMAIL_NOT_FOUND"))
+                if (e.InnerException.Message.Contains("EMAIL_NOT_FOUND"))
                 {
                     return true;
                 }
 
-                if(e.InnerException.Message.Contains("INVALID_PASSWORD"))
+                if (e.InnerException.Message.Contains("INVALID_PASSWORD"))
                 {
                     return false;
                 }
@@ -147,7 +147,7 @@ namespace Joyleaf
 
                 return true;
             }
-            catch(Exception)
+            catch (Exception)
             {
                 return false;
             }

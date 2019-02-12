@@ -17,7 +17,7 @@ namespace Joyleaf.iOS.CustomRenderers
         {
             base.OnElementChanged(e);
 
-            if(Control == null)
+            if (Control == null)
             {
                 return;
             }
@@ -41,16 +41,16 @@ namespace Joyleaf.iOS.CustomRenderers
             entry.LeftViewMode = UITextFieldViewMode.Always;
 
             entry.EnablesReturnKeyAutomatically = true;
-            
-            CustomEntry entryReturnKey = (CustomEntry) Element;
 
-            if(Control != null)
+            CustomEntry entryReturnKey = (CustomEntry)Element;
+
+            if (Control != null)
             {
-                if(entryReturnKey != null)
+                if (entryReturnKey != null)
                 {
                     SetReturnType(entryReturnKey);
 
-                    entry.ShouldReturn += (UITextField tf) => 
+                    entry.ShouldReturn += (UITextField tf) =>
                     {
                         entryReturnKey.InvokeCompleted();
                         return true;
@@ -58,12 +58,12 @@ namespace Joyleaf.iOS.CustomRenderers
                 }
             }
         }
-        
+
         private void SetReturnType(CustomEntry entryReturnKey)
         {
             ReturnType type = entryReturnKey.ReturnType;
 
-            switch(type)
+            switch (type)
             {
                 case ReturnType.Done:
                     Control.ReturnKeyType = UIReturnKeyType.Done;
@@ -80,7 +80,7 @@ namespace Joyleaf.iOS.CustomRenderers
                 case ReturnType.Default:
                     Control.ReturnKeyType = UIReturnKeyType.Default;
                     break;
-            } 
+            }
         }
     }
 }

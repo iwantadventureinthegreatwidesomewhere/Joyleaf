@@ -6,7 +6,7 @@ using ReturnType = Joyleaf.CustomTypes.ReturnType;
 
 namespace Joyleaf.CustomControls
 {
-    public class CustomEntry: Entry
+    public class CustomEntry : Entry
     {
         public new event EventHandler Completed;
 
@@ -22,18 +22,18 @@ namespace Joyleaf.CustomControls
         {
             get
             {
-                return (ReturnType) GetValue(ReturnTypeProperty);
+                return (ReturnType)GetValue(ReturnTypeProperty);
             }
 
             set
-            { 
-                SetValue(ReturnTypeProperty, value); 
+            {
+                SetValue(ReturnTypeProperty, value);
             }
         }
 
         public void InvokeCompleted()
         {
-            if(Completed != null)
+            if (Completed != null)
             {
                 Completed.Invoke(this, null);
             }
@@ -44,7 +44,7 @@ namespace Joyleaf.CustomControls
         {
             Regex textRegex = new Regex(pattern);
 
-            if(string.IsNullOrWhiteSpace(Text))
+            if (string.IsNullOrWhiteSpace(Text))
             {
                 return false;
             }

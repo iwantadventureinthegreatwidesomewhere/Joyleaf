@@ -14,11 +14,10 @@ namespace Joyleaf.iOS.CustomRenderers
         {
             base.OnElementChanged(e);
 
-            if(Control != null)
+            if (Control != null)
             {
                 Control.SetTitleColor(UIColor.White, UIControlState.Disabled);
             }
         }
     }
 }
-

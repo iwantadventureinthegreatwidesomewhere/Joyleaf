@@ -17,28 +17,28 @@ namespace Joyleaf {
     public partial class LoginPage : global::Xamarin.Forms.ContentPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
-        private global::Xamarin.Forms.StackLayout SigninContent;
+        private global::Xamarin.Forms.StackLayout SignInStack;
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
-        private global::Joyleaf.CustomControls.CustomEntry UsernameField;
+        private global::Joyleaf.CustomControls.CustomEntry EmailEntry;
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
-        private global::Joyleaf.CustomControls.CustomEntry PasswordField;
+        private global::Joyleaf.CustomControls.CustomEntry PasswordEntry;
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
-        private global::Joyleaf.CustomControls.CustomButton btnLogIn;
+        private global::Joyleaf.CustomControls.CustomButton SignInButton;
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
-        private global::Xamarin.Forms.StackLayout SignUpContent;
+        private global::Xamarin.Forms.StackLayout SignUpStack;
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
         private void InitializeComponent() {
             global::Xamarin.Forms.Xaml.Extensions.LoadFromXaml(this, typeof(LoginPage));
-            SigninContent = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.StackLayout>(this, "SigninContent");
-            UsernameField = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Joyleaf.CustomControls.CustomEntry>(this, "UsernameField");
-            PasswordField = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Joyleaf.CustomControls.CustomEntry>(this, "PasswordField");
-            btnLogIn = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Joyleaf.CustomControls.CustomButton>(this, "btnLogIn");
-            SignUpContent = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.StackLayout>(this, "SignUpContent");
+            SignInStack = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.StackLayout>(this, "SignInStack");
+            EmailEntry = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Joyleaf.CustomControls.CustomEntry>(this, "EmailEntry");
+            PasswordEntry = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Joyleaf.CustomControls.CustomEntry>(this, "PasswordEntry");
+            SignInButton = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Joyleaf.CustomControls.CustomButton>(this, "SignInButton");
+            SignUpStack = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.StackLayout>(this, "SignUpStack");
         }
     }
 }

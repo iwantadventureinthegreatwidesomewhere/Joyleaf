@@ -17,16 +17,16 @@ namespace Joyleaf {
     public partial class ForgotPasswordPage : global::Xamarin.Forms.ContentPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
-        private global::Joyleaf.CustomControls.CustomEntry EmailField;
+        private global::Joyleaf.CustomControls.CustomEntry EmailEntry;
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
-        private global::Joyleaf.CustomControls.CustomButton btnSend;
+        private global::Joyleaf.CustomControls.CustomButton SendButton;
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
         private void InitializeComponent() {
             global::Xamarin.Forms.Xaml.Extensions.LoadFromXaml(this, typeof(ForgotPasswordPage));
-            EmailField = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Joyleaf.CustomControls.CustomEntry>(this, "EmailField");
-            btnSend = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Joyleaf.CustomControls.CustomButton>(this, "btnSend");
+            EmailEntry = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Joyleaf.CustomControls.CustomEntry>(this, "EmailEntry");
+            SendButton = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Joyleaf.CustomControls.CustomButton>(this, "SendButton");
         }
     }
 }

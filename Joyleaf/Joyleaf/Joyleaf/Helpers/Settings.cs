@@ -8,16 +8,16 @@ namespace Joyleaf
         private static ISettings AppSettings
         {
             get
-            { 
-                return CrossSettings.Current; 
+            {
+                return CrossSettings.Current;
             }
         }
 
         public static string FirebaseAuth
         {
             get
-            { 
-                return AppSettings.GetValueOrDefault("FirebaseAuth", ""); 
+            {
+                return AppSettings.GetValueOrDefault("FirebaseAuth", "");
             }
 
             set

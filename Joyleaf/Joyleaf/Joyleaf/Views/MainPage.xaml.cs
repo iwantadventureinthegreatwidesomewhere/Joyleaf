@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace Joyleaf
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
+    [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MainPage : MasterDetailPage
-	{
+    {
         //firebase
         FirebaseAuthProvider authProvider = new FirebaseAuthProvider(new FirebaseConfig("AIzaSyDzp-mTwM_FacdwvNWk-6-M350NqDdXc94"));
         FirebaseAuth auth = FirebaseBackend.GetAuth();
@@ -19,7 +19,8 @@ namespace Joyleaf
         //wheel
         ActivityIndicator Wheel;
 
-        public MainPage(){
+        public MainPage()
+        {
             //fetch account
             Account account;
             authLink = new FirebaseAuthLink(authProvider, auth);
@@ -27,7 +28,7 @@ namespace Joyleaf
             {
                 account = FirebaseBackend.GetAccount(authLink);
             }
-            catch(Exception)
+            catch (Exception)
             {
                 account = null;
             }
@@ -82,12 +83,12 @@ namespace Joyleaf
 
             //initialize gestures for opening and closing the master page
             var OpenMaster = new TapGestureRecognizer();
-            OpenMaster.Tapped += (sender, e) => 
+            OpenMaster.Tapped += (sender, e) =>
                 this.IsPresented = true;
             var CloseMaster = new TapGestureRecognizer();
             CloseMaster.Tapped += (sender, e) =>
                 this.IsPresented = false;
-                
+
             Hamburger.GestureRecognizers.Add(OpenMaster);
 
             MasterGrey.GestureRecognizers.Add(CloseMaster);
@@ -102,7 +103,8 @@ namespace Joyleaf
 
         }
 
-        public async void RefreshContent(){
+        public async void RefreshContent()
+        {
             await Task.Run(() =>
             {
 
@@ -112,11 +114,13 @@ namespace Joyleaf
             });
         }
 
-        public void EnableLoader(){
+        public void EnableLoader()
+        {
             ItemList.Children.Add(Wheel);
         }
 
-        public void DisableLoader(){
+        public void DisableLoader()
+        {
             ItemList.Children.Remove(Wheel);
         }
 

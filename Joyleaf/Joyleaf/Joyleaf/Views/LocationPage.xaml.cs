@@ -23,7 +23,7 @@ namespace Joyleaf
 
         private async void NextButtonClick(object sender, EventArgs e)
         {
-            if(CrossConnectivity.Current.IsConnected)
+            if (CrossConnectivity.Current.IsConnected)
             {
                 string location = (string)LocationPicker.ItemsSource[LocationPicker.SelectedIndex];
 
@@ -33,7 +33,7 @@ namespace Joyleaf
                 {
                     FirebaseBackend.SignUp(account, password);
                 }
-                catch(Exception)
+                catch (Exception)
                 {
                     await Application.Current.MainPage.DisplayAlert("Error", "Whoops, looks like there is a problem on our end. Please try again later.", "OK");
                 }

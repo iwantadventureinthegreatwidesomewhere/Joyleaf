@@ -1,122 +1,130 @@
 <?xml version="1.0" encoding="utf-8" ?>
+
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Joyleaf.LoginPage"
+             xmlns:customControls="clr-namespace:Joyleaf.CustomControls;assembly=Joyleaf"
              xmlns:local="clr-namespace:Joyleaf;assembly=Joyleaf"
              xmlns:system="clr-namespace:System;assembly=netstandard"
-             xmlns:customControls="clr-namespace:Joyleaf.CustomControls;assembly=Joyleaf"
-             x:Class="Joyleaf.LoginPage"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              BackgroundColor="White">
     
     <Grid>
+        
         <Grid.RowDefinitions>
-            <RowDefinition Height="11.5*" />
-            <RowDefinition Height="64.7*" />
-            <RowDefinition Height="19*" />
-            <RowDefinition Height="4.8*" />
+            <RowDefinition Height="11.5*"/>
+            <RowDefinition Height="64.7*"/>
+            <RowDefinition Height="19*"/>
+            <RowDefinition Height="4.8*"/>
         </Grid.RowDefinitions>
+        
         <Grid>
             <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
-            <RowDefinition Height="64.7*" />
-        </Grid.RowDefinitions>
-            
-            
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="64.7*"/>
+            </Grid.RowDefinitions>
         </Grid>
         
-          <StackLayout x:Name="SigninContent" VerticalOptions="Center" Grid.Row="1">
+        <StackLayout x:Name="SignInStack" Grid.Row="1" VerticalOptions="Center">
             
-                <StackLayout>
-                    <Image 
-                Source="colorlogo"
-                HeightRequest="65"
-                Margin="-10,0,0,8"/>
-            <StackLayout 
-                VerticalOptions="FillAndExpand" 
-                HorizontalOptions="Fill"
-                Margin="30">
-                <customControls:CustomEntry
-                    x:Name="UsernameField"
-                    TextChanged="TextfieldChanged"
-                    HorizontalOptions="Fill"
-                    Placeholder="Email"
-                    Keyboard="Email"
-                    HeightRequest="45"
-                    ReturnType="Next"
-                    Focused="VisualElement_OnFocused"
-                    Unfocused="VisualElement_OffFocused"
-                    Text="{Binding Username, Mode=TwoWay}"
-                    FontSize="14">
-                    <customControls:CustomEntry.BackgroundColor>
-                        <OnPlatform x:TypeArguments="Color">
-                            <On Platform="iOS" Value="#fafafa"/>
-                        </OnPlatform>
-                    </customControls:CustomEntry.BackgroundColor>
-                </customControls:CustomEntry>
-                <customControls:CustomEntry
-                    x:Name="PasswordField"
-                    Text="{Binding Password}"
-                    TextChanged="TextfieldChanged"
-                    HorizontalOptions="Fill"
-                    Placeholder="Password"
-                    IsPassword="True"
-                    Margin="0,7,0,0"
-                    HeightRequest="45"
-                    ReturnType="Go"
-                    Focused="VisualElement_OnFocused"
-                    Unfocused="VisualElement_OffFocused"
-                    FontSize="14">
+            <StackLayout>
+                
+                <Image
+                    HeightRequest="65"
+                    Margin="-10,0,0,8"
+                    Source="colorlogo"
+                />
+                
+                <StackLayout HorizontalOptions="Fill" Margin="30" VerticalOptions="FillAndExpand">
+                    
+                    <customControls:CustomEntry
+                        x:Name="EmailEntry"
+                        Focused="EntryOnFocus"
+                        FontSize="14"
+                        HorizontalOptions="Fill"
+                        HeightRequest="45"
+                        Keyboard="Email"
+                        Placeholder="Email"
+                        ReturnType="Next"
+                        TextChanged="TextChanged"
+                        Unfocused="EntryOffFocus">
+                        <customControls:CustomEntry.BackgroundColor>
+                            <OnPlatform x:TypeArguments="Color">
+                                <On Platform="iOS" Value="#fafafa"/>
+                            </OnPlatform>
+                        </customControls:CustomEntry.BackgroundColor>
                     </customControls:CustomEntry>
-                <Button 
-                    Text="Forgot Password?"
-                    Clicked="ForgotPassword_Click"
-                    FontAttributes="Bold"
-                    TextColor="#afafaf"
-                    BackgroundColor="Transparent"
-                    HorizontalOptions="Start">
-                    <Button.FontSize>
-                        <OnPlatform x:TypeArguments="system:Double">
-                            <On Platform="iOS" Value="13"/> 
-                            <On Platform="Android" Value="14"/>   
-                        </OnPlatform>
-                    </Button.FontSize>
-                    <Button.Margin>
-                        <OnPlatform x:TypeArguments="Thickness">
-                            <On Platform="iOS" Value="17, 0"/> 
-                            <On Platform="Android" Value="4, -5, 0, 4"/>
-                        </OnPlatform>
-                    </Button.Margin>
-                </Button>
-                <customControls:CustomButton
-                    x:Name="btnLogIn"
-                    IsEnabled="false"
-                    Clicked="LogIn_Click"
-                    FontAttributes="Bold"
-                    BackgroundColor="#4023C7A5"
-                    TextColor="White"
-                    HeightRequest="45"
-                    HorizontalOptions="Fill"
-                    Margin="0,10,0,0"
-                    FontSize = "13">
-                    <customControls:CustomButton.Text>
-                        <OnPlatform x:TypeArguments="system:String">
-                            <On Platform="iOS" Value="SIGN IN"/> 
-                            <On Platform="Android" Value="SIGN IN"/>
-                        </OnPlatform>
-                    </customControls:CustomButton.Text>
-                </customControls:CustomButton>
-              </StackLayout>
+                    
+                    <customControls:CustomEntry
+                        x:Name="PasswordEntry"
+                        Focused="EntryOnFocus"
+                        FontSize="14"
+                        HorizontalOptions="Fill"
+                        HeightRequest="45"
+                        IsPassword="True"
+                        Margin="0,7,0,0"
+                        Placeholder="Password"
+                        ReturnType="Go"
+                        TextChanged="TextChanged"
+                        Unfocused="EntryOffFocus">
+                        <customControls:CustomEntry.BackgroundColor>
+                            <OnPlatform x:TypeArguments="Color">
+                                <On Platform="iOS" Value="#fafafa"/>
+                            </OnPlatform>
+                        </customControls:CustomEntry.BackgroundColor>
+                    </customControls:CustomEntry>
+                    
+                    <Button
+                        BackgroundColor="Transparent"
+                        Clicked="ForgotPasswordButtonClick"
+                        FontAttributes="Bold"
+                        HorizontalOptions="Start"
+                        Text="Forgot Password?"
+                        TextColor="#afafaf">
+                        <Button.FontSize>
+                            <OnPlatform x:TypeArguments="system:Double">
+                                <On Platform="iOS" Value="13"/>
+                                <On Platform="Android" Value="14"/>
+                            </OnPlatform>
+                        </Button.FontSize>
+                        <Button.Margin>
+                            <OnPlatform x:TypeArguments="Thickness">
+                                <On Platform="iOS" Value="17, 0"/>
+                                <On Platform="Android" Value="4, -5, 0, 4"/>
+                            </OnPlatform>
+                        </Button.Margin>
+                    </Button>
+                    
+                    <customControls:CustomButton
+                        x:Name="SignInButton"
+                        BackgroundColor="#4023C7A5"
+                        Clicked="SignInButtonClick"
+                        FontAttributes="Bold"
+                        FontSize="13"
+                        HeightRequest="45"
+                        HorizontalOptions="Fill"
+                        IsEnabled="false"
+                        Margin="0,10,0,0"
+                        Text="SIGN IN"
+                        TextColor="White"
+                    />
+                    
+                </StackLayout>
+                
             </StackLayout>
+            
         </StackLayout>
-        <StackLayout
-            Grid.Row="2"
-            x:Name="SignUpContent"
-            Orientation="Horizontal"
-            VerticalOptions="EndAndExpand"
+        
+        <StackLayout 
+            x:Name="SignUpStack" 
+            Grid.Row="2" 
             HorizontalOptions="CenterAndExpand"
-            Margin="48,0">
-            <Label 
-                Text="New to Joyleaf?"
+            Margin="48,0"
+            Orientation="Horizontal" 
+            VerticalOptions="EndAndExpand">
+            
+            <Label
                 FontAttributes="Bold"
+                Text="New to Joyleaf?"
                 TextColor="#333333">
                 <Label.Margin>
                     <OnPlatform x:TypeArguments="Thickness">
@@ -131,12 +139,13 @@
                     </OnPlatform>
                 </Label.FontSize>
             </Label>
+            
             <Button
-                Clicked="SignUp_Click"
-                Text="Sign up now."
+                BackgroundColor="Transparent"
+                Clicked="SignUpButtonClick"
                 FontAttributes="Bold"
-                TextColor="#23C7A5"
-                BackgroundColor="Transparent">
+                Text="Sign up now."
+                TextColor="#23C7A5">
                 <Button.FontSize>
                     <OnPlatform x:TypeArguments="system:Double">
                         <On Platform="iOS" Value="14"/> 
@@ -144,6 +153,9 @@
                     </OnPlatform>
                 </Button.FontSize>
             </Button>
+            
         </StackLayout>
+        
     </Grid>
+    
 </ContentPage>

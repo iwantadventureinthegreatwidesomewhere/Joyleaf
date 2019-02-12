@@ -15,7 +15,7 @@ namespace Joyleaf.iOS.CustomRenderers
         {
             base.OnElementChanged(e);
 
-            if(Control == null)
+            if (Control == null)
             {
                 return;
             }
