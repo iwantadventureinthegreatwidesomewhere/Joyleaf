@@ -27,11 +27,11 @@ namespace Joyleaf
             {
                 string location = (string)LocationPicker.ItemsSource[LocationPicker.SelectedIndex];
 
-                Account account = new Account(firstName, lastName, email, location);
+                Account account = new Account(firstName, lastName, location);
 
                 try
                 {
-                    FirebaseBackend.SignUp(account, password);
+                    FirebaseBackend.SignUp(account, email, password);
                 }
                 catch (Exception)
                 {

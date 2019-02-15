@@ -1,18 +1,17 @@
 ﻿using Android.Content;
-using Android.Views.InputMethods;
 using Android.Widget;
 using Joyleaf.CustomControls;
 using Joyleaf.Droid.CustomRenderers;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
-using Color = Android.Graphics.Color;
 
-[assembly: ExportRenderer(typeof(NewEntry), typeof(MyEntryRenderer))]
+[assembly: ExportRenderer(typeof(CustomEntry), typeof(CustomAndroidEntry))]
+
 namespace Joyleaf.Droid.CustomRenderers
 {
-    class MyEntryRenderer : EntryRenderer
+    class CustomAndroidEntry : EntryRenderer
     {
-        public MyEntryRenderer(Context context) : base(context)
+        public CustomAndroidEntry(Context context) : base(context)
         {
         }
 
@@ -22,10 +21,11 @@ namespace Joyleaf.Droid.CustomRenderers
 
             if (Control != null)
             {
-                Control.SetPadding((int)(Control.PaddingLeft*4.1), (int)(Control.PaddingTop * 1.2), 0, 0);
-                Control.SetBackgroundResource(Resource.Drawable.Textfield);
+                Control.SetBackgroundResource(Resource.Drawable.Entry);
 
-                NewEntry entryReturnKey = (NewEntry)this.Element;
+                Control.SetPadding((int)(Control.PaddingLeft*4.1), (int)(Control.PaddingTop * 1.2), 0, 0);
+
+                CustomEntry entryReturnKey = (CustomEntry)Element;
                 if (entryReturnKey != null)
                 {  
                     Control.EditorAction += (object sender, TextView.EditorActionEventArgs args) =>

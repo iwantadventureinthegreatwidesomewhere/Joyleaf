@@ -39,7 +39,7 @@ namespace Joyleaf
             }
         }
 
-        public static void SignUp(Account account, string password)
+        public static void SignUp(Account account, string email, string password)
         {
             FirebaseAuthProvider authProvider = new FirebaseAuthProvider(new FirebaseConfig(Helpers.Constants.FIREBASE_DATABASE_API_KEY));
 
@@ -47,7 +47,7 @@ namespace Joyleaf
 
             FirebaseAuthLink auth = Task.Run(() =>
             {
-                Task<FirebaseAuthLink> t = authProvider.CreateUserWithEmailAndPasswordAsync(account.email, password);
+                Task<FirebaseAuthLink> t = authProvider.CreateUserWithEmailAndPasswordAsync(email, password);
                 return t;
             }).Result;
 

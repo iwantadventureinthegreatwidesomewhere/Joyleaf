@@ -1,17 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<selector xmlns:android="http://schemas.android.com/apk/res/android" >
-    
- <item android:state_enabled="false" >
-     <shape android:shape="rectangle"  >
-         <corners android:radius="5dp" />
-         <solid android:color="#4000b1b0"/>          
-     </shape>
- </item>
- <item android:state_enabled="true" >
-     <shape android:shape="rectangle"  >
-         <corners android:radius="5dp" />
-         <solid android:color="#00b1b0"/>          
-     </shape>
- </item>
 
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    
+    <item android:state_enabled="false">
+        
+        <shape android:shape="rectangle">
+            <corners android:radius="23dp"/>
+            <solid android:color="#4023C7A5"/>
+        </shape>
+    
+    </item>
+    
+    <item android:state_enabled="true">
+        
+        <shape android:shape="rectangle">
+            <corners android:radius="23dp"/>
+            <solid android:color="#23C7A5"/> 
+        </shape>
+        
+    </item>
+    
 </selector>

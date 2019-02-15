@@ -30,9 +30,23 @@
                 
                 <Image
                     HeightRequest="65"
-                    Margin="-10,0,0,8"
-                    Source="colorlogo"
+                    Margin="-10,0,0,5"
+                    Source="Logo"
                 />
+                
+                <Label
+                    FontAttributes="Bold"
+                    FontSize="14"
+                    HorizontalTextAlignment="Center"
+                    Margin="0,10"
+                    Text="Reach new heights."
+                    TextColor="#333333">
+                    <Label.FontFamily>
+                        <OnPlatform x:TypeArguments="x:String">
+                            <On Platform="Android" Value="Roboto-Medium.ttf#Roboto-Medium"/>
+                        </OnPlatform>
+                    </Label.FontFamily>
+                </Label>
                 
                 <StackLayout HorizontalOptions="Fill" Margin="30" VerticalOptions="FillAndExpand">
                     
@@ -77,19 +91,19 @@
                         BackgroundColor="Transparent"
                         Clicked="ForgotPasswordButtonClick"
                         FontAttributes="Bold"
+                        FontSize="13"
                         HorizontalOptions="Start"
                         Text="Forgot Password?"
                         TextColor="#afafaf">
-                        <Button.FontSize>
-                            <OnPlatform x:TypeArguments="system:Double">
-                                <On Platform="iOS" Value="13"/>
-                                <On Platform="Android" Value="14"/>
+                        <Button.FontFamily>
+                            <OnPlatform x:TypeArguments="x:String">
+                                <On Platform="Android" Value="Roboto-Medium.ttf#Roboto-Medium"/>
                             </OnPlatform>
-                        </Button.FontSize>
+                        </Button.FontFamily>
                         <Button.Margin>
                             <OnPlatform x:TypeArguments="Thickness">
-                                <On Platform="iOS" Value="17, 0"/>
-                                <On Platform="Android" Value="4, -5, 0, 4"/>
+                                <On Platform="iOS" Value="17,0"/>
+                                <On Platform="Android" Value="4,-5,0,4"/>
                             </OnPlatform>
                         </Button.Margin>
                     </Button>
@@ -105,8 +119,13 @@
                         IsEnabled="false"
                         Margin="0,10,0,0"
                         Text="SIGN IN"
-                        TextColor="White"
-                    />
+                        TextColor="White">
+                        <Button.FontFamily>
+                            <OnPlatform x:TypeArguments="x:String">
+                                <On Platform="Android" Value="Roboto-Medium.ttf#Roboto-Medium"/>
+                            </OnPlatform>
+                        </Button.FontFamily>
+                    </customControls:CustomButton>
                     
                 </StackLayout>
                 
@@ -124,34 +143,34 @@
             
             <Label
                 FontAttributes="Bold"
+                FontSize="14"
                 Text="New to Joyleaf?"
                 TextColor="#333333">
+                <Label.FontFamily>
+                    <OnPlatform x:TypeArguments="x:String">
+                        <On Platform="Android" Value="Roboto-Medium.ttf#Roboto-Medium"/>
+                    </OnPlatform>
+                </Label.FontFamily>
                 <Label.Margin>
                     <OnPlatform x:TypeArguments="Thickness">
                         <On Platform="iOS" Value="0,13.5,-2,0"/> 
-                        <On Platform="Android" Value="10,13.75,-16, 0"/>
+                        <On Platform="Android" Value="10,14,-14,0"/>
                     </OnPlatform>
                 </Label.Margin>
-                <Label.FontSize>
-                    <OnPlatform x:TypeArguments="system:Double">
-                        <On Platform="iOS" Value="14"/> 
-                        <On Platform="Android" Value="15"/>
-                    </OnPlatform>
-                </Label.FontSize>
             </Label>
             
             <Button
                 BackgroundColor="Transparent"
                 Clicked="SignUpButtonClick"
                 FontAttributes="Bold"
+                FontSize="14"
                 Text="Sign up now."
                 TextColor="#23C7A5">
-                <Button.FontSize>
-                    <OnPlatform x:TypeArguments="system:Double">
-                        <On Platform="iOS" Value="14"/> 
-                        <On Platform="Android" Value="15"/>
+                <Button.FontFamily>
+                    <OnPlatform x:TypeArguments="x:String">
+                        <On Platform="Android" Value="Roboto-Medium.ttf#Roboto-Medium"/>
                     </OnPlatform>
-                </Button.FontSize>
+                </Button.FontFamily>
             </Button>
             
         </StackLayout>
