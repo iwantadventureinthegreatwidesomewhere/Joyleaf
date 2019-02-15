@@ -10,6 +10,8 @@ namespace Joyleaf
         {
             InitializeComponent();
 
+            SendButton.CornerRadius = 23;
+
             EmailEntry.Completed += SendButtonClick;
         }
 
@@ -44,12 +46,12 @@ namespace Joyleaf
         {
             if (!(string.IsNullOrEmpty(EmailEntry.Text)))
             {
-                SendButton.BackgroundColor = Color.FromHex("#00b1b0");
+                SendButton.BackgroundColor = Color.FromHex("#23C7A5");
                 SendButton.IsEnabled = true;
             }
             else
             {
-                SendButton.BackgroundColor = Color.FromHex("#4000b1b0");
+                SendButton.BackgroundColor = Color.FromHex("#4023C7A5");
                 SendButton.IsEnabled = false;
             }
         }

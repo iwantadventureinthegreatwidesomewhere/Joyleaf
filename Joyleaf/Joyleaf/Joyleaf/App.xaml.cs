@@ -16,7 +16,7 @@ namespace Joyleaf
             }
             else
             {
-                MainPage = new NavigationPage(new LoginPageView());
+                MainPage = new NavigationPage(new SignInPageView());
             }
         }
     }
