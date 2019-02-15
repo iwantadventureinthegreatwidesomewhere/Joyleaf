@@ -7,9 +7,9 @@ namespace Joyleaf
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
 
-    public partial class NamePage : ContentPage
+    public partial class NamePageView : ContentPage
     {
-        public NamePage()
+        public NamePageView()
         {
             InitializeComponent();
 
@@ -25,7 +25,7 @@ namespace Joyleaf
             {
                 if (FirstNameEntry.VerifyText(@"^[ -~]+$") && LastNameEntry.VerifyText(@"^[ -~]+$"))
                 {
-                    await Navigation.PushAsync(new EmailPage(FirstNameEntry.Text, LastNameEntry.Text));
+                    await Navigation.PushAsync(new EmailPageView(FirstNameEntry.Text, LastNameEntry.Text));
                 }
                 else
                 {

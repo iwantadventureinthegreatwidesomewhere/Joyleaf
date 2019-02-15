@@ -24,7 +24,7 @@ namespace Joyleaf
 
                 SetAuth(auth);
 
-                Application.Current.MainPage = new NavigationPage(new MainPage());
+                Application.Current.MainPage = new NavigationPage(new MainPageView());
             }
             catch (Exception e)
             {
@@ -55,7 +55,7 @@ namespace Joyleaf
 
             SetAuth(auth);
 
-            Application.Current.MainPage = new NavigationPage(new MainPage());
+            Application.Current.MainPage = new NavigationPage(new MainPageView());
         }
 
         public static void SendPasswordReset(string email)

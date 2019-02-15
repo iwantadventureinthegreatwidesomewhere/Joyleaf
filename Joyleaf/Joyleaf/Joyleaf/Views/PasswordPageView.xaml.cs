@@ -4,11 +4,11 @@ using Xamarin.Forms;
 
 namespace Joyleaf
 {
-    public partial class PasswordPage : ContentPage
+    public partial class PasswordPageView : ContentPage
     {
         private string firstName, lastName, email;
 
-        public PasswordPage(string firstName, string lastName, string email)
+        public PasswordPageView(string firstName, string lastName, string email)
         {
             this.firstName = firstName;
             this.lastName = lastName;
@@ -57,7 +57,7 @@ namespace Joyleaf
 
                         if (count >= 6 && hasUppercase && hasLowercase && hasNumber)
                         {
-                            await Navigation.PushAsync(new LocationPage(firstName, lastName, email, PasswordEntry.Text));
+                            await Navigation.PushAsync(new LocationPageView(firstName, lastName, email, PasswordEntry.Text));
                         }
                         else
                         {

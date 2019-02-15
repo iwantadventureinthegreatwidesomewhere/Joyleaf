@@ -2,9 +2,9 @@
 
 namespace Joyleaf.Views
 {
-    public partial class ItemPage : ContentPage
+    public partial class ItemPageView : ContentPage
     {
-        public ItemPage()
+        public ItemPageView()
         {
             InitializeComponent();
         }

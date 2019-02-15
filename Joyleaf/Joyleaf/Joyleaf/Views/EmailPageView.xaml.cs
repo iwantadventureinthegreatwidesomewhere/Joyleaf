@@ -1,19 +1,29 @@
 ﻿using Plugin.Connectivity;
 using System;
 using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 
 namespace Joyleaf
 {
-    public partial class ForgotPasswordPage : ContentPage
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+
+    public partial class EmailPageView : ContentPage
     {
-        public ForgotPasswordPage()
+        private string firstName, lastName;
+
+        public EmailPageView(string firstName, string lastName)
         {
+            this.firstName = firstName;
+            this.lastName = lastName;
+
             InitializeComponent();
 
-            EmailEntry.Completed += SendButtonClick;
+            NextButton.CornerRadius = 23;
+
+            EmailEntry.Completed += NextButtonClick;
         }
 
-        private async void SendButtonClick(object sender, EventArgs e)
+        private async void NextButtonClick(object sender, EventArgs e)
         {
             if (CrossConnectivity.Current.IsConnected)
             {
@@ -21,8 +31,14 @@ namespace Joyleaf
                 {
                     try
                     {
-                        FirebaseBackend.SendPasswordReset(EmailEntry.Text);
-                        await Application.Current.MainPage.Navigation.PopToRootAsync();
+                        if (FirebaseBackend.IsEmailAvailable(EmailEntry.Text))
+                        {
+                            await Navigation.PushAsync(new PasswordPageView(firstName, lastName, EmailEntry.Text));
+                        }
+                        else
+                        {
+                            await Application.Current.MainPage.DisplayAlert("Email is taken", "That email belongs to an existing account. Try another.", "OK");
+                        }
                     }
                     catch (Exception)
                     {
@@ -44,13 +60,13 @@ namespace Joyleaf
         {
             if (!(string.IsNullOrEmpty(EmailEntry.Text)))
             {
-                SendButton.BackgroundColor = Color.FromHex("#00b1b0");
-                SendButton.IsEnabled = true;
+                NextButton.BackgroundColor = Color.FromHex("#23C7A5");
+                NextButton.IsEnabled = true;
             }
             else
             {
-                SendButton.BackgroundColor = Color.FromHex("#4000b1b0");
-                SendButton.IsEnabled = false;
+                NextButton.BackgroundColor = Color.FromHex("#4023C7A5");
+                NextButton.IsEnabled = false;
             }
         }
     }

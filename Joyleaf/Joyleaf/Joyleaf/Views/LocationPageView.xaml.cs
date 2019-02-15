@@ -4,12 +4,12 @@ using Xamarin.Forms;
 
 namespace Joyleaf
 {
-    public partial class LocationPage : ContentPage
+    public partial class LocationPageView : ContentPage
     {
         private string firstName, lastName, email, password;
         private string selectedItem;
 
-        public LocationPage(string firstName, string lastName, string email, string password)
+        public LocationPageView(string firstName, string lastName, string email, string password)
         {
             this.firstName = firstName;
             this.lastName = lastName;

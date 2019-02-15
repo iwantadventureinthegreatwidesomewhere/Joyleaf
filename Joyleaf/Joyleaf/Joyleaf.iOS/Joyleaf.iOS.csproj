@@ -135,12 +135,10 @@
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_60pt%402x.png" />
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_60pt%403x.png" />
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon.png" />
-    <ImageAsset Include="Assets.xcassets\Logo.imageset\Contents.json">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\Logo.imageset\official.png" />
-    <ImageAsset Include="Assets.xcassets\Logo.imageset\official%402x.png" />
-    <ImageAsset Include="Assets.xcassets\Logo.imageset\official%403x.png" />
+    <ImageAsset Include="Assets.xcassets\Logo.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Logo.imageset\logo.png" />
+    <ImageAsset Include="Assets.xcassets\Logo.imageset\logo%402x.png" />
+    <ImageAsset Include="Assets.xcassets\Logo.imageset\logo%403x.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -167,6 +165,7 @@
     <Folder Include="Assets.xcassets\down.imageset\" />
     <Folder Include="Assets.xcassets\down.imageset\" />
     <Folder Include="Assets.xcassets\hamburger.png.imageset\" />
+    <Folder Include="Assets.xcassets\Logo.imageset\" />
     <Folder Include="Assets.xcassets\Logo.imageset\" />
   </ItemGroup>
 </Project>

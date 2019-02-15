@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace Joyleaf
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class MainPage : MasterDetailPage
+    public partial class MainPageView : MasterDetailPage
     {
         //firebase
         FirebaseAuthProvider authProvider = new FirebaseAuthProvider(new FirebaseConfig("AIzaSyDzp-mTwM_FacdwvNWk-6-M350NqDdXc94"));
@@ -19,7 +19,7 @@ namespace Joyleaf
         //wheel
         ActivityIndicator Wheel;
 
-        public MainPage()
+        public MainPageView()
         {
             //fetch account
             Account account;

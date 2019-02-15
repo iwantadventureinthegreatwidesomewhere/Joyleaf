@@ -4,9 +4,9 @@ using Xamarin.Forms;
 
 namespace Joyleaf
 {
-    public partial class LoginPage : ContentPage
+    public partial class LoginPageView : ContentPage
     {
-        public LoginPage()
+        public LoginPageView()
         {
             NavigationPage.SetHasNavigationBar(this, false);
 
@@ -22,7 +22,7 @@ namespace Joyleaf
         {
             if (CrossConnectivity.Current.IsConnected)
             {
-                await Navigation.PushAsync(new ForgotPasswordPage());
+                await Navigation.PushAsync(new ForgotPasswordPageView());
             }
             else
             {
@@ -56,7 +56,7 @@ namespace Joyleaf
         {
             if (CrossConnectivity.Current.IsConnected)
             {
-                await Navigation.PushAsync(new NamePage());
+                await Navigation.PushAsync(new NamePageView());
             }
             else
             {
