@@ -4,9 +4,9 @@ using Xamarin.Forms;
 
 namespace Joyleaf
 {
-    public partial class LoginPageView : ContentPage
+    public partial class SignInPageView : ContentPage
     {
-        public LoginPageView()
+        public SignInPageView()
         {
             NavigationPage.SetHasNavigationBar(this, false);
 
@@ -77,16 +77,6 @@ namespace Joyleaf
                 SignInButton.BackgroundColor = Color.FromHex("#4023C7A5");
                 SignInButton.IsEnabled = false;
             }
-        }
-
-        private void EntryOnFocus(object sender, FocusEventArgs e)
-        {
-            SignInStack.TranslateTo(0, -50, 400, Easing.CubicInOut);
-        }
-
-        private void EntryOffFocus(object sender, FocusEventArgs e)
-        {
-            SignInStack.TranslateTo(0, 0, 350, Easing.CubicOut);
         }
 
         protected override void OnAppearing()
