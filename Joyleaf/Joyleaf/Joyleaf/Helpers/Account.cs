@@ -1,4 +1,4 @@
-﻿namespace Joyleaf
+﻿namespace Joyleaf.Helpers
 {
     public class Account
     {

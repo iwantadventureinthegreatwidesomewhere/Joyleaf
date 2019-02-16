@@ -1,14 +1,14 @@
 ﻿<Properties StartupConfiguration="{928BF896-B912-476D-86D7-5A6B2B2B065A}|Default">
-  <MonoDevelop.Ide.ItemProperties.Joyleaf.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.634C2E62-9263-43A6-BEA6-7ABED2BA9510" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Joyleaf Status">
+  <MonoDevelop.Ide.ItemProperties.Joyleaf.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget.7f6c676ffe6635747836a89a194d39f6c7f48766" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Joyleaf/Joyleaf/Views/SignInPageView.xaml">
     <Files>
-      <File FileName="Joyleaf/Joyleaf/App.xaml.cs" Line="23" Column="2" />
-      <File FileName="Joyleaf Status" />
+      <File FileName="Joyleaf/Joyleaf/Views/MainPageView.xaml.cs" Line="113" Column="48" />
+      <File FileName="Joyleaf/Joyleaf/Views/SignInPageView.xaml" Line="28" Column="19" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.ItemProperties.Joyleaf.Android PreferredExecutionTarget="Android.pixel_xl" />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhone" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

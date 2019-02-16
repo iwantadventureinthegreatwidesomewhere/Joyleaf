@@ -1,9 +1,10 @@
-﻿using Plugin.Connectivity;
+﻿using Joyleaf.Services;
+using Plugin.Connectivity;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace Joyleaf
+namespace Joyleaf.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
 

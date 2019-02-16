@@ -1,8 +1,9 @@
-﻿using Plugin.Connectivity;
+﻿using Joyleaf.Services;
+using Plugin.Connectivity;
 using System;
 using Xamarin.Forms;
 
-namespace Joyleaf
+namespace Joyleaf.Views
 {
     public partial class ForgotPasswordPageView : ContentPage
     {

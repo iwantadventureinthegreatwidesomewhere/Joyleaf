@@ -1,8 +1,14 @@
 ﻿using Xamarin.Forms;
 
-namespace Joyleaf.CustomTypes
+namespace Joyleaf.Helpers
 {
     public class StoreItem : Frame
     {
+        public StoreItem()
+        {
+            this.BackgroundColor = Color.AliceBlue;
+        }
+
+
     }
 }

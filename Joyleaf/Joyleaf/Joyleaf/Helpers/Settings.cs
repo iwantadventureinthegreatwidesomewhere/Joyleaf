@@ -1,7 +1,7 @@
 ﻿using Plugin.Settings;
 using Plugin.Settings.Abstractions;
 
-namespace Joyleaf
+namespace Joyleaf.Helpers
 {
     public static class Settings
     {

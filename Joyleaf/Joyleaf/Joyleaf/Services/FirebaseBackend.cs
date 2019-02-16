@@ -1,12 +1,14 @@
 ﻿using Firebase.Auth;
 using Firebase.Database;
 using Firebase.Database.Query;
+using Joyleaf.Helpers;
+using Joyleaf.Views;
 using Newtonsoft.Json;
 using System;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
-namespace Joyleaf
+namespace Joyleaf.Services
 {
     static class FirebaseBackend
     {

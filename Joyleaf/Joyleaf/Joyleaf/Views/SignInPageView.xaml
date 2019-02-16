@@ -5,7 +5,7 @@
              xmlns:local="clr-namespace:Joyleaf;assembly=Joyleaf"
              xmlns:system="clr-namespace:System;assembly=netstandard"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Joyleaf.SignInPageView"
+             x:Class="Joyleaf.Views.SignInPageView"
              BackgroundColor="White">
     
     <Grid>
@@ -26,20 +26,6 @@
                     Margin="-10,0,0,5"
                     Source="Logo"
                 />
-                
-                <Label
-                    FontAttributes="Bold"
-                    FontSize="14"
-                    HorizontalTextAlignment="Center"
-                    Margin="0,10"
-                    Text="Reach new heights."
-                    TextColor="#333333">
-                    <Label.FontFamily>
-                        <OnPlatform x:TypeArguments="x:String">
-                            <On Platform="Android" Value="Roboto-Medium.ttf#Roboto-Medium"/>
-                        </OnPlatform>
-                    </Label.FontFamily>
-                </Label>
                 
                 <StackLayout HorizontalOptions="Fill" Margin="30" VerticalOptions="FillAndExpand">
                     

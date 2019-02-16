@@ -2,7 +2,7 @@
 using System;
 using Xamarin.Forms;
 
-namespace Joyleaf
+namespace Joyleaf.Views
 {
     public partial class PasswordPageView : ContentPage
     {

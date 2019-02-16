@@ -1,85 +1,23 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
-                  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-                  xmlns:local="clr-namespace:Joyleaf;assembly=Joyleaf"
-                  xmlns:system="clr-namespace:System;assembly=netstandard"
-                  xmlns:customControls="clr-namespace:Joyleaf.CustomControls;assembly=Joyleaf"
-                  x:Class="Joyleaf.MainPageView"
-                  BackgroundColor="White">
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:customControls="clr-namespace:Joyleaf.CustomControls;assembly=Joyleaf"
+             xmlns:local="clr-namespace:Joyleaf;assembly=Joyleaf"
+             xmlns:system="clr-namespace:System;assembly=netstandard"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Joyleaf.Views.MainPageView"
+             BackgroundColor="White">
     
-    <MasterDetailPage.Master>
-        <ContentPage Title="Master" BackgroundColor="#ebebeb">
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="13*"/>
-                    <RowDefinition Height="87*"/>
-                </Grid.RowDefinitions>
-                <Grid Grid.Row="0" BackgroundColor="#1e9797">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="97*"/>
-                        <RowDefinition Height="3*"/>
-                    </Grid.RowDefinitions>
-                    <StackLayout Grid.Row="0" Margin="23,0" VerticalOptions="EndAndExpand" x:Name="MasterBar"/>
-                </Grid>
-                <Grid Grid.Row="1">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="80*"/>
-                        <ColumnDefinition Width="20*"/>
-                    </Grid.ColumnDefinitions>
-                    <StackLayout Grid.Column="0" BackgroundColor="White"/>
-                    <StackLayout x:Name="MasterGrey" Grid.Column="1"/>
-                </Grid>
-         
-            </Grid>
-        </ContentPage>
+    <ScrollView Orientation="Vertical" VerticalOptions="FillAndExpand">
         
+        <StackLayout x:Name="ContentList" Orientation="Vertical" VerticalOptions="FillAndExpand">
+            
+            
+            
+            
+            
+        </StackLayout>
         
-        
-    </MasterDetailPage.Master>
+    </ScrollView>
     
-    <MasterDetailPage.Detail>
-        <ContentPage BackgroundColor="#ebebeb">
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="13*"/>
-                <RowDefinition Height="87*"/>
-            </Grid.RowDefinitions>
-            <Grid Grid.Row="0" BackgroundColor="#1e9797">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="97*"/>
-                    <RowDefinition Height="3*"/>
-                </Grid.RowDefinitions>
-                <Grid Grid.Row="0" BackgroundColor="#1e9797">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="19*"/>
-                        <ColumnDefinition Width="62*"/>
-                        <ColumnDefinition Width="19*"/>
-                    </Grid.ColumnDefinitions>
-                    <StackLayout Grid.Column="0" VerticalOptions="Fill" x:Name="Hamburger">
-                            <StackLayout VerticalOptions="EndAndExpand" Margin="13,0,0,0"> 
-                                <Image Source="hamburger.png" HeightRequest="17" Margin="0,10"/>
-                            </StackLayout>
-                    </StackLayout>
-                    <StackLayout Grid.Column="1" VerticalOptions="EndAndExpand">
-                        
-                    </StackLayout>
-                </Grid>
-            </Grid>
-            <ScrollView Orientation="Vertical" VerticalOptions="FillAndExpand" Grid.Row="1">
-                <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand" x:Name="ItemList">
-                    
-                    
-                    
-                </StackLayout>
-             </ScrollView>
-        </Grid>
-    </ContentPage>
-        
-        
-    </MasterDetailPage.Detail>
-    
-    
-    
-    
-    
-</MasterDetailPage>
+</ContentPage>  

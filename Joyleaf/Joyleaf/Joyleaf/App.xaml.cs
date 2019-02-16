@@ -1,3 +1,5 @@
+using Joyleaf.Services;
+using Joyleaf.Views;
 using Plugin.Connectivity;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;

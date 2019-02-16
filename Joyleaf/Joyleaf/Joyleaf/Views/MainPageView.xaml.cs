@@ -1,21 +1,24 @@
-﻿using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
-using Firebase.Auth;
-using Joyleaf.CustomTypes;
-using System;
-using System.Collections;
+﻿using Firebase.Auth;
+using Joyleaf.Helpers;
+using Joyleaf.Services;
 using Plugin.Connectivity;
+using System;
 using System.Threading.Tasks;
+using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 
-namespace Joyleaf
+namespace Joyleaf.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class MainPageView : MasterDetailPage
+
+    public partial class MainPageView : ContentPage
     {
-        //firebase
-        FirebaseAuthProvider authProvider = new FirebaseAuthProvider(new FirebaseConfig("AIzaSyDzp-mTwM_FacdwvNWk-6-M350NqDdXc94"));
-        FirebaseAuth auth = FirebaseBackend.GetAuth();
-        FirebaseAuthLink authLink;
+        private FirebaseAuthProvider authProvider = new FirebaseAuthProvider(new FirebaseConfig(Constants.FIREBASE_DATABASE_API_KEY));
+
+        private FirebaseAuth auth = FirebaseBackend.GetAuth();
+
+        private FirebaseAuthLink authLink;
+
         //wheel
         ActivityIndicator Wheel;
 
@@ -49,11 +52,6 @@ namespace Joyleaf
             ConnectionErrorText.HorizontalOptions = LayoutOptions.CenterAndExpand;
             ConnectionErrorText.Margin = new Thickness(0, 70);
 
-            //initialize master bar text
-            var MasterBarText = new Label();
-            //MasterBarText.Text = "Hello, " + account.firstName;
-            MasterBarText.TextColor = Color.White;
-            MasterBarText.FontAttributes = FontAttributes.Bold;
 
 
 
@@ -66,32 +64,19 @@ namespace Joyleaf
             {
                 if (CrossConnectivity.Current.IsConnected)
                 {
-                    ItemList.Children.Clear();
+                    ContentList.Children.Clear();
                     EnableLoader();
                     RefreshContent();
                 }
                 else
                 {
-                    ItemList.Children.Clear();
-                    ItemList.Children.Add(ConnectionErrorText);
+                    ContentList.Children.Clear();
+                    ContentList.Children.Add(ConnectionErrorText);
                 }
             };
 
-            ItemList.Spacing = 3;
+            ContentList.Spacing = 3;
 
-            MasterBar.Children.Add(MasterBarText);
-
-            //initialize gestures for opening and closing the master page
-            var OpenMaster = new TapGestureRecognizer();
-            OpenMaster.Tapped += (sender, e) =>
-                this.IsPresented = true;
-            var CloseMaster = new TapGestureRecognizer();
-            CloseMaster.Tapped += (sender, e) =>
-                this.IsPresented = false;
-
-            Hamburger.GestureRecognizers.Add(OpenMaster);
-
-            MasterGrey.GestureRecognizers.Add(CloseMaster);
 
 
 
@@ -105,6 +90,10 @@ namespace Joyleaf
 
         public async void RefreshContent()
         {
+            ContentList.Children.Add(new StoreItem());
+            ContentList.Children.Add(new StoreItem());
+            ContentList.Children.Add(new StoreItem());
+            ContentList.Children.Add(new StoreItem());
             await Task.Run(() =>
             {
 
@@ -116,12 +105,12 @@ namespace Joyleaf
 
         public void EnableLoader()
         {
-            ItemList.Children.Add(Wheel);
+            ContentList.Children.Add(Wheel);
         }
 
         public void DisableLoader()
         {
-            ItemList.Children.Remove(Wheel);
+            ContentList.Children.Remove(Wheel);
         }
 
         protected override void OnAppearing()
