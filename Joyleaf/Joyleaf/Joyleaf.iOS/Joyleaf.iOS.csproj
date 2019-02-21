@@ -111,21 +111,6 @@
     <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\iPhone X%403x.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\iPhone 8%402x.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\iPhone 8 Plus%403x.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\iPhone SE%402x.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\640x960.png">
-      <Visible>false</Visible>
-    </ImageAsset>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_20pt%402x.png" />
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_20pt%403x.png" />
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_29pt%402x.png" />
@@ -139,6 +124,12 @@
     <ImageAsset Include="Assets.xcassets\Logo.imageset\logo.png" />
     <ImageAsset Include="Assets.xcassets\Logo.imageset\logo%402x.png" />
     <ImageAsset Include="Assets.xcassets\Logo.imageset\logo%403x.png" />
+    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\iPhone 8 Plus.png" />
+    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\iPhone 8.png" />
+    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\iPhone SE.png" />
+    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\iPhone XS Max.png" />
+    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\iPhone XR.png" />
+    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\iPhone XS.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
