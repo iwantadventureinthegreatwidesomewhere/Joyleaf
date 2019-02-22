@@ -15,7 +15,7 @@ namespace Joyleaf.Views
     {
         private FirebaseAuthProvider authProvider = new FirebaseAuthProvider(new FirebaseConfig(Constants.FIREBASE_DATABASE_API_KEY));
 
-        private FirebaseAuth auth = FirebaseBackend.GetAuth();
+        private FirebaseAuth auth = FirebaseBackend.GetAuthLink();
 
         private FirebaseAuthLink authLink;
 

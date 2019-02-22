@@ -22,12 +22,14 @@
             <StackLayout>
                 
                 <Image
-                    HeightRequest="65"
+                    x:Name="Logo"
+                    HeightRequest="57"
                     Margin="-10,0,0,5"
                     Source="Logo"
                 />
                 
                 <Label
+                    x:Name="Tagline"
                     Font="14"
                     FontAttributes="Bold"
                     Margin="0,20,0,0"
@@ -45,13 +47,15 @@
                     
                     <customControls:CustomEntry
                         x:Name="EmailEntry"
+                        Focused="EntryFocus"
                         FontSize="14"
                         HorizontalOptions="Fill"
                         HeightRequest="45"
                         Keyboard="Email"
                         Placeholder="Email"
                         ReturnType="Next"
-                        TextChanged="TextChanged">
+                        TextChanged="TextChanged"
+                        Unfocused="EntryUnfocus">
                         <customControls:CustomEntry.BackgroundColor>
                             <OnPlatform x:TypeArguments="Color">
                                 <On Platform="iOS" Value="#fafafa"/>
@@ -61,6 +65,7 @@
                     
                     <customControls:CustomEntry
                         x:Name="PasswordEntry"
+                        Focused="EntryFocus"
                         FontSize="14"
                         HorizontalOptions="Fill"
                         HeightRequest="45"
@@ -68,7 +73,8 @@
                         Margin="0,7,0,0"
                         Placeholder="Password"
                         ReturnType="Go"
-                        TextChanged="TextChanged">
+                        TextChanged="TextChanged"
+                        Unfocused="EntryUnfocus">
                         <customControls:CustomEntry.BackgroundColor>
                             <OnPlatform x:TypeArguments="Color">
                                 <On Platform="iOS" Value="#fafafa"/>

@@ -12,7 +12,7 @@ namespace Joyleaf
     {
         public App()
         {
-            if (CrossConnectivity.Current.IsConnected && FirebaseBackend.IsSavedAuthValid())
+            if (CrossConnectivity.Current.IsConnected && FirebaseBackend.IsSavedAuthLinkValid())
             {
                 MainPage = new NavigationPage(new MainPageView());
             }
