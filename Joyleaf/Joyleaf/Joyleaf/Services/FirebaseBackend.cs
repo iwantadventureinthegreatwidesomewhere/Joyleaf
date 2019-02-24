@@ -12,6 +12,11 @@ namespace Joyleaf.Services
 {
     static class FirebaseBackend
     {
+        public static void DeleteAuth()
+        {
+            Settings.FirebaseAuth = "";
+        }
+
         public static Account GetAccount(FirebaseAuthLink auth)
         {
             FirebaseClient firebase = new FirebaseClient(
@@ -28,7 +33,7 @@ namespace Joyleaf.Services
             return account;
         }
 
-        public static FirebaseAuth GetAuthLink()
+        public static FirebaseAuth GetAuth()
         {
             string json = Settings.FirebaseAuth;
             FirebaseAuth auth = JsonConvert.DeserializeObject<FirebaseAuth>(json);
@@ -65,7 +70,7 @@ namespace Joyleaf.Services
             }
         }
 
-        public static bool IsSavedAuthLinkValid()
+        public static bool IsSavedAuthValid()
         {
             try
             {
@@ -73,7 +78,7 @@ namespace Joyleaf.Services
 
                 User user = Task.Run(() =>
                 {
-                    FirebaseAuthLink auth = new FirebaseAuthLink(authProvider, GetAuthLink());
+                    FirebaseAuthLink auth = new FirebaseAuthLink(authProvider, GetAuth());
                     return authProvider.GetUserAsync(auth.FirebaseToken);
                 }).Result;
 
@@ -83,6 +88,17 @@ namespace Joyleaf.Services
             {
                 return false;
             }
+        }
+
+        public static async void RefreshAuthAsync()
+        {
+            FirebaseAuthProvider authProvider = new FirebaseAuthProvider(new FirebaseConfig(Constants.FIREBASE_DATABASE_API_KEY));
+
+            FirebaseAuthLink authLink = new FirebaseAuthLink(authProvider, GetAuth());
+
+            FirebaseAuthLink freshAuthLink = await authLink.GetFreshAuthAsync();
+
+            SetAuth(freshAuthLink);
         }
 
         public static void SendPasswordReset(string email)
@@ -101,7 +117,7 @@ namespace Joyleaf.Services
             }
         }
 
-        public static void SetAuthLink(FirebaseAuth auth)
+        public static void SetAuth(FirebaseAuth auth)
         {
             string s = JsonConvert.SerializeObject(auth);
             Settings.FirebaseAuth = s;
@@ -119,13 +135,13 @@ namespace Joyleaf.Services
                     return t;
                 }).Result;
 
-                SetAuthLink(auth);
+                SetAuth(auth);
 
                 Application.Current.MainPage = new NavigationPage(new MainPageView());
             }
             catch (Exception e)
             {
-                if (e.InnerException.Message.Contains("INVALID_EMAIL") || e.InnerException.Message.Contains("INVALID_PASSWORD"))
+                if (e.InnerException.Message.Contains("EMAIL_NOT_FOUND") || e.InnerException.Message.Contains("INVALID_EMAIL") || e.InnerException.Message.Contains("INVALID_PASSWORD"))
                 {
                     Application.Current.MainPage.DisplayAlert("Incorrect password for " + email, "The password you entered is incorrect. Please try again.", "Try Again");
                 }
@@ -150,7 +166,7 @@ namespace Joyleaf.Services
 
             Task x = firebase.Child("users").Child(auth.User.LocalId).PutAsync(account);
 
-            SetAuthLink(auth);
+            SetAuth(auth);
 
             Application.Current.MainPage = new NavigationPage(new MainPageView());
         }

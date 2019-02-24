@@ -2,8 +2,8 @@
   <MonoDevelop.Ide.ItemProperties.Joyleaf.iOS automaticSigning="False" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget.7f6c676ffe6635747836a89a194d39f6c7f48766" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Joyleaf Status">
     <Files>
-      <File FileName="Joyleaf/Joyleaf/Views/SignInPageView.xaml" Line="32" Column="36" />
-      <File FileName="Joyleaf/Joyleaf/Views/SignInPageView.xaml.cs" Line="88" Column="48" />
+      <File FileName="Joyleaf/Joyleaf/Views/MainPageView.xaml.cs" Line="126" Column="18" />
+      <File FileName="Joyleaf/Joyleaf/Services/FirebaseBackend.cs" Line="91" Column="10" />
       <File FileName="Joyleaf Status" />
     </Files>
   </MonoDevelop.Ide.Workbench>

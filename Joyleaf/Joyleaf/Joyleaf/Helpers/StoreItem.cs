@@ -7,6 +7,7 @@ namespace Joyleaf.Helpers
         public StoreItem()
         {
             this.BackgroundColor = Color.AliceBlue;
+            this.HeightRequest = 100;
         }
 
 

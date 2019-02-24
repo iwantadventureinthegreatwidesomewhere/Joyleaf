@@ -101,8 +101,9 @@ namespace Joyleaf.Views
             {
                 Application.Current.MainPage.DisplayAlert("Connection error", "Please check your network connection, then try again.", "OK");
             }
-            else if (!string.IsNullOrEmpty(Settings.FirebaseAuth) && !FirebaseBackend.IsSavedAuthLinkValid())
+            else if (!string.IsNullOrEmpty(Settings.FirebaseAuth) && !FirebaseBackend.IsSavedAuthValid())
             {
+                FirebaseBackend.DeleteAuth();
                 Application.Current.MainPage.DisplayAlert("You've been signed out", "The account owner may have changed the password.", "OK");
             }
         }

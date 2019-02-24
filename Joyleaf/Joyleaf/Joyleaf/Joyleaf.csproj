@@ -13,6 +13,7 @@
     <Compile Remove="CustomControls\NewStoreTitle.cs" />
     <Compile Remove="Services\WebTester.cs" />
     <Compile Remove="CustomControls\NewEntryEmailVerify.cs" />
+    <Compile Remove="GlobalSuppressions.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Ressources\blacklogo.png" />

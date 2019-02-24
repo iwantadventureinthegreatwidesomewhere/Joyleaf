@@ -1,5 +1,4 @@
-﻿using Firebase.Auth;
-using Joyleaf.Helpers;
+﻿using Joyleaf.Helpers;
 using Joyleaf.Services;
 using Plugin.Connectivity;
 using System;
@@ -13,114 +12,128 @@ namespace Joyleaf.Views
 
     public partial class MainPageView : ContentPage
     {
-        private FirebaseAuthProvider authProvider = new FirebaseAuthProvider(new FirebaseConfig(Constants.FIREBASE_DATABASE_API_KEY));
-
-        private FirebaseAuth auth = FirebaseBackend.GetAuthLink();
-
-        private FirebaseAuthLink authLink;
-
-        //wheel
-        ActivityIndicator Wheel;
-
         public MainPageView()
         {
-            //fetch account
-            Account account;
-            authLink = new FirebaseAuthLink(authProvider, auth);
-            try
-            {
-                account = FirebaseBackend.GetAccount(authLink);
-            }
-            catch (Exception)
-            {
-                account = null;
-            }
-
-
-            //initialize wheel
-            Wheel = new ActivityIndicator();
-            Wheel.Color = Color.FromHex("#00b1b0");
-            Wheel.HorizontalOptions = LayoutOptions.Center;
-            Wheel.IsRunning = true;
-            Wheel.Margin = new Thickness(0, 30);
-
-            //initialize connection error text
-            var ConnectionErrorText = new Label();
-            ConnectionErrorText.FontSize = 15;
-            ConnectionErrorText.Text = "Please check your network connection.";
-            ConnectionErrorText.TextColor = Color.Gray;
-            ConnectionErrorText.HorizontalOptions = LayoutOptions.CenterAndExpand;
-            ConnectionErrorText.Margin = new Thickness(0, 70);
-
-
-
-
             InitializeComponent();
 
             NavigationPage.SetHasNavigationBar(this, false);
 
-            //subscribe to event that handles connection changes
+            Content.Padding = 25;
+
+            Label ConnectionErrorText = new Label
+            {
+                FontAttributes = FontAttributes.Bold,
+                FontSize = 33,
+                HorizontalTextAlignment = TextAlignment.Center,
+                Margin = new Thickness(0, 175, 0, 0),
+                Text = "Offline",
+                TextColor = Color.Black
+            };
+
+            Label ConnectionErrorMessageText = new Label
+            {
+                FontSize = 23,
+                HorizontalTextAlignment = TextAlignment.Center,
+                Text = "Please check your network connection.",
+                TextColor = Color.Gray
+            };
+
+            if (CrossConnectivity.Current.IsConnected)
+            {
+                if (!FirebaseBackend.IsSavedAuthValid())
+                {
+                    try
+                    {
+                        FirebaseBackend.RefreshAuthAsync();
+                    }
+                    catch (Exception)
+                    {
+                        Application.Current.MainPage = new NavigationPage(new SignInPageView());
+                    }
+                }
+
+                RefreshContent();
+            }
+            else
+            {
+                Content.Children.Add(ConnectionErrorText);
+                Content.Children.Add(ConnectionErrorMessageText);
+
+                Scroller.IsEnabled = false;
+            }
+
             CrossConnectivity.Current.ConnectivityChanged += (sender, args) =>
             {
                 if (CrossConnectivity.Current.IsConnected)
                 {
-                    ContentList.Children.Clear();
-                    EnableLoader();
+                    if (!FirebaseBackend.IsSavedAuthValid())
+                    {
+                        try
+                        {
+                            FirebaseBackend.RefreshAuthAsync();
+                        }
+                        catch (Exception)
+                        {
+                            Application.Current.MainPage = new NavigationPage(new SignInPageView());
+                        }
+                    }
+
+                    Content.Children.Clear();
+
                     RefreshContent();
+
+                    Scroller.IsEnabled = true;
                 }
                 else
                 {
-                    ContentList.Children.Clear();
-                    ContentList.Children.Add(ConnectionErrorText);
+                    Content.Children.Clear();
+
+                    Content.Children.Add(ConnectionErrorText);
+                    Content.Children.Add(ConnectionErrorMessageText);
+
+                    Scroller.IsEnabled = false;
                 }
             };
-
-            ContentList.Spacing = 3;
-
-
-
-
-
-
-
-
-
-
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         public async void RefreshContent()
         {
-            ContentList.Children.Add(new StoreItem());
-            ContentList.Children.Add(new StoreItem());
-            ContentList.Children.Add(new StoreItem());
-            ContentList.Children.Add(new StoreItem());
-            await Task.Run(() =>
+            Content.Children.Add(new StoreItem());
+            Content.Children.Add(new StoreItem());
+            Content.Children.Add(new StoreItem());
+            Content.Children.Add(new StoreItem());
+            /*await Task.Run(() =>
             {
 
 
 
                 Device.BeginInvokeOnMainThread(() => { DisableLoader(); });
-            });
+            });*/
         }
 
         public void EnableLoader()
         {
-            ContentList.Children.Add(Wheel);
+            //ContentList.Children.Add(Wheel);
         }
 
         public void DisableLoader()
         {
-            ContentList.Children.Remove(Wheel);
-        }
-
-        protected override void OnAppearing()
-        {
-            {
-                if (CrossConnectivity.Current.IsConnected)
-                {
-                    RefreshContent();
-                }
-            }
+            //ContentList.Children.Remove(Wheel);
         }
     }
 }

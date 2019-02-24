@@ -8,16 +8,12 @@
              x:Class="Joyleaf.Views.MainPageView"
              BackgroundColor="White">
     
-    <ScrollView Orientation="Vertical" VerticalOptions="FillAndExpand">
-        
-        <StackLayout x:Name="ContentList" Orientation="Vertical" VerticalOptions="FillAndExpand">
+    <ScrollView x:Name="Scroller" Orientation="Vertical" VerticalOptions="Fill">
             
-            
-            
-            
-            
+        <StackLayout x:Name="Content" Orientation="Vertical" VerticalOptions="Fill">
+                
         </StackLayout>
-        
+            
     </ScrollView>
     
 </ContentPage>  
