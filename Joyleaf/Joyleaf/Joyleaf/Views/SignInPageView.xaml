@@ -34,7 +34,7 @@
                     FontAttributes="Bold"
                     Margin="0,20,0,0"
                     Text="Browse local cannabis tailored to you."
-                    TextColor="#4f4f4f"
+                    TextColor="#333333"
                     HorizontalTextAlignment="Center">
                     <Label.FontFamily>
                         <OnPlatform x:TypeArguments="x:String">
@@ -140,7 +140,7 @@
                 FontAttributes="Bold"
                 FontSize="14"
                 Text="New to Joyleaf?"
-                TextColor="#4f4f4f">
+                TextColor="#333333">
                 <Label.FontFamily>
                     <OnPlatform x:TypeArguments="x:String">
                         <On Platform="Android" Value="Roboto-Medium.ttf#Roboto-Medium"/>

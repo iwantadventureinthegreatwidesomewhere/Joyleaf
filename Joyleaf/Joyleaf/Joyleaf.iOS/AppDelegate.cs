@@ -29,7 +29,9 @@ namespace Joyleaf.iOS
             UIView statusBar = UIApplication.SharedApplication.ValueForKey(new NSString("statusBar")) as UIView;
             statusBar.BackgroundColor = UIColor.FromRGB(255, 255, 255);
 
-            UINavigationBar.Appearance.TintColor = UIColor.FromRGB(35,199,165);
+            UINavigationBar.Appearance.TintColor = UIColor.FromRGB(35, 199, 165);
+
+            UITabBar.Appearance.SelectedImageTintColor = UIColor.FromRGB(51, 51, 51);
 
             return base.FinishedLaunching(app, options);
         }

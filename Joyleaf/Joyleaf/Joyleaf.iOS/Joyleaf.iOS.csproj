@@ -130,6 +130,14 @@
     <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\iPhone XS Max.png" />
     <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\iPhone XR.png" />
     <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\iPhone XS.png" />
+    <ImageAsset Include="Assets.xcassets\Explore.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Explore.imageset\baseline_explore_black_24pt_1x.png" />
+    <ImageAsset Include="Assets.xcassets\Explore.imageset\baseline_explore_black_24pt_2x.png" />
+    <ImageAsset Include="Assets.xcassets\Explore.imageset\baseline_explore_black_24pt_3x.png" />
+    <ImageAsset Include="Assets.xcassets\Account.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Account.imageset\baseline_account_circle_black_24pt_1x.png" />
+    <ImageAsset Include="Assets.xcassets\Account.imageset\baseline_account_circle_black_24pt_2x.png" />
+    <ImageAsset Include="Assets.xcassets\Account.imageset\baseline_account_circle_black_24pt_3x.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -158,5 +166,7 @@
     <Folder Include="Assets.xcassets\hamburger.png.imageset\" />
     <Folder Include="Assets.xcassets\Logo.imageset\" />
     <Folder Include="Assets.xcassets\Logo.imageset\" />
+    <Folder Include="Assets.xcassets\Explore.imageset\" />
+    <Folder Include="Assets.xcassets\Account.imageset\" />
   </ItemGroup>
 </Project>

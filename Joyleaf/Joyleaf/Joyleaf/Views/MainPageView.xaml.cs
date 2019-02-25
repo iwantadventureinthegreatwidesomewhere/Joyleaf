@@ -2,7 +2,6 @@
 using Joyleaf.Services;
 using Plugin.Connectivity;
 using System;
-using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -10,7 +9,7 @@ namespace Joyleaf.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
 
-    public partial class MainPageView : ContentPage
+    public partial class MainPageView : TabbedPage
     {
         public MainPageView()
         {
@@ -19,6 +18,7 @@ namespace Joyleaf.Views
             NavigationPage.SetHasNavigationBar(this, false);
 
             Content.Padding = 25;
+            Content.Spacing = 35;
 
             Label ConnectionErrorText = new Label
             {
@@ -111,7 +111,7 @@ namespace Joyleaf.Views
 
 
 
-        public async void RefreshContent()
+        private void RefreshContent()
         {
             Content.Children.Add(new StoreItem());
             Content.Children.Add(new StoreItem());
@@ -126,12 +126,12 @@ namespace Joyleaf.Views
             });*/
         }
 
-        public void EnableLoader()
+        private void EnableLoader()
         {
             //ContentList.Children.Add(Wheel);
         }
 
-        public void DisableLoader()
+        private void DisableLoader()
         {
             //ContentList.Children.Remove(Wheel);
         }
