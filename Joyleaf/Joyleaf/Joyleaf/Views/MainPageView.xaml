@@ -10,15 +10,34 @@
     
     <ContentPage Icon="Explore">
         
-        <ScrollView x:Name="Scroller" Orientation="Vertical"  VerticalOptions="Fill">
+        <RelativeLayout x:Name="ExploreRelativeLayout" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            
+            
+            <ScrollView 
+                x:Name="Scroller" 
+                Orientation="Vertical" 
+                
+                VerticalOptions="Fill"
+                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=1}"
+                RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=1}">
             
             <StackLayout x:Name="Content" Orientation="Vertical" VerticalOptions="Fill">
                 
             </StackLayout>
             
-        </ScrollView>
-    
+            </ScrollView>
+            
+            
+            
+            
+        </RelativeLayout>
+        
     </ContentPage>
+    
+    <ContentPage Icon="Search">
+    
+    </ContentPage>    
+        
     
     <ContentPage Icon="Account">
     

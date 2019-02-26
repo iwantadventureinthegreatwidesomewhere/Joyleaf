@@ -61,7 +61,7 @@ namespace Joyleaf.Services
                     return true;
                 }
 
-                if (e.InnerException.Message.Contains("INVALID_PASSWORD"))
+                if (e.InnerException.Message.Contains("INVALID_PASSWORD") || e.InnerException.Message.Contains("INVALID_EMAIL"))
                 {
                     return false;
                 }
