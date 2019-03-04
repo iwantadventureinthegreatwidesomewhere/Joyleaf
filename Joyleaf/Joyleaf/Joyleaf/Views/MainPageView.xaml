@@ -40,6 +40,31 @@
         
     
     <ContentPage Icon="Account">
+        
+        <StackLayout Margin="0, 200, 0, 0">
+        
+        <customControls:CustomButton
+                        x:Name="LogoutButton"
+                        BackgroundColor="#23C7A5"
+                        Clicked="LogoutButtonClick"
+                        FontAttributes="Bold"
+                        FontSize="13"
+                        HeightRequest="45"
+                        HorizontalOptions="Fill"
+                        Margin="30,30"
+                        Text="LOG OUT"
+                        TextColor="White">
+                        <Button.FontFamily>
+                            <OnPlatform x:TypeArguments="x:String">
+                                <On Platform="Android" Value="Roboto-Medium.ttf#Roboto-Medium"/>
+                            </OnPlatform>
+                        </Button.FontFamily>
+                    </customControls:CustomButton>
+            
+            
+            </StackLayout>
+        
+        
     
     </ContentPage>
    

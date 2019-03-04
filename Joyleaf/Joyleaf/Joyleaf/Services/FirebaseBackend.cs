@@ -70,17 +70,15 @@ namespace Joyleaf.Services
             }
         }
 
-        public static bool IsSavedAuthValid()
+        public static async Task<bool> IsSavedAuthValidAsync()
         {
             try
             {
                 FirebaseAuthProvider authProvider = new FirebaseAuthProvider(new FirebaseConfig(Constants.FIREBASE_DATABASE_API_KEY));
 
-                User user = Task.Run(() =>
-                {
-                    FirebaseAuthLink auth = new FirebaseAuthLink(authProvider, GetAuth());
-                    return authProvider.GetUserAsync(auth.FirebaseToken);
-                }).Result;
+                FirebaseAuthLink auth = new FirebaseAuthLink(authProvider, GetAuth());
+
+                User user = await authProvider.GetUserAsync(auth.FirebaseToken);
 
                 return true;
             }
@@ -90,15 +88,15 @@ namespace Joyleaf.Services
             }
         }
 
-        public static async void RefreshAuthAsync()
+        public static async Task RefreshAuthAsync()
         {
             FirebaseAuthProvider authProvider = new FirebaseAuthProvider(new FirebaseConfig(Constants.FIREBASE_DATABASE_API_KEY));
 
             FirebaseAuthLink authLink = new FirebaseAuthLink(authProvider, GetAuth());
 
-            FirebaseAuthLink freshAuthLink = await authLink.GetFreshAuthAsync();
+            Task<FirebaseAuthLink> freshAuthLink = authLink.GetFreshAuthAsync();
 
-            SetAuth(freshAuthLink);
+            SetAuth(await freshAuthLink);
         }
 
         public static void SendPasswordReset(string email)

@@ -3,6 +3,7 @@ using Joyleaf.Helpers;
 using Joyleaf.Services;
 using Plugin.Connectivity;
 using System;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -61,15 +62,26 @@ namespace Joyleaf.Views
 
             if (CrossConnectivity.Current.IsConnected)
             {
-                if (!FirebaseBackend.IsSavedAuthValid())
+                bool valid = Task.Run(async () =>
+                {
+                    return await FirebaseBackend.IsSavedAuthValidAsync();
+                }).Result;
+
+                if (!valid)
                 {
                     try
                     {
-                        FirebaseBackend.RefreshAuthAsync();
+                        Task.Run(async () =>
+                        {
+                            await FirebaseBackend.RefreshAuthAsync();
+                        });
                     }
                     catch (Exception)
                     {
-                        Application.Current.MainPage = new NavigationPage(new SignInPageView());
+                        Device.BeginInvokeOnMainThread(() => 
+                        {
+                            Application.Current.MainPage = new NavigationPage(new SignInPageView());
+                        });
                     }
                 }
 
@@ -94,15 +106,26 @@ namespace Joyleaf.Views
             {
                 if (CrossConnectivity.Current.IsConnected)
                 {
-                    if (!FirebaseBackend.IsSavedAuthValid())
+                    bool valid = Task.Run(async () =>
+                    {
+                        return await FirebaseBackend.IsSavedAuthValidAsync();
+                    }).Result;
+
+                    if (!valid)
                     {
                         try
                         {
-                            FirebaseBackend.RefreshAuthAsync();
+                            Task.Run(async () =>
+                            {
+                                await FirebaseBackend.RefreshAuthAsync();
+                            });
                         }
                         catch (Exception)
                         {
-                            Application.Current.MainPage = new NavigationPage(new SignInPageView());
+                            Device.BeginInvokeOnMainThread(() => 
+                            {
+                                Application.Current.MainPage = new NavigationPage(new SignInPageView());
+                            });
                         }
                     }
 
@@ -135,7 +158,7 @@ namespace Joyleaf.Views
         private void OnButtonClicked()
         {
 
-            App.Current.MainPage.DisplayAlert("Sup", "Reach new heights \ud83c\udf89", "Poof");
+            Application.Current.MainPage.DisplayAlert("Sup", "Reach new heights \ud83c\udf89", "Poof");
         }
 
         private void RefreshContent()
@@ -191,13 +214,6 @@ namespace Joyleaf.Views
                 TextColor = Color.Black
             });
             Content.Children.Add(new StoreItem());
-            /*await Task.Run(() =>
-            {
-
-
-
-                Device.BeginInvokeOnMainThread(() => { DisableLoader(); });
-            });*/
         }
 
         private void EnableLoader()
@@ -208,6 +224,12 @@ namespace Joyleaf.Views
         private void DisableLoader()
         {
             //ContentList.Children.Remove(Wheel);
+        }
+
+        private void LogoutButtonClick(object sender, EventArgs e)
+        {
+            FirebaseBackend.DeleteAuth();
+            Application.Current.MainPage = new NavigationPage(new SignInPageView());
         }
     }
 }

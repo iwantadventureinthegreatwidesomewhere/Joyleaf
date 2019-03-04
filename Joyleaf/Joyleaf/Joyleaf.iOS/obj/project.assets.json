@@ -1871,8 +1871,9 @@
       "projectName": "Joyleaf.iOS",
       "projectPath": "/Users/marcoguida/Projects/iwantadventureinthegreatwidesomewhere/Project-Tangerine.git/Joyleaf/Joyleaf/Joyleaf.iOS/Joyleaf.iOS.csproj",
       "packagesPath": "/Users/marcoguida/.nuget/packages/",
-      "outputPath": "/Users/marcoguida/Projects/iwantadventureinthegreatwidesomewhere/Project-Tangerine.git/Joyleaf/Joyleaf/Joyleaf.iOS/obj",
+      "outputPath": "/Users/marcoguida/Projects/iwantadventureinthegreatwidesomewhere/Project-Tangerine.git/Joyleaf/Joyleaf/Joyleaf.iOS/obj/",
       "projectStyle": "PackageReference",
+      "skipContentFileWrite": true,
       "configFilePaths": [
         "/Users/marcoguida/.config/NuGet/NuGet.Config"
       ],

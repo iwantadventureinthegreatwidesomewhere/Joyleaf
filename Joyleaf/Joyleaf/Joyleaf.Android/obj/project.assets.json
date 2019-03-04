@@ -1444,8 +1444,9 @@
       "projectName": "Joyleaf.Android",
       "projectPath": "/Users/marcoguida/Projects/iwantadventureinthegreatwidesomewhere/Project-Tangerine.git/Joyleaf/Joyleaf/Joyleaf.Android/Joyleaf.Android.csproj",
       "packagesPath": "/Users/marcoguida/.nuget/packages/",
-      "outputPath": "/Users/marcoguida/Projects/iwantadventureinthegreatwidesomewhere/Project-Tangerine.git/Joyleaf/Joyleaf/Joyleaf.Android/obj",
+      "outputPath": "/Users/marcoguida/Projects/iwantadventureinthegreatwidesomewhere/Project-Tangerine.git/Joyleaf/Joyleaf/Joyleaf.Android/obj/",
       "projectStyle": "PackageReference",
+      "skipContentFileWrite": true,
       "configFilePaths": [
         "/Users/marcoguida/.config/NuGet/NuGet.Config"
       ],

@@ -2,9 +2,28 @@
   <MonoDevelop.Ide.ItemProperties.Joyleaf.iOS automaticSigning="False" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.634C2E62-9263-43A6-BEA6-7ABED2BA9510" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Joyleaf Status">
     <Files>
-      <File FileName="Joyleaf/Joyleaf/Views/MainPageView.xaml.cs" Line="182" Column="32" />
+      <File FileName="Joyleaf/Joyleaf/Views/MainPageView.xaml.cs" Line="87" Column="17" />
       <File FileName="Joyleaf Status" />
     </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Joyleaf" expanded="True">
+            <Node name="Joyleaf" expanded="True">
+              <Node name="Services" expanded="True" />
+              <Node name="Views" expanded="True">
+                <Node name="MainPageView.xaml" expanded="True">
+                  <Node name="MainPageView.xaml.cs" selected="True" />
+                </Node>
+                <Node name="SignInPageView.xaml" expanded="True" />
+              </Node>
+              <Node name="App.xaml" expanded="True" />
+            </Node>
+            <Node name="Joyleaf.iOS" expanded="True" />
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.ItemProperties.Joyleaf.Android PreferredExecutionTarget="Android.pixel_xl" />

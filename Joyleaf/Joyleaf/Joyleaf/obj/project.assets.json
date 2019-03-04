@@ -529,10 +529,12 @@
       ]
     },
     "Microsoft.NETCore.Platforms/1.1.0": {
-      "sha512": "kz0PEW2lhqygehI/d6XsPCQzD7ff7gUJaVGPVETX611eadGsA3A877GdSlU0LRVMCTH/+P3o2iDTak+S08V2+A==",
+      "sha512": "a/iSwnRZb+LHFk49hQOyThh/ZNC3vsbZsF65XwQIb863qF6msmhdQtxGXFL28Ob2NsCz/drEj28BJd/YPpLRBg==",
       "type": "package",
       "path": "microsoft.netcore.platforms/1.1.0",
       "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/netstandard1.0/_._",
@@ -2605,7 +2607,7 @@
       "projectName": "Joyleaf",
       "projectPath": "/Users/marcoguida/Projects/iwantadventureinthegreatwidesomewhere/Project-Tangerine.git/Joyleaf/Joyleaf/Joyleaf/Joyleaf.csproj",
       "packagesPath": "/Users/marcoguida/.nuget/packages/",
-      "outputPath": "/Users/marcoguida/Projects/iwantadventureinthegreatwidesomewhere/Project-Tangerine.git/Joyleaf/Joyleaf/Joyleaf/obj",
+      "outputPath": "/Users/marcoguida/Projects/iwantadventureinthegreatwidesomewhere/Project-Tangerine.git/Joyleaf/Joyleaf/Joyleaf/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
