@@ -20,5 +20,18 @@ namespace Joyleaf
                 MainPage = new NavigationPage(new MainPageView());
             }
         }
+
+        protected override void OnResume()
+        {
+            base.OnResume();
+
+            System.Collections.Generic.IReadOnlyList<Page> stack = Current.MainPage.Navigation.NavigationStack;
+
+            if (stack[0].GetType() == typeof(MainPageView))
+            {
+                MainPageView page = (MainPageView)Current.MainPage.Navigation.NavigationStack[0];
+                page.Checks();
+            }
+        }
     }
 }

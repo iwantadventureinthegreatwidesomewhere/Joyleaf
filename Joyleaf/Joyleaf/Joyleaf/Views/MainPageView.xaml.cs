@@ -1,9 +1,9 @@
-﻿using Joyleaf.CustomControls;
-using Joyleaf.Helpers;
+﻿using Joyleaf.Helpers;
 using Joyleaf.Services;
 using Plugin.Connectivity;
 using System;
 using System.Threading.Tasks;
+using System.Timers;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -13,18 +13,24 @@ namespace Joyleaf.Views
 
     public partial class MainPageView : TabbedPage
     {
+        private Button AwesomeButton;
+        private StackLayout ConnectionErrorText;
+        private Timer timer;
+
         public MainPageView()
         {
             InitializeComponent();
 
             NavigationPage.SetHasNavigationBar(this, false);
 
+            //#####################################################################################
+
             Content.Padding = 25;
             Content.Spacing = 25;
 
-            //-------------------------------------------------------------------------
-            var image = new Image { Source = "Logo" };
-            Button AwesomeButton = new Button
+            Image image = new Image { Source = "Logo" };
+
+            AwesomeButton = new Button
             {
                 BackgroundColor = Color.FromHex("#23C7A5"),
                 CornerRadius = 30,
@@ -32,12 +38,13 @@ namespace Joyleaf.Views
                 Image = "AwesomeButton",
                 WidthRequest = 60
             };
-            AwesomeButton.Clicked += (object sender, EventArgs e) => OnButtonClicked();
+            AwesomeButton.Clicked += (object sender, EventArgs e) => AwesomeButtonClick();
 
-            StackLayout ConnectionErrorText = new StackLayout();
-
-            ConnectionErrorText.IsEnabled = false;
-            ConnectionErrorText.IsVisible = false;
+            ConnectionErrorText = new StackLayout
+            {
+                IsEnabled = false,
+                IsVisible = false
+            };
 
             ConnectionErrorText.Children.Add(new Label
             {
@@ -56,118 +63,48 @@ namespace Joyleaf.Views
                 TextColor = Color.Gray
             });
 
-            ExploreRelativeLayout.Children.Add(ConnectionErrorText, Constraint.RelativeToParent(parent => (parent.Width / 2) - (ConnectionErrorText.Width / 2)),Constraint.RelativeToParent(parent => (parent.Height / 2) - (ConnectionErrorText.Height / 2)));
+            ExploreRelativeLayout.Children.Add(ConnectionErrorText, Constraint.RelativeToParent(parent => (parent.Width / 2) - (ConnectionErrorText.Width / 2)), Constraint.RelativeToParent(parent => (parent.Height / 2) - (ConnectionErrorText.Height / 2)));
 
-            //-------------------------------------------------------------------------
+            //#####################################################################################
 
-            if (CrossConnectivity.Current.IsConnected)
-            {
-                bool valid = Task.Run(async () =>
-                {
-                    return await FirebaseBackend.IsSavedAuthValidAsync();
-                }).Result;
-
-                if (!valid)
-                {
-                    try
-                    {
-                        Task.Run(async () =>
-                        {
-                            await FirebaseBackend.RefreshAuthAsync();
-                        });
-                    }
-                    catch (Exception)
-                    {
-                        Device.BeginInvokeOnMainThread(() => 
-                        {
-                            Application.Current.MainPage = new NavigationPage(new SignInPageView());
-                        });
-                    }
-                }
-
-                ExploreRelativeLayout.Children.Add(AwesomeButton,
-                Constraint.RelativeToParent(parent => parent.Width - 75),
-                Constraint.RelativeToParent(parent => parent.Height - 75)
-                );
-
-                RefreshContent();
-            }
-            else
-            {
-                ConnectionErrorText.IsEnabled = true;
-                ConnectionErrorText.IsVisible = true;
-
-                Scroller.IsEnabled = false;
-            }
-
-            //-------------------------------------------------------------------------
+            Checks();
 
             CrossConnectivity.Current.ConnectivityChanged += (sender, args) =>
             {
-                if (CrossConnectivity.Current.IsConnected)
-                {
-                    bool valid = Task.Run(async () =>
-                    {
-                        return await FirebaseBackend.IsSavedAuthValidAsync();
-                    }).Result;
-
-                    if (!valid)
-                    {
-                        try
-                        {
-                            Task.Run(async () =>
-                            {
-                                await FirebaseBackend.RefreshAuthAsync();
-                            });
-                        }
-                        catch (Exception)
-                        {
-                            Device.BeginInvokeOnMainThread(() => 
-                            {
-                                Application.Current.MainPage = new NavigationPage(new SignInPageView());
-                            });
-                        }
-                    }
-
-                    ConnectionErrorText.IsEnabled = false;
-                    ConnectionErrorText.IsVisible = false;
-
-                    ExploreRelativeLayout.Children.Add(AwesomeButton,
-                    Constraint.RelativeToParent(parent => parent.Width - 75),
-                    Constraint.RelativeToParent(parent => parent.Height - 75)
-                    );
-
-                    RefreshContent();
-
-                    Scroller.IsEnabled = true;
-                }
-                else
-                {
-                    Content.Children.Clear();
-
-                    ExploreRelativeLayout.Children.Remove(AwesomeButton);
-
-                    ConnectionErrorText.IsEnabled = true;
-                    ConnectionErrorText.IsVisible = true;
-
-                    Scroller.IsEnabled = false;
-                }
+                Checks();
             };
+
+            timer = new Timer(1000 * 60 * 60);
+            timer.Elapsed += TimedRefreshContent;
+            timer.Start();
         }
 
-        private void OnButtonClicked()
+
+
+
+
+
+
+
+
+
+        private void AwesomeButtonClick()
         {
-
-            Application.Current.MainPage.DisplayAlert("Sup", "Reach new heights \ud83c\udf89", "Poof");
         }
+
+
+
+
 
         private void RefreshContent()
         {
+            Content.Children.Clear();
             Content.Children.Add(
             new Label
             {
                 Text = "Trending Now  \U0001F91F",
                 FontSize = 27,
+                Margin = new Thickness(5, 0, 0, 0),
                 FontAttributes = FontAttributes.Bold,
                 TextColor = Color.Black
             });
@@ -177,7 +114,7 @@ namespace Joyleaf.Views
             {
                 Text = "Recommended For You",
                 FontSize = 27,
-                Margin = new Thickness(0, 20, 0, 0),
+                Margin = new Thickness(5, 20, 0, 0),
                 FontAttributes = FontAttributes.Bold,
                 TextColor = Color.Black
             });
@@ -187,47 +124,82 @@ namespace Joyleaf.Views
             {
                 Text = "New  \ud83c\udf89",
                 FontSize = 27,
-                Margin = new Thickness(0, 20, 0, 0),
-                FontAttributes = FontAttributes.Bold,
-                TextColor = Color.Black
-            });
-
-            Content.Children.Add(new StoreItem());
-            Content.Children.Add(
-            new Label
-            {
-                Text = "Since You Like [Brand]",
-                FontSize = 27,
-                Margin = new Thickness(0, 20, 0, 0),
-                FontAttributes = FontAttributes.Bold,
-                TextColor = Color.Black
-            });
-            Content.Children.Add(new StoreItem());
-
-            Content.Children.Add(
-            new Label
-            {
-                Text = "Buds We Love",
-                FontSize = 27,
-                Margin = new Thickness(0, 20, 0, 0),
+                Margin = new Thickness(5, 20, 0, 0),
                 FontAttributes = FontAttributes.Bold,
                 TextColor = Color.Black
             });
             Content.Children.Add(new StoreItem());
         }
 
-        private void EnableLoader()
+
+
+
+
+
+
+
+
+
+        public void Checks()
         {
-            //ContentList.Children.Add(Wheel);
+            if (CrossConnectivity.Current.IsConnected)
+            {
+                bool valid = Task.Run(async () =>
+                {
+                    return await FirebaseBackend.IsSavedAuthValidAsync();
+                }).Result;
+
+                if (!valid)
+                {
+                    bool freshAuthValid = Task.Run(async () =>
+                    {
+                        await FirebaseBackend.RefreshAuthAsync();
+                        return await FirebaseBackend.IsSavedAuthValidAsync();
+                    }).Result;
+
+                    if (!freshAuthValid)
+                    {
+                        Device.BeginInvokeOnMainThread(() =>
+                        {
+                            timer.Stop();
+                            Application.Current.MainPage = new NavigationPage(new SignInPageView());
+                        });
+                    }
+                }
+
+                ConnectionErrorText.IsEnabled = false;
+                ConnectionErrorText.IsVisible = false;
+
+                ExploreRelativeLayout.Children.Add(AwesomeButton,
+                Constraint.RelativeToParent(parent => parent.Width - 75),
+                Constraint.RelativeToParent(parent => parent.Height - 75)
+                );
+
+                RefreshContent();
+
+                Scroller.IsEnabled = true;
+            }
+            else
+            {
+                Content.Children.Clear();
+
+                ExploreRelativeLayout.Children.Remove(AwesomeButton);
+
+                ConnectionErrorText.IsEnabled = true;
+                ConnectionErrorText.IsVisible = true;
+
+                Scroller.IsEnabled = false;
+            }
         }
 
-        private void DisableLoader()
+        private void TimedRefreshContent(object source, ElapsedEventArgs e)
         {
-            //ContentList.Children.Remove(Wheel);
+            RefreshContent();
         }
 
         private void LogoutButtonClick(object sender, EventArgs e)
         {
+            timer.Stop();
             FirebaseBackend.DeleteAuth();
             Application.Current.MainPage = new NavigationPage(new SignInPageView());
         }
