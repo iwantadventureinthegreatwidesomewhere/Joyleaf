@@ -15,7 +15,7 @@ namespace Joyleaf.Views
     {
         private Button AwesomeButton;
         private StackLayout ConnectionErrorText;
-        private Timer timer;
+        private Timer RefreshTimer;
 
         public MainPageView()
         {
@@ -69,14 +69,11 @@ namespace Joyleaf.Views
 
             Checks();
 
-            CrossConnectivity.Current.ConnectivityChanged += (sender, args) =>
-            {
-                Checks();
-            };
+            CrossConnectivity.Current.ConnectivityChanged += HandleConnectionChecksEvent;
 
-            timer = new Timer(1000 * 60 * 60);
-            timer.Elapsed += TimedRefreshContent;
-            timer.Start();
+            RefreshTimer = new Timer(1000 * 60 * 60);
+            RefreshTimer.Elapsed += HandleTimedRefreshEvent;
+            RefreshTimer.Start();
         }
 
 
@@ -88,9 +85,7 @@ namespace Joyleaf.Views
 
 
 
-        private void AwesomeButtonClick()
-        {
-        }
+
 
 
 
@@ -161,7 +156,7 @@ namespace Joyleaf.Views
                     {
                         Device.BeginInvokeOnMainThread(() =>
                         {
-                            timer.Stop();
+                            RefreshTimer.Stop();
                             Application.Current.MainPage = new NavigationPage(new SignInPageView());
                         });
                     }
@@ -192,15 +187,24 @@ namespace Joyleaf.Views
             }
         }
 
-        private void TimedRefreshContent(object source, ElapsedEventArgs e)
+        private void HandleConnectionChecksEvent(object sender, EventArgs a)
+        {
+            Checks();
+        }
+
+        private void HandleTimedRefreshEvent(object sender, ElapsedEventArgs e)
         {
             RefreshContent();
         }
 
+        private void AwesomeButtonClick()
+        {
+        }
+
         private void LogoutButtonClick(object sender, EventArgs e)
         {
-            timer.Stop();
-            FirebaseBackend.DeleteAuth();
+            CrossConnectivity.Current.ConnectivityChanged -= HandleConnectionChecksEvent;
+            RefreshTimer.Stop();
             Application.Current.MainPage = new NavigationPage(new SignInPageView());
         }
     }

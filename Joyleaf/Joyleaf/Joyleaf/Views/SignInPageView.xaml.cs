@@ -105,7 +105,6 @@ namespace Joyleaf.Views
             if (!string.IsNullOrEmpty(Settings.FirebaseAuth))
             {
                 FirebaseBackend.DeleteAuth();
-                Application.Current.MainPage.DisplayAlert("You've been signed out", "The account owner may have changed the password.", "OK");
             }
         }
     }

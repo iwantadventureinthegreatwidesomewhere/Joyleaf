@@ -2,7 +2,7 @@
   <MonoDevelop.Ide.ItemProperties.Joyleaf.iOS automaticSigning="False" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.634C2E62-9263-43A6-BEA6-7ABED2BA9510" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Joyleaf Status">
     <Files>
-      <File FileName="Joyleaf/Joyleaf/Views/MainPageView.xaml.cs" Line="84" Column="9" />
+      <File FileName="Joyleaf/Joyleaf/Views/MainPageView.xaml.cs" Line="22" Column="35" />
       <File FileName="Joyleaf Status" />
     </Files>
     <Pads>
@@ -11,12 +11,9 @@
           <Node name="Joyleaf" expanded="True">
             <Node name="Joyleaf" expanded="True">
               <Node name="Services" expanded="True" />
-              <Node name="ViewModels" expanded="True" />
               <Node name="Views" expanded="True">
                 <Node name="ForgotPasswordPageView.xaml" expanded="True" />
-                <Node name="MainPageView.xaml" expanded="True">
-                  <Node name="MainPageView.xaml.cs" selected="True" />
-                </Node>
+                <Node name="MainPageView.xaml" expanded="True" />
                 <Node name="SignInPageView.xaml" expanded="True" />
               </Node>
               <Node name="App.xaml" expanded="True" />
