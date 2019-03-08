@@ -156,8 +156,11 @@ namespace Joyleaf.Views
                     {
                         Device.BeginInvokeOnMainThread(() =>
                         {
+                            CrossConnectivity.Current.ConnectivityChanged -= HandleConnectionChecksEvent;
                             RefreshTimer.Stop();
+                            FirebaseBackend.DeleteAuth();
                             Application.Current.MainPage = new NavigationPage(new SignInPageView());
+                            Application.Current.MainPage.DisplayAlert("You've been signed out", "", "OK");
                         });
                     }
                 }
@@ -205,7 +208,9 @@ namespace Joyleaf.Views
         {
             CrossConnectivity.Current.ConnectivityChanged -= HandleConnectionChecksEvent;
             RefreshTimer.Stop();
+            FirebaseBackend.DeleteAuth();
             Application.Current.MainPage = new NavigationPage(new SignInPageView());
+            Application.Current.MainPage.DisplayAlert("You've been signed out", "", "OK");
         }
     }
 }

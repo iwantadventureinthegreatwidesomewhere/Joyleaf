@@ -154,15 +154,20 @@ namespace Joyleaf.Services
         {
             FirebaseAuthProvider authProvider = new FirebaseAuthProvider(new FirebaseConfig(Constants.FIREBASE_DATABASE_API_KEY));
 
-            FirebaseClient firebase = new FirebaseClient(Constants.FIREBASE_DATABASE_URL);
-
             FirebaseAuthLink auth = Task.Run(() =>
             {
                 Task<FirebaseAuthLink> t = authProvider.CreateUserWithEmailAndPasswordAsync(email, password);
                 return t;
             }).Result;
 
-            Task x = firebase.Child("users").Child(auth.User.LocalId).PutAsync(account);
+            FirebaseClient firebase = new FirebaseClient(
+                Constants.FIREBASE_DATABASE_URL,
+                new FirebaseOptions
+                {
+                    AuthTokenAsyncFactory = () => Task.FromResult(auth.FirebaseToken)
+                });
+
+            firebase.Child("users").Child(auth.User.LocalId).PutAsync(account);
 
             SetAuth(auth);
 
