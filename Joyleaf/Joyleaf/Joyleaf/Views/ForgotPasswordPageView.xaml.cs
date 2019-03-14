@@ -47,12 +47,12 @@ namespace Joyleaf.Views
         {
             if (!(string.IsNullOrEmpty(EmailEntry.Text)))
             {
-                SendButton.BackgroundColor = Color.FromHex("#23C7A5");
+                SendButton.BackgroundColor = Color.FromHex("#00c88c");
                 SendButton.IsEnabled = true;
             }
             else
             {
-                SendButton.BackgroundColor = Color.FromHex("#4023C7A5");
+                SendButton.BackgroundColor = Color.FromHex("#4000c88c");
                 SendButton.IsEnabled = false;
             }
         }

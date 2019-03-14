@@ -71,12 +71,12 @@ namespace Joyleaf.Views
 
             if (!(string.IsNullOrEmpty(EmailEntry.Text)) && !(string.IsNullOrEmpty(PasswordEntry.Text)))
             {
-                SignInButton.BackgroundColor = Color.FromHex("#23C7A5");
+                SignInButton.BackgroundColor = Color.FromHex("#00c88c");
                 SignInButton.IsEnabled = true;
             }
             else
             {
-                SignInButton.BackgroundColor = Color.FromHex("#4023C7A5");
+                SignInButton.BackgroundColor = Color.FromHex("#4000c88c");
                 SignInButton.IsEnabled = false;
             }
         }

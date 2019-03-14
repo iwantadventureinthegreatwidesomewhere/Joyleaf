@@ -45,7 +45,7 @@
         
         <customControls:CustomButton
                         x:Name="LogoutButton"
-                        BackgroundColor="#23C7A5"
+                        BackgroundColor="#00c88c"
                         Clicked="LogoutButtonClick"
                         FontAttributes="Bold"
                         FontSize="13"

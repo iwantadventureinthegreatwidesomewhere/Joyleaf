@@ -90,7 +90,7 @@
                     
                     <customControls:CustomButton
                         x:Name="SignInButton"
-                        BackgroundColor="#4023C7A5"
+                        BackgroundColor="#4000c88c"
                         Clicked="SignInButtonClick"
                         FontAttributes="Bold"
                         FontSize="13"
@@ -145,7 +145,7 @@
                 FontAttributes="Bold"
                 FontSize="14"
                 Text="Sign up now."
-                TextColor="#23C7A5">
+                TextColor="#00c88c">
                 <Button.FontFamily>
                     <OnPlatform x:TypeArguments="x:String">
                         <On Platform="Android" Value="Roboto-Medium.ttf#Roboto-Medium"/>

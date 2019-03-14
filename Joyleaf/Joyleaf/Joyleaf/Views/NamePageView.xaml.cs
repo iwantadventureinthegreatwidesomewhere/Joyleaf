@@ -42,12 +42,12 @@ namespace Joyleaf.Views
         {
             if (!string.IsNullOrEmpty(FirstNameEntry.Text) && !string.IsNullOrEmpty(LastNameEntry.Text))
             {
-                NextButton.BackgroundColor = Color.FromHex("#23C7A5");
+                NextButton.BackgroundColor = Color.FromHex("#00c88c");
                 NextButton.IsEnabled = true;
             }
             else
             {
-                NextButton.BackgroundColor = Color.FromHex("#4023C7A5");
+                NextButton.BackgroundColor = Color.FromHex("#4000c88c");
                 NextButton.IsEnabled = false;
             }
         }
