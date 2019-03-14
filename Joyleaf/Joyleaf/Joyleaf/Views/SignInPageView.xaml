@@ -23,27 +23,12 @@
                 
                 <Image
                     x:Name="Logo"
-                    HeightRequest="57"
+                    HeightRequest="60"
                     Margin="-10,0,0,5"
                     Source="Logo"
                 />
                 
-                <Label
-                    x:Name="Tagline"
-                    Font="14"
-                    FontAttributes="Bold"
-                    Margin="0,20,0,0"
-                    Text="Browse cannabis tailored to you."
-                    TextColor="#333333"
-                    HorizontalTextAlignment="Center">
-                    <Label.FontFamily>
-                        <OnPlatform x:TypeArguments="x:String">
-                            <On Platform="Android" Value="Roboto-Medium.ttf#Roboto-Medium"/>
-                        </OnPlatform>
-                    </Label.FontFamily>
-                </Label>
-                
-                <StackLayout HorizontalOptions="Fill" Margin="30,40" VerticalOptions="FillAndExpand">
+                <StackLayout HorizontalOptions="Fill" Margin="30,35" VerticalOptions="FillAndExpand">
                     
                     <customControls:CustomEntry
                         x:Name="EmailEntry"

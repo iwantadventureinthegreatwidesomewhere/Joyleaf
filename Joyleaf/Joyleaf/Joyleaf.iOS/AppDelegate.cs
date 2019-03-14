@@ -31,7 +31,7 @@ namespace Joyleaf.iOS
 
             UINavigationBar.Appearance.TintColor = UIColor.FromRGB(35, 199, 165);
 
-            UITabBar.Appearance.SelectedImageTintColor = UIColor.FromRGB(51, 51, 51);
+            UITabBar.Appearance.TintColor = UIColor.FromRGB(51, 51, 51);
 
             return base.FinishedLaunching(app, options);
         }

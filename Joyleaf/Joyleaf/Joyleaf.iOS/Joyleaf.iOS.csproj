@@ -103,6 +103,7 @@
     <Compile Include="CustomRenderers\CustomiOSEntry.cs" />
     <Compile Include="CustomRenderers\CustomiOSButton.cs" />
     <Compile Include="CustomRenderers\CustomiOSPicker.cs" />
+    <Compile Include="CustomRenderers\CustomiOSFrame.cs" />
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
@@ -111,15 +112,6 @@
     <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_20pt%402x.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_20pt%403x.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_29pt%402x.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_29pt%403x.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_40pt%402x.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_40pt%403x.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_60pt%402x.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_60pt%403x.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon.png" />
     <ImageAsset Include="Assets.xcassets\Logo.imageset\Contents.json" />
     <ImageAsset Include="Assets.xcassets\Logo.imageset\logo.png" />
     <ImageAsset Include="Assets.xcassets\Logo.imageset\logo%402x.png" />
@@ -146,6 +138,15 @@
     <ImageAsset Include="Assets.xcassets\AwesomeButton.imageset\Group.png" />
     <ImageAsset Include="Assets.xcassets\AwesomeButton.imageset\Group%402x.png" />
     <ImageAsset Include="Assets.xcassets\AwesomeButton.imageset\Group%403x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_20pt%402x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_20pt%403x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_29pt%402x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_29pt%403x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_40pt%402x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_40pt%403x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_60pt%402x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_60pt%403x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

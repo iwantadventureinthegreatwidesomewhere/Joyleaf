@@ -51,7 +51,7 @@ namespace Joyleaf.Views
                 FontAttributes = FontAttributes.Bold,
                 FontSize = 35,
                 HorizontalTextAlignment = TextAlignment.Center,
-                Text = "You're Offline",
+                Text = "Offline",
                 TextColor = Color.Black
             });
 
@@ -71,7 +71,7 @@ namespace Joyleaf.Views
 
             CrossConnectivity.Current.ConnectivityChanged += HandleConnectionChecksEvent;
 
-            RefreshTimer = new Timer(1000 * 60 * 60);
+            RefreshTimer = new Timer(1000 * 60 * 60 * 3);
             RefreshTimer.Elapsed += HandleTimedRefreshEvent;
             RefreshTimer.Start();
         }
@@ -94,36 +94,127 @@ namespace Joyleaf.Views
         private void RefreshContent()
         {
             Content.Children.Clear();
-            Content.Children.Add(
-            new Label
+
+            Content.Children.Add(new Label
+            {
+                FontAttributes = FontAttributes.Bold,
+                FontSize = 27,
+                Margin = new Thickness(7, 0),
+                Text = "Explore",
+                TextColor = Color.Black
+            });
+
+
+
+            var i = new ExploreBox
+            {
+                IsWhite = false,
+                StartColor = Color.FromHex("#5b10c1"),
+                EndColor = Color.FromHex("#1a92f0")
+            };
+
+
+            var s = new StackLayout();
+            s.Children.Add(new Label
             {
                 Text = "Trending Now  \U0001F91F",
-                FontSize = 27,
-                Margin = new Thickness(5, 0, 0, 0),
+                FontSize = 22,
+                Margin = new Thickness(10),
                 FontAttributes = FontAttributes.Bold,
-                TextColor = Color.Black
+                TextColor = Color.White
             });
-            Content.Children.Add(new StoreItem());
-            Content.Children.Add(
-            new Label
+            i.Content = s;
+            Content.Children.Add(i);
+
+
+
+
+
+
+
+            var i4 = new ExploreBox
             {
-                Text = "Recommended For You",
-                FontSize = 27,
-                Margin = new Thickness(5, 20, 0, 0),
-                FontAttributes = FontAttributes.Bold,
-                TextColor = Color.Black
-            });
-            Content.Children.Add(new StoreItem());
-            Content.Children.Add(
-            new Label
+                IsWhite = true
+            };
+
+
+            var s4 = new StackLayout();
+            s4.Children.Add(new Label
             {
-                Text = "New  \ud83c\udf89",
-                FontSize = 27,
-                Margin = new Thickness(5, 20, 0, 0),
+                Text = "Happy Vibes",
+                FontSize = 22,
+                Margin = new Thickness(10),
                 FontAttributes = FontAttributes.Bold,
                 TextColor = Color.Black
             });
-            Content.Children.Add(new StoreItem());
+            i4.Content = s4;
+            Content.Children.Add(i4);
+
+
+
+            var i5 = new ExploreBox
+            {
+                IsWhite = true
+            };
+
+
+            var s5 = new StackLayout();
+            s5.Children.Add(new Label
+            {
+                Text = "Brands We Love",
+                FontSize = 22,
+                Margin = new Thickness(10),
+                FontAttributes = FontAttributes.Bold,
+                TextColor = Color.Black
+            });
+            i5.Content = s5;
+            Content.Children.Add(i5);
+
+
+
+
+
+            var i3 = new ExploreBox
+            {
+                IsWhite = false,
+                StartColor = Color.FromHex("#fe548f"),
+                EndColor = Color.FromHex("#f59e3d")
+            };
+
+
+            var s3 = new StackLayout();
+            s3.Children.Add(new Label
+            {
+                Text = "New Cannabis  \ud83c\udf89",
+                FontSize = 22,
+                Margin = new Thickness(10),
+                FontAttributes = FontAttributes.Bold,
+                TextColor = Color.White
+            });
+            i3.Content = s3;
+            Content.Children.Add(i3);
+
+
+            var i6 = new ExploreBox
+            {
+                IsWhite = true
+            };
+
+            var s6 = new StackLayout();
+            s6.Children.Add(new Label
+            {
+                Text = "By Aurora",
+                FontSize = 22,
+                Margin = new Thickness(10),
+                FontAttributes = FontAttributes.Bold,
+                TextColor = Color.Black
+            });
+            i6.Content = s6;
+            Content.Children.Add(i6);
+
+
+
+
         }
 
 
@@ -160,7 +251,7 @@ namespace Joyleaf.Views
                             RefreshTimer.Stop();
                             FirebaseBackend.DeleteAuth();
                             Application.Current.MainPage = new NavigationPage(new SignInPageView());
-                            Application.Current.MainPage.DisplayAlert("You've been signed out", "", "OK");
+                            Application.Current.MainPage.DisplayAlert("You have been signed out", "The account owner may have changed the password.", "OK");
                         });
                     }
                 }
@@ -210,7 +301,6 @@ namespace Joyleaf.Views
             RefreshTimer.Stop();
             FirebaseBackend.DeleteAuth();
             Application.Current.MainPage = new NavigationPage(new SignInPageView());
-            Application.Current.MainPage.DisplayAlert("You've been signed out", "", "OK");
         }
     }
 }

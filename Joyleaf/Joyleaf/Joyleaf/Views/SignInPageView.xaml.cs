@@ -84,24 +84,17 @@ namespace Joyleaf.Views
         private void EntryFocus(object sender, FocusEventArgs e)
         {
             Logo.FadeTo(0, 200);
-            Tagline.FadeTo(0, 200);
             SignInStack.TranslateTo(0, -70, 350, Easing.CubicInOut);
         }
 
         private void EntryUnfocus(object sender, FocusEventArgs e)
         {
             Logo.FadeTo(100, 200);
-            Tagline.FadeTo(100, 200);
             SignInStack.TranslateTo(0, 0, 350, Easing.CubicOut);
         }
 
         protected override void OnAppearing()
         {
-            if (!CrossConnectivity.Current.IsConnected)
-            {
-                Application.Current.MainPage.DisplayAlert("Connection error", "Please check your network connection, then try again.", "OK");
-            }
-
             if (!string.IsNullOrEmpty(Settings.FirebaseAuth))
             {
                 FirebaseBackend.DeleteAuth();
