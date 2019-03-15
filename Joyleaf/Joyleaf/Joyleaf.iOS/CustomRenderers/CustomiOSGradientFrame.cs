@@ -6,17 +6,17 @@ using UIKit;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
 
-[assembly: ExportRenderer(typeof(CustomFrame), typeof(CustomiOSFrame))]
+[assembly: ExportRenderer(typeof(CustomGradientFrame), typeof(CustomiOSGradientFrame))]
 
 namespace Joyleaf.iOS.CustomRenderers
 {
-    public class CustomiOSFrame : FrameRenderer
+    public class CustomiOSGradientFrame : FrameRenderer
     {
         public override void Draw(CGRect rect)
         {
             base.Draw(rect);
 
-            CustomFrame frame = (CustomFrame)this.Element;
+            CustomGradientFrame frame = (CustomGradientFrame)Element;
 
             if (frame.IsWhite)
             {

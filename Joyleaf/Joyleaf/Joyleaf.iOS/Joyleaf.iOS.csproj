@@ -103,7 +103,7 @@
     <Compile Include="CustomRenderers\CustomiOSEntry.cs" />
     <Compile Include="CustomRenderers\CustomiOSButton.cs" />
     <Compile Include="CustomRenderers\CustomiOSPicker.cs" />
-    <Compile Include="CustomRenderers\CustomiOSFrame.cs" />
+    <Compile Include="CustomRenderers\CustomiOSGradientFrame.cs" />
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
