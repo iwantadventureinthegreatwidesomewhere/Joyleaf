@@ -1,19 +1,25 @@
-﻿using Joyleaf.Services;
+﻿using Joyleaf.CustomControls;
+using Joyleaf.Services;
 using Plugin.Connectivity;
 using System;
 using Xamarin.Forms;
 
 namespace Joyleaf.Views
 {
-    public partial class ForgotPasswordPageView : ContentPage
+    public partial class ForgotPasswordPageView :GradientPage
     {
         public ForgotPasswordPageView()
         {
+            NavigationPage.SetHasNavigationBar(this, false);
+
             InitializeComponent();
 
-            SendButton.CornerRadius = 23;
-
             EmailEntry.Completed += SendButtonClick;
+        }
+
+        private async void BackButtonClicked(object sender, EventArgs e)
+        {
+            await Navigation.PopAsync();
         }
 
         private async void SendButtonClick(object sender, EventArgs e)
@@ -24,8 +30,12 @@ namespace Joyleaf.Views
                 {
                     try
                     {
-                        FirebaseBackend.SendPasswordReset(EmailEntry.Text);
-                        await Application.Current.MainPage.Navigation.PopToRootAsync();
+                        bool status = FirebaseBackend.SendPasswordReset(EmailEntry.Text);
+
+                        if (status)
+                        {
+                            await Application.Current.MainPage.Navigation.PopAsync();
+                        }
                     }
                     catch (Exception)
                     {
@@ -47,12 +57,10 @@ namespace Joyleaf.Views
         {
             if (!(string.IsNullOrEmpty(EmailEntry.Text)))
             {
-                SendButton.BackgroundColor = Color.FromHex("#00c88c");
                 SendButton.IsEnabled = true;
             }
             else
             {
-                SendButton.BackgroundColor = Color.FromHex("#4000c88c");
                 SendButton.IsEnabled = false;
             }
         }

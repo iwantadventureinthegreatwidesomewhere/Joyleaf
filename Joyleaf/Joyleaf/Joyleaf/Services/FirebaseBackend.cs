@@ -99,7 +99,7 @@ namespace Joyleaf.Services
             SetAuth(await freshAuthLink);
         }
 
-        public static void SendPasswordReset(string email)
+        public static bool SendPasswordReset(string email)
         {
             if (!IsEmailAvailable(email))
             {
@@ -108,10 +108,14 @@ namespace Joyleaf.Services
                 authProvider.SendPasswordResetEmailAsync(email);
 
                 Application.Current.MainPage.DisplayAlert("Password reset email sent", "Follow the directions in the email to reset your password.", "OK");
+
+                return true;
             }
             else
             {
                 Application.Current.MainPage.DisplayAlert("Cannot find account", "That email does not have an existing Joyleaf account.", "OK");
+
+                return false;
             }
         }
 

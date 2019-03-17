@@ -3,7 +3,7 @@ using Xamarin.Forms;
 
 namespace Joyleaf.Helpers
 {
-    public class ExploreBox : CustomGradientFrame
+    public class ExploreBox : ExploreFrame
     {
         public ExploreBox()
         {

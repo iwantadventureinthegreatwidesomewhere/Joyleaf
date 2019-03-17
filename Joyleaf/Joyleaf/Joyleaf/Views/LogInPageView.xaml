@@ -3,11 +3,11 @@
 <customControls:GradientPage xmlns="http://xamarin.com/schemas/2014/forms"
                              xmlns:customControls="clr-namespace:Joyleaf.CustomControls;assembly=Joyleaf"
                              xmlns:system="clr-namespace:System;assembly=netstandard"
-                             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-                             x:Class="Joyleaf.Views.ForgotPasswordPageView"
+                             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+                             x:Class="Joyleaf.Views.LogInPageView"
                              StartColor="#11998e"
                              EndColor="#38ef7d">
-   
+    
     <StackLayout Margin="30,45">
         
         <Button
@@ -20,20 +20,17 @@
         
         <Label
             FontAttributes="Bold"
-            FontSize="25"
+            FontSize="27"
             HorizontalOptions="Center"
-            Text="Reset Password"
-            TextColor="White"
-        />
-        
-        <Label
-            FontAttributes="Bold"
-            FontSize="13"
-            HorizontalOptions="StartAndExpand"
-            Margin="8,15,8,25"
-            Text="Enter your email address below. We'll send you instructions to reset your password."
-            TextColor="White"
-        />
+            Margin="0,0,0,15"
+            Text="Log In"
+            TextColor="White">
+            <Button.FontFamily>
+                <OnPlatform x:TypeArguments="x:String">
+                    <On Platform="Android" Value="Roboto-Medium.ttf#Roboto-Medium"/>
+                </OnPlatform>
+            </Button.FontFamily>
+        </Label>
         
         <Label
             FontAttributes="Bold"
@@ -53,11 +50,43 @@
             x:Name="EmailEntry"
             FontAttributes="Bold"
             FontSize="15"
-            HeightRequest="45"
             HorizontalOptions="Fill"
+            HeightRequest="45"
+            Margin="0,0,0,15"
             Keyboard="Email"
+            ReturnType="Next"
+            TextColor="White"
+            TextChanged="TextChanged">
+            <customControls:CustomEntry.BackgroundColor>
+                <OnPlatform x:TypeArguments="Color">
+                    <On Platform="iOS" Value="#fafafa"/>
+                </OnPlatform>
+            </customControls:CustomEntry.BackgroundColor>
+        </customControls:CustomEntry>
+        
+        <Label
+            FontAttributes="Bold"
+            FontSize="18"
+            HorizontalOptions="Start"
+            Margin="15,0,0,5"
+            Text="Password"
+            TextColor="White">
+            <Button.FontFamily>
+                <OnPlatform x:TypeArguments="x:String">
+                    <On Platform="Android" Value="Roboto-Medium.ttf#Roboto-Medium"/>
+                </OnPlatform>
+            </Button.FontFamily>
+        </Label>
+        
+        <customControls:CustomEntry
+            x:Name="PasswordEntry"
+            FontAttributes="Bold"
+            FontSize="15"
+            HorizontalOptions="Fill"
+            HeightRequest="45"
+            IsPassword="True"
             Margin="0,0,0,25"
-            ReturnType="Send"
+            ReturnType="Go"
             TextColor="White"
             TextChanged="TextChanged">
             <customControls:CustomEntry.BackgroundColor>
@@ -68,16 +97,17 @@
         </customControls:CustomEntry>
         
         <customControls:CustomButton
-            x:Name="SendButton"
+            x:Name="LogInButton"
             BackgroundColor="#ffffff"
-            Clicked="SendButtonClick"
+            Clicked="LogInButtonClicked"
             CornerRadius="23"
             FontAttributes="Bold"
             FontSize="15"
             HeightRequest="45"
             HorizontalOptions="Center"
             IsEnabled="false"
-            Text="SEND EMAIL"
+            Margin="0,0,0,10"
+            Text="GO"
             TextColor="Black"
             WidthRequest="150">
             <Button.FontFamily>
@@ -87,6 +117,21 @@
             </Button.FontFamily>
         </customControls:CustomButton>
         
+        <Button
+            BackgroundColor="Transparent"
+            Clicked="ForgotPasswordButtonClicked"
+            FontAttributes="Bold"
+            FontSize="13"
+            HorizontalOptions="Center"
+            Text="Forgot password? Press here to reset."
+            TextColor="#ffffff">
+            <Button.FontFamily>
+                <OnPlatform x:TypeArguments="x:String">
+                    <On Platform="Android" Value="Roboto-Medium.ttf#Roboto-Medium"/>
+                </OnPlatform>
+            </Button.FontFamily>
+        </Button>                   
+        
     </StackLayout>
     
-</customControls:GradientPage>    
+</customControls:GradientPage>

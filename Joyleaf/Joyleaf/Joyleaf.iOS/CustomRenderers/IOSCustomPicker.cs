@@ -5,11 +5,11 @@ using UIKit;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
 
-[assembly: ExportRenderer(typeof(CustomPicker), typeof(CustomiOSPicker))]
+[assembly: ExportRenderer(typeof(CustomPicker), typeof(IOSCustomPicker))]
 
 namespace Joyleaf.iOS.CustomRenderers
 {
-    public class CustomiOSPicker : PickerRenderer
+    public class IOSCustomPicker : PickerRenderer
     {
         protected override void OnElementChanged(ElementChangedEventArgs<Picker> e)
         {

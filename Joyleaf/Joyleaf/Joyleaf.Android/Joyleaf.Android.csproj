@@ -107,7 +107,6 @@
   <ItemGroup>
     <AndroidAsset Include="Assets\Roboto-Regular.ttf" />
     <AndroidAsset Include="Assets\Roboto-Black.ttf" />
-    <AndroidAsset Include="Assets\LICENSE.txt" />
     <AndroidAsset Include="Assets\Roboto-BlackItalic.ttf" />
     <AndroidAsset Include="Assets\Roboto-Bold.ttf" />
     <AndroidAsset Include="Assets\Roboto-BoldItalic.ttf" />

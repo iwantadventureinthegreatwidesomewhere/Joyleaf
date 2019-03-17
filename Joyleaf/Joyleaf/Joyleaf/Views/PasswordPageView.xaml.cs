@@ -30,39 +30,15 @@ namespace Joyleaf.Views
                 {
                     if (string.Equals(PasswordEntry.Text, ConfirmPasswordEntry.Text))
                     {
-                        var count = 0;
-                        bool hasUppercase = false;
-                        bool hasLowercase = false;
-                        bool hasNumber = false;
+                        int count = PasswordEntry.Text.Length;
 
-                        foreach (char c in PasswordEntry.Text)
-                        {
-                            if ('A' <= c && c <= 'Z')
-                            {
-                                hasUppercase = true;
-                            }
-
-                            if ('a' <= c && c <= 'z')
-                            {
-                                hasLowercase = true;
-                            }
-
-                            if ('0' <= c && c <= '9')
-                            {
-                                hasNumber = true;
-                            }
-
-                            count++;
-                        }
-
-                        if (count >= 6 && hasUppercase && hasLowercase && hasNumber)
+                        if (count >= 6)
                         {
                             await Navigation.PushAsync(new LocationPageView(firstName, lastName, email, PasswordEntry.Text));
                         }
                         else
                         {
-                            await DisplayAlert("Choose a stronger password", "Make sure to use at least six characters, one uppercase letter, " +
-                                               "one lowercase letter, and one number. Please try again.", "Try Again");
+                            await DisplayAlert("Choose a stronger password", "Make sure to use at least six characters. Please try again.", "Try Again");
                         }
                     }
                     else

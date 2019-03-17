@@ -13,7 +13,7 @@ namespace Joyleaf
         {
             if (string.IsNullOrEmpty(Settings.FirebaseAuth))
             {
-                MainPage = new NavigationPage(new SignInPageView());
+                MainPage = new NavigationPage(new StartPageView());
             }
             else
             {

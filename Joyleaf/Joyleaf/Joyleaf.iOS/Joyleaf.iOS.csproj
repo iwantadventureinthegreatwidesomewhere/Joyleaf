@@ -100,10 +100,11 @@
     <None Include="Entitlements.plist" />
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="CustomRenderers\CustomiOSEntry.cs" />
-    <Compile Include="CustomRenderers\CustomiOSButton.cs" />
-    <Compile Include="CustomRenderers\CustomiOSPicker.cs" />
-    <Compile Include="CustomRenderers\CustomiOSGradientFrame.cs" />
+    <Compile Include="CustomRenderers\IOSCustomEntry.cs" />
+    <Compile Include="CustomRenderers\IOSCustomButton.cs" />
+    <Compile Include="CustomRenderers\IOSCustomPicker.cs" />
+    <Compile Include="CustomRenderers\IOSExploreFrame.cs" />
+    <Compile Include="CustomRenderers\IOSGradientPage.cs" />
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
@@ -113,9 +114,6 @@
       <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\Logo.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\Logo.imageset\logo.png" />
-    <ImageAsset Include="Assets.xcassets\Logo.imageset\logo%402x.png" />
-    <ImageAsset Include="Assets.xcassets\Logo.imageset\logo%403x.png" />
     <ImageAsset Include="Assets.xcassets\Explore.imageset\Contents.json" />
     <ImageAsset Include="Assets.xcassets\Explore.imageset\baseline_explore_black_24pt_1x.png" />
     <ImageAsset Include="Assets.xcassets\Explore.imageset\baseline_explore_black_24pt_2x.png" />
@@ -129,15 +127,6 @@
     <ImageAsset Include="Assets.xcassets\Search.imageset\baseline_search_black_24pt_2x.png" />
     <ImageAsset Include="Assets.xcassets\Search.imageset\baseline_search_black_24pt_3x.png" />
     <ImageAsset Include="Assets.xcassets\AwesomeButton.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_20pt%402x-1.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_20pt%403x-1.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_29pt%402x-1.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_29pt%403x-1.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_40pt%402x-1.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_40pt%403x-1.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_60pt%402x-1.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_60pt%403x-1.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-1.png" />
     <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\iPhone XS Max%403x.png" />
     <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\iPhone XR%402x.png" />
     <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\iPhone XS%403x.png" />
@@ -147,6 +136,22 @@
     <ImageAsset Include="Assets.xcassets\AwesomeButton.imageset\AwesomeButton-1.png" />
     <ImageAsset Include="Assets.xcassets\AwesomeButton.imageset\AwesomeButton%402x-1.png" />
     <ImageAsset Include="Assets.xcassets\AwesomeButton.imageset\AwesomeButton%403x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_20pt%402x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_20pt%403x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_29pt%402x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_29pt%403x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_40pt%402x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_40pt%403x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_60pt%402x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_60pt%403x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon.png" />
+    <ImageAsset Include="Assets.xcassets\Logo.imageset\logo.png" />
+    <ImageAsset Include="Assets.xcassets\Logo.imageset\logo%402x.png" />
+    <ImageAsset Include="Assets.xcassets\Logo.imageset\logo%403x.png" />
+    <ImageAsset Include="Assets.xcassets\BackButton.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\BackButton.imageset\baseline_keyboard_backspace_white_36pt_1x.png" />
+    <ImageAsset Include="Assets.xcassets\BackButton.imageset\baseline_keyboard_backspace_white_36pt_2x.png" />
+    <ImageAsset Include="Assets.xcassets\BackButton.imageset\baseline_keyboard_backspace_white_36pt_3x.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -179,5 +184,6 @@
     <Folder Include="Assets.xcassets\Account.imageset\" />
     <Folder Include="Assets.xcassets\Search.imageset\" />
     <Folder Include="Assets.xcassets\AwesomeButton.imageset\" />
+    <Folder Include="Assets.xcassets\BackButton.imageset\" />
   </ItemGroup>
 </Project>

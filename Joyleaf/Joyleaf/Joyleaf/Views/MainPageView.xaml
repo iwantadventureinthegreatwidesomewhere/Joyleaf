@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" ?>
 
 <TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:customControls="clr-namespace:Joyleaf.CustomControls;assembly=Joyleaf"
-             xmlns:local="clr-namespace:Joyleaf;assembly=Joyleaf"
-             xmlns:system="clr-namespace:System;assembly=netstandard"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Joyleaf.Views.MainPageView"
-             BackgroundColor="White">
+            xmlns:customControls="clr-namespace:Joyleaf.CustomControls;assembly=Joyleaf"
+            xmlns:local="clr-namespace:Joyleaf;assembly=Joyleaf"
+            xmlns:system="clr-namespace:System;assembly=netstandard"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            x:Class="Joyleaf.Views.MainPageView"
+            BackgroundColor="White">
     
     <ContentPage Icon="Explore">
         

@@ -4,11 +4,11 @@ using UIKit;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
 
-[assembly: ExportRenderer(typeof(CustomButton), typeof(CustomiOSButton))]
+[assembly: ExportRenderer(typeof(CustomButton), typeof(IOSCustomButton))]
 
 namespace Joyleaf.iOS.CustomRenderers
 {
-    public class CustomiOSButton : ButtonRenderer
+    public class IOSCustomButton : ButtonRenderer
     {
         protected override void OnElementChanged(ElementChangedEventArgs<Button> e)
         {
@@ -16,7 +16,7 @@ namespace Joyleaf.iOS.CustomRenderers
 
             if (Control != null)
             {
-                Control.SetTitleColor(UIColor.White, UIControlState.Disabled);
+                Control.SetTitleColor(UIColor.Black, UIControlState.Disabled);
             }
         }
     }

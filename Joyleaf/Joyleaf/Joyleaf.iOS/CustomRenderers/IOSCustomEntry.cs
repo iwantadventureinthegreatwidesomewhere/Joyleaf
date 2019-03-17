@@ -7,11 +7,11 @@ using Xamarin.Forms.Platform.iOS;
 
 using ReturnType = Joyleaf.CustomTypes.ReturnType;
 
-[assembly: ExportRenderer(typeof(CustomEntry), typeof(CustomiOSEntry))]
+[assembly: ExportRenderer(typeof(CustomEntry), typeof(IOSCustomEntry))]
 
 namespace Joyleaf.iOS.CustomRenderers
 {
-    public class CustomiOSEntry : EntryRenderer
+    public class IOSCustomEntry : EntryRenderer
     {
         protected override void OnElementChanged(ElementChangedEventArgs<Entry> e)
         {
@@ -24,20 +24,14 @@ namespace Joyleaf.iOS.CustomRenderers
 
             UITextField entry = Control as UITextField;
 
-            entry.Layer.CornerRadius = 23;
-
-            entry.BackgroundColor = UIColor.FromRGB(244, 243, 250);
-
-            entry.Layer.BorderColor = UIColor.FromRGB(244, 243, 250).CGColor;
-            entry.Layer.BorderWidth = 1;
-
-            Control.Layer.MasksToBounds = true;
-
-            entry.ClearButtonMode = UITextFieldViewMode.WhileEditing;
-
             entry.AutocorrectionType = UITextAutocorrectionType.No;
+            entry.BackgroundColor = UIColor.FromRGBA(0, 0, 0, 20);
+            entry.BorderStyle = UITextBorderStyle.None;
+            entry.ClearButtonMode = UITextFieldViewMode.WhileEditing;
+            entry.Layer.CornerRadius = 23;
+            entry.Layer.MasksToBounds = true;
 
-            entry.LeftView = new UIView(new CGRect(0, 0, 10, Control.Frame.Height));
+            entry.LeftView = new UIView(new CGRect(0, 0, 15, Control.Frame.Height));
             entry.LeftViewMode = UITextFieldViewMode.Always;
 
             entry.EnablesReturnKeyAutomatically = true;

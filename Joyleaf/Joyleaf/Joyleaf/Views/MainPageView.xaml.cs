@@ -51,7 +51,7 @@ namespace Joyleaf.Views
                 FontAttributes = FontAttributes.Bold,
                 FontSize = 35,
                 HorizontalTextAlignment = TextAlignment.Center,
-                Text = "Offline",
+                Text = "You're Offline",
                 TextColor = Color.Black
             });
 
@@ -250,7 +250,7 @@ namespace Joyleaf.Views
                             CrossConnectivity.Current.ConnectivityChanged -= HandleConnectionChecksEvent;
                             RefreshTimer.Stop();
                             FirebaseBackend.DeleteAuth();
-                            Application.Current.MainPage = new NavigationPage(new SignInPageView());
+                            Application.Current.MainPage = new NavigationPage(new StartPageView());
                             Application.Current.MainPage.DisplayAlert("You have been signed out", "The account owner may have changed the password.", "OK");
                         });
                     }
@@ -300,7 +300,7 @@ namespace Joyleaf.Views
             CrossConnectivity.Current.ConnectivityChanged -= HandleConnectionChecksEvent;
             RefreshTimer.Stop();
             FirebaseBackend.DeleteAuth();
-            Application.Current.MainPage = new NavigationPage(new SignInPageView());
+            Application.Current.MainPage = new NavigationPage(new StartPageView());
         }
     }
 }

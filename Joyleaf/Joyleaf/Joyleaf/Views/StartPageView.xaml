@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<customControls:GradientPage xmlns="http://xamarin.com/schemas/2014/forms"
+                             xmlns:customControls="clr-namespace:Joyleaf.CustomControls;assembly=Joyleaf"
+                             xmlns:system="clr-namespace:System;assembly=netstandard"
+                             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                             x:Class="Joyleaf.Views.StartPageView"
+                             StartColor="#11998e"
+                             EndColor="#38ef7d">
+    
+    <Grid>
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30*"/>
+            <RowDefinition Height="25*"/>
+            <RowDefinition Height="45*"/>
+        </Grid.RowDefinitions>
+        
+        <StackLayout Grid.Row="0" VerticalOptions="Center">
+            
+            <Image HeightRequest="57" Margin="-10,0,0,0" Source="Logo"/>
+            
+        </StackLayout>
+        
+        <StackLayout Grid.Row="1" VerticalOptions="Center">
+            
+            <Label
+                FontAttributes="Bold"
+                FontSize="23"
+                HorizontalOptions="Center"
+                Margin="0,0,0,13"
+                Text="Browse hundreds of strains."
+                TextColor="#ffffff">
+                <Label.FontFamily>
+                    <OnPlatform x:TypeArguments="x:String">
+                        <On Platform="Android" Value="Roboto-Medium.ttf#Roboto-Medium"/>
+                    </OnPlatform>
+                </Label.FontFamily>
+            </Label>
+            
+            <Label
+                FontAttributes="Bold"
+                FontSize="23"
+                HorizontalOptions="Center"
+                Margin="0,0,0,13"
+                Text="Find your best match."
+                TextColor="#ffffff">
+                <Label.FontFamily>
+                    <OnPlatform x:TypeArguments="x:String">
+                        <On Platform="Android" Value="Roboto-Medium.ttf#Roboto-Medium"/>
+                    </OnPlatform>
+                </Label.FontFamily>
+            </Label>
+            
+            <Label
+                FontAttributes="Bold"
+                FontSize="23"
+                HorizontalOptions="Center"
+                Text="Totally free."
+                TextColor="#ffffff">
+                <Label.FontFamily>
+                    <OnPlatform x:TypeArguments="x:String">
+                        <On Platform="Android" Value="Roboto-Medium.ttf#Roboto-Medium"/>
+                    </OnPlatform>
+                </Label.FontFamily>
+            </Label>
+            
+        </StackLayout>
+        
+        <StackLayout Grid.Row="2" Margin="30,0" VerticalOptions="Center">
+            
+            <Button
+                x:Name="SignUpButton"
+                BackgroundColor="White"
+                Clicked="SignUpButtonClicked"
+                CornerRadius="23"
+                FontAttributes="Bold"
+                FontSize="15"
+                Margin="0,0,0,10"
+                Text="SIGN UP"
+                TextColor="#000000">
+                <Button.FontFamily>
+                    <OnPlatform x:TypeArguments="x:String">
+                        <On Platform="Android" Value="Roboto-Medium.ttf#Roboto-Medium"/>
+                    </OnPlatform>
+                </Button.FontFamily>
+            </Button>
+            
+            <Button
+                x:Name="LogInButton"
+                BackgroundColor="Transparent"
+                BorderColor="White"
+                BorderWidth="3"
+                Clicked="LogInButtonClicked"
+                CornerRadius="23"
+                FontAttributes="Bold"
+                FontSize="15"
+                Text="LOG IN"
+                TextColor="#ffffff">
+                <Button.FontFamily>
+                    <OnPlatform x:TypeArguments="x:String">
+                        <On Platform="Android" Value="Roboto-Medium.ttf#Roboto-Medium"/>
+                    </OnPlatform>
+                </Button.FontFamily>
+            </Button>
+            
+        </StackLayout>
+        
+    </Grid>
+        
+</customControls:GradientPage>                 

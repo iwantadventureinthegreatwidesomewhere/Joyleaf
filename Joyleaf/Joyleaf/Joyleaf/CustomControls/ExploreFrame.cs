@@ -2,7 +2,7 @@
 
 namespace Joyleaf.CustomControls
 {
-    public class CustomGradientFrame : Frame
+    public class ExploreFrame : Frame
     {
         public bool IsWhite
         {
