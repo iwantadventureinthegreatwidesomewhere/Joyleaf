@@ -8,67 +8,73 @@
                              StartColor="#11998e"
                              EndColor="#38ef7d">
     
-    <StackLayout Margin="30,45">
+    <RelativeLayout>
         
         <Button
             Clicked="BackButtonClicked"
-            HeightRequest="36"
-            HorizontalOptions="Start"
+            HeightRequest="75"
             Image="BackButton"
-            Margin="0,0,0,25"
-            WidthRequest="36"
+            WidthRequest="100"
+            RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=0,Constant=25}"
         />
         
-        <Label
-            FontAttributes="Bold"
-            FontSize="18"
-            HorizontalOptions="Start"
-            Margin="15,0,0,5"
-            Text="Region"
-            TextColor="White">
-            <Label.FontFamily>
-                <OnPlatform x:TypeArguments="x:String">
-                    <On Platform="Android" Value="Roboto-Medium.ttf#Roboto-Medium"/>
-                </OnPlatform>
-            </Label.FontFamily>
-        </Label>
+        <StackLayout 
+            Margin="30,80"
+            RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=1}"
+            RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=1}">
         
-        <customControls:CustomPicker
-            x:Name="RegionPicker"
-            FontAttributes="Bold"
-            FontSize="15"
-            HeightRequest="45"
-            HorizontalOptions="Fill"
-            Margin="0,0,0,25"
-            SelectedIndexChanged="PickerChanged"
-            TextColor="White">
-            <Picker.ItemsSource>
-                <x:Array Type="{x:Type x:String}">
-                    <x:String>Quebec</x:String>
-                </x:Array>
-            </Picker.ItemsSource>
-        </customControls:CustomPicker>
+            <Label
+                FontAttributes="Bold"
+                FontSize="18"
+                HorizontalOptions="Start"
+                Margin="15,0,0,5"
+                Text="Region"
+                TextColor="White">
+                <Label.FontFamily>
+                    <OnPlatform x:TypeArguments="x:String">
+                        <On Platform="Android" Value="Roboto-Medium.ttf#Roboto-Medium"/>
+                    </OnPlatform>
+                </Label.FontFamily>
+            </Label>
+            
+            <customControls:CustomPicker
+                x:Name="RegionPicker"
+                FontAttributes="Bold"
+                FontSize="15"
+                HeightRequest="45"
+                HorizontalOptions="Fill"
+                Margin="0,0,0,25"
+                SelectedIndexChanged="PickerChanged"
+                TextColor="White">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Quebec</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </customControls:CustomPicker>
+            
+            <customControls:CustomButton
+                x:Name="NextButton"
+                BackgroundColor="White"
+                Clicked="NextButtonClicked"
+                CornerRadius="23"
+                FontAttributes="Bold"
+                FontSize="15"
+                HeightRequest="45"
+                HorizontalOptions="Center"
+                IsEnabled="false"
+                Text="CREATE ACCOUNT"
+                TextColor="Black"
+                WidthRequest="200">
+                <customControls:CustomButton.FontFamily>
+                    <OnPlatform x:TypeArguments="x:String">
+                        <On Platform="Android" Value="Roboto-Medium.ttf#Roboto-Medium"/>
+                    </OnPlatform>
+                </customControls:CustomButton.FontFamily>
+            </customControls:CustomButton>
         
-        <customControls:CustomButton
-            x:Name="NextButton"
-            BackgroundColor="White"
-            Clicked="NextButtonClicked"
-            CornerRadius="23"
-            FontAttributes="Bold"
-            FontSize="15"
-            HeightRequest="45"
-            HorizontalOptions="Center"
-            IsEnabled="false"
-            Text="CREATE ACCOUNT"
-            TextColor="Black"
-            WidthRequest="200">
-            <customControls:CustomButton.FontFamily>
-                <OnPlatform x:TypeArguments="x:String">
-                    <On Platform="Android" Value="Roboto-Medium.ttf#Roboto-Medium"/>
-                </OnPlatform>
-            </customControls:CustomButton.FontFamily>
-        </customControls:CustomButton>
+        </StackLayout>
         
-    </StackLayout>
+    </RelativeLayout>
     
 </customControls:GradientPage>

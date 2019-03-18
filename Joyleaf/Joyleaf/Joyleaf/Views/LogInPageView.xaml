@@ -8,120 +8,127 @@
                              StartColor="#11998e"
                              EndColor="#38ef7d">
     
-    <StackLayout Margin="30,45">
+    <RelativeLayout>
         
         <Button
             Clicked="BackButtonClicked"
-            HeightRequest="36"
-            HorizontalOptions="Start"
+            HeightRequest="75"
             Image="BackButton"
-            WidthRequest="36"
+            WidthRequest="100"
+            RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=0,Constant=25}"
         />
         
-        <Label
-            FontAttributes="Bold"
-            FontSize="25"
-            HorizontalOptions="Center"
-            Margin="0,0,0,15"
-            Text="Log In"
-            TextColor="White">
-            <Label.FontFamily>
-                <OnPlatform x:TypeArguments="x:String">
-                    <On Platform="Android" Value="Roboto-Medium.ttf#Roboto-Medium"/>
-                </OnPlatform>
-            </Label.FontFamily>
-        </Label>
+        <StackLayout
+            Margin="30,80"
+            RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=1}"
+            RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=1}">
         
-        <Label
-            FontAttributes="Bold"
-            FontSize="18"
-            HorizontalOptions="Start"
-            Margin="15,0,0,5"
-            Text="Email"
-            TextColor="White">
-            <Label.FontFamily>
-                <OnPlatform x:TypeArguments="x:String">
-                    <On Platform="Android" Value="Roboto-Medium.ttf#Roboto-Medium"/>
-                </OnPlatform>
-            </Label.FontFamily>
-        </Label>
+            <Label
+                FontAttributes="Bold"
+                FontSize="25"
+                HorizontalOptions="Center"
+                Margin="0,0,0,15"
+                Text="Log In"
+                TextColor="White">
+                <Label.FontFamily>
+                    <OnPlatform x:TypeArguments="x:String">
+                        <On Platform="Android" Value="Roboto-Medium.ttf#Roboto-Medium"/>
+                    </OnPlatform>
+                </Label.FontFamily>
+            </Label>
         
-        <customControls:CustomEntry
-            x:Name="EmailEntry"
-            FontAttributes="Bold"
-            FontSize="15"
-            HeightRequest="45"
-            HorizontalOptions="Fill"
-            Keyboard="Email"
-            Margin="0,0,0,15"
-            ReturnType="Next"
-            TextColor="White"
-            TextChanged="TextChanged"
-        />
+            <Label
+                FontAttributes="Bold"
+                FontSize="18"
+                HorizontalOptions="Start"
+                Margin="15,0,0,5"
+                Text="Email"
+                TextColor="White">
+                <Label.FontFamily>
+                    <OnPlatform x:TypeArguments="x:String">
+                        <On Platform="Android" Value="Roboto-Medium.ttf#Roboto-Medium"/>
+                    </OnPlatform>
+                </Label.FontFamily>
+            </Label>
         
-        <Label
-            FontAttributes="Bold"
-            FontSize="18"
-            HorizontalOptions="Start"
-            Margin="15,0,0,5"
-            Text="Password"
-            TextColor="White">
-            <Label.FontFamily>
-                <OnPlatform x:TypeArguments="x:String">
-                    <On Platform="Android" Value="Roboto-Medium.ttf#Roboto-Medium"/>
-                </OnPlatform>
-            </Label.FontFamily>
-        </Label>
+            <customControls:CustomEntry
+                x:Name="EmailEntry"
+                FontAttributes="Bold"
+                FontSize="15"
+                HeightRequest="45"
+                HorizontalOptions="Fill"
+                Keyboard="Email"
+                Margin="0,0,0,15"
+                ReturnType="Next"
+                TextColor="White"
+                TextChanged="TextChanged"
+            />
         
-        <customControls:CustomEntry
-            x:Name="PasswordEntry"
-            FontAttributes="Bold"
-            FontSize="15"
-            HorizontalOptions="Fill"
-            HeightRequest="45"
-            IsPassword="True"
-            Margin="0,0,0,25"
-            ReturnType="Go"
-            TextColor="White"
-            TextChanged="TextChanged"
-        />
+            <Label
+                FontAttributes="Bold"
+                FontSize="18"
+                HorizontalOptions="Start"
+                Margin="15,0,0,5"
+                Text="Password"
+                TextColor="White">
+                <Label.FontFamily>
+                    <OnPlatform x:TypeArguments="x:String">
+                        <On Platform="Android" Value="Roboto-Medium.ttf#Roboto-Medium"/>
+                    </OnPlatform>
+                </Label.FontFamily>
+            </Label>
         
-        <customControls:CustomButton
-            x:Name="LogInButton"
-            BackgroundColor="White"
-            Clicked="LogInButtonClicked"
-            CornerRadius="23"
-            FontAttributes="Bold"
-            FontSize="15"
-            HeightRequest="45"
-            HorizontalOptions="Center"
-            IsEnabled="false"
-            Margin="0,0,0,10"
-            Text="GO"
-            TextColor="Black"
-            WidthRequest="150">
-            <customControls:CustomButton.FontFamily>
-                <OnPlatform x:TypeArguments="x:String">
-                    <On Platform="Android" Value="Roboto-Medium.ttf#Roboto-Medium"/>
-                </OnPlatform>
-            </customControls:CustomButton.FontFamily>
-        </customControls:CustomButton>
+            <customControls:CustomEntry
+                x:Name="PasswordEntry"
+                FontAttributes="Bold"
+                FontSize="15"
+                HorizontalOptions="Fill"
+                HeightRequest="45"
+                IsPassword="True"
+                Margin="0,0,0,25"
+                ReturnType="Go"
+                TextColor="White"
+                TextChanged="TextChanged"
+            />
         
-        <Button
-            BackgroundColor="Transparent"
-            Clicked="ForgotPasswordButtonClicked"
-            FontAttributes="Bold"
-            FontSize="13"
-            HorizontalOptions="Center"
-            Text="Forgot password? Press here to reset."
-            TextColor="White">
-            <Button.FontFamily>
-                <OnPlatform x:TypeArguments="x:String">
-                    <On Platform="Android" Value="Roboto-Medium.ttf#Roboto-Medium"/>
-                </OnPlatform>
-            </Button.FontFamily>
-        </Button>                   
+            <customControls:CustomButton
+                x:Name="LogInButton"
+                BackgroundColor="White"
+                Clicked="LogInButtonClicked"
+                CornerRadius="23"
+                FontAttributes="Bold"
+                FontSize="15"
+                HeightRequest="45"
+                HorizontalOptions="Center"
+                IsEnabled="false"
+                Margin="0,0,0,10"
+                Text="GO"
+                TextColor="Black"
+                WidthRequest="150">
+                <customControls:CustomButton.FontFamily>
+                    <OnPlatform x:TypeArguments="x:String">
+                        <On Platform="Android" Value="Roboto-Medium.ttf#Roboto-Medium"/>
+                    </OnPlatform>
+                </customControls:CustomButton.FontFamily>
+            </customControls:CustomButton>
         
-    </StackLayout>
+            <Button
+                BackgroundColor="Transparent"
+                Clicked="ForgotPasswordButtonClicked"
+                FontAttributes="Bold"
+                FontSize="13"
+                HorizontalOptions="Center"
+                Text="Forgot password? Press here to reset."
+                TextColor="White">
+                <Button.FontFamily>
+                    <OnPlatform x:TypeArguments="x:String">
+                        <On Platform="Android" Value="Roboto-Medium.ttf#Roboto-Medium"/>
+                    </OnPlatform>
+                </Button.FontFamily>
+            </Button>                   
+        
+        </StackLayout>
+        
+    </RelativeLayout>
     
 </customControls:GradientPage>
