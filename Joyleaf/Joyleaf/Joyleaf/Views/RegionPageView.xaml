@@ -3,8 +3,8 @@
 <customControls:GradientPage xmlns="http://xamarin.com/schemas/2014/forms"
                              xmlns:customControls="clr-namespace:Joyleaf.CustomControls;assembly=Joyleaf"
                              xmlns:system="clr-namespace:System;assembly=netstandard"
-                             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-                             x:Class="Joyleaf.Views.EmailPageView"
+                             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+                             x:Class="Joyleaf.Views.RegionPageView"
                              StartColor="#11998e"
                              EndColor="#38ef7d">
     
@@ -15,29 +15,16 @@
             HeightRequest="36"
             HorizontalOptions="Start"
             Image="BackButton"
+            Margin="0,0,0,25"
             WidthRequest="36"
         />
-        
-        <Label
-            FontAttributes="Bold"
-            FontSize="25"
-            HorizontalOptions="Center"
-            Margin="0,0,0,15"
-            Text="Sign Up"
-            TextColor="White">
-            <Label.FontFamily>
-                <OnPlatform x:TypeArguments="x:String">
-                    <On Platform="Android" Value="Roboto-Medium.ttf#Roboto-Medium"/>
-                </OnPlatform>
-            </Label.FontFamily>
-        </Label>
         
         <Label
             FontAttributes="Bold"
             FontSize="18"
             HorizontalOptions="Start"
             Margin="15,0,0,5"
-            Text="Email"
+            Text="Region"
             TextColor="White">
             <Label.FontFamily>
                 <OnPlatform x:TypeArguments="x:String">
@@ -46,18 +33,21 @@
             </Label.FontFamily>
         </Label>
         
-        <customControls:CustomEntry
-            x:Name="EmailEntry"
+        <customControls:CustomPicker
+            x:Name="RegionPicker"
             FontAttributes="Bold"
             FontSize="15"
             HeightRequest="45"
             HorizontalOptions="Fill"
-            Keyboard="Email"
             Margin="0,0,0,25"
-            ReturnType="Next"
-            TextColor="White"
-            TextChanged="TextChanged"
-        />
+            SelectedIndexChanged="PickerChanged"
+            TextColor="White">
+            <Picker.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>Quebec</x:String>
+                </x:Array>
+            </Picker.ItemsSource>
+        </customControls:CustomPicker>
         
         <customControls:CustomButton
             x:Name="NextButton"
@@ -69,9 +59,9 @@
             HeightRequest="45"
             HorizontalOptions="Center"
             IsEnabled="false"
-            Text="NEXT"
+            Text="CREATE ACCOUNT"
             TextColor="Black"
-            WidthRequest="150">
+            WidthRequest="200">
             <customControls:CustomButton.FontFamily>
                 <OnPlatform x:TypeArguments="x:String">
                     <On Platform="Android" Value="Roboto-Medium.ttf#Roboto-Medium"/>

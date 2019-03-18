@@ -1,28 +1,32 @@
-﻿using Plugin.Connectivity;
+﻿using Joyleaf.CustomControls;
+using Plugin.Connectivity;
 using System;
 using Xamarin.Forms;
 
 namespace Joyleaf.Views
 {
-    public partial class PasswordPageView : ContentPage
+    public partial class PasswordPageView : GradientPage
     {
-        private string firstName, lastName, email;
+        private string email;
 
-        public PasswordPageView(string firstName, string lastName, string email)
+        public PasswordPageView(string email)
         {
-            this.firstName = firstName;
-            this.lastName = lastName;
             this.email = email;
+
+            NavigationPage.SetHasNavigationBar(this, false);
 
             InitializeComponent();
 
-            NextButton.CornerRadius = 23;
-
             PasswordEntry.Completed += (object sender, EventArgs e) => ConfirmPasswordEntry.Focus();
-            ConfirmPasswordEntry.Completed += NextButtonClick;
+            ConfirmPasswordEntry.Completed += NextButtonClicked;
         }
 
-        private async void NextButtonClick(object sender, EventArgs e)
+        private async void BackButtonClicked(object sender, EventArgs e)
+        {
+            await Navigation.PopAsync();
+        }
+
+        private async void NextButtonClicked(object sender, EventArgs e)
         {
             if (CrossConnectivity.Current.IsConnected)
             {
@@ -32,13 +36,13 @@ namespace Joyleaf.Views
                     {
                         int count = PasswordEntry.Text.Length;
 
-                        if (count >= 6)
+                        if (count >= 8)
                         {
-                            await Navigation.PushAsync(new LocationPageView(firstName, lastName, email, PasswordEntry.Text));
+                            await Navigation.PushAsync(new RegionPageView(email, PasswordEntry.Text));
                         }
                         else
                         {
-                            await DisplayAlert("Choose a stronger password", "Make sure to use at least six characters. Please try again.", "Try Again");
+                            await DisplayAlert("Choose a stronger password", "Make sure to use at least eight characters. Please try again.", "Try Again");
                         }
                     }
                     else
@@ -62,12 +66,10 @@ namespace Joyleaf.Views
 
             if (!(string.IsNullOrEmpty(PasswordEntry.Text)) && !(string.IsNullOrEmpty(ConfirmPasswordEntry.Text)))
             {
-                NextButton.BackgroundColor = Color.FromHex("#00c88c");
                 NextButton.IsEnabled = true;
             }
             else
             {
-                NextButton.BackgroundColor = Color.FromHex("#4000c88c");
                 NextButton.IsEnabled = false;
             }
         }

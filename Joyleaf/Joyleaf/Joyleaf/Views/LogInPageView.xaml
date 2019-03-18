@@ -20,16 +20,16 @@
         
         <Label
             FontAttributes="Bold"
-            FontSize="27"
+            FontSize="25"
             HorizontalOptions="Center"
             Margin="0,0,0,15"
             Text="Log In"
             TextColor="White">
-            <Button.FontFamily>
+            <Label.FontFamily>
                 <OnPlatform x:TypeArguments="x:String">
                     <On Platform="Android" Value="Roboto-Medium.ttf#Roboto-Medium"/>
                 </OnPlatform>
-            </Button.FontFamily>
+            </Label.FontFamily>
         </Label>
         
         <Label
@@ -39,30 +39,25 @@
             Margin="15,0,0,5"
             Text="Email"
             TextColor="White">
-            <Button.FontFamily>
+            <Label.FontFamily>
                 <OnPlatform x:TypeArguments="x:String">
                     <On Platform="Android" Value="Roboto-Medium.ttf#Roboto-Medium"/>
                 </OnPlatform>
-            </Button.FontFamily>
+            </Label.FontFamily>
         </Label>
         
         <customControls:CustomEntry
             x:Name="EmailEntry"
             FontAttributes="Bold"
             FontSize="15"
-            HorizontalOptions="Fill"
             HeightRequest="45"
-            Margin="0,0,0,15"
+            HorizontalOptions="Fill"
             Keyboard="Email"
+            Margin="0,0,0,15"
             ReturnType="Next"
             TextColor="White"
-            TextChanged="TextChanged">
-            <customControls:CustomEntry.BackgroundColor>
-                <OnPlatform x:TypeArguments="Color">
-                    <On Platform="iOS" Value="#fafafa"/>
-                </OnPlatform>
-            </customControls:CustomEntry.BackgroundColor>
-        </customControls:CustomEntry>
+            TextChanged="TextChanged"
+        />
         
         <Label
             FontAttributes="Bold"
@@ -71,11 +66,11 @@
             Margin="15,0,0,5"
             Text="Password"
             TextColor="White">
-            <Button.FontFamily>
+            <Label.FontFamily>
                 <OnPlatform x:TypeArguments="x:String">
                     <On Platform="Android" Value="Roboto-Medium.ttf#Roboto-Medium"/>
                 </OnPlatform>
-            </Button.FontFamily>
+            </Label.FontFamily>
         </Label>
         
         <customControls:CustomEntry
@@ -88,17 +83,12 @@
             Margin="0,0,0,25"
             ReturnType="Go"
             TextColor="White"
-            TextChanged="TextChanged">
-            <customControls:CustomEntry.BackgroundColor>
-                <OnPlatform x:TypeArguments="Color">
-                    <On Platform="iOS" Value="#fafafa"/>
-                </OnPlatform>
-            </customControls:CustomEntry.BackgroundColor>
-        </customControls:CustomEntry>
+            TextChanged="TextChanged"
+        />
         
         <customControls:CustomButton
             x:Name="LogInButton"
-            BackgroundColor="#ffffff"
+            BackgroundColor="White"
             Clicked="LogInButtonClicked"
             CornerRadius="23"
             FontAttributes="Bold"
@@ -110,11 +100,11 @@
             Text="GO"
             TextColor="Black"
             WidthRequest="150">
-            <Button.FontFamily>
+            <customControls:CustomButton.FontFamily>
                 <OnPlatform x:TypeArguments="x:String">
                     <On Platform="Android" Value="Roboto-Medium.ttf#Roboto-Medium"/>
                 </OnPlatform>
-            </Button.FontFamily>
+            </customControls:CustomButton.FontFamily>
         </customControls:CustomButton>
         
         <Button
@@ -124,7 +114,7 @@
             FontSize="13"
             HorizontalOptions="Center"
             Text="Forgot password? Press here to reset."
-            TextColor="#ffffff">
+            TextColor="White">
             <Button.FontFamily>
                 <OnPlatform x:TypeArguments="x:String">
                     <On Platform="Android" Value="Roboto-Medium.ttf#Roboto-Medium"/>

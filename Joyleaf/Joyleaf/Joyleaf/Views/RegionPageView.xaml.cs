@@ -1,4 +1,5 @@
-﻿using Joyleaf.Helpers;
+﻿using Joyleaf.CustomControls;
+using Joyleaf.Helpers;
 using Joyleaf.Services;
 using Plugin.Connectivity;
 using System;
@@ -6,30 +7,33 @@ using Xamarin.Forms;
 
 namespace Joyleaf.Views
 {
-    public partial class LocationPageView : ContentPage
+    public partial class RegionPageView : GradientPage
     {
-        private string firstName, lastName, email, password;
+        private string email, password;
         private string selectedItem;
 
-        public LocationPageView(string firstName, string lastName, string email, string password)
+        public RegionPageView(string email, string password)
         {
-            this.firstName = firstName;
-            this.lastName = lastName;
             this.email = email;
             this.password = password;
 
-            InitializeComponent();
+            NavigationPage.SetHasNavigationBar(this, false);
 
-            NextButton.CornerRadius = 23;
+            InitializeComponent();
         }
 
-        private async void NextButtonClick(object sender, EventArgs e)
+        private async void BackButtonClicked(object sender, EventArgs e)
+        {
+            await Navigation.PopAsync();
+        }
+
+        private async void NextButtonClicked(object sender, EventArgs e)
         {
             if (CrossConnectivity.Current.IsConnected)
             {
-                string location = (string)LocationPicker.ItemsSource[LocationPicker.SelectedIndex];
+                string region = (string)RegionPicker.ItemsSource[RegionPicker.SelectedIndex];
 
-                Account account = new Account(firstName, lastName, location);
+                Account account = new Account(region);
 
                 try
                 {
@@ -48,16 +52,14 @@ namespace Joyleaf.Views
 
         private void PickerChanged(object sender, EventArgs e)
         {
-            selectedItem = (string)LocationPicker.ItemsSource[LocationPicker.SelectedIndex];
+            selectedItem = (string)RegionPicker.ItemsSource[RegionPicker.SelectedIndex];
 
-            if (LocationPicker.SelectedIndex != -1)
+            if (RegionPicker.SelectedIndex != -1)
             {
-                NextButton.BackgroundColor = Color.FromHex("#00c88c");
                 NextButton.IsEnabled = true;
             }
             else
             {
-                NextButton.BackgroundColor = Color.FromHex("#4000c88c");
                 NextButton.IsEnabled = false;
             }
         }

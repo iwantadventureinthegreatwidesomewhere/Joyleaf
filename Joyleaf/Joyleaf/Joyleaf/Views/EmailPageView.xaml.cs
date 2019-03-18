@@ -1,4 +1,5 @@
-﻿using Joyleaf.Services;
+﻿using Joyleaf.CustomControls;
+using Joyleaf.Services;
 using Plugin.Connectivity;
 using System;
 using Xamarin.Forms;
@@ -8,23 +9,23 @@ namespace Joyleaf.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
 
-    public partial class EmailPageView : ContentPage
+    public partial class EmailPageView : GradientPage
     {
-        private string firstName, lastName;
-
-        public EmailPageView(string firstName, string lastName)
+        public EmailPageView()
         {
-            this.firstName = firstName;
-            this.lastName = lastName;
+            NavigationPage.SetHasNavigationBar(this, false);
 
             InitializeComponent();
 
-            NextButton.CornerRadius = 23;
-
-            EmailEntry.Completed += NextButtonClick;
+            EmailEntry.Completed += NextButtonClicked;
         }
 
-        private async void NextButtonClick(object sender, EventArgs e)
+        private async void BackButtonClicked(object sender, EventArgs e)
+        {
+            await Navigation.PopAsync();
+        }
+
+        private async void NextButtonClicked(object sender, EventArgs e)
         {
             if (CrossConnectivity.Current.IsConnected)
             {
@@ -34,7 +35,7 @@ namespace Joyleaf.Views
                     {
                         if (FirebaseBackend.IsEmailAvailable(EmailEntry.Text))
                         {
-                            await Navigation.PushAsync(new PasswordPageView(firstName, lastName, EmailEntry.Text));
+                            await Navigation.PushAsync(new PasswordPageView(EmailEntry.Text));
                         }
                         else
                         {
@@ -59,14 +60,12 @@ namespace Joyleaf.Views
 
         private void TextChanged(object sender, EventArgs e)
         {
-            if (!(string.IsNullOrEmpty(EmailEntry.Text)))
+            if (!string.IsNullOrEmpty(EmailEntry.Text))
             {
-                NextButton.BackgroundColor = Color.FromHex("#00c88c");
                 NextButton.IsEnabled = true;
             }
             else
             {
-                NextButton.BackgroundColor = Color.FromHex("#4000c88c");
                 NextButton.IsEnabled = false;
             }
         }

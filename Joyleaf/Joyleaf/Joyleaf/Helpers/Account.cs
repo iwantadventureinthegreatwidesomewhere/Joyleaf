@@ -2,15 +2,11 @@
 {
     public class Account
     {
-        public readonly string firstName;
-        public readonly string lastName;
-        public readonly string location;
+        public readonly string region;
 
-        public Account(string firstName, string lastName, string location)
+        public Account(string region)
         {
-            this.firstName = firstName;
-            this.lastName = lastName;
-            this.location = location;
+            this.region = region;
         }
     }
 }
