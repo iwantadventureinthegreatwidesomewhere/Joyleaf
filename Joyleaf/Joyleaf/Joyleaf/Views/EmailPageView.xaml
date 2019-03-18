@@ -10,14 +10,6 @@
     
     <RelativeLayout>
         
-        <Button
-            Clicked="BackButtonClicked"
-            HeightRequest="75"
-            Image="BackButton"
-            WidthRequest="100"
-            RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=0,Constant=25}"
-        />
-        
         <StackLayout 
             Margin="30,80"
             RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=1}"
@@ -85,6 +77,15 @@
             </customControls:CustomButton>
             
         </StackLayout>
+        
+        <Button
+            Clicked="BackButtonClicked"
+            HeightRequest="75"
+            Image="BackButton"
+            WidthRequest="100"
+            RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=0,Constant=-15}"
+            RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=0,Constant=20}"
+        />
         
     </RelativeLayout>
     
