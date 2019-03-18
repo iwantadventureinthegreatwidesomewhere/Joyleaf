@@ -19,7 +19,7 @@
         />
         
         <StackLayout 
-            Margin="30,80"
+            Margin="30,110"
             RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=1}"
             RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=1}">
         

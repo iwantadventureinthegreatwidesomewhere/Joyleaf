@@ -43,7 +43,7 @@
                 FontSize="23"
                 HorizontalOptions="Center"
                 Margin="0,0,0,13"
-                Text="Find your best match."
+                Text="Find your tailored match."
                 TextColor="#ffffff">
                 <Label.FontFamily>
                     <OnPlatform x:TypeArguments="x:String">

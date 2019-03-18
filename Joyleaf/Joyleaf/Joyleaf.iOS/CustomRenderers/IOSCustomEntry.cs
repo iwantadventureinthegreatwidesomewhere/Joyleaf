@@ -31,7 +31,7 @@ namespace Joyleaf.iOS.CustomRenderers
             entry.Layer.CornerRadius = 23;
             entry.Layer.MasksToBounds = true;
 
-            entry.LeftView = new UIView(new CGRect(0, 0, 15, Control.Frame.Height));
+            entry.LeftView = new UIView(new CGRect(0, 0, 16, Control.Frame.Height));
             entry.LeftViewMode = UITextFieldViewMode.Always;
 
             entry.EnablesReturnKeyAutomatically = true;
