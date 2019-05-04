@@ -16,7 +16,7 @@ namespace Joyleaf.iOS.CustomRenderers
 
             if (Control != null)
             {
-                Control.SetTitleColor(UIColor.Black, UIControlState.Disabled);
+                Control.SetTitleColor(Color.FromHex("#333333").ToUIColor(), UIControlState.Disabled);
             }
         }
     }

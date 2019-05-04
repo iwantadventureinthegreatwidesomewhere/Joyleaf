@@ -5,30 +5,27 @@ using Joyleaf.Helpers;
 using Joyleaf.Views;
 using Newtonsoft.Json;
 using System;
+using System.Net.Http;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace Joyleaf.Services
 {
-    static class FirebaseBackend
+    public static class FirebaseBackend
     {
         public static void DeleteAuth()
         {
             Settings.FirebaseAuth = "";
         }
 
-        public static Account GetAccount(FirebaseAuthLink auth)
+        public static async Task<Account> GetAccountAsync()
         {
             FirebaseClient firebase = new FirebaseClient(
                 Constants.FIREBASE_DATABASE_URL,
-                new FirebaseOptions { AuthTokenAsyncFactory = () => Task.FromResult(auth.FirebaseToken) }
+                new FirebaseOptions { AuthTokenAsyncFactory = () => Task.FromResult(GetAuth().FirebaseToken) }
             );
 
-            Account account = Task.Run(() =>
-            {
-                Task<Account> t = firebase.Child("users").Child(auth.User.LocalId).OnceSingleAsync<Account>();
-                return t;
-            }).Result;
+            Account account = await firebase.Child("users").Child(GetAuth().User.LocalId).OnceSingleAsync<Account>();
 
             return account;
         }
@@ -86,6 +83,19 @@ namespace Joyleaf.Services
             {
                 return false;
             }
+        }
+
+        public static async Task<string> LoadContentAsync()
+        {
+            HttpRequestMessage request = new HttpRequestMessage();
+            request.RequestUri = new Uri("https://us-central1-joyleaf-c142c.cloudfunctions.net/loader?uid=" + GetAuth().User.LocalId);
+            request.Method = HttpMethod.Get;
+            HttpClient client = new HttpClient();
+            HttpResponseMessage response = await client.SendAsync(request);
+            //check for valid response
+            HttpContent content = response.Content;
+            string s = await content.ReadAsStringAsync();
+            return s;
         }
 
         public static async Task RefreshAuthAsync()

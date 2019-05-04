@@ -99,29 +99,24 @@ namespace Joyleaf.Views
             {
                 FontAttributes = FontAttributes.Bold,
                 FontSize = 27,
-                Margin = new Thickness(7, 0),
+                Margin = new Thickness(7,0),
                 Text = "Explore",
                 TextColor = Color.Black
             });
 
 
 
-            var i = new ExploreBox
-            {
-                IsWhite = false,
-                StartColor = Color.FromHex("#5b10c1"),
-                EndColor = Color.FromHex("#1a92f0")
-            };
+            var i = new ExploreBox();
 
 
             var s = new StackLayout();
             s.Children.Add(new Label
             {
                 Text = "Trending Now  \U0001F91F",
-                FontSize = 22,
+                FontSize = 23,
                 Margin = new Thickness(10),
                 FontAttributes = FontAttributes.Bold,
-                TextColor = Color.White
+                TextColor = Color.Black
             });
             i.Content = s;
             Content.Children.Add(i);
@@ -132,17 +127,14 @@ namespace Joyleaf.Views
 
 
 
-            var i4 = new ExploreBox
-            {
-                IsWhite = true
-            };
+            var i4 = new ExploreBox();
 
 
             var s4 = new StackLayout();
             s4.Children.Add(new Label
             {
                 Text = "Happy Vibes",
-                FontSize = 22,
+                FontSize = 23,
                 Margin = new Thickness(10),
                 FontAttributes = FontAttributes.Bold,
                 TextColor = Color.Black
@@ -152,17 +144,14 @@ namespace Joyleaf.Views
 
 
 
-            var i5 = new ExploreBox
-            {
-                IsWhite = true
-            };
+            var i5 = new ExploreBox();
 
 
             var s5 = new StackLayout();
             s5.Children.Add(new Label
             {
                 Text = "Brands We Love",
-                FontSize = 22,
+                FontSize = 23,
                 Margin = new Thickness(10),
                 FontAttributes = FontAttributes.Bold,
                 TextColor = Color.Black
@@ -174,37 +163,29 @@ namespace Joyleaf.Views
 
 
 
-            var i3 = new ExploreBox
-            {
-                IsWhite = false,
-                StartColor = Color.FromHex("#fe548f"),
-                EndColor = Color.FromHex("#f59e3d")
-            };
+            var i3 = new ExploreBox();
 
 
             var s3 = new StackLayout();
             s3.Children.Add(new Label
             {
                 Text = "New Cannabis  \ud83c\udf89",
-                FontSize = 22,
+                FontSize = 23,
                 Margin = new Thickness(10),
                 FontAttributes = FontAttributes.Bold,
-                TextColor = Color.White
+                TextColor = Color.Black
             });
             i3.Content = s3;
             Content.Children.Add(i3);
 
 
-            var i6 = new ExploreBox
-            {
-                IsWhite = true
-            };
+            var i6 = new ExploreBox();
 
             var s6 = new StackLayout();
             s6.Children.Add(new Label
             {
                 Text = "By Aurora",
-                FontSize = 22,
+                FontSize = 23,
                 Margin = new Thickness(10),
                 FontAttributes = FontAttributes.Bold,
                 TextColor = Color.Black
@@ -293,6 +274,12 @@ namespace Joyleaf.Views
 
         private void AwesomeButtonClick()
         {
+            string s = Task.Run(async () =>
+            {
+                return await FirebaseBackend.LoadContentAsync();
+            }).Result;
+
+            DisplayAlert(s, "", "OK");
         }
 
         private void LogoutButtonClick(object sender, EventArgs e)

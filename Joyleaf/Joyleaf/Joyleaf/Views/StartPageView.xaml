@@ -43,7 +43,7 @@
                 FontSize="23"
                 HorizontalOptions="Center"
                 Margin="0,0,0,13"
-                Text="Find your tailored match."
+                Text="Find your best match."
                 TextColor="#ffffff">
                 <Label.FontFamily>
                     <OnPlatform x:TypeArguments="x:String">
@@ -78,7 +78,7 @@
                 FontSize="15"
                 Margin="0,0,0,10"
                 Text="SIGN UP"
-                TextColor="#000000">
+                TextColor="#333333">
                 <Button.FontFamily>
                     <OnPlatform x:TypeArguments="x:String">
                         <On Platform="Android" Value="Roboto-Medium.ttf#Roboto-Medium"/>

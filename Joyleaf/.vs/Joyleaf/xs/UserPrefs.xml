@@ -1,16 +1,25 @@
 ﻿<Properties StartupConfiguration="{928BF896-B912-476D-86D7-5A6B2B2B065A}|Default">
-  <MonoDevelop.Ide.ItemProperties.Joyleaf.iOS automaticSigning="False" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.634C2E62-9263-43A6-BEA6-7ABED2BA9510" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Joyleaf/Joyleaf/Views/StartPageView.xaml">
+  <MonoDevelop.Ide.ItemProperties.Joyleaf.iOS automaticSigning="False" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.7ECDEF56-16C5-40AA-A642-162E25DEEC00" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Joyleaf Status">
     <Files>
-      <File FileName="Joyleaf/Joyleaf/Views/StartPageView.xaml" Line="46" Column="41" />
+      <File FileName="Joyleaf/Joyleaf/Views/MainPageView.xaml" Line="71" Column="16" />
+      <File FileName="Joyleaf/Joyleaf/Views/MainPageView.xaml.cs" Line="265" Column="19" />
+      <File FileName="Joyleaf/Joyleaf/Services/FirebaseBackend.cs" Line="85" Column="14" />
+      <File FileName="Joyleaf/Joyleaf/Helpers/ExploreBox.cs" Line="11" Column="29" />
+      <File FileName="Joyleaf Status" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Joyleaf" expanded="True">
             <Node name="Joyleaf" expanded="True">
+              <Node name="CustomControls" expanded="True" />
+              <Node name="Helpers" expanded="True" />
+              <Node name="Services" expanded="True">
+                <Node name="FirebaseBackend.cs" selected="True" />
+              </Node>
               <Node name="Views" expanded="True">
-                <Node name="StartPageView.xaml" selected="True" />
+                <Node name="MainPageView.xaml" expanded="True" />
               </Node>
             </Node>
             <Node name="Joyleaf.iOS" expanded="True">

@@ -67,7 +67,7 @@
                 HorizontalOptions="Center"
                 IsEnabled="false"
                 Text="NEXT"
-                TextColor="Black"
+                TextColor="#333333"
                 WidthRequest="150">
                 <customControls:CustomButton.FontFamily>
                     <OnPlatform x:TypeArguments="x:String">

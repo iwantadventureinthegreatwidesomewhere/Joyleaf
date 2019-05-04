@@ -95,7 +95,7 @@
                 IsEnabled="false"
                 Margin="0,0,0,10"
                 Text="GO"
-                TextColor="Black"
+                TextColor="#333333"
                 WidthRequest="150">
                 <customControls:CustomButton.FontFamily>
                     <OnPlatform x:TypeArguments="x:String">
