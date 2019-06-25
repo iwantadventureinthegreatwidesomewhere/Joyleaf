@@ -61,7 +61,7 @@ namespace Joyleaf.Views
 
             };
 
-            HighFiveButton.Clicked += (object sender, EventArgs e) => HighFiveButtonClick();
+            HighFiveButton.Clicked += HighFiveButtonClick;
 
             LoadingWheel = new ActivityIndicator
             {
@@ -181,16 +181,9 @@ namespace Joyleaf.Views
             VerifyAuth();
         }
 
-
-
-
-
-
-
-
-
-        private void HighFiveButtonClick()
+        private void HighFiveButtonClick(object sender, EventArgs e)
         {
+
         }
 
         private void LogoutButtonClick(object sender, EventArgs e)

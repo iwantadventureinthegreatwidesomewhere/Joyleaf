@@ -18,7 +18,8 @@
                 Orientation="Vertical"
                 RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=1}"
                 RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=1}"
-                VerticalOptions="Fill">
+                VerticalOptions="Fill"
+                VerticalScrollBarVisibility="Never">
             
                 <StackLayout x:Name="ContentStack" Orientation="Vertical" VerticalOptions="Fill">
                 </StackLayout>

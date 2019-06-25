@@ -158,7 +158,7 @@ namespace Joyleaf.Services
         public static bool IsContentExpired()
         {
             int UnixTimestamp = (int)DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1)).TotalSeconds;
-            return UnixTimestamp - Settings.LastContentUpdateTimestamp >= 10800;
+            return UnixTimestamp - Settings.LastContentUpdateTimestamp >= 43200;
         }
 
         public static void SetAuth(FirebaseAuth auth)
