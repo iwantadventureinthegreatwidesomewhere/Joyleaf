@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 
 <customControls:GradientPage xmlns="http://xamarin.com/schemas/2014/forms"
                              xmlns:customControls="clr-namespace:Joyleaf.CustomControls;assembly=Joyleaf"
@@ -20,7 +20,7 @@
                 FontSize="25"
                 HorizontalOptions="Center"
                 Margin="0,0,0,15"
-                Text="Sign Up"
+                Text="Create Account"
                 TextColor="White">
                 <Label.FontFamily>
                     <OnPlatform x:TypeArguments="x:String">
@@ -28,6 +28,32 @@
                     </OnPlatform>
                 </Label.FontFamily>
             </Label>
+            
+            <Label
+                FontAttributes="Bold"
+                FontSize="18"
+                HorizontalOptions="Start"
+                Margin="15,0,0,5"
+                Text="Name"
+                TextColor="White">
+                <Label.FontFamily>
+                    <OnPlatform x:TypeArguments="x:String">
+                        <On Platform="Android" Value="Roboto-Medium.ttf#Roboto-Medium"/>
+                    </OnPlatform>
+                </Label.FontFamily>
+            </Label>
+            
+            <customControls:CustomEntry
+                x:Name="NameEntry"
+                FontAttributes="Bold"
+                FontSize="15"
+                HeightRequest="45"
+                HorizontalOptions="Fill"
+                Margin="0,0,0,15"
+                ReturnType="Next"
+                TextColor="White"
+                TextChanged="TextChanged"
+            />
         
             <Label
                 FontAttributes="Bold"

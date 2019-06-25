@@ -22,10 +22,14 @@ namespace Joyleaf.Views
             await Navigation.PopAsync();
         }
 
-        private async void LogInButtonClicked(object sender, EventArgs e)         {             if (!string.IsNullOrEmpty(EmailEntry.Text) && !string.IsNullOrEmpty(PasswordEntry.Text))             {                 if (CrossConnectivity.Current.IsConnected)                 {                     try                     {                         FirebaseBackend.SignIn(EmailEntry.Text, PasswordEntry.Text);                     }                     catch (Exception)                     {                         await Application.Current.MainPage.DisplayAlert("Error", "Whoops, looks like there is a problem on our end. Please try again later.", "OK");                     }                 }                 else                 {                     await DisplayAlert("Connection error", "Please check your network connection, then try again.", "OK");                 }             }         }
+        private async void LogInButtonClicked(object sender, EventArgs e)         {             if (!string.IsNullOrEmpty(EmailEntry.Text))             {                 if (CrossConnectivity.Current.IsConnected)                 {                     try                     {                         FirebaseBackend.SignIn(EmailEntry.Text, PasswordEntry.Text);                     }                     catch (Exception)                     {                         await Application.Current.MainPage.DisplayAlert("Error", "Whoops, looks like there is a problem on our end. Please try again later.", "OK");                     }                 }                 else                 {                     await DisplayAlert("Connection error", "Please check your network connection, then try again.", "OK");                 }             }
+            else
+            {
+                EmailEntry.Focus();
+            }         }
 
         private async void ForgotPasswordButtonClicked(object sender, EventArgs e)         {             await Navigation.PushAsync(new ForgotPasswordPageView());         }
 
-        private void TextChanged(object sender, EventArgs e)         {             if (!string.IsNullOrEmpty(EmailEntry.Text) && !string.IsNullOrEmpty(PasswordEntry.Text))             {                 LogInButton.IsEnabled = true;             }             else             {                 LogInButton.IsEnabled = false;             }         }
+        private void TextChanged(object sender, EventArgs e)         {             LogInButton.IsEnabled = !string.IsNullOrEmpty(EmailEntry.Text) && !string.IsNullOrEmpty(PasswordEntry.Text);         }
     }
 }

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8" ?>
 
 <TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
             xmlns:customControls="clr-namespace:Joyleaf.CustomControls;assembly=Joyleaf"
@@ -15,20 +15,15 @@
             
             <ScrollView 
                 x:Name="Scroller" 
-                Orientation="Vertical" 
-                
-                VerticalOptions="Fill"
+                Orientation="Vertical"
+                RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=1}"
                 RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=1}"
-                RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=1}">
+                VerticalOptions="Fill">
             
-            <StackLayout x:Name="Content" Orientation="Vertical" VerticalOptions="Fill">
-                
-            </StackLayout>
+                <StackLayout x:Name="ContentStack" Orientation="Vertical" VerticalOptions="Fill">
+                </StackLayout>
             
             </ScrollView>
-            
-            
-            
             
         </RelativeLayout>
         
@@ -37,7 +32,6 @@
     <ContentPage Icon="Search">
     
     </ContentPage>    
-        
     
     <ContentPage Icon="Account">
         
@@ -61,10 +55,7 @@
                         </Button.FontFamily>
                     </customControls:CustomButton>
             
-            
             </StackLayout>
-        
-        
     
     </ContentPage>
    

@@ -14,6 +14,8 @@
     <Compile Remove="Services\WebTester.cs" />
     <Compile Remove="CustomControls\NewEntryEmailVerify.cs" />
     <Compile Remove="GlobalSuppressions.cs" />
+    <Compile Remove="Helpers\ExploreBox.cs" />
+    <Compile Remove="Helpers\EmptyClass.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Ressources\blacklogo.png" />

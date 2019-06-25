@@ -29,7 +29,7 @@ namespace Joyleaf.Views
         {
             if (!string.IsNullOrEmpty(Settings.FirebaseAuth))
             {
-                FirebaseBackend.DeleteAuth();
+                Settings.ResetSettings();
             }
         }
     }

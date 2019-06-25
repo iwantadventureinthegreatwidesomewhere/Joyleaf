@@ -7,10 +7,11 @@ namespace Joyleaf.Views
 {
     public partial class PasswordPageView : GradientPage
     {
-        private string email;
+        private readonly string name, email;
 
-        public PasswordPageView(string email)
+        public PasswordPageView(string name, string email)
         {
+            this.name = name;
             this.email = email;
 
             NavigationPage.SetHasNavigationBar(this, false);
@@ -28,50 +29,50 @@ namespace Joyleaf.Views
 
         private async void NextButtonClicked(object sender, EventArgs e)
         {
-            if (CrossConnectivity.Current.IsConnected)
+            if (!string.IsNullOrEmpty(PasswordEntry.Text))
             {
-                if (PasswordEntry.VerifyText(@"^[ -~]+$") && ConfirmPasswordEntry.VerifyText(@"^[ -~]+$"))
+                if (CrossConnectivity.Current.IsConnected)
                 {
-                    if (string.Equals(PasswordEntry.Text, ConfirmPasswordEntry.Text))
+                    if (PasswordEntry.VerifyText(@"^[ -~]+$") && ConfirmPasswordEntry.VerifyText(@"^[ -~]+$"))
                     {
-                        int count = PasswordEntry.Text.Length;
-
-                        if (count >= 8)
+                        if (string.Equals(PasswordEntry.Text, ConfirmPasswordEntry.Text))
                         {
-                            await Navigation.PushAsync(new RegionPageView(email, PasswordEntry.Text));
+                            int count = PasswordEntry.Text.Length;
+
+                            if (count >= 8)
+                            {
+                                await Navigation.PushAsync(new RegionPageView(name, email, PasswordEntry.Text));
+                            }
+                            else
+                            {
+                                await DisplayAlert("Choose a stronger password", "Make sure to use at least eight characters. Please try again.", "Try Again");
+                            }
                         }
                         else
                         {
-                            await DisplayAlert("Choose a stronger password", "Make sure to use at least eight characters. Please try again.", "Try Again");
+                            await DisplayAlert("Passwords do not match", "The passwords you entered do not match. Please try again.", "Try Again");
                         }
                     }
                     else
                     {
-                        await DisplayAlert("Passwords do not match", "The passwords you entered do not match. Please try again.", "Try Again");
+                        await DisplayAlert("Invalid password", "The password you entered is invalid. Please try again.", "Try Again");
                     }
                 }
                 else
                 {
-                    await DisplayAlert("Invalid password", "The password you entered is invalid. Please try again.", "Try Again");
+                    await DisplayAlert("Connection error", "Please check your network connection, then try again.", "OK");
                 }
             }
             else
             {
-                await DisplayAlert("Connection error", "Please check your network connection, then try again.", "OK");
+                PasswordEntry.Focus();
             }
         }
 
         private void TextChanged(object sender, EventArgs e)
         {
 
-            if (!(string.IsNullOrEmpty(PasswordEntry.Text)) && !(string.IsNullOrEmpty(ConfirmPasswordEntry.Text)))
-            {
-                NextButton.IsEnabled = true;
-            }
-            else
-            {
-                NextButton.IsEnabled = false;
-            }
+            NextButton.IsEnabled = !string.IsNullOrEmpty(PasswordEntry.Text) && !string.IsNullOrEmpty(ConfirmPasswordEntry.Text);
         }
     }
 }

@@ -1,9 +1,9 @@
-﻿using Joyleaf.Helpers;
+﻿using Joyleaf.CustomControls;
+using Joyleaf.Helpers;
 using Joyleaf.Services;
 using Plugin.Connectivity;
 using System;
 using System.Threading.Tasks;
-using System.Timers;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -13,9 +13,9 @@ namespace Joyleaf.Views
 
     public partial class MainPageView : TabbedPage
     {
-        private Button AwesomeButton;
-        private StackLayout ConnectionErrorText;
-        private Timer RefreshTimer;
+        private readonly StackLayout ConnectionErrorText;
+        private readonly Button HighFiveButton;
+        private readonly ActivityIndicator LoadingWheel;
 
         public MainPageView()
         {
@@ -23,22 +23,8 @@ namespace Joyleaf.Views
 
             NavigationPage.SetHasNavigationBar(this, false);
 
-            //#####################################################################################
-
-            Content.Padding = 25;
-            Content.Spacing = 25;
-
-            Image image = new Image { Source = "Logo" };
-
-            AwesomeButton = new Button
-            {
-                BackgroundColor = Color.FromHex("#23C7A5"),
-                CornerRadius = 30,
-                HeightRequest = 60,
-                Image = "AwesomeButton",
-                WidthRequest = 60
-            };
-            AwesomeButton.Clicked += (object sender, EventArgs e) => AwesomeButtonClick();
+            ContentStack.Padding = 25;
+            ContentStack.Spacing = 25;
 
             ConnectionErrorText = new StackLayout
             {
@@ -65,228 +51,154 @@ namespace Joyleaf.Views
 
             ExploreRelativeLayout.Children.Add(ConnectionErrorText, Constraint.RelativeToParent(parent => (parent.Width / 2) - (ConnectionErrorText.Width / 2)), Constraint.RelativeToParent(parent => (parent.Height / 2) - (ConnectionErrorText.Height / 2)));
 
-            //#####################################################################################
+            HighFiveButton = new Button
+            {
+                BackgroundColor = Color.FromHex("#23C7A5"),
+                CornerRadius = 30,
+                HeightRequest = 60,
+                Image = "HighFive",
+                WidthRequest = 60,
 
-            Checks();
+            };
 
-            CrossConnectivity.Current.ConnectivityChanged += HandleConnectionChecksEvent;
+            HighFiveButton.Clicked += (object sender, EventArgs e) => HighFiveButtonClick();
 
-            RefreshTimer = new Timer(1000 * 60 * 60 * 3);
-            RefreshTimer.Elapsed += HandleTimedRefreshEvent;
-            RefreshTimer.Start();
+            LoadingWheel = new ActivityIndicator
+            {
+                Color = Color.Gray,
+                IsEnabled = false,
+                IsRunning = true,
+                IsVisible = false
+            };
+
+            ExploreRelativeLayout.Children.Add(LoadingWheel, Constraint.RelativeToParent(parent => (parent.Width / 2) - (LoadingWheel.Width / 2)), Constraint.RelativeToParent(parent => (parent.Height / 2) - (LoadingWheel.Height / 2)));
+
+            CrossConnectivity.Current.ConnectivityChanged += HandleConnectivityChanged;
+
+            RefreshContent();
+            VerifyAuth();
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         private void RefreshContent()
         {
-            Content.Children.Clear();
-
-            Content.Children.Add(new Label
-            {
-                FontAttributes = FontAttributes.Bold,
-                FontSize = 27,
-                Margin = new Thickness(7,0),
-                Text = "Explore",
-                TextColor = Color.Black
-            });
-
-
-
-            var i = new ExploreBox();
-
-
-            var s = new StackLayout();
-            s.Children.Add(new Label
-            {
-                Text = "Trending Now  \U0001F91F",
-                FontSize = 23,
-                Margin = new Thickness(10),
-                FontAttributes = FontAttributes.Bold,
-                TextColor = Color.Black
-            });
-            i.Content = s;
-            Content.Children.Add(i);
-
-
-
-
-
-
-
-            var i4 = new ExploreBox();
-
-
-            var s4 = new StackLayout();
-            s4.Children.Add(new Label
-            {
-                Text = "Happy Vibes",
-                FontSize = 23,
-                Margin = new Thickness(10),
-                FontAttributes = FontAttributes.Bold,
-                TextColor = Color.Black
-            });
-            i4.Content = s4;
-            Content.Children.Add(i4);
-
-
-
-            var i5 = new ExploreBox();
-
-
-            var s5 = new StackLayout();
-            s5.Children.Add(new Label
-            {
-                Text = "Brands We Love",
-                FontSize = 23,
-                Margin = new Thickness(10),
-                FontAttributes = FontAttributes.Bold,
-                TextColor = Color.Black
-            });
-            i5.Content = s5;
-            Content.Children.Add(i5);
-
-
-
-
-
-            var i3 = new ExploreBox();
-
-
-            var s3 = new StackLayout();
-            s3.Children.Add(new Label
-            {
-                Text = "New Cannabis  \ud83c\udf89",
-                FontSize = 23,
-                Margin = new Thickness(10),
-                FontAttributes = FontAttributes.Bold,
-                TextColor = Color.Black
-            });
-            i3.Content = s3;
-            Content.Children.Add(i3);
-
-
-            var i6 = new ExploreBox();
-
-            var s6 = new StackLayout();
-            s6.Children.Add(new Label
-            {
-                Text = "By Aurora",
-                FontSize = 23,
-                Margin = new Thickness(10),
-                FontAttributes = FontAttributes.Bold,
-                TextColor = Color.Black
-            });
-            i6.Content = s6;
-            Content.Children.Add(i6);
-
-
-
-
-        }
-
-
-
-
-
-
-
-
-
-
-        public void Checks()
-        {
             if (CrossConnectivity.Current.IsConnected)
             {
-                bool valid = Task.Run(async () =>
-                {
-                    return await FirebaseBackend.IsSavedAuthValidAsync();
-                }).Result;
+                Scroller.IsEnabled = false;
 
-                if (!valid)
-                {
-                    bool freshAuthValid = Task.Run(async () =>
-                    {
-                        await FirebaseBackend.RefreshAuthAsync();
-                        return await FirebaseBackend.IsSavedAuthValidAsync();
-                    }).Result;
-
-                    if (!freshAuthValid)
-                    {
-                        Device.BeginInvokeOnMainThread(() =>
-                        {
-                            CrossConnectivity.Current.ConnectivityChanged -= HandleConnectionChecksEvent;
-                            RefreshTimer.Stop();
-                            FirebaseBackend.DeleteAuth();
-                            Application.Current.MainPage = new NavigationPage(new StartPageView());
-                            Application.Current.MainPage.DisplayAlert("You have been signed out", "The account owner may have changed the password.", "OK");
-                        });
-                    }
-                }
+                ContentStack.Children.Clear();
 
                 ConnectionErrorText.IsEnabled = false;
                 ConnectionErrorText.IsVisible = false;
 
-                ExploreRelativeLayout.Children.Add(AwesomeButton,
-                Constraint.RelativeToParent(parent => parent.Width - 75),
-                Constraint.RelativeToParent(parent => parent.Height - 75)
-                );
+                LoadingWheel.IsEnabled = true;
+                LoadingWheel.IsVisible = true;
 
-                RefreshContent();
+                FirebaseBackend.LoadContentAsync().ContinueWith((content) =>
+                {
+                    Device.BeginInvokeOnMainThread(() =>
+                    {
+                        ContentStack.Children.Add(new Label
+                        {
+                            FontAttributes = FontAttributes.Bold,
+                            FontSize = 27,
+                            Margin = new Thickness(7, 0),
+                            Text = "Explore",
+                            TextColor = Color.Black
+                        });
 
-                Scroller.IsEnabled = true;
+                        foreach (Datum datum in content.Result.Data)
+                        {
+                            ContentFrame contentItem = new ContentFrame(datum);
+                            ContentStack.Children.Add(contentItem);
+                        }
+
+                        LoadingWheel.IsEnabled = false;
+                        LoadingWheel.IsVisible = false;
+
+                        ExploreRelativeLayout.Children.Add(HighFiveButton, Constraint.RelativeToParent(parent => parent.Width - 75), Constraint.RelativeToParent(parent => parent.Height - 75));
+
+                        Scroller.IsEnabled = true;
+                    });
+                });
             }
             else
             {
-                Content.Children.Clear();
+                Scroller.IsEnabled = false;
 
-                ExploreRelativeLayout.Children.Remove(AwesomeButton);
+                ContentStack.Children.Clear();
+
+                ExploreRelativeLayout.Children.Remove(HighFiveButton);
 
                 ConnectionErrorText.IsEnabled = true;
                 ConnectionErrorText.IsVisible = true;
-
-                Scroller.IsEnabled = false;
             }
         }
 
-        private void HandleConnectionChecksEvent(object sender, EventArgs a)
+        private void VerifyAuth()
         {
-            Checks();
+            if (CrossConnectivity.Current.IsConnected)
+            {
+                FirebaseBackend.IsCurrentAuthValidAsync().ContinueWith((valid) =>
+                {
+                    if (!valid.Result)
+                    {
+                        bool isFreshAuthValid = Task.Run(async () =>
+                        {
+                            await FirebaseBackend.RefreshAuthAsync();
+                            return await FirebaseBackend.IsCurrentAuthValidAsync();
+                        }).Result;
+
+                        if (!isFreshAuthValid)
+                        {
+                            Device.BeginInvokeOnMainThread(() =>
+                            {
+                                CrossConnectivity.Current.ConnectivityChanged -= HandleConnectivityChanged;
+
+                                Settings.ResetSettings();
+
+                                Application.Current.MainPage = new NavigationPage(new StartPageView());
+                                Application.Current.MainPage.DisplayAlert("You have been signed out", "The account owner may have changed the password.", "OK");
+                            });
+                        }
+                    }
+                });
+            }
         }
 
-        private void HandleTimedRefreshEvent(object sender, ElapsedEventArgs e)
+        public void Resume()
+        {
+            if (FirebaseBackend.IsContentExpired())
+            {
+                RefreshContent();
+            }
+
+            VerifyAuth();
+        }
+
+        private void HandleConnectivityChanged(object sender, EventArgs a)
         {
             RefreshContent();
+            VerifyAuth();
         }
 
-        private void AwesomeButtonClick()
-        {
-            string s = Task.Run(async () =>
-            {
-                return await FirebaseBackend.LoadContentAsync();
-            }).Result;
 
-            DisplayAlert(s, "", "OK");
+
+
+
+
+
+
+
+        private void HighFiveButtonClick()
+        {
         }
 
         private void LogoutButtonClick(object sender, EventArgs e)
         {
-            CrossConnectivity.Current.ConnectivityChanged -= HandleConnectionChecksEvent;
-            RefreshTimer.Stop();
-            FirebaseBackend.DeleteAuth();
+            CrossConnectivity.Current.ConnectivityChanged -= HandleConnectivityChanged;
+
+            Settings.ResetSettings();
+
             Application.Current.MainPage = new NavigationPage(new StartPageView());
         }
     }

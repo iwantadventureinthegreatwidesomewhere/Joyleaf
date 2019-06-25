@@ -30,7 +30,7 @@ namespace Joyleaf
             if (stack[0].GetType() == typeof(MainPageView))
             {
                 MainPageView page = (MainPageView)Current.MainPage.Navigation.NavigationStack[0];
-                page.Checks();
+                page.Resume();
             }
         }
     }

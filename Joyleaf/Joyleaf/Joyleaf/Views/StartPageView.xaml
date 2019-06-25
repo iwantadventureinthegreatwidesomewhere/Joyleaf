@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8" ?>
 
 <customControls:GradientPage xmlns="http://xamarin.com/schemas/2014/forms"
                              xmlns:customControls="clr-namespace:Joyleaf.CustomControls;assembly=Joyleaf"
@@ -28,8 +28,8 @@
                 FontAttributes="Bold"
                 FontSize="23"
                 HorizontalOptions="Center"
-                Margin="0,0,0,13"
-                Text="Browse hundreds of strains."
+                Margin="0,0,0,17"
+                Text="Discover hundreds of strains."
                 TextColor="#ffffff">
                 <Label.FontFamily>
                     <OnPlatform x:TypeArguments="x:String">
@@ -42,8 +42,8 @@
                 FontAttributes="Bold"
                 FontSize="23"
                 HorizontalOptions="Center"
-                Margin="0,0,0,13"
-                Text="Find your best match."
+                Margin="0,0,0,17"
+                Text="Browse a tailored selection."
                 TextColor="#ffffff">
                 <Label.FontFamily>
                     <OnPlatform x:TypeArguments="x:String">
@@ -77,7 +77,7 @@
                 FontAttributes="Bold"
                 FontSize="15"
                 Margin="0,0,0,10"
-                Text="SIGN UP"
+                Text="SIGN UP FREE"
                 TextColor="#333333">
                 <Button.FontFamily>
                     <OnPlatform x:TypeArguments="x:String">

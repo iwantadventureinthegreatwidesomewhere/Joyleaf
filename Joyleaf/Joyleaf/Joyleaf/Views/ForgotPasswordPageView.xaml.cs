@@ -30,12 +30,7 @@ namespace Joyleaf.Views
                 {
                     try
                     {
-                        bool status = FirebaseBackend.SendPasswordReset(EmailEntry.Text);
-
-                        if (status)
-                        {
-                            await Application.Current.MainPage.Navigation.PopAsync();
-                        }
+                        FirebaseBackend.SendPasswordReset(EmailEntry.Text);
                     }
                     catch (Exception)
                     {
@@ -55,14 +50,7 @@ namespace Joyleaf.Views
 
         private void TextChanged(object sender, EventArgs e)
         {
-            if (!(string.IsNullOrEmpty(EmailEntry.Text)))
-            {
-                SendButton.IsEnabled = true;
-            }
-            else
-            {
-                SendButton.IsEnabled = false;
-            }
+            SendButton.IsEnabled = !string.IsNullOrEmpty(EmailEntry.Text);
         }
     }
 }

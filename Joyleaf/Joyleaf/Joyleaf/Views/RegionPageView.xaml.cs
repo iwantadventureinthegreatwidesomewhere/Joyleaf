@@ -9,11 +9,12 @@ namespace Joyleaf.Views
 {
     public partial class RegionPageView : GradientPage
     {
-        private string email, password;
+        private readonly string name, email, password;
         private string selectedItem;
 
-        public RegionPageView(string email, string password)
+        public RegionPageView(string name, string email, string password)
         {
+            this.name = name;
             this.email = email;
             this.password = password;
 
@@ -33,7 +34,7 @@ namespace Joyleaf.Views
             {
                 string region = (string)RegionPicker.ItemsSource[RegionPicker.SelectedIndex];
 
-                Account account = new Account(region);
+                Account account = new Account(name, region);
 
                 try
                 {
@@ -54,14 +55,7 @@ namespace Joyleaf.Views
         {
             selectedItem = (string)RegionPicker.ItemsSource[RegionPicker.SelectedIndex];
 
-            if (RegionPicker.SelectedIndex != -1)
-            {
-                NextButton.IsEnabled = true;
-            }
-            else
-            {
-                NextButton.IsEnabled = false;
-            }
+            NextButton.IsEnabled = RegionPicker.SelectedIndex != -1;
         }
     }
 }

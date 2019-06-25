@@ -5,17 +5,15 @@ using UIKit;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
 
-[assembly: ExportRenderer(typeof(ExploreFrame), typeof(IOSExploreFrame))]
+[assembly: ExportRenderer(typeof(ContentFrame), typeof(IOSContentFrame))]
 
 namespace Joyleaf.iOS.CustomRenderers
 {
-    public class IOSExploreFrame : FrameRenderer
+    public class IOSContentFrame : FrameRenderer
     {
         public override void Draw(CGRect rect)
         {
             base.Draw(rect);
-
-            ExploreFrame frame = (ExploreFrame)Element;
 
             Layer.ShadowColor = UIColor.LightGray.CGColor;
             Layer.ShadowOpacity = 0.5f;

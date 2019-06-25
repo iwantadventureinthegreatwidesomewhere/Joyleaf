@@ -17,6 +17,7 @@ namespace Joyleaf.Views
 
             InitializeComponent();
 
+            NameEntry.Completed += (object sender, EventArgs e) => EmailEntry.Focus();
             EmailEntry.Completed += NextButtonClicked;
         }
 
@@ -27,47 +28,47 @@ namespace Joyleaf.Views
 
         private async void NextButtonClicked(object sender, EventArgs e)
         {
-            if (CrossConnectivity.Current.IsConnected)
+            if (!string.IsNullOrEmpty(NameEntry.Text))
             {
-                if (EmailEntry.VerifyText(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$"))
+                if (CrossConnectivity.Current.IsConnected)
                 {
-                    try
+                    if (EmailEntry.VerifyText(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$"))
                     {
-                        if (FirebaseBackend.IsEmailAvailable(EmailEntry.Text))
+                        try
                         {
-                            await Navigation.PushAsync(new PasswordPageView(EmailEntry.Text));
+                            if (FirebaseBackend.IsEmailAvailable(EmailEntry.Text))
+                            {
+                                await Navigation.PushAsync(new PasswordPageView(NameEntry.Text, EmailEntry.Text));
+                            }
+                            else
+                            {
+                                await Application.Current.MainPage.DisplayAlert("Email is taken", "That email belongs to an existing account. Try another.", "OK");
+                            }
                         }
-                        else
+                        catch (Exception)
                         {
-                            await Application.Current.MainPage.DisplayAlert("Email is taken", "That email belongs to an existing account. Try another.", "OK");
+                            await Application.Current.MainPage.DisplayAlert("Error", "Whoops, looks like there is a problem on our end. Please try again later.", "OK");
                         }
                     }
-                    catch (Exception)
+                    else
                     {
-                        await Application.Current.MainPage.DisplayAlert("Error", "Whoops, looks like there is a problem on our end. Please try again later.", "OK");
+                        await DisplayAlert("Invalid email", "The email address you entered is invalid. Please try again.", "Try Again");
                     }
                 }
                 else
                 {
-                    await DisplayAlert("Invalid email", "The email address you entered is invalid. Please try again.", "Try Again");
+                    await DisplayAlert("Connection error", "Please check your network connection, then try again.", "OK");
                 }
             }
             else
             {
-                await DisplayAlert("Connection error", "Please check your network connection, then try again.", "OK");
+                NameEntry.Focus();
             }
         }
 
         private void TextChanged(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(EmailEntry.Text))
-            {
-                NextButton.IsEnabled = true;
-            }
-            else
-            {
-                NextButton.IsEnabled = false;
-            }
+            NextButton.IsEnabled = !string.IsNullOrEmpty(NameEntry.Text) && !string.IsNullOrEmpty(EmailEntry.Text);
         }
     }
 }

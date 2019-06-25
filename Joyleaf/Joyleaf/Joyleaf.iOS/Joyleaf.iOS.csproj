@@ -103,7 +103,7 @@
     <Compile Include="CustomRenderers\IOSCustomEntry.cs" />
     <Compile Include="CustomRenderers\IOSCustomButton.cs" />
     <Compile Include="CustomRenderers\IOSCustomPicker.cs" />
-    <Compile Include="CustomRenderers\IOSExploreFrame.cs" />
+    <Compile Include="CustomRenderers\IOSContentFrame.cs" />
     <Compile Include="CustomRenderers\IOSGradientPage.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -126,7 +126,6 @@
     <ImageAsset Include="Assets.xcassets\Search.imageset\baseline_search_black_24pt_1x.png" />
     <ImageAsset Include="Assets.xcassets\Search.imageset\baseline_search_black_24pt_2x.png" />
     <ImageAsset Include="Assets.xcassets\Search.imageset\baseline_search_black_24pt_3x.png" />
-    <ImageAsset Include="Assets.xcassets\AwesomeButton.imageset\Contents.json" />
     <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\iPhone XS Max%403x.png" />
     <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\iPhone XR%402x.png" />
     <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\iPhone XS%403x.png" />
@@ -149,9 +148,33 @@
     <ImageAsset Include="Assets.xcassets\BackButton.imageset\baseline_keyboard_backspace_white_36pt_1x.png" />
     <ImageAsset Include="Assets.xcassets\BackButton.imageset\baseline_keyboard_backspace_white_36pt_2x.png" />
     <ImageAsset Include="Assets.xcassets\BackButton.imageset\baseline_keyboard_backspace_white_36pt_3x.png" />
-    <ImageAsset Include="Assets.xcassets\AwesomeButton.imageset\AwesomeButton.png" />
-    <ImageAsset Include="Assets.xcassets\AwesomeButton.imageset\AwesomeButton%402x.png" />
-    <ImageAsset Include="Assets.xcassets\AwesomeButton.imageset\AwesomeButton%403x-1.png" />
+    <ImageAsset Include="Assets.xcassets\HighFive.imageset\AwesomeButton.png" />
+    <ImageAsset Include="Assets.xcassets\HighFive.imageset\AwesomeButton%402x.png" />
+    <ImageAsset Include="Assets.xcassets\HighFive.imageset\AwesomeButton%403x-1.png" />
+    <ImageAsset Include="Assets.xcassets\HighFive.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\HighFive.imageset\HighFive.png" />
+    <ImageAsset Include="Assets.xcassets\HighFive.imageset\HighFive%402x.png" />
+    <ImageAsset Include="Assets.xcassets\HighFive.imageset\HighFive%403x-1.png" />
+    <ImageAsset Include="Assets.xcassets\DriedFlowers.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Capsules.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\PreRolled.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Oils.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\OralSprays.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\PreRolled.imageset\pre_rolled-1.png" />
+    <ImageAsset Include="Assets.xcassets\PreRolled.imageset\pre_rolled%402x-1.png" />
+    <ImageAsset Include="Assets.xcassets\PreRolled.imageset\pre_rolled%403x-1.png" />
+    <ImageAsset Include="Assets.xcassets\Oils.imageset\oils-1.png" />
+    <ImageAsset Include="Assets.xcassets\Oils.imageset\oils%402x-1.png" />
+    <ImageAsset Include="Assets.xcassets\Oils.imageset\oils%403x-1.png" />
+    <ImageAsset Include="Assets.xcassets\DriedFlowers.imageset\dried_flowers.png" />
+    <ImageAsset Include="Assets.xcassets\DriedFlowers.imageset\dried_flowers%402x.png" />
+    <ImageAsset Include="Assets.xcassets\DriedFlowers.imageset\dried_flowers%403x.png" />
+    <ImageAsset Include="Assets.xcassets\Capsules.imageset\capsules-1.png" />
+    <ImageAsset Include="Assets.xcassets\Capsules.imageset\capsules%402x-1.png" />
+    <ImageAsset Include="Assets.xcassets\Capsules.imageset\capsules%403x-1.png" />
+    <ImageAsset Include="Assets.xcassets\OralSprays.imageset\oral_sprays-1.png" />
+    <ImageAsset Include="Assets.xcassets\OralSprays.imageset\oral_sprays%402x-1.png" />
+    <ImageAsset Include="Assets.xcassets\OralSprays.imageset\oral_sprays%403x-1.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -183,7 +206,12 @@
     <Folder Include="Assets.xcassets\Explore.imageset\" />
     <Folder Include="Assets.xcassets\Account.imageset\" />
     <Folder Include="Assets.xcassets\Search.imageset\" />
-    <Folder Include="Assets.xcassets\AwesomeButton.imageset\" />
     <Folder Include="Assets.xcassets\BackButton.imageset\" />
+    <Folder Include="Assets.xcassets\HighFive.imageset\" />
+    <Folder Include="Assets.xcassets\DriedFlowers.imageset\" />
+    <Folder Include="Assets.xcassets\Capsules.imageset\" />
+    <Folder Include="Assets.xcassets\PreRolled.imageset\" />
+    <Folder Include="Assets.xcassets\Oils.imageset\" />
+    <Folder Include="Assets.xcassets\OralSprays.imageset\" />
   </ItemGroup>
 </Project>
