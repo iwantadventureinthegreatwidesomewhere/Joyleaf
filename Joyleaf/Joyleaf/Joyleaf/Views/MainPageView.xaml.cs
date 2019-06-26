@@ -110,7 +110,7 @@ namespace Joyleaf.Views
             CrossConnectivity.Current.ConnectivityChanged += HandleConnectivityChanged;
 
             RefreshContentAsync();
-            VerifyAuth();
+            VerifyAuthAsync();
         }
 
         private async Task RefreshContentAsync()
@@ -186,34 +186,27 @@ namespace Joyleaf.Views
             }
         }
 
-        private void VerifyAuth()
+        private async Task VerifyAuthAsync()
         {
             if (CrossConnectivity.Current.IsConnected)
             {
-                FirebaseBackend.IsCurrentAuthValidAsync().ContinueWith((valid) =>
+                bool valid = await FirebaseBackend.IsCurrentAuthValidAsync();
+
+                if (!valid)
                 {
-                    if (!valid.Result)
+                    await FirebaseBackend.RefreshAuthAsync();
+                    bool isFreshAuthValid = await FirebaseBackend.IsCurrentAuthValidAsync();
+
+                    if (!isFreshAuthValid)
                     {
-                        bool isFreshAuthValid = Task.Run(async () =>
-                        {
-                            await FirebaseBackend.RefreshAuthAsync();
-                            return await FirebaseBackend.IsCurrentAuthValidAsync();
-                        }).Result;
+                        Settings.ResetSettings();
 
-                        if (!isFreshAuthValid)
-                        {
-                            Device.BeginInvokeOnMainThread(() =>
-                            {
-                                Settings.ResetSettings();
+                        CrossConnectivity.Current.ConnectivityChanged -= HandleConnectivityChanged;
 
-                                CrossConnectivity.Current.ConnectivityChanged -= HandleConnectivityChanged;
-
-                                Application.Current.MainPage = new NavigationPage(new StartPageView());
-                                Application.Current.MainPage.DisplayAlert("You have been signed out", "The account owner may have changed the password.", "OK");
-                            });
-                        }
+                        Application.Current.MainPage = new NavigationPage(new StartPageView());
+                        await Application.Current.MainPage.DisplayAlert("You have been signed out", "The account owner may have changed the password.", "OK");
                     }
-                });
+                }
             }
         }
 
@@ -224,13 +217,13 @@ namespace Joyleaf.Views
                 RefreshContentAsync();
             }
 
-            VerifyAuth();
+            VerifyAuthAsync();
         }
 
         private void HandleConnectivityChanged(object sender, EventArgs a)
         {
             RefreshContentAsync();
-            VerifyAuth();
+            VerifyAuthAsync();
         }
 
         private void HighFiveButtonClick(object sender, EventArgs e)

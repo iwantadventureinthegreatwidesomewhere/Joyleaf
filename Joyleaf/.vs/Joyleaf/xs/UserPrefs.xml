@@ -3,8 +3,7 @@
   <MonoDevelop.Ide.Workbench>
     <Files>
       <File FileName="Joyleaf/Joyleaf/Views/MainPageView.xaml" Line="22" Column="52" />
-      <File FileName="Joyleaf/Joyleaf/Views/MainPageView.xaml.cs" Line="112" Column="17" />
-      <File FileName="Joyleaf/Joyleaf/Services/FirebaseBackend.cs" Line="136" Column="13" />
+      <File FileName="Joyleaf/Joyleaf/Views/MainPageView.xaml.cs" Line="207" Column="159" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
