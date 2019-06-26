@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 
 <customControls:GradientPage xmlns="http://xamarin.com/schemas/2014/forms"
                              xmlns:customControls="clr-namespace:Joyleaf.CustomControls;assembly=Joyleaf"
@@ -110,7 +110,7 @@
                 FontAttributes="Bold"
                 FontSize="13"
                 HorizontalOptions="Center"
-                Text="Forgot password? Press here to reset."
+                Text="Forgot password? Tap here to reset."
                 TextColor="White">
                 <Button.FontFamily>
                     <OnPlatform x:TypeArguments="x:String">

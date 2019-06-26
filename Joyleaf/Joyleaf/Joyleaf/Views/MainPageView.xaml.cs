@@ -15,6 +15,7 @@ namespace Joyleaf.Views
     {
         private readonly StackLayout ConnectionErrorText;
         private readonly Button HighFiveButton;
+        private readonly StackLayout LoadingErrorText;
         private readonly ActivityIndicator LoadingWheel;
 
         public MainPageView()
@@ -63,6 +64,39 @@ namespace Joyleaf.Views
 
             HighFiveButton.Clicked += HighFiveButtonClick;
 
+            LoadingErrorText = new StackLayout
+            {
+                IsEnabled = false,
+                IsVisible = false
+            };
+
+            LoadingErrorText.Children.Add(new Label
+            {
+                FontAttributes = FontAttributes.Bold,
+                FontSize = 25,
+                HorizontalTextAlignment = TextAlignment.Center,
+                Text = "Loading Error",
+                TextColor = Color.Black
+            });
+
+            LoadingErrorText.Children.Add(new Label
+            {
+                FontSize = 23,
+                HorizontalTextAlignment = TextAlignment.Center,
+                Text = "Please tap to retry.",
+                TextColor = Color.Gray
+            });
+
+            TapGestureRecognizer LoadingErrorRetryGesture = new TapGestureRecognizer();
+            LoadingErrorRetryGesture.Tapped += (s, e) =>
+            {
+                RefreshContentAsync();
+            };
+
+            LoadingErrorText.GestureRecognizers.Add(LoadingErrorRetryGesture);
+
+            ExploreRelativeLayout.Children.Add(LoadingErrorText, Constraint.RelativeToParent(parent => (parent.Width / 2) - (LoadingErrorText.Width / 2)), Constraint.RelativeToParent(parent => (parent.Height / 2) - (LoadingErrorText.Height / 2)));
+
             LoadingWheel = new ActivityIndicator
             {
                 Color = Color.Gray,
@@ -75,12 +109,15 @@ namespace Joyleaf.Views
 
             CrossConnectivity.Current.ConnectivityChanged += HandleConnectivityChanged;
 
-            RefreshContent();
+            RefreshContentAsync();
             VerifyAuth();
         }
 
-        private void RefreshContent()
+        private async Task RefreshContentAsync()
         {
+            LoadingErrorText.IsEnabled = false;
+            LoadingErrorText.IsVisible = false;
+
             if (CrossConnectivity.Current.IsConnected)
             {
                 Scroller.IsEnabled = false;
@@ -93,33 +130,48 @@ namespace Joyleaf.Views
                 LoadingWheel.IsEnabled = true;
                 LoadingWheel.IsVisible = true;
 
-                FirebaseBackend.LoadContentAsync().ContinueWith((content) =>
+                await Task.Delay(250);
+
+                try
                 {
-                    Device.BeginInvokeOnMainThread(() =>
+                    Content content = await FirebaseBackend.LoadContentAsync();
+
+                    ContentStack.Children.Add(new Label
                     {
-                        ContentStack.Children.Add(new Label
-                        {
-                            FontAttributes = FontAttributes.Bold,
-                            FontSize = 27,
-                            Margin = new Thickness(7, 0),
-                            Text = "Explore",
-                            TextColor = Color.Black
-                        });
-
-                        foreach (Datum datum in content.Result.Data)
-                        {
-                            ContentFrame contentItem = new ContentFrame(datum);
-                            ContentStack.Children.Add(contentItem);
-                        }
-
-                        LoadingWheel.IsEnabled = false;
-                        LoadingWheel.IsVisible = false;
-
-                        ExploreRelativeLayout.Children.Add(HighFiveButton, Constraint.RelativeToParent(parent => parent.Width - 75), Constraint.RelativeToParent(parent => parent.Height - 75));
-
-                        Scroller.IsEnabled = true;
+                        FontAttributes = FontAttributes.Bold,
+                        FontSize = 27,
+                        Margin = new Thickness(7, 0),
+                        Text = "Explore",
+                        TextColor = Color.Black
                     });
-                });
+
+                    foreach (Datum datum in content.Data)
+                    {
+                        ContentFrame contentItem = new ContentFrame(datum);
+                        ContentStack.Children.Add(contentItem);
+                    }
+
+                    LoadingWheel.IsEnabled = false;
+                    LoadingWheel.IsVisible = false;
+
+                    ExploreRelativeLayout.Children.Add(HighFiveButton, Constraint.RelativeToParent(parent => parent.Width - 75), Constraint.RelativeToParent(parent => parent.Height - 75));
+
+                    Scroller.IsEnabled = true;
+                }
+                catch (Exception)
+                {
+                    LoadingWheel.IsEnabled = false;
+                    LoadingWheel.IsVisible = false;
+
+                    Scroller.IsEnabled = false;
+
+                    ContentStack.Children.Clear();
+
+                    ExploreRelativeLayout.Children.Remove(HighFiveButton);
+
+                    LoadingErrorText.IsEnabled = true;
+                    LoadingErrorText.IsVisible = true;
+                }
             }
             else
             {
@@ -152,9 +204,9 @@ namespace Joyleaf.Views
                         {
                             Device.BeginInvokeOnMainThread(() =>
                             {
-                                CrossConnectivity.Current.ConnectivityChanged -= HandleConnectivityChanged;
-
                                 Settings.ResetSettings();
+
+                                CrossConnectivity.Current.ConnectivityChanged -= HandleConnectivityChanged;
 
                                 Application.Current.MainPage = new NavigationPage(new StartPageView());
                                 Application.Current.MainPage.DisplayAlert("You have been signed out", "The account owner may have changed the password.", "OK");
@@ -167,9 +219,9 @@ namespace Joyleaf.Views
 
         public void Resume()
         {
-            if (FirebaseBackend.IsContentExpired())
+            if (FirebaseBackend.IsContentExpired() || LoadingErrorText.IsVisible)
             {
-                RefreshContent();
+                RefreshContentAsync();
             }
 
             VerifyAuth();
@@ -177,7 +229,7 @@ namespace Joyleaf.Views
 
         private void HandleConnectivityChanged(object sender, EventArgs a)
         {
-            RefreshContent();
+            RefreshContentAsync();
             VerifyAuth();
         }
 
@@ -188,9 +240,9 @@ namespace Joyleaf.Views
 
         private void LogoutButtonClick(object sender, EventArgs e)
         {
-            CrossConnectivity.Current.ConnectivityChanged -= HandleConnectivityChanged;
-
             Settings.ResetSettings();
+
+            CrossConnectivity.Current.ConnectivityChanged -= HandleConnectivityChanged;
 
             Application.Current.MainPage = new NavigationPage(new StartPageView());
         }
