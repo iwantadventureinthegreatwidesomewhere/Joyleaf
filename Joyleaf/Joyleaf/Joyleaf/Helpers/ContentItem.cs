@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using Syncfusion.SfRating.XForms;
+using Xamarin.Forms;
 
 namespace Joyleaf.Helpers
 {
@@ -58,28 +59,53 @@ namespace Joyleaf.Helpers
             {
                 FontAttributes = FontAttributes.Bold,
                 FontSize = 15,
-                Text = item.Name
+                Text = Truncate(item.Name, 15)
             });
 
             detailStack.Children.Add(new Label
             {
                 FontSize = 13,
-                Text = "By " + item.Brand,
+                Text = Truncate("By " + item.Brand, 20),
                 TextColor = Color.Gray
             });
 
+            SfRating rating = new SfRating
+            {
+                ItemCount = 5,
+                ItemSize = 13,
+                Precision = Precision.Half,
+                ReadOnly = true,
+                Value = 3.5
+            };
+
+            rating.RatingSettings.RatedFill = Color.Orange;
+            rating.RatingSettings.RatedStroke = Color.Transparent;
+            rating.RatingSettings.UnRatedFill = Color.LightGray;
+            rating.RatingSettings.UnRatedStroke = Color.Transparent;
+
+            detailStack.Children.Add(rating);
             Children.Add(detailStack, 1, 0);
 
+            StackLayout moreStack = new StackLayout { HorizontalOptions = LayoutOptions.Fill, VerticalOptions = LayoutOptions.Center };
 
+            Button seeMore = new Button
+            {
+                BackgroundColor = Color.FromHex("#ececec"),
+                CornerRadius = 15,
+                FontSize = 12,
+                HeightRequest = 30,
+                Text = "MORE",
+                TextColor = Color.Gray,
+                WidthRequest = 60
+            };
 
+            moreStack.Children.Add(seeMore);
+            Children.Add(moreStack, 2, 0);
+        }
 
-
-
-
-
-            StackLayout moreStack = new StackLayout();
-
-
+        private string Truncate(string value, int maxChars)
+        {
+            return value.Length <= maxChars ? value : value.Substring(0, maxChars) + "...";
         }
     }
 }

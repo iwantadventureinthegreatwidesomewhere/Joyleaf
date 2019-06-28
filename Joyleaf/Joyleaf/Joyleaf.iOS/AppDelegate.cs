@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
-using Foundation;
+﻿using Foundation;
+using Syncfusion.SfRating.XForms.iOS;
 using UIKit;
 
 namespace Joyleaf.iOS
@@ -27,8 +24,8 @@ namespace Joyleaf.iOS
             LoadApplication(new App());
 
             UINavigationBar.Appearance.TintColor = UIColor.FromRGB(0, 200, 140);
-
             UITabBar.Appearance.TintColor = UIColor.FromRGB(51, 51, 51);
+            new SfRatingRenderer();
 
             return base.FinishedLaunching(app, options);
         }

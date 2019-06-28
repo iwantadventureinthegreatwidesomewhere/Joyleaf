@@ -1,5 +1,4 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-
 <TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
             xmlns:customControls="clr-namespace:Joyleaf.CustomControls;assembly=Joyleaf"
             xmlns:local="clr-namespace:Joyleaf;assembly=Joyleaf"
@@ -9,10 +8,7 @@
             BackgroundColor="White">
     
     <ContentPage Icon="Explore">
-        
         <RelativeLayout x:Name="ExploreRelativeLayout" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-            
-            
             <ScrollView 
                 x:Name="Scroller" 
                 Orientation="Vertical"
@@ -23,41 +19,32 @@
             
                 <StackLayout x:Name="ContentStack" Orientation="Vertical" VerticalOptions="Fill">
                 </StackLayout>
-            
             </ScrollView>
-            
         </RelativeLayout>
-        
     </ContentPage>
     
     <ContentPage Icon="Search">
-    
     </ContentPage>    
     
     <ContentPage Icon="Account">
-        
         <StackLayout Margin="0, 200, 0, 0">
-        
-        <customControls:CustomButton
-                        x:Name="LogoutButton"
-                        BackgroundColor="#00c88c"
-                        Clicked="LogoutButtonClick"
-                        FontAttributes="Bold"
-                        FontSize="13"
-                        HeightRequest="45"
-                        HorizontalOptions="Fill"
-                        Margin="30,30"
-                        Text="LOG OUT"
-                        TextColor="White">
-                        <Button.FontFamily>
-                            <OnPlatform x:TypeArguments="x:String">
-                                <On Platform="Android" Value="Roboto-Medium.ttf#Roboto-Medium"/>
-                            </OnPlatform>
-                        </Button.FontFamily>
-                    </customControls:CustomButton>
-            
-            </StackLayout>
-    
+            <customControls:CustomButton
+                x:Name="LogoutButton"
+                BackgroundColor="#00c88c"
+                Clicked="LogoutButtonClick"
+                FontAttributes="Bold"
+                FontSize="13"
+                HeightRequest="45"
+                HorizontalOptions="Fill"
+                Margin="30,30"
+                Text="LOG OUT"
+                TextColor="White">
+                <Button.FontFamily>
+                    <OnPlatform x:TypeArguments="x:String">
+                        <On Platform="Android" Value="Roboto-Medium.ttf#Roboto-Medium"/>
+                    </OnPlatform>   
+                </Button.FontFamily>        
+            </customControls:CustomButton>
+        </StackLayout>
     </ContentPage>
-   
 </TabbedPage>  

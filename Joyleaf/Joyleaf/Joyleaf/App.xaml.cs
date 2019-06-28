@@ -11,6 +11,8 @@ namespace Joyleaf
     {
         public App()
         {
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MTE0NDI2QDMxMzYyZTM0MmUzME1zeXVBRGtQbE5wUVRJQ3hlLzVXcGRvWkJKczNvVlU1RHVpTGV6dTB0OVk9");
+
             if (string.IsNullOrEmpty(Settings.FirebaseAuth))
             {
                 MainPage = new NavigationPage(new StartPageView());
