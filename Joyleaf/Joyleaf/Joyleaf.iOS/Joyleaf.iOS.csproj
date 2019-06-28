@@ -171,14 +171,14 @@
     <ImageAsset Include="Assets.xcassets\OralSprays.imageset\oral_sprays-1.png" />
     <ImageAsset Include="Assets.xcassets\OralSprays.imageset\oral_sprays%402x-1.png" />
     <ImageAsset Include="Assets.xcassets\OralSprays.imageset\oral_sprays%403x-1.png" />
-    <ImageAsset Include="Assets.xcassets\BackButtonWhite.imageset\baseline_keyboard_backspace_white_36pt_1x.png" />
-    <ImageAsset Include="Assets.xcassets\BackButtonWhite.imageset\baseline_keyboard_backspace_white_36pt_2x.png" />
-    <ImageAsset Include="Assets.xcassets\BackButtonWhite.imageset\baseline_keyboard_backspace_white_36pt_3x.png" />
     <ImageAsset Include="Assets.xcassets\BackButtonWhite.imageset\Contents.json" />
     <ImageAsset Include="Assets.xcassets\BackButtonBlack.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\BackButtonBlack.imageset\baseline_keyboard_backspace_black_36pt_1x.png" />
-    <ImageAsset Include="Assets.xcassets\BackButtonBlack.imageset\baseline_keyboard_backspace_black_36pt_2x.png" />
-    <ImageAsset Include="Assets.xcassets\BackButtonBlack.imageset\baseline_keyboard_backspace_black_36pt_3x.png" />
+    <ImageAsset Include="Assets.xcassets\BackButtonWhite.imageset\baseline_arrow_back_white_36pt_1x.png" />
+    <ImageAsset Include="Assets.xcassets\BackButtonWhite.imageset\baseline_arrow_back_white_36pt_2x.png" />
+    <ImageAsset Include="Assets.xcassets\BackButtonWhite.imageset\baseline_arrow_back_white_36pt_3x.png" />
+    <ImageAsset Include="Assets.xcassets\BackButtonBlack.imageset\baseline_arrow_back_black_36pt_1x.png" />
+    <ImageAsset Include="Assets.xcassets\BackButtonBlack.imageset\baseline_arrow_back_black_36pt_2x.png" />
+    <ImageAsset Include="Assets.xcassets\BackButtonBlack.imageset\baseline_arrow_back_black_36pt_3x.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

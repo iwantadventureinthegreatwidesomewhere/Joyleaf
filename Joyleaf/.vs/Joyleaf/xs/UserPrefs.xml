@@ -1,25 +1,22 @@
 ﻿<Properties StartupConfiguration="{928BF896-B912-476D-86D7-5A6B2B2B065A}|Default">
   <MonoDevelop.Ide.ItemProperties.Joyleaf.iOS automaticSigning="False" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.AFAA1D33-384F-4B1E-8C69-A380D9C93468" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Joyleaf/Joyleaf/Views/MainPageView.xaml.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Joyleaf/Joyleaf/Helpers/ContentItem.cs">
     <Files>
       <File FileName="Joyleaf/Joyleaf/Views/MainPageView.xaml" Line="12" Column="45" />
-      <File FileName="Joyleaf/Joyleaf/Views/MainPageView.xaml.cs" Line="11" Column="2" />
-      <File FileName="Joyleaf/Joyleaf/Helpers/ContentItem.cs" Line="69" Column="14" />
+      <File FileName="Joyleaf/Joyleaf/Views/MainPageView.xaml.cs" Line="13" Column="1" />
+      <File FileName="Joyleaf/Joyleaf/Helpers/ContentItem.cs" Line="113" Column="13" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Joyleaf" expanded="True">
             <Node name="Joyleaf" expanded="True">
-              <Node name="Helpers" expanded="True" />
-              <Node name="Views" expanded="True">
-                <Node name="EmailPageView.xaml" expanded="True" />
-                <Node name="MainPageView.xaml" expanded="True">
-                  <Node name="MainPageView.xaml.cs" selected="True" />
-                </Node>
+              <Node name="Helpers" expanded="True">
+                <Node name="ContentItem.cs" selected="True" />
               </Node>
-              <Node name="App.xaml" expanded="True" />
+              <Node name="Views" expanded="True" />
             </Node>
+            <Node name="Joyleaf.iOS" expanded="True" />
           </Node>
         </State>
       </Pad>
