@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-
 using Xamarin.Forms;
 
 namespace Joyleaf.Views
@@ -9,6 +7,8 @@ namespace Joyleaf.Views
     {
         public ContentItemPage()
         {
+            NavigationPage.SetHasNavigationBar(this, false);
+
             InitializeComponent();
         }
     }

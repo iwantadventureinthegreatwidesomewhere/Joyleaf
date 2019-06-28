@@ -1,9 +1,6 @@
 using Joyleaf.Helpers;
 using Joyleaf.Views;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
-
-[assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 
 namespace Joyleaf
 {

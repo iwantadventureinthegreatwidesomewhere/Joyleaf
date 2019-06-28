@@ -1,6 +1,5 @@
 ﻿using Joyleaf.CustomControls;
 using Joyleaf.Helpers;
-using Joyleaf.Services;
 using System;
 using Xamarin.Forms;
 

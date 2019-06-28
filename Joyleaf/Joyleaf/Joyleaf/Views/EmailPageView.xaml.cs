@@ -3,12 +3,9 @@ using Joyleaf.Services;
 using Plugin.Connectivity;
 using System;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 namespace Joyleaf.Views
 {
-    [XamlCompilation(XamlCompilationOptions.Compile)]
-
     public partial class EmailPageView : GradientPage
     {
         public EmailPageView()
