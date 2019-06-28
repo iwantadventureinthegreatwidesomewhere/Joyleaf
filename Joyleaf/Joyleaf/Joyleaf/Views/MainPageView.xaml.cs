@@ -5,9 +5,12 @@ using Plugin.Connectivity;
 using System;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 
 namespace Joyleaf.Views
 {
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+
     public partial class MainPageView : TabbedPage
     {
         private readonly StackLayout ConnectionErrorText;
@@ -20,6 +23,7 @@ namespace Joyleaf.Views
             InitializeComponent();
 
             NavigationPage.SetHasNavigationBar(this, false);
+            NavigationPage.SetHasNavigationBar(ExplorePage, false);
 
             ContentStack.Padding = 25;
             ContentStack.Spacing = 25;

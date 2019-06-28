@@ -1,4 +1,6 @@
-﻿using Syncfusion.SfRating.XForms;
+﻿using System;
+using Joyleaf.Views;
+using Syncfusion.SfRating.XForms;
 using Xamarin.Forms;
 
 namespace Joyleaf.Helpers
@@ -59,7 +61,8 @@ namespace Joyleaf.Helpers
             {
                 FontAttributes = FontAttributes.Bold,
                 FontSize = 15,
-                Text = Truncate(item.Name, 15)
+                Text = Truncate(item.Name, 15),
+                TextColor = Color.FromHex("#333333")
             });
 
             detailStack.Children.Add(new Label
@@ -99,8 +102,15 @@ namespace Joyleaf.Helpers
                 WidthRequest = 60
             };
 
+            seeMore.Clicked += SeeMoreButtonClicked;
+
             moreStack.Children.Add(seeMore);
             Children.Add(moreStack, 2, 0);
+        }
+
+        private void SeeMoreButtonClicked(object sender, EventArgs e)
+        {
+            
         }
 
         private string Truncate(string value, int maxChars)
