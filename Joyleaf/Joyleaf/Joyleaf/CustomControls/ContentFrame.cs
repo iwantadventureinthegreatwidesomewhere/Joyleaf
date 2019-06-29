@@ -20,13 +20,16 @@ namespace Joyleaf.CustomControls
                 TextColor = Color.Black
             });
 
-            itemStack.Children.Add(new Label
+            if (!datum.Description.Equals(""))
             {
-                FontSize = 15,
-                Margin = new Thickness(5, 0, 5, 10),
-                Text = datum.Description,
-                TextColor = Color.Gray
-            });
+                itemStack.Children.Add(new Label
+                {
+                    FontSize = 15,
+                    Margin = new Thickness(5, 0, 5, 10),
+                    Text = datum.Description,
+                    TextColor = Color.Gray
+                });
+            }
 
             for (int i = 0; i < datum.Items.Length; i++)
             {

@@ -1,22 +1,24 @@
 ﻿<Properties StartupConfiguration="{928BF896-B912-476D-86D7-5A6B2B2B065A}|Default">
-  <MonoDevelop.Ide.ItemProperties.Joyleaf.iOS automaticSigning="False" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.AFAA1D33-384F-4B1E-8C69-A380D9C93468" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Joyleaf/Joyleaf/Helpers/ContentItem.cs">
+  <MonoDevelop.Ide.ItemProperties.Joyleaf.iOS automaticSigning="False" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.C7E851D5-C53B-4B53-80D5-364D03CC92BE" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Joyleaf/Joyleaf/Views/ContentItemView.xaml.cs">
     <Files>
-      <File FileName="Joyleaf/Joyleaf/Views/MainPageView.xaml" Line="12" Column="45" />
-      <File FileName="Joyleaf/Joyleaf/Views/MainPageView.xaml.cs" Line="13" Column="1" />
-      <File FileName="Joyleaf/Joyleaf/Helpers/ContentItem.cs" Line="113" Column="13" />
+      <File FileName="Joyleaf/Joyleaf/Views/ContentItemView.xaml" Line="10" Column="35" />
+      <File FileName="Joyleaf/Joyleaf/Helpers/ContentItem.cs" Line="19" Column="48" />
+      <File FileName="Joyleaf/Joyleaf/Views/ContentItemView.xaml.cs" Line="11" Column="15" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Joyleaf" expanded="True">
             <Node name="Joyleaf" expanded="True">
-              <Node name="Helpers" expanded="True">
-                <Node name="ContentItem.cs" selected="True" />
+              <Node name="Helpers" expanded="True" />
+              <Node name="Views" expanded="True">
+                <Node name="ContentItemView.xaml" expanded="True">
+                  <Node name="ContentItemView.xaml.cs" selected="True" />
+                </Node>
+                <Node name="MainPageView.xaml" expanded="True" />
               </Node>
-              <Node name="Views" expanded="True" />
             </Node>
-            <Node name="Joyleaf.iOS" expanded="True" />
           </Node>
         </State>
       </Pad>

@@ -1,20 +1,26 @@
-﻿using System;
-using Joyleaf.Views;
+﻿using Joyleaf.Views;
 using Syncfusion.SfRating.XForms;
+using System;
 using Xamarin.Forms;
 
 namespace Joyleaf.Helpers
 {
     public class ContentItem : Grid
     {
-        public Item item;
+        public readonly Item item;
+        public readonly ContentItemView contentItemView;
 
         public ContentItem(Item item, bool islastToLoad)
         {
             this.item = item;
+            contentItemView = new ContentItemView(item);
 
             HeightRequest = 70;
             Margin = new Thickness(0, 0, 0, 3);
+
+            TapGestureRecognizer TapGesture = new TapGestureRecognizer();
+            TapGesture.Tapped += PushItemViewAsync;
+            GestureRecognizers.Add(TapGesture);
 
             ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(20, GridUnitType.Star) });
             ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(60, GridUnitType.Star) });
@@ -102,15 +108,15 @@ namespace Joyleaf.Helpers
                 WidthRequest = 60
             };
 
-            seeMore.Clicked += SeeMoreButtonClicked;
+            seeMore.Clicked += PushItemViewAsync;
 
             moreStack.Children.Add(seeMore);
             Children.Add(moreStack, 2, 0);
         }
 
-        private void SeeMoreButtonClicked(object sender, EventArgs e)
+        private async void PushItemViewAsync(object sender, EventArgs e)
         {
-            
+            await Navigation.PushAsync(contentItemView);
         }
 
         private string Truncate(string value, int maxChars)

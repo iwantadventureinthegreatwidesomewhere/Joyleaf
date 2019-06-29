@@ -88,13 +88,13 @@ namespace Joyleaf.Views
                 TextColor = Color.Gray
             });
 
-            TapGestureRecognizer LoadingErrorRetryGesture = new TapGestureRecognizer();
-            LoadingErrorRetryGesture.Tapped += (s, e) =>
+            TapGestureRecognizer LoadingRetryTapGesture = new TapGestureRecognizer();
+            LoadingRetryTapGesture.Tapped += (s, e) =>
             {
                 RefreshContentAsync();
             };
 
-            LoadingErrorText.GestureRecognizers.Add(LoadingErrorRetryGesture);
+            LoadingErrorText.GestureRecognizers.Add(LoadingRetryTapGesture);
 
             ExploreRelativeLayout.Children.Add(LoadingErrorText, Constraint.RelativeToParent(parent => (parent.Width / 2) - (LoadingErrorText.Width / 2)), Constraint.RelativeToParent(parent => (parent.Height / 2) - (LoadingErrorText.Height / 2)));
 
