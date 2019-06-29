@@ -8,14 +8,7 @@ namespace Joyleaf.Views
     {
         public ContentItemView(Item item)
         {
-            //NavigationPage.SetHasNavigationBar(this, false);
-
             InitializeComponent();
-        }
-
-        private async void BackButtonClicked(object sender, EventArgs e)
-        {
-            await Navigation.PopAsync();
         }
     }
 }

@@ -23,7 +23,7 @@ namespace Joyleaf.iOS
 
             LoadApplication(new App());
 
-            UINavigationBar.Appearance.TintColor = UIColor.FromRGB(0, 200, 140);
+            UINavigationBar.Appearance.TintColor = UIColor.FromRGB(51, 51, 51);
             UITabBar.Appearance.TintColor = UIColor.FromRGB(51, 51, 51);
             new SfRatingRenderer();
 
