@@ -17,7 +17,7 @@ namespace Joyleaf.CustomControls
                 FontSize = 23,
                 Margin = new Thickness(5, 0, 5, 10),
                 Text = datum.Title,
-                TextColor = Color.Black
+                TextColor = Color.FromHex("#333333")
             });
 
             if (!datum.Description.Equals(""))

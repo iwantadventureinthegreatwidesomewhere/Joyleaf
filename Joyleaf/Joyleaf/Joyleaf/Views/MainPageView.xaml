@@ -19,7 +19,10 @@
                         VerticalOptions="Fill"
                         VerticalScrollBarVisibility="Never">
                         
-                        <StackLayout x:Name="ContentStack" Orientation="Vertical" VerticalOptions="Fill">
+                        <StackLayout
+                            x:Name="ContentStack" 
+                            Orientation="Vertical" 
+                            VerticalOptions="Fill">
                         </StackLayout>
                     </ScrollView>
                 </RelativeLayout>

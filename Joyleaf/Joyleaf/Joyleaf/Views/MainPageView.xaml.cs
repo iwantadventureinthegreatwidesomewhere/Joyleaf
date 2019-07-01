@@ -40,7 +40,7 @@ namespace Joyleaf.Views
                 FontSize = 35,
                 HorizontalTextAlignment = TextAlignment.Center,
                 Text = "You're Offline",
-                TextColor = Color.Black
+                TextColor = Color.FromHex("#333333")
             });
 
             ConnectionErrorText.Children.Add(new Label
@@ -77,7 +77,7 @@ namespace Joyleaf.Views
                 FontSize = 25,
                 HorizontalTextAlignment = TextAlignment.Center,
                 Text = "Loading Error",
-                TextColor = Color.Black
+                TextColor = Color.FromHex("#333333")
             });
 
             LoadingErrorText.Children.Add(new Label
@@ -143,7 +143,7 @@ namespace Joyleaf.Views
                         FontSize = 27,
                         Margin = new Thickness(7, 0),
                         Text = "Explore",
-                        TextColor = Color.Black
+                        TextColor = Color.FromHex("#333333")
                     });
 
                     foreach (Datum datum in content.Data)

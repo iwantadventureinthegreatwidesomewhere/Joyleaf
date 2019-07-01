@@ -3,5 +3,27 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              x:Class="Joyleaf.Views.ContentItemView">
     
-    
+    <ContentPage.Content>
+        <ScrollView 
+            x:Name="Scroller"
+            Orientation="Vertical"
+            VerticalOptions="Fill"
+            VerticalScrollBarVisibility="Never">
+            <StackLayout>
+                <StackLayout 
+                    x:Name="HeaderStack"
+                    Margin="30"
+                    Orientation="Vertical" 
+                    VerticalOptions="Fill">
+                </StackLayout>
+                
+                <StackLayout
+                    x:Name="DetailStack"
+                    Margin="30,0"
+                    Orientation="Vertical"
+                    VerticalOptions="Fill">
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>   
 </ContentPage>

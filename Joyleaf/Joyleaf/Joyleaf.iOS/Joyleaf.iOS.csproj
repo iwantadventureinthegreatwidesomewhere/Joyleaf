@@ -175,6 +175,14 @@
     <ImageAsset Include="Assets.xcassets\BackButtonWhite.imageset\baseline_arrow_back_ios_white_24pt_2x.png" />
     <ImageAsset Include="Assets.xcassets\BackButtonWhite.imageset\baseline_arrow_back_ios_white_24pt_3x.png" />
     <ImageAsset Include="Assets.xcassets\BackButtonWhite.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Check.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\XMark.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Check.imageset\check-1.png" />
+    <ImageAsset Include="Assets.xcassets\Check.imageset\check%402x-1.png" />
+    <ImageAsset Include="Assets.xcassets\Check.imageset\check%403x-1.png" />
+    <ImageAsset Include="Assets.xcassets\XMark.imageset\xmark.png" />
+    <ImageAsset Include="Assets.xcassets\XMark.imageset\xmark%402x.png" />
+    <ImageAsset Include="Assets.xcassets\XMark.imageset\xmark%403x.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -214,5 +222,7 @@
     <Folder Include="Assets.xcassets\OralSprays.imageset\" />
     <Folder Include="Assets.xcassets\BackButtonBlack.imageset\" />
     <Folder Include="Assets.xcassets\BackButtonWhite.imageset\" />
+    <Folder Include="Assets.xcassets\Check.imageset\" />
+    <Folder Include="Assets.xcassets\XMark.imageset\" />
   </ItemGroup>
 </Project>

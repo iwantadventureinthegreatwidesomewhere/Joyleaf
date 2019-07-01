@@ -82,9 +82,9 @@ namespace Joyleaf.Helpers
             {
                 ItemCount = 5,
                 ItemSize = 13,
-                Precision = Precision.Half,
+                Precision = Precision.Exact,
                 ReadOnly = true,
-                Value = 3.5
+                Value = new Random().NextDouble()*5.0
             };
 
             rating.RatingSettings.RatedFill = Color.Orange;

@@ -1,25 +1,22 @@
 ﻿<Properties StartupConfiguration="{928BF896-B912-476D-86D7-5A6B2B2B065A}|Default">
   <MonoDevelop.Ide.ItemProperties.Joyleaf.iOS automaticSigning="False" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.AFAA1D33-384F-4B1E-8C69-A380D9C93468" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Joyleaf/Joyleaf/Views/RegionPageView.xaml">
+  <MonoDevelop.Ide.Workbench>
     <Files>
-      <File FileName="Joyleaf/Joyleaf/Helpers/ContentItem.cs" Line="86" Column="33" />
-      <File FileName="Joyleaf/Joyleaf/Views/ContentItemView.xaml" />
-      <File FileName="Joyleaf/Joyleaf/Views/ContentItemView.xaml.cs" />
-      <File FileName="Joyleaf/Joyleaf/Views/RegionPageView.xaml" Line="1" Column="1" />
+      <File FileName="Joyleaf/Joyleaf/Views/ContentItemView.xaml.cs" Line="245" Column="51" />
+      <File FileName="Joyleaf/Joyleaf/Helpers/ContentItem.cs" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Joyleaf" expanded="True">
             <Node name="Joyleaf" expanded="True">
+              <Node name="CustomControls" expanded="True" />
               <Node name="Helpers" expanded="True" />
               <Node name="Views" expanded="True">
-                <Node name="ContentItemView.xaml" expanded="True" />
-                <Node name="EmailPageView.xaml" expanded="True" />
-                <Node name="ForgotPasswordPageView.xaml" expanded="True" />
-                <Node name="LogInPageView.xaml" expanded="True" />
+                <Node name="ContentItemView.xaml" expanded="True">
+                  <Node name="ContentItemView.xaml.cs" selected="True" />
+                </Node>
                 <Node name="MainPageView.xaml" expanded="True" />
-                <Node name="RegionPageView.xaml" expanded="True" selected="True" />
               </Node>
             </Node>
             <Node name="Joyleaf.iOS" expanded="True" />
