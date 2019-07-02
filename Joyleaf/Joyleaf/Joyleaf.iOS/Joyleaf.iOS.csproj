@@ -183,6 +183,30 @@
     <ImageAsset Include="Assets.xcassets\XMark.imageset\xmark.png" />
     <ImageAsset Include="Assets.xcassets\XMark.imageset\xmark%402x.png" />
     <ImageAsset Include="Assets.xcassets\XMark.imageset\xmark%403x.png" />
+    <ImageAsset Include="Assets.xcassets\Weak.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Medium.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Strong.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Weak.imageset\strength_weak-1.png" />
+    <ImageAsset Include="Assets.xcassets\Weak.imageset\strength_weak%402x-1.png" />
+    <ImageAsset Include="Assets.xcassets\Weak.imageset\strength_weak%403x-1.png" />
+    <ImageAsset Include="Assets.xcassets\Medium.imageset\strength_medium-1.png" />
+    <ImageAsset Include="Assets.xcassets\Medium.imageset\strength_medium%402x-1.png" />
+    <ImageAsset Include="Assets.xcassets\Medium.imageset\strength_medium%403x.png" />
+    <ImageAsset Include="Assets.xcassets\Strong.imageset\strength_strong.png" />
+    <ImageAsset Include="Assets.xcassets\Strong.imageset\strength_strong%402x.png" />
+    <ImageAsset Include="Assets.xcassets\Strong.imageset\strength_strong%403x.png" />
+    <ImageAsset Include="Assets.xcassets\Sativa.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Indica.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Indica.imageset\Indica-1.png" />
+    <ImageAsset Include="Assets.xcassets\Indica.imageset\Indica%402x-1.png" />
+    <ImageAsset Include="Assets.xcassets\Indica.imageset\Indica%403x-1.png" />
+    <ImageAsset Include="Assets.xcassets\Sativa.imageset\Sativa-1.png" />
+    <ImageAsset Include="Assets.xcassets\Sativa.imageset\Sativa%402x-1.png" />
+    <ImageAsset Include="Assets.xcassets\Sativa.imageset\Sativa%403x.png" />
+    <ImageAsset Include="Assets.xcassets\Hybrid.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Hybrid.imageset\Hybrid-1.png" />
+    <ImageAsset Include="Assets.xcassets\Hybrid.imageset\Hybrid%402x-1.png" />
+    <ImageAsset Include="Assets.xcassets\Hybrid.imageset\Hybrid%403x.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -224,5 +248,11 @@
     <Folder Include="Assets.xcassets\BackButtonWhite.imageset\" />
     <Folder Include="Assets.xcassets\Check.imageset\" />
     <Folder Include="Assets.xcassets\XMark.imageset\" />
+    <Folder Include="Assets.xcassets\Weak.imageset\" />
+    <Folder Include="Assets.xcassets\Medium.imageset\" />
+    <Folder Include="Assets.xcassets\Strong.imageset\" />
+    <Folder Include="Assets.xcassets\Sativa.imageset\" />
+    <Folder Include="Assets.xcassets\Indica.imageset\" />
+    <Folder Include="Assets.xcassets\Hybrid.imageset\" />
   </ItemGroup>
 </Project>

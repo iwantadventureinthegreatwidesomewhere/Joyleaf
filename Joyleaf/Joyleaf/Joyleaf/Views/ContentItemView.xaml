@@ -19,7 +19,7 @@
                 
                 <StackLayout
                     x:Name="DetailStack"
-                    Margin="30,0"
+                    Margin="20,0"
                     Orientation="Vertical"
                     VerticalOptions="Fill">
                 </StackLayout>

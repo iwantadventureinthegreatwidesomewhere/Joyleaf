@@ -114,9 +114,10 @@ namespace Joyleaf.Views
                 {
                     FontAttributes = FontAttributes.Bold,
                     FontSize = 13,
+                    Margin = new Thickness(0, 0, 0, 2),
                     Text = "Available",
                     TextColor = Color.Gray,
-                    VerticalOptions = LayoutOptions.Center
+                    VerticalOptions = LayoutOptions.End
                 });
             }
             else
@@ -127,9 +128,10 @@ namespace Joyleaf.Views
                 {
                     FontAttributes = FontAttributes.Bold,
                     FontSize = 13,
+                    Margin = new Thickness(0, 0, 0, 2),
                     Text = "Out of stock",
                     TextColor = Color.Gray,
-                    VerticalOptions = LayoutOptions.Center
+                    VerticalOptions = LayoutOptions.End
                 });
             }
 
@@ -138,13 +140,12 @@ namespace Joyleaf.Views
             Grid DetailGrid = new Grid
             {
                 HorizontalOptions = LayoutOptions.Fill,
-                HeightRequest = 225
+                HeightRequest = 120
             };
 
-            DetailGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(50, GridUnitType.Star) });
-            DetailGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(50, GridUnitType.Star) });
-            DetailGrid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(50, GridUnitType.Star) });
-            DetailGrid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(50, GridUnitType.Star) });
+            DetailGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(33, GridUnitType.Star) });
+            DetailGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(33, GridUnitType.Star) });
+            DetailGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(33, GridUnitType.Star) });
 
             StackLayout SpeciesStack = new StackLayout
             {
@@ -155,14 +156,139 @@ namespace Joyleaf.Views
             SpeciesStack.Children.Add(new Label
             {
                 FontAttributes = FontAttributes.Bold,
-                FontSize = 18,
+                FontSize = 17,
                 HorizontalOptions = LayoutOptions.Center,
                 Margin = new Thickness(0, 0, 0, 10),
                 Text = "Species",
                 TextColor = Color.FromHex("#333333")
             });
 
+            if (item.Species.Equals("Sativa"))
+            {
+                SpeciesStack.Children.Add(new Image
+                {
+                    Source = "Sativa",
+                    HeightRequest = 30,
+                    HorizontalOptions = LayoutOptions.Center,
+                    Margin = new Thickness(0, 0, 0, 10)
+                });
+            }
+            else if (item.Species.Equals("Indica"))
+            {
+                SpeciesStack.Children.Add(new Image
+                {
+                    Source = "Indica",
+                    HeightRequest = 30,
+                    HorizontalOptions = LayoutOptions.Center,
+                    Margin = new Thickness(0, 0, 0, 10)
+                });
+            }
+            else if (item.Species.Equals("Hybrid"))
+            {
+                SpeciesStack.Children.Add(new Image
+                {
+                    Source = "Hybrid",
+                    HeightRequest = 30,
+                    HorizontalOptions = LayoutOptions.Center,
+                    Margin = new Thickness(0, 0, 0, 10)
+                });
+            }
+            else
+            {
+
+            }
+
+            SpeciesStack.Children.Add(new Label
+            {
+                FontAttributes = FontAttributes.Bold,
+                FontSize = 15,
+                HorizontalOptions = LayoutOptions.Center,
+                Text = item.Species,
+                TextColor = Color.FromHex("#636363")
+            });
+
             DetailGrid.Children.Add(SpeciesStack, 0, 0);
+
+            StackLayout CategoryStack = new StackLayout
+            {
+                HorizontalOptions = LayoutOptions.Center,
+                Orientation = StackOrientation.Vertical
+            };
+
+            CategoryStack.Children.Add(new Label
+            {
+                FontAttributes = FontAttributes.Bold,
+                FontSize = 17,
+                HorizontalOptions = LayoutOptions.Center,
+                Margin = new Thickness(0, 0, 0, 10),
+                Text = "Type",
+                TextColor = Color.FromHex("#333333")
+            });
+
+            switch (item.Category)
+            {
+                case "Capsules":
+                    CategoryStack.Children.Add(new Image
+                    {
+                        Source = "Capsules",
+                        HeightRequest = 30,
+                        HorizontalOptions = LayoutOptions.Center,
+                        Margin = new Thickness(0, 0, 0, 10)
+                    });
+
+                    break;
+                case "Dried flowers":
+                    CategoryStack.Children.Add(new Image
+                    {
+                        Source = "DriedFlowers",
+                        HeightRequest = 30,
+                        HorizontalOptions = LayoutOptions.Center,
+                        Margin = new Thickness(0, 0, 0, 10)
+                    });
+
+                    break;
+                case "Oils":
+                    CategoryStack.Children.Add(new Image
+                    {
+                        Source = "Oils",
+                        HeightRequest = 30,
+                        HorizontalOptions = LayoutOptions.Center,
+                        Margin = new Thickness(0, 0, 0, 10)
+                    });
+
+                    break;
+                case "Oral sprays":
+                    CategoryStack.Children.Add(new Image
+                    {
+                        Source = "OralSprays",
+                        HeightRequest = 30,
+                        HorizontalOptions = LayoutOptions.Center,
+                        Margin = new Thickness(0, 0, 0, 10)
+                    });
+
+                    break;
+                case "Pre-rolled":
+                    CategoryStack.Children.Add(new Image
+                    {
+                        Source = "PreRolled",
+                        HeightRequest = 30,
+                        HorizontalOptions = LayoutOptions.Center,
+                        Margin = new Thickness(0, 0, 0, 10)
+                    });
+
+                    break;
+            }
+
+            CategoryStack.Children.Add(new Label
+            {
+                FontAttributes = FontAttributes.Bold,
+                FontSize = 15,
+                HorizontalOptions = LayoutOptions.Center,
+                Text = item.Category,
+                TextColor = Color.FromHex("#636363")
+            });
+
+            DetailGrid.Children.Add(CategoryStack, 1, 0);
 
             StackLayout StrengthStack = new StackLayout
             {
@@ -173,14 +299,72 @@ namespace Joyleaf.Views
             StrengthStack.Children.Add(new Label
             {
                 FontAttributes = FontAttributes.Bold,
-                FontSize = 18,
+                FontSize = 17,
                 HorizontalOptions = LayoutOptions.Center,
-                Margin = new Thickness(0, 0, 0, 10),
+                Margin = new Thickness(0, 0, 0, 13),
                 Text = "Strength",
                 TextColor = Color.FromHex("#333333")
             });
 
-            DetailGrid.Children.Add(StrengthStack, 1, 0);
+            if(ParseTHC(item.Thc) < 15)
+            {
+                StrengthStack.Children.Add(new Image
+                {
+                    Source = "Weak",
+                    HeightRequest = 23,
+                    HorizontalOptions = LayoutOptions.Center,
+                    Margin = new Thickness(0, 0, 0, 14)
+                });
+
+                StrengthStack.Children.Add(new Label
+                {
+                    FontAttributes = FontAttributes.Bold,
+                    FontSize = 15,
+                    HorizontalOptions = LayoutOptions.Center,
+                    Text = "Weak",
+                    TextColor = Color.FromHex("#636363")
+                });
+            }
+            else if(ParseTHC(item.Thc) >= 15 && ParseTHC(item.Thc) < 25)
+            {
+                StrengthStack.Children.Add(new Image
+                {
+                    Source = "Medium",
+                    HeightRequest = 23,
+                    HorizontalOptions = LayoutOptions.Center,
+                    Margin = new Thickness(0, 0, 0, 14)
+                });
+
+                StrengthStack.Children.Add(new Label
+                {
+                    FontAttributes = FontAttributes.Bold,
+                    FontSize = 15,
+                    HorizontalOptions = LayoutOptions.Center,
+                    Text = "Medium",
+                    TextColor = Color.FromHex("#636363")
+                });
+            }
+            else if(ParseTHC(item.Thc) >= 25)
+            {
+                StrengthStack.Children.Add(new Image
+                {
+                    Source = "Strong",
+                    HeightRequest = 23,
+                    HorizontalOptions = LayoutOptions.Center,
+                    Margin = new Thickness(0, 0, 0, 14)
+                });
+
+                StrengthStack.Children.Add(new Label
+                {
+                    FontAttributes = FontAttributes.Bold,
+                    FontSize = 15,
+                    HorizontalOptions = LayoutOptions.Center,
+                    Text = "Strong",
+                    TextColor = Color.FromHex("#636363")
+                });
+            }
+
+            DetailGrid.Children.Add(StrengthStack, 2, 0);
 
             StackLayout PotencyStack = new StackLayout
             {
@@ -191,7 +375,7 @@ namespace Joyleaf.Views
             PotencyStack.Children.Add(new Label
             {
                 FontAttributes = FontAttributes.Bold,
-                FontSize = 18,
+                FontSize = 17,
                 HorizontalOptions = LayoutOptions.Center,
                 Text = "Potency",
                 TextColor = Color.FromHex("#333333")
@@ -258,54 +442,26 @@ namespace Joyleaf.Views
 
             PotencyStack.Children.Add(ThcCbdStack);
 
-            DetailGrid.Children.Add(PotencyStack, 0, 1);
-
-            StackLayout CategoryStack = new StackLayout
-            {
-                HorizontalOptions = LayoutOptions.Center,
-                Orientation = StackOrientation.Vertical
-            };
-
-            CategoryStack.Children.Add(new Label
-            {
-                FontAttributes = FontAttributes.Bold,
-                FontSize = 18,
-                HorizontalOptions = LayoutOptions.Center,
-                Margin = new Thickness(0, 0, 0, 10),
-                Text = "Type",
-                TextColor = Color.FromHex("#333333")
-            });
-
-            switch (item.Category)
-            {
-                case "Capsules":
-                    CategoryStack.Children.Add(new Image { Source = "Capsules", HeightRequest = 30, HorizontalOptions = LayoutOptions.Center, Margin = new Thickness(0, 0, 0, 10) });
-                    break;
-                case "Dried flowers":
-                    CategoryStack.Children.Add(new Image { Source = "DriedFlowers", HeightRequest = 30, HorizontalOptions = LayoutOptions.Center, Margin = new Thickness(0, 0, 0, 10) });
-                    break;
-                case "Oils":
-                    CategoryStack.Children.Add(new Image { Source = "Oils", HeightRequest = 30, HorizontalOptions = LayoutOptions.Center, Margin = new Thickness(0, 0, 0, 10) });
-                    break;
-                case "Oral sprays":
-                    CategoryStack.Children.Add(new Image { Source = "OralSprays", HeightRequest = 30, HorizontalOptions = LayoutOptions.Center, Margin = new Thickness(0, 0, 0, 10) });
-                    break;
-                case "Pre-rolled":
-                    CategoryStack.Children.Add(new Image { Source = "PreRolled", HeightRequest = 30, HorizontalOptions = LayoutOptions.Center, Margin = new Thickness(0, 0, 0, 10) });
-                    break;
-            }
-
-            CategoryStack.Children.Add(new Label{
-                FontAttributes = FontAttributes.Bold,
-                FontSize = 15,
-                HorizontalOptions = LayoutOptions.Center,
-                Text = item.Category,
-                TextColor = Color.FromHex("#636363")
-            });
-
-            DetailGrid.Children.Add(CategoryStack, 1, 1);
+            //DetailGrid.Children.Add(PotencyStack, 0, 1);
 
             DetailStack.Children.Add(DetailGrid);
+        }
+
+        private double ParseTHC (string s)
+        {
+            int count = 0;
+
+            foreach (char c in s)
+            {
+                if ((c < '0' || c > '9') && c != '.')
+                {
+                    break;
+                }
+
+                count++;
+            }
+
+            return double.Parse(s.Substring(0, count));
         }
     }
 }
