@@ -3,70 +3,36 @@
                              xmlns:customControls="clr-namespace:Joyleaf.CustomControls;assembly=Joyleaf"
                              xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
                              xmlns:system="clr-namespace:System;assembly=netstandard"
-                             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-                             x:Class="Joyleaf.Views.EmailPageView"
+                             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+                             x:Class="Joyleaf.Views.AgeVerificationAndDisclaimerPageView"
                              ios:Page.UseSafeArea="true"
                              StartColor="#11998e"
                              EndColor="#38ef7d">
     
     <RelativeLayout>
         <StackLayout 
-            Margin="30,50"
+            Margin="30,70"
             RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=1}"
             RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=1}">
         
             <Label
                 FontAttributes="Bold"
-                FontSize="25"
-                HorizontalOptions="Center"
-                Margin="0,0,0,15"
-                Text="Create Account"
+                FontSize="18"
+                HorizontalOptions="Start"
+                Margin="15,0,15,10"
+                Text="Age Verification and Disclaimer"
                 TextColor="White">
             </Label>
             
             <Label
-                FontAttributes="Bold"
-                FontSize="18"
-                HorizontalOptions="Start"
-                Margin="15,0,0,5"
-                Text="Name"
+                FontAttributes="None"
+                FontSize="14"
+                HorizontalOptions="Fill"
+                Margin="15,0,15,25"
+                Text="By tapping “Create Account” you confirm that you are at least 19 years of age and you agree that neither Joyleaf nor its creator(s) are responsible for any injuries or deaths that come from actions taken based on information provided on this app."
                 TextColor="White">
             </Label>
             
-            <customControls:CustomEntry
-                x:Name="NameEntry"
-                FontAttributes="Bold"
-                FontSize="15"
-                HeightRequest="45"
-                HorizontalOptions="Fill"
-                Margin="0,0,0,15"
-                ReturnType="Next"
-                TextColor="White"
-                TextChanged="TextChanged"
-            />
-        
-            <Label
-                FontAttributes="Bold"
-                FontSize="18"
-                HorizontalOptions="Start"
-                Margin="15,0,0,5"
-                Text="Email"
-                TextColor="White">
-            </Label>
-        
-            <customControls:CustomEntry
-                x:Name="EmailEntry"
-                FontAttributes="Bold"
-                FontSize="15"
-                HeightRequest="45"
-                HorizontalOptions="Fill"
-                Keyboard="Email"
-                Margin="0,0,0,25"
-                ReturnType="Next"
-                TextColor="White"
-                TextChanged="TextChanged"
-            />
-        
             <customControls:CustomButton
                 x:Name="NextButton"
                 BackgroundColor="White"
@@ -76,10 +42,9 @@
                 FontSize="15"
                 HeightRequest="45"
                 HorizontalOptions="Center"
-                IsEnabled="false"
-                Text="NEXT"
+                Text="CREATE ACCOUNT"
                 TextColor="#333333"
-                WidthRequest="150">
+                WidthRequest="200">
             </customControls:CustomButton>
         </StackLayout>
         

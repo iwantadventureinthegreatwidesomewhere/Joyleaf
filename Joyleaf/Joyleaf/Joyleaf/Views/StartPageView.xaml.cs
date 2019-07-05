@@ -16,7 +16,7 @@ namespace Joyleaf.Views
 
         private async void SignUpButtonClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new EmailPageView());
+            await Navigation.PushAsync(new NameAndEmailPageView());
         }
 
         private async void LogInButtonClicked(object sender, EventArgs e)

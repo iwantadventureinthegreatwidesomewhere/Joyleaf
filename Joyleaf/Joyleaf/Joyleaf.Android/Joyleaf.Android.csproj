@@ -106,7 +106,6 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\SF-Pro-Text-Bold.otf" />
-    <AndroidAsset Include="Assets\SF-Pro-Text-Light.otf" />
     <AndroidAsset Include="Assets\SF-Pro-Text-Regular.otf" />
     <AndroidAsset Include="Assets\San Francisco Pro Font License.rtf" />
   </ItemGroup>

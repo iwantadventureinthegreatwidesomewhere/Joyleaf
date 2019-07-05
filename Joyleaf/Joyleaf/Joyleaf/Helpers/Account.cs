@@ -1,14 +1,16 @@
-﻿namespace Joyleaf.Helpers
+﻿using System;
+
+namespace Joyleaf.Helpers
 {
     public class Account
     {
         public readonly string name;
-        public readonly string region;
+        public readonly string createdOn;
 
-        public Account(string name, string region)
+        public Account(string name)
         {
             this.name = name;
-            this.region = region;
+            createdOn = DateTime.Now.ToString("MM/dd/yyyy");
         }
     }
 }

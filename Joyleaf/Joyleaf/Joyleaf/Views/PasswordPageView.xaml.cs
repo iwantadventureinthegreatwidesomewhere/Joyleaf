@@ -41,7 +41,7 @@ namespace Joyleaf.Views
 
                             if (count >= 8)
                             {
-                                await Navigation.PushAsync(new RegionPageView(name, email, PasswordEntry.Text));
+                                await Navigation.PushAsync(new AgeVerificationAndDisclaimerPageView(name, email, PasswordEntry.Text));
                             }
                             else
                             {

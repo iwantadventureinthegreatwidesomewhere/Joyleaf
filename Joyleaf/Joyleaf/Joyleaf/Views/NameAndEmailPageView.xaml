@@ -3,43 +3,70 @@
                              xmlns:customControls="clr-namespace:Joyleaf.CustomControls;assembly=Joyleaf"
                              xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
                              xmlns:system="clr-namespace:System;assembly=netstandard"
-                             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-                             x:Class="Joyleaf.Views.RegionPageView"
+                             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                             x:Class="Joyleaf.Views.NameAndEmailPageView"
                              ios:Page.UseSafeArea="true"
                              StartColor="#11998e"
                              EndColor="#38ef7d">
     
     <RelativeLayout>
         <StackLayout 
-            Margin="30,70"
+            Margin="30,50"
             RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=1}"
             RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=1}">
+        
+            <Label
+                FontAttributes="Bold"
+                FontSize="25"
+                HorizontalOptions="Center"
+                Margin="0,0,0,15"
+                Text="Create Account"
+                TextColor="White">
+            </Label>
+            
+            <Label
+                FontAttributes="Bold"
+                FontSize="18"
+                HorizontalOptions="Start"
+                Margin="15,0,0,5"
+                Text="Name"
+                TextColor="White">
+            </Label>
+            
+            <customControls:CustomEntry
+                x:Name="NameEntry"
+                FontAttributes="Bold"
+                FontSize="15"
+                HeightRequest="45"
+                HorizontalOptions="Fill"
+                Margin="0,0,0,15"
+                ReturnType="Next"
+                TextColor="White"
+                TextChanged="TextChanged"
+            />
         
             <Label
                 FontAttributes="Bold"
                 FontSize="18"
                 HorizontalOptions="Start"
                 Margin="15,0,0,5"
-                Text="Region"
+                Text="Email"
                 TextColor="White">
             </Label>
-            
-            <customControls:CustomPicker
-                x:Name="RegionPicker"
+        
+            <customControls:CustomEntry
+                x:Name="EmailEntry"
                 FontAttributes="Bold"
                 FontSize="15"
                 HeightRequest="45"
                 HorizontalOptions="Fill"
+                Keyboard="Email"
                 Margin="0,0,0,25"
-                SelectedIndexChanged="PickerChanged"
-                TextColor="White">
-                <Picker.ItemsSource>
-                    <x:Array Type="{x:Type x:String}">
-                        <x:String>Quebec</x:String>
-                    </x:Array>
-                </Picker.ItemsSource>
-            </customControls:CustomPicker>
-            
+                ReturnType="Next"
+                TextColor="White"
+                TextChanged="TextChanged"
+            />
+        
             <customControls:CustomButton
                 x:Name="NextButton"
                 BackgroundColor="White"
@@ -50,9 +77,9 @@
                 HeightRequest="45"
                 HorizontalOptions="Center"
                 IsEnabled="false"
-                Text="CREATE ACCOUNT"
+                Text="NEXT"
                 TextColor="#333333"
-                WidthRequest="200">
+                WidthRequest="150">
             </customControls:CustomButton>
         </StackLayout>
         

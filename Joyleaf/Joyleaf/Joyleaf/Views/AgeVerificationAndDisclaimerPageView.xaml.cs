@@ -7,12 +7,11 @@ using Xamarin.Forms;
 
 namespace Joyleaf.Views
 {
-    public partial class RegionPageView : GradientPage
+    public partial class AgeVerificationAndDisclaimerPageView : GradientPage
     {
         private readonly string name, email, password;
-        private string selectedItem;
 
-        public RegionPageView(string name, string email, string password)
+        public AgeVerificationAndDisclaimerPageView(string name, string email, string password)
         {
             this.name = name;
             this.email = email;
@@ -32,9 +31,7 @@ namespace Joyleaf.Views
         {
             if (CrossConnectivity.Current.IsConnected)
             {
-                string region = (string)RegionPicker.ItemsSource[RegionPicker.SelectedIndex];
-
-                Account account = new Account(name, region);
+                Account account = new Account(name);
 
                 try
                 {
@@ -49,13 +46,6 @@ namespace Joyleaf.Views
             {
                 await DisplayAlert("Connection error", "Please check your network connection, then try again.", "OK");
             }
-        }
-
-        private void PickerChanged(object sender, EventArgs e)
-        {
-            selectedItem = (string)RegionPicker.ItemsSource[RegionPicker.SelectedIndex];
-
-            NextButton.IsEnabled = RegionPicker.SelectedIndex != -1;
         }
     }
 }

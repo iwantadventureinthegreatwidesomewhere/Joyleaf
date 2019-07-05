@@ -1,22 +1,11 @@
 ﻿<Properties StartupConfiguration="{928BF896-B912-476D-86D7-5A6B2B2B065A}|Default">
   <MonoDevelop.Ide.ItemProperties.Joyleaf.iOS automaticSigning="False" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.AFAA1D33-384F-4B1E-8C69-A380D9C93468" />
   <MonoDevelop.Ide.Workbench>
-    <Files>
-      <File FileName="Joyleaf/Joyleaf/Views/StartPageView.xaml" Line="29" Column="37" />
-    </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Joyleaf" expanded="True">
-            <Node name="Joyleaf" expanded="True">
-              <Node name="Views" expanded="True">
-                <Node name="StartPageView.xaml" selected="True" />
-              </Node>
-            </Node>
-            <Node name="Joyleaf.Android" expanded="True">
-              <Node name="Assets" expanded="True" />
-            </Node>
-            <Node name="Joyleaf.iOS" expanded="True" />
+            <Node name="Joyleaf" expanded="True" />
           </Node>
         </State>
       </Pad>

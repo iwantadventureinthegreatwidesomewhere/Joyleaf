@@ -9,9 +9,9 @@ namespace Joyleaf.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
 
-    public partial class EmailPageView : GradientPage
+    public partial class NameAndEmailPageView : GradientPage
     {
-        public EmailPageView()
+        public NameAndEmailPageView()
         {
             NavigationPage.SetHasNavigationBar(this, false);
 
