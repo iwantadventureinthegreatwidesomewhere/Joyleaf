@@ -1,4 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
+
 <customControls:GradientPage xmlns="http://xamarin.com/schemas/2014/forms"
                              xmlns:customControls="clr-namespace:Joyleaf.CustomControls;assembly=Joyleaf"
                              xmlns:system="clr-namespace:System;assembly=netstandard"
@@ -26,11 +27,6 @@
                 Margin="0,0,0,17"
                 Text="Discover hundreds of strains."
                 TextColor="#ffffff">
-                <Label.FontFamily>
-                    <OnPlatform x:TypeArguments="x:String">
-                        <On Platform="Android" Value="Roboto-Medium.ttf#Roboto-Medium"/>
-                    </OnPlatform>
-                </Label.FontFamily>
             </Label>
             
             <Label
@@ -40,11 +36,6 @@
                 Margin="0,0,0,17"
                 Text="Browse a tailored selection."
                 TextColor="#ffffff">
-                <Label.FontFamily>
-                    <OnPlatform x:TypeArguments="x:String">
-                        <On Platform="Android" Value="Roboto-Medium.ttf#Roboto-Medium"/>
-                    </OnPlatform>
-                </Label.FontFamily>
             </Label>
             
             <Label
@@ -53,11 +44,6 @@
                 HorizontalOptions="Center"
                 Text="Totally free."
                 TextColor="#ffffff">
-                <Label.FontFamily>
-                    <OnPlatform x:TypeArguments="x:String">
-                        <On Platform="Android" Value="Roboto-Medium.ttf#Roboto-Medium"/>
-                    </OnPlatform>
-                </Label.FontFamily>
             </Label>
         </StackLayout>
         
@@ -70,13 +56,8 @@
                 FontAttributes="Bold"
                 FontSize="15"
                 Margin="0,0,0,10"
-                Text="SIGN UP FREE"
+                Text="SIGN UP"
                 TextColor="#333333">
-                <Button.FontFamily>
-                    <OnPlatform x:TypeArguments="x:String">
-                        <On Platform="Android" Value="Roboto-Medium.ttf#Roboto-Medium"/>
-                    </OnPlatform>
-                </Button.FontFamily>
             </Button>
             
             <Button
@@ -90,11 +71,6 @@
                 FontSize="15"
                 Text="LOG IN"
                 TextColor="#ffffff">
-                <Button.FontFamily>
-                    <OnPlatform x:TypeArguments="x:String">
-                        <On Platform="Android" Value="Roboto-Medium.ttf#Roboto-Medium"/>
-                    </OnPlatform>
-                </Button.FontFamily>
             </Button>
         </StackLayout>
     </Grid>

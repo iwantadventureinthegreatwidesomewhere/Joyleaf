@@ -1,23 +1,20 @@
 ﻿<Properties StartupConfiguration="{928BF896-B912-476D-86D7-5A6B2B2B065A}|Default">
-  <MonoDevelop.Ide.ItemProperties.Joyleaf.iOS automaticSigning="False" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.C7E851D5-C53B-4B53-80D5-364D03CC92BE" />
+  <MonoDevelop.Ide.ItemProperties.Joyleaf.iOS automaticSigning="False" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.AFAA1D33-384F-4B1E-8C69-A380D9C93468" />
   <MonoDevelop.Ide.Workbench>
     <Files>
-      <File FileName="Joyleaf/Joyleaf/Views/ContentItemView.xaml.cs" Line="304" Column="51" />
-      <File FileName="Joyleaf/Joyleaf/Views/ContentItemView.xaml" Line="15" Column="31" />
+      <File FileName="Joyleaf/Joyleaf/Views/StartPageView.xaml" Line="29" Column="37" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Joyleaf" expanded="True">
             <Node name="Joyleaf" expanded="True">
-              <Node name="CustomControls" expanded="True" />
-              <Node name="Helpers" expanded="True" />
               <Node name="Views" expanded="True">
-                <Node name="ContentItemView.xaml" expanded="True">
-                  <Node name="ContentItemView.xaml.cs" selected="True" />
-                </Node>
-                <Node name="MainPageView.xaml" expanded="True" />
+                <Node name="StartPageView.xaml" selected="True" />
               </Node>
+            </Node>
+            <Node name="Joyleaf.Android" expanded="True">
+              <Node name="Assets" expanded="True" />
             </Node>
             <Node name="Joyleaf.iOS" expanded="True" />
           </Node>

@@ -105,18 +105,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <AndroidAsset Include="Assets\Roboto-Regular.ttf" />
-    <AndroidAsset Include="Assets\Roboto-Black.ttf" />
-    <AndroidAsset Include="Assets\Roboto-BlackItalic.ttf" />
-    <AndroidAsset Include="Assets\Roboto-Bold.ttf" />
-    <AndroidAsset Include="Assets\Roboto-BoldItalic.ttf" />
-    <AndroidAsset Include="Assets\Roboto-Italic.ttf" />
-    <AndroidAsset Include="Assets\Roboto-Light.ttf" />
-    <AndroidAsset Include="Assets\Roboto-LightItalic.ttf" />
-    <AndroidAsset Include="Assets\Roboto-Medium.ttf" />
-    <AndroidAsset Include="Assets\Roboto-MediumItalic.ttf" />
-    <AndroidAsset Include="Assets\Roboto-Thin.ttf" />
-    <AndroidAsset Include="Assets\Roboto-ThinItalic.ttf" />
+    <AndroidAsset Include="Assets\SF-Pro-Text-Bold.otf" />
+    <AndroidAsset Include="Assets\SF-Pro-Text-Light.otf" />
+    <AndroidAsset Include="Assets\SF-Pro-Text-Regular.otf" />
+    <AndroidAsset Include="Assets\San Francisco Pro Font License.rtf" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

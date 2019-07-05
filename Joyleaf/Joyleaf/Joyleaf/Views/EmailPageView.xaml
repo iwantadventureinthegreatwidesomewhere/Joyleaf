@@ -22,11 +22,6 @@
                 Margin="0,0,0,15"
                 Text="Create Account"
                 TextColor="White">
-                <Label.FontFamily>
-                    <OnPlatform x:TypeArguments="x:String">
-                        <On Platform="Android" Value="Roboto-Medium.ttf#Roboto-Medium"/>
-                    </OnPlatform>
-                </Label.FontFamily>
             </Label>
             
             <Label
@@ -36,11 +31,6 @@
                 Margin="15,0,0,5"
                 Text="Name"
                 TextColor="White">
-                <Label.FontFamily>
-                    <OnPlatform x:TypeArguments="x:String">
-                        <On Platform="Android" Value="Roboto-Medium.ttf#Roboto-Medium"/>
-                    </OnPlatform>
-                </Label.FontFamily>
             </Label>
             
             <customControls:CustomEntry
@@ -62,11 +52,6 @@
                 Margin="15,0,0,5"
                 Text="Email"
                 TextColor="White">
-                <Label.FontFamily>
-                    <OnPlatform x:TypeArguments="x:String">
-                        <On Platform="Android" Value="Roboto-Medium.ttf#Roboto-Medium"/>
-                    </OnPlatform>
-                </Label.FontFamily>
             </Label>
         
             <customControls:CustomEntry
@@ -95,11 +80,6 @@
                 Text="NEXT"
                 TextColor="#333333"
                 WidthRequest="150">
-                <customControls:CustomButton.FontFamily>
-                    <OnPlatform x:TypeArguments="x:String">
-                        <On Platform="Android" Value="Roboto-Medium.ttf#Roboto-Medium"/>
-                    </OnPlatform>
-                </customControls:CustomButton.FontFamily>
             </customControls:CustomButton>
         </StackLayout>
         

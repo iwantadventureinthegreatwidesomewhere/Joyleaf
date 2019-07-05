@@ -107,9 +107,6 @@
     <Compile Include="CustomRenderers\IOSGradientPage.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
-      <Visible>false</Visible>
-    </ImageAsset>
     <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
@@ -126,21 +123,6 @@
     <ImageAsset Include="Assets.xcassets\Search.imageset\baseline_search_black_24pt_1x.png" />
     <ImageAsset Include="Assets.xcassets\Search.imageset\baseline_search_black_24pt_2x.png" />
     <ImageAsset Include="Assets.xcassets\Search.imageset\baseline_search_black_24pt_3x.png" />
-    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\iPhone XS Max%403x.png" />
-    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\iPhone XR%402x.png" />
-    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\iPhone XS%403x.png" />
-    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\iPhone 8 Plus%403x.png" />
-    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\iPhone 8%402x.png" />
-    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\iPhone SE%402x.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_20pt%402x.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_20pt%403x.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_29pt%402x.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_29pt%403x.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_40pt%402x.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_40pt%403x.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_60pt%402x.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_60pt%403x.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon.png" />
     <ImageAsset Include="Assets.xcassets\Logo.imageset\logo.png" />
     <ImageAsset Include="Assets.xcassets\Logo.imageset\logo%402x.png" />
     <ImageAsset Include="Assets.xcassets\Logo.imageset\logo%403x.png" />
@@ -151,62 +133,37 @@
     <ImageAsset Include="Assets.xcassets\HighFive.imageset\HighFive.png" />
     <ImageAsset Include="Assets.xcassets\HighFive.imageset\HighFive%402x.png" />
     <ImageAsset Include="Assets.xcassets\HighFive.imageset\HighFive%403x-1.png" />
-    <ImageAsset Include="Assets.xcassets\DriedFlowers.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\Capsules.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\PreRolled.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\Oils.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\OralSprays.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\PreRolled.imageset\pre_rolled-1.png" />
-    <ImageAsset Include="Assets.xcassets\PreRolled.imageset\pre_rolled%402x-1.png" />
-    <ImageAsset Include="Assets.xcassets\PreRolled.imageset\pre_rolled%403x-1.png" />
-    <ImageAsset Include="Assets.xcassets\Oils.imageset\oils-1.png" />
-    <ImageAsset Include="Assets.xcassets\Oils.imageset\oils%402x-1.png" />
-    <ImageAsset Include="Assets.xcassets\Oils.imageset\oils%403x-1.png" />
-    <ImageAsset Include="Assets.xcassets\DriedFlowers.imageset\dried_flowers.png" />
-    <ImageAsset Include="Assets.xcassets\DriedFlowers.imageset\dried_flowers%402x.png" />
-    <ImageAsset Include="Assets.xcassets\DriedFlowers.imageset\dried_flowers%403x.png" />
-    <ImageAsset Include="Assets.xcassets\Capsules.imageset\capsules-1.png" />
-    <ImageAsset Include="Assets.xcassets\Capsules.imageset\capsules%402x-1.png" />
-    <ImageAsset Include="Assets.xcassets\Capsules.imageset\capsules%403x-1.png" />
-    <ImageAsset Include="Assets.xcassets\OralSprays.imageset\oral_sprays-1.png" />
-    <ImageAsset Include="Assets.xcassets\OralSprays.imageset\oral_sprays%402x-1.png" />
-    <ImageAsset Include="Assets.xcassets\OralSprays.imageset\oral_sprays%403x-1.png" />
     <ImageAsset Include="Assets.xcassets\BackButtonWhite.imageset\baseline_arrow_back_ios_white_24pt_1x.png" />
     <ImageAsset Include="Assets.xcassets\BackButtonWhite.imageset\baseline_arrow_back_ios_white_24pt_2x.png" />
     <ImageAsset Include="Assets.xcassets\BackButtonWhite.imageset\baseline_arrow_back_ios_white_24pt_3x.png" />
     <ImageAsset Include="Assets.xcassets\BackButtonWhite.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\Check.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\XMark.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\Check.imageset\check-1.png" />
-    <ImageAsset Include="Assets.xcassets\Check.imageset\check%402x-1.png" />
-    <ImageAsset Include="Assets.xcassets\Check.imageset\check%403x-1.png" />
-    <ImageAsset Include="Assets.xcassets\XMark.imageset\xmark.png" />
-    <ImageAsset Include="Assets.xcassets\XMark.imageset\xmark%402x.png" />
-    <ImageAsset Include="Assets.xcassets\XMark.imageset\xmark%403x.png" />
-    <ImageAsset Include="Assets.xcassets\Weak.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\Medium.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\Strong.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\Weak.imageset\strength_weak-1.png" />
-    <ImageAsset Include="Assets.xcassets\Weak.imageset\strength_weak%402x-1.png" />
-    <ImageAsset Include="Assets.xcassets\Weak.imageset\strength_weak%403x-1.png" />
-    <ImageAsset Include="Assets.xcassets\Medium.imageset\strength_medium-1.png" />
-    <ImageAsset Include="Assets.xcassets\Medium.imageset\strength_medium%402x-1.png" />
-    <ImageAsset Include="Assets.xcassets\Medium.imageset\strength_medium%403x.png" />
-    <ImageAsset Include="Assets.xcassets\Strong.imageset\strength_strong.png" />
-    <ImageAsset Include="Assets.xcassets\Strong.imageset\strength_strong%402x.png" />
-    <ImageAsset Include="Assets.xcassets\Strong.imageset\strength_strong%403x.png" />
-    <ImageAsset Include="Assets.xcassets\Sativa.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\Indica.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\Indica.imageset\Indica-1.png" />
-    <ImageAsset Include="Assets.xcassets\Indica.imageset\Indica%402x-1.png" />
-    <ImageAsset Include="Assets.xcassets\Indica.imageset\Indica%403x-1.png" />
-    <ImageAsset Include="Assets.xcassets\Sativa.imageset\Sativa-1.png" />
-    <ImageAsset Include="Assets.xcassets\Sativa.imageset\Sativa%402x-1.png" />
-    <ImageAsset Include="Assets.xcassets\Sativa.imageset\Sativa%403x.png" />
-    <ImageAsset Include="Assets.xcassets\Hybrid.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\Hybrid.imageset\Hybrid-1.png" />
-    <ImageAsset Include="Assets.xcassets\Hybrid.imageset\Hybrid%402x-1.png" />
-    <ImageAsset Include="Assets.xcassets\Hybrid.imageset\Hybrid%403x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_20pt%402x-1.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_20pt%403x-1.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_29pt%402x-1.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_29pt%403x-1.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_40pt%402x-1.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_40pt%403x-1.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_60pt%402x-1.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_60pt%403x-1.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_20pt.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_20pt%402x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_29pt.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_29pt%402x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_40pt.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_40pt%402x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_76pt.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_76pt%402x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_83.5%402x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Smooth Corners-1.png" />
+    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\iPhone XS Max%403x.png" />
+    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\iPhone XR%402x.png" />
+    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\iPhone XS%403x.png" />
+    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\iPhone 8 Plus%403x.png" />
+    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\iPhone 8%402x.png" />
+    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\iPhone SE%402x.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -254,5 +211,6 @@
     <Folder Include="Assets.xcassets\Sativa.imageset\" />
     <Folder Include="Assets.xcassets\Indica.imageset\" />
     <Folder Include="Assets.xcassets\Hybrid.imageset\" />
+    <Folder Include="Assets.xcassets\AppIcon.appiconset\" />
   </ItemGroup>
 </Project>

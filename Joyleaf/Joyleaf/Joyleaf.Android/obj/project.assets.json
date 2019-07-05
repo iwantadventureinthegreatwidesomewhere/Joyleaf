@@ -38,46 +38,6 @@
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
         }
       },
-      "Syncfusion.Licensing/16.4.0.54": {
-        "type": "package",
-        "compile": {
-          "lib/MonoAndroid10/Syncfusion.Licensing.dll": {}
-        },
-        "runtime": {
-          "lib/MonoAndroid10/Syncfusion.Licensing.dll": {}
-        }
-      },
-      "Syncfusion.Xamarin.Core/16.4.0.54": {
-        "type": "package",
-        "dependencies": {
-          "Syncfusion.Licensing": "16.4.0.54"
-        },
-        "compile": {
-          "lib/MonoAndroid10/Syncfusion.Core.XForms.Android.dll": {},
-          "lib/MonoAndroid10/Syncfusion.Core.XForms.dll": {}
-        },
-        "runtime": {
-          "lib/MonoAndroid10/Syncfusion.Core.XForms.Android.dll": {},
-          "lib/MonoAndroid10/Syncfusion.Core.XForms.dll": {}
-        }
-      },
-      "Syncfusion.Xamarin.SfRating/16.4.0.54": {
-        "type": "package",
-        "dependencies": {
-          "Syncfusion.Xamarin.Core": "16.4.0.54",
-          "Xamarin.Forms": "2.5.1.527436"
-        },
-        "compile": {
-          "lib/MonoAndroid10/Syncfusion.SfRating.Android.dll": {},
-          "lib/MonoAndroid10/Syncfusion.SfRating.XForms.Android.dll": {},
-          "lib/MonoAndroid10/Syncfusion.SfRating.XForms.dll": {}
-        },
-        "runtime": {
-          "lib/MonoAndroid10/Syncfusion.SfRating.Android.dll": {},
-          "lib/MonoAndroid10/Syncfusion.SfRating.XForms.Android.dll": {},
-          "lib/MonoAndroid10/Syncfusion.SfRating.XForms.dll": {}
-        }
-      },
       "System.ComponentModel/4.0.1": {
         "type": "package",
         "compile": {
@@ -562,7 +522,6 @@
           "FirebaseAuthentication.net": "3.0.7",
           "FirebaseDatabase.net": "3.3.3",
           "Newtonsoft.Json": "11.0.2",
-          "Syncfusion.Xamarin.SfRating": "16.4.0.54",
           "System.Net.Http": "4.3.4",
           "Xam.Plugin.Connectivity": "3.2.0",
           "Xam.Plugins.Settings": "3.1.1",
@@ -626,111 +585,6 @@
         "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.xml",
         "newtonsoft.json.11.0.2.nupkg.sha512",
         "newtonsoft.json.nuspec"
-      ]
-    },
-    "Syncfusion.Licensing/16.4.0.54": {
-      "sha512": "KpdQjjikdxf34gK4Q6edN31ZvUwTUh8Fgbbv0+/PVRG7U/PH0aQrmTCUXur53MzgFaxg0HeJxrS+hqqBTJ6z/A==",
-      "type": "package",
-      "path": "syncfusion.licensing/16.4.0.54",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/MonoAndroid10/Syncfusion.Licensing.dll",
-        "lib/Xamarin.Mac/Syncfusion.Licensing.dll",
-        "lib/Xamarin.iOS10/Syncfusion.Licensing.dll",
-        "lib/net20/Syncfusion.Licensing.dll",
-        "lib/net35/Syncfusion.Licensing.dll",
-        "lib/net40/Syncfusion.Licensing.dll",
-        "lib/net45/Syncfusion.Licensing.dll",
-        "lib/net451/Syncfusion.Licensing.dll",
-        "lib/net46/Syncfusion.Licensing.dll",
-        "lib/netstandard1.0/Syncfusion.Licensing.dll",
-        "lib/netstandard1.2/Syncfusion.Licensing.dll",
-        "lib/netstandard1.4/Syncfusion.Licensing.dll",
-        "lib/netstandard2.0/Syncfusion.Licensing.dll",
-        "lib/portable-win+net45+wp80+win81+wpa81/Syncfusion.Licensing.dll",
-        "lib/uap10.0/Syncfusion.Licensing.dll",
-        "syncfusion.licensing.16.4.0.54.nupkg.sha512",
-        "syncfusion.licensing.nuspec"
-      ]
-    },
-    "Syncfusion.Xamarin.Core/16.4.0.54": {
-      "sha512": "DWPiekLe0THLAuJymeGmEFry0GPa+Q6Tqega7HZMVyp81dv9NFxVhBw0Ef9AksrJEHGywLgqqS/kGugAPUFYvg==",
-      "type": "package",
-      "path": "syncfusion.xamarin.core/16.4.0.54",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/MonoAndroid10/Syncfusion.Core.XForms.Android.dll",
-        "lib/MonoAndroid10/Syncfusion.Core.XForms.dll",
-        "lib/MonoAndroid10/Syncfusion.Core.XForms.xml",
-        "lib/Xamarin.Mac/Syncfusion.Core.XForms.dll",
-        "lib/Xamarin.Mac/Syncfusion.Core.XForms.macOS.dll",
-        "lib/Xamarin.iOS10/Syncfusion.Core.XForms.dll",
-        "lib/Xamarin.iOS10/Syncfusion.Core.XForms.iOS.dll",
-        "lib/Xamarin.iOS10/Syncfusion.Core.XForms.xml",
-        "lib/netstandard1.0/Syncfusion.Core.XForms.dll",
-        "lib/netstandard1.0/Syncfusion.Core.XForms.xml",
-        "lib/portable-win+net45+wp80+win81+wpa81/Syncfusion.Core.XForms.dll",
-        "lib/portable-win+net45+wp80+win81+wpa81/Syncfusion.Core.XForms.xml",
-        "lib/uap10.0/Syncfusion.Core.XForms.UWP.dll",
-        "lib/uap10.0/Syncfusion.Core.XForms.UWP.pri",
-        "lib/uap10.0/Syncfusion.Core.XForms.UWP/Syncfusion.Core.XForms.UWP.xr.xml",
-        "lib/uap10.0/Syncfusion.Core.XForms.UWP/ToggleIcons/ToggleCollapsedIcon.xaml",
-        "lib/uap10.0/Syncfusion.Core.XForms.UWP/ToggleIcons/ToggleCollapsedIcon.xbf",
-        "lib/uap10.0/Syncfusion.Core.XForms.UWP/ToggleIcons/ToggleVisibleIcon.xaml",
-        "lib/uap10.0/Syncfusion.Core.XForms.UWP/ToggleIcons/ToggleVisibleIcon.xbf",
-        "lib/uap10.0/Syncfusion.Core.XForms.dll",
-        "lib/uap10.0/Syncfusion.Core.XForms.xml",
-        "syncfusion.xamarin.core.16.4.0.54.nupkg.sha512",
-        "syncfusion.xamarin.core.nuspec"
-      ]
-    },
-    "Syncfusion.Xamarin.SfRating/16.4.0.54": {
-      "sha512": "pebZ3/vqWU+tjbfqwGkJUtEnweaf6gwB7R39IZX3tQ0EE3gPHgX+HduwmbbCB3zJS0GT5QOJnD6X9I3v/HggYA==",
-      "type": "package",
-      "path": "syncfusion.xamarin.sfrating/16.4.0.54",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/MonoAndroid10/Syncfusion.SfRating.Android.dll",
-        "lib/MonoAndroid10/Syncfusion.SfRating.XForms.Android.dll",
-        "lib/MonoAndroid10/Syncfusion.SfRating.XForms.dll",
-        "lib/MonoAndroid10/Syncfusion.SfRating.XForms.xml",
-        "lib/Xamarin.iOS10/Syncfusion.SfRating.XForms.dll",
-        "lib/Xamarin.iOS10/Syncfusion.SfRating.XForms.iOS.dll",
-        "lib/Xamarin.iOS10/Syncfusion.SfRating.XForms.xml",
-        "lib/Xamarin.iOS10/Syncfusion.SfRating.iOS.dll",
-        "lib/netstandard1.0/Syncfusion.SfRating.XForms.dll",
-        "lib/netstandard1.0/Syncfusion.SfRating.XForms.xml",
-        "lib/portable-win+net45+wp80+win81+wpa81/Syncfusion.SfRating.XForms.dll",
-        "lib/portable-win+net45+wp80+win81+wpa81/Syncfusion.SfRating.XForms.xml",
-        "lib/uap10.0/Syncfusion.SfInput.UWP.XML",
-        "lib/uap10.0/Syncfusion.SfInput.UWP.dll",
-        "lib/uap10.0/Syncfusion.SfInput.UWP.pri",
-        "lib/uap10.0/Syncfusion.SfInput.UWP/DeviceFamily-Mobile/Themes/InputStyles.xaml",
-        "lib/uap10.0/Syncfusion.SfInput.UWP/DeviceFamily-Mobile/Themes/InputStyles.xbf",
-        "lib/uap10.0/Syncfusion.SfInput.UWP/Properties/Syncfusion.SfInput.UWP.rd.xml",
-        "lib/uap10.0/Syncfusion.SfInput.UWP/Syncfusion.SfInput.UWP.XML",
-        "lib/uap10.0/Syncfusion.SfInput.UWP/Syncfusion.SfInput.UWP.xr.xml",
-        "lib/uap10.0/Syncfusion.SfInput.UWP/Syncfusion.SfShared.UWP.xml",
-        "lib/uap10.0/Syncfusion.SfInput.UWP/Themes/InputStyles.xaml",
-        "lib/uap10.0/Syncfusion.SfInput.UWP/Themes/InputStyles.xbf",
-        "lib/uap10.0/Syncfusion.SfInput.UWP/Themes/generic.xaml",
-        "lib/uap10.0/Syncfusion.SfInput.UWP/Themes/generic.xbf",
-        "lib/uap10.0/Syncfusion.SfRating.XForms.UWP.dll",
-        "lib/uap10.0/Syncfusion.SfRating.XForms.dll",
-        "lib/uap10.0/Syncfusion.SfRating.XForms.xml",
-        "lib/uap10.0/Syncfusion.SfShared.UWP.XML",
-        "lib/uap10.0/Syncfusion.SfShared.UWP.dll",
-        "lib/uap10.0/Syncfusion.SfShared.UWP.pri",
-        "lib/uap10.0/Syncfusion.SfShared.UWP/Properties/Syncfusion.SfShared.UWP.rd.xml",
-        "lib/uap10.0/Syncfusion.SfShared.UWP/Syncfusion.SfShared.UWP.XML",
-        "lib/uap10.0/Syncfusion.SfShared.UWP/Syncfusion.SfShared.UWP.xr.xml",
-        "lib/uap10.0/Syncfusion.SfShared.UWP/Themes/generic.xaml",
-        "lib/uap10.0/Syncfusion.SfShared.UWP/Themes/generic.xbf",
-        "syncfusion.xamarin.sfrating.16.4.0.54.nupkg.sha512",
-        "syncfusion.xamarin.sfrating.nuspec"
       ]
     },
     "System.ComponentModel/4.0.1": {

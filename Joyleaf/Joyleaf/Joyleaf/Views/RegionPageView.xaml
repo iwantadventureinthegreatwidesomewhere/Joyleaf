@@ -22,11 +22,6 @@
                 Margin="15,0,0,5"
                 Text="Region"
                 TextColor="White">
-                <Label.FontFamily>
-                    <OnPlatform x:TypeArguments="x:String">
-                        <On Platform="Android" Value="Roboto-Medium.ttf#Roboto-Medium"/>
-                    </OnPlatform>
-                </Label.FontFamily>
             </Label>
             
             <customControls:CustomPicker
@@ -58,11 +53,6 @@
                 Text="CREATE ACCOUNT"
                 TextColor="#333333"
                 WidthRequest="200">
-                <customControls:CustomButton.FontFamily>
-                    <OnPlatform x:TypeArguments="x:String">
-                        <On Platform="Android" Value="Roboto-Medium.ttf#Roboto-Medium"/>
-                    </OnPlatform>
-                </customControls:CustomButton.FontFamily>
             </customControls:CustomButton>
         </StackLayout>
         

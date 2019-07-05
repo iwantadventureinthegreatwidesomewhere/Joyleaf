@@ -22,11 +22,6 @@
                 Margin="0,0,0,15"
                 Text="Log In"
                 TextColor="White">
-                <Label.FontFamily>
-                    <OnPlatform x:TypeArguments="x:String">
-                        <On Platform="Android" Value="Roboto-Medium.ttf#Roboto-Medium"/>
-                    </OnPlatform>
-                </Label.FontFamily>
             </Label>
         
             <Label
@@ -36,11 +31,6 @@
                 Margin="15,0,0,5"
                 Text="Email"
                 TextColor="White">
-                <Label.FontFamily>
-                    <OnPlatform x:TypeArguments="x:String">
-                        <On Platform="Android" Value="Roboto-Medium.ttf#Roboto-Medium"/>
-                    </OnPlatform>
-                </Label.FontFamily>
             </Label>
         
             <customControls:CustomEntry
@@ -63,11 +53,6 @@
                 Margin="15,0,0,5"
                 Text="Password"
                 TextColor="White">
-                <Label.FontFamily>
-                    <OnPlatform x:TypeArguments="x:String">
-                        <On Platform="Android" Value="Roboto-Medium.ttf#Roboto-Medium"/>
-                    </OnPlatform>
-                </Label.FontFamily>
             </Label>
         
             <customControls:CustomEntry
@@ -97,11 +82,6 @@
                 Text="GO"
                 TextColor="#333333"
                 WidthRequest="150">
-                <customControls:CustomButton.FontFamily>
-                    <OnPlatform x:TypeArguments="x:String">
-                        <On Platform="Android" Value="Roboto-Medium.ttf#Roboto-Medium"/>
-                    </OnPlatform>
-                </customControls:CustomButton.FontFamily>
             </customControls:CustomButton>
         
             <Button
@@ -112,11 +92,6 @@
                 HorizontalOptions="Center"
                 Text="Forgot password? Tap here to reset."
                 TextColor="White">
-                <Button.FontFamily>
-                    <OnPlatform x:TypeArguments="x:String">
-                        <On Platform="Android" Value="Roboto-Medium.ttf#Roboto-Medium"/>
-                    </OnPlatform>
-                </Button.FontFamily>
             </Button>
         </StackLayout>
         

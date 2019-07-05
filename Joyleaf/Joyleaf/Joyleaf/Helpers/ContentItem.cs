@@ -1,6 +1,4 @@
-﻿using Joyleaf.Views;
-using Syncfusion.SfRating.XForms;
-using System;
+﻿using System;
 using Xamarin.Forms;
 
 namespace Joyleaf.Helpers
@@ -8,12 +6,10 @@ namespace Joyleaf.Helpers
     public class ContentItem : Grid
     {
         public readonly Item item;
-        public readonly ContentItemView contentItemView;
 
         public ContentItem(Item item, bool islastToLoad)
         {
             this.item = item;
-            contentItemView = new ContentItemView(item);
 
             HeightRequest = 70;
             Margin = new Thickness(0, 0, 0, 3);
@@ -78,21 +74,6 @@ namespace Joyleaf.Helpers
                 TextColor = Color.Gray
             });
 
-            SfRating rating = new SfRating
-            {
-                ItemCount = 5,
-                ItemSize = 13,
-                Precision = Precision.Exact,
-                ReadOnly = true,
-                Value = new Random().NextDouble()*5.0
-            };
-
-            rating.RatingSettings.RatedFill = Color.Orange;
-            rating.RatingSettings.RatedStroke = Color.Transparent;
-            rating.RatingSettings.UnRatedFill = Color.LightGray;
-            rating.RatingSettings.UnRatedStroke = Color.Transparent;
-
-            detailStack.Children.Add(rating);
             Children.Add(detailStack, 1, 0);
 
             StackLayout moreStack = new StackLayout { HorizontalOptions = LayoutOptions.Fill, VerticalOptions = LayoutOptions.Center };
@@ -116,7 +97,7 @@ namespace Joyleaf.Helpers
 
         private async void PushItemViewAsync(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(contentItemView);
+            //await Navigation.PushAsync(contentItemView);
         }
 
         private string Truncate(string value, int maxChars)
