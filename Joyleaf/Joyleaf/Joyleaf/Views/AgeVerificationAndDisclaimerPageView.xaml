@@ -19,17 +19,16 @@
                 FontAttributes="Bold"
                 FontSize="18"
                 HorizontalOptions="Start"
-                Margin="15,0,15,10"
-                Text="Age Verification and Disclaimer"
+                Margin="8,0,0,10"
+                Text="Age verification and disclaimer"
                 TextColor="White">
             </Label>
             
             <Label
-                FontAttributes="None"
-                FontSize="14"
-                HorizontalOptions="Fill"
-                Margin="15,0,15,25"
-                Text="By tapping “Create Account” you confirm that you are at least 19 years of age and you agree that neither Joyleaf nor its creator(s) are responsible for any injuries or deaths that come from actions taken based on information provided on this app."
+                FontSize="13"
+                HorizontalOptions="Start"
+                Margin="8,0,8,20"
+                Text="By tapping 'Create Account' you confirm that you are at least 19 years of age and you agree that neither Joyleaf nor its creators are responsible for any injuries, deaths, or other consequences that come from actions taken based on information provided on this app."
                 TextColor="White">
             </Label>
             

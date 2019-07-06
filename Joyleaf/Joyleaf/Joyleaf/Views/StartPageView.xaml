@@ -34,7 +34,7 @@
                 FontSize="23"
                 HorizontalOptions="Center"
                 Margin="0,0,0,20"
-                Text="Explore a tailored selection."
+                Text="Explore tailored selections."
                 TextColor="#ffffff">
             </Label>
             
