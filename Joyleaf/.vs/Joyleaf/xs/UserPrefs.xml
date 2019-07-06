@@ -1,8 +1,8 @@
 ﻿<Properties StartupConfiguration="{928BF896-B912-476D-86D7-5A6B2B2B065A}|Default">
   <MonoDevelop.Ide.ItemProperties.Joyleaf.iOS automaticSigning="False" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.AFAA1D33-384F-4B1E-8C69-A380D9C93468" />
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench ActiveDocument="Joyleaf/Joyleaf/Views/AgeVerificationAndDisclaimerPageView.xaml">
     <Files>
-      <File FileName="Joyleaf/Joyleaf/Views/StartPageView.xaml" Line="37" Column="50" />
+      <File FileName="Joyleaf/Joyleaf/Views/AgeVerificationAndDisclaimerPageView.xaml" Line="31" Column="444" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -10,7 +10,7 @@
           <Node name="Joyleaf" expanded="True">
             <Node name="Joyleaf" expanded="True">
               <Node name="Views" expanded="True">
-                <Node name="StartPageView.xaml" selected="True" />
+                <Node name="AgeVerificationAndDisclaimerPageView.xaml" selected="True" />
               </Node>
             </Node>
             <Node name="Joyleaf.iOS" expanded="True" />
