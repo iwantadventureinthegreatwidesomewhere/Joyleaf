@@ -4,7 +4,7 @@
             xmlns:local="clr-namespace:Joyleaf;assembly=Joyleaf"
             xmlns:system="clr-namespace:System;assembly=netstandard"
             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-            x:Class="Joyleaf.Views.MainPageView"
+            x:Class="Joyleaf.Views.MainPage"
             BackgroundColor="White">
     
     <NavigationPage Icon="Explore">
@@ -29,9 +29,6 @@
             </ContentPage>
         </x:Arguments>    
     </NavigationPage>
-    
-    <ContentPage Icon="Search">
-    </ContentPage>    
     
     <ContentPage Icon="Account">
         <StackLayout Margin="0, 200, 0, 0">

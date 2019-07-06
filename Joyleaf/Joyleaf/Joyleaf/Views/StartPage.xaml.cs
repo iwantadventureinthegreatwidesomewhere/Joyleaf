@@ -5,9 +5,9 @@ using Xamarin.Forms;
 
 namespace Joyleaf.Views
 {
-    public partial class StartPageView : GradientPage
+    public partial class StartPage : GradientPage
     {
-        public StartPageView()
+        public StartPage()
         {
             NavigationPage.SetHasNavigationBar(this, false);
 
@@ -16,12 +16,12 @@ namespace Joyleaf.Views
 
         private async void SignUpButtonClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new NameAndEmailPageView());
+            await Navigation.PushAsync(new NameAndEmailPage());
         }
 
         private async void LogInButtonClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new LogInPageView());
+            await Navigation.PushAsync(new LogInPage());
         }
 
         protected override void OnAppearing()

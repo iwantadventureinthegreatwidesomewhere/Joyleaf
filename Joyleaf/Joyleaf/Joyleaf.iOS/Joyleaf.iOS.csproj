@@ -118,10 +118,6 @@
     <ImageAsset Include="Assets.xcassets\Account.imageset\baseline_account_circle_black_24pt_1x.png" />
     <ImageAsset Include="Assets.xcassets\Account.imageset\baseline_account_circle_black_24pt_2x.png" />
     <ImageAsset Include="Assets.xcassets\Account.imageset\baseline_account_circle_black_24pt_3x.png" />
-    <ImageAsset Include="Assets.xcassets\Search.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\Search.imageset\baseline_search_black_24pt_1x.png" />
-    <ImageAsset Include="Assets.xcassets\Search.imageset\baseline_search_black_24pt_2x.png" />
-    <ImageAsset Include="Assets.xcassets\Search.imageset\baseline_search_black_24pt_3x.png" />
     <ImageAsset Include="Assets.xcassets\Logo.imageset\logo.png" />
     <ImageAsset Include="Assets.xcassets\Logo.imageset\logo%402x.png" />
     <ImageAsset Include="Assets.xcassets\Logo.imageset\logo%403x.png" />

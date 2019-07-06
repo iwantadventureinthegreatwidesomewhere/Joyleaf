@@ -6,9 +6,9 @@ using Xamarin.Forms;
 
 namespace Joyleaf.Views
 {
-    public partial class LogInPageView : GradientPage
+    public partial class LogInPage : GradientPage
     {
-        public LogInPageView()
+        public LogInPage()
         {
             NavigationPage.SetHasNavigationBar(this, false);
 
@@ -28,7 +28,7 @@ namespace Joyleaf.Views
                 EmailEntry.Focus();
             }         }
 
-        private async void ForgotPasswordButtonClicked(object sender, EventArgs e)         {             await Navigation.PushAsync(new ForgotPasswordPageView());         }
+        private async void ForgotPasswordButtonClicked(object sender, EventArgs e)         {             await Navigation.PushAsync(new ForgotPasswordPage());         }
 
         private void TextChanged(object sender, EventArgs e)         {             LogInButton.IsEnabled = !string.IsNullOrEmpty(EmailEntry.Text) && !string.IsNullOrEmpty(PasswordEntry.Text);         }
     }

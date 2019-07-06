@@ -13,11 +13,11 @@ namespace Joyleaf
         {
             if (string.IsNullOrEmpty(Settings.FirebaseAuth))
             {
-                MainPage = new NavigationPage(new StartPageView());
+                MainPage = new NavigationPage(new StartPage());
             }
             else
             {
-                MainPage = new NavigationPage(new MainPageView());
+                MainPage = new NavigationPage(new MainPage());
             }
         }
 
@@ -27,9 +27,9 @@ namespace Joyleaf
 
             System.Collections.Generic.IReadOnlyList<Page> stack = Current.MainPage.Navigation.NavigationStack;
 
-            if (stack[0].GetType() == typeof(MainPageView))
+            if (stack[0].GetType() == typeof(MainPage))
             {
-                MainPageView page = (MainPageView)Current.MainPage.Navigation.NavigationStack[0];
+                MainPage page = (MainPage)Current.MainPage.Navigation.NavigationStack[0];
                 page.Resume();
             }
         }

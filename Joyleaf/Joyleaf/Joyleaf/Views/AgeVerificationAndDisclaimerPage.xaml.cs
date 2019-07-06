@@ -7,11 +7,11 @@ using Xamarin.Forms;
 
 namespace Joyleaf.Views
 {
-    public partial class AgeVerificationAndDisclaimerPageView : GradientPage
+    public partial class AgeVerificationAndDisclaimerPage : GradientPage
     {
         private readonly string name, email, password;
 
-        public AgeVerificationAndDisclaimerPageView(string name, string email, string password)
+        public AgeVerificationAndDisclaimerPage(string name, string email, string password)
         {
             this.name = name;
             this.email = email;

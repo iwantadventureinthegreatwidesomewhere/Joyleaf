@@ -1,16 +1,16 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <customControls:GradientPage xmlns="http://xamarin.com/schemas/2014/forms"
                              xmlns:customControls="clr-namespace:Joyleaf.CustomControls;assembly=Joyleaf"
-                             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+                             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
                              xmlns:system="clr-namespace:System;assembly=netstandard"
-                             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-                             x:Class="Joyleaf.Views.ForgotPasswordPageView"
+                             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+                             x:Class="Joyleaf.Views.LogInPage"
                              ios:Page.UseSafeArea="true"
                              StartColor="#11998e"
                              EndColor="#38ef7d">
     
     <RelativeLayout>
-        <StackLayout 
+        <StackLayout
             Margin="30,50"
             RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=1}"
             RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=1}">
@@ -19,16 +19,17 @@
                 FontAttributes="Bold"
                 FontSize="25"
                 HorizontalOptions="Center"
-                Text="Reset Password"
+                Margin="0,0,0,15"
+                Text="Log In"
                 TextColor="White">
             </Label>
         
             <Label
                 FontAttributes="Bold"
-                FontSize="13"
-                HorizontalOptions="StartAndExpand"
-                Margin="8,15"
-                Text="Enter your email address below. We'll send you instructions to reset your password."
+                FontSize="18"
+                HorizontalOptions="Start"
+                Margin="15,0,0,5"
+                Text="Email"
                 TextColor="White">
             </Label>
         
@@ -39,26 +40,59 @@
                 HeightRequest="45"
                 HorizontalOptions="Fill"
                 Keyboard="Email"
+                Margin="0,0,0,15"
+                ReturnType="Next"
+                TextColor="White"
+                TextChanged="TextChanged"
+            />
+        
+            <Label
+                FontAttributes="Bold"
+                FontSize="18"
+                HorizontalOptions="Start"
+                Margin="15,0,0,5"
+                Text="Password"
+                TextColor="White">
+            </Label>
+        
+            <customControls:CustomEntry
+                x:Name="PasswordEntry"
+                FontAttributes="Bold"
+                FontSize="15"
+                HorizontalOptions="Fill"
+                HeightRequest="45"
+                IsPassword="True"
                 Margin="0,0,0,25"
-                ReturnType="Send"
+                ReturnType="Go"
                 TextColor="White"
                 TextChanged="TextChanged"
             />
         
             <customControls:CustomButton
-                x:Name="SendButton"
-                BackgroundColor="#ffffff"
-                Clicked="SendButtonClick"
+                x:Name="LogInButton"
+                BackgroundColor="White"
+                Clicked="LogInButtonClicked"
                 CornerRadius="23"
                 FontAttributes="Bold"
                 FontSize="15"
                 HeightRequest="45"
                 HorizontalOptions="Center"
                 IsEnabled="false"
-                Text="SEND EMAIL"
+                Margin="0,0,0,10"
+                Text="GO"
                 TextColor="#333333"
                 WidthRequest="150">
             </customControls:CustomButton>
+        
+            <Button
+                BackgroundColor="Transparent"
+                Clicked="ForgotPasswordButtonClicked"
+                FontAttributes="Bold"
+                FontSize="13"
+                HorizontalOptions="Center"
+                Text="Forgot password? Tap here to reset."
+                TextColor="White">
+            </Button>
         </StackLayout>
         
         <Button
@@ -66,7 +100,7 @@
             HeightRequest="50"
             Image="BackButtonWhite"
             WidthRequest="100"
-            RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=0,Constant=-15}"
+            RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=0,Constant=-10}"
         />
     </RelativeLayout>
-</customControls:GradientPage>    
+</customControls:GradientPage>

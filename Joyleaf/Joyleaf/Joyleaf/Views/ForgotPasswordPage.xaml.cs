@@ -6,9 +6,9 @@ using Xamarin.Forms;
 
 namespace Joyleaf.Views
 {
-    public partial class ForgotPasswordPageView :GradientPage
+    public partial class ForgotPasswordPage :GradientPage
     {
-        public ForgotPasswordPageView()
+        public ForgotPasswordPage()
         {
             NavigationPage.SetHasNavigationBar(this, false);
 

@@ -5,11 +5,11 @@ using Xamarin.Forms;
 
 namespace Joyleaf.Views
 {
-    public partial class PasswordPageView : GradientPage
+    public partial class PasswordPage : GradientPage
     {
         private readonly string name, email;
 
-        public PasswordPageView(string name, string email)
+        public PasswordPage(string name, string email)
         {
             this.name = name;
             this.email = email;
@@ -41,7 +41,7 @@ namespace Joyleaf.Views
 
                             if (count >= 8)
                             {
-                                await Navigation.PushAsync(new AgeVerificationAndDisclaimerPageView(name, email, PasswordEntry.Text));
+                                await Navigation.PushAsync(new AgeVerificationAndDisclaimerPage(name, email, PasswordEntry.Text));
                             }
                             else
                             {

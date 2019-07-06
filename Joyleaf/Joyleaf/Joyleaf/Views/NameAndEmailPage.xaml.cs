@@ -9,9 +9,9 @@ namespace Joyleaf.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
 
-    public partial class NameAndEmailPageView : GradientPage
+    public partial class NameAndEmailPage : GradientPage
     {
-        public NameAndEmailPageView()
+        public NameAndEmailPage()
         {
             NavigationPage.SetHasNavigationBar(this, false);
 
@@ -38,7 +38,7 @@ namespace Joyleaf.Views
                         {
                             if (FirebaseBackend.IsEmailAvailable(EmailEntry.Text))
                             {
-                                await Navigation.PushAsync(new PasswordPageView(NameEntry.Text, EmailEntry.Text));
+                                await Navigation.PushAsync(new PasswordPage(NameEntry.Text, EmailEntry.Text));
                             }
                             else
                             {

@@ -11,14 +11,14 @@ namespace Joyleaf.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
 
-    public partial class MainPageView : TabbedPage
+    public partial class MainPage : TabbedPage
     {
         private readonly StackLayout ConnectionErrorText;
         private readonly Button HighFiveButton;
         private readonly StackLayout LoadingErrorText;
         private readonly ActivityIndicator LoadingWheel;
 
-        public MainPageView()
+        public MainPage()
         {
             InitializeComponent();
 
@@ -204,7 +204,7 @@ namespace Joyleaf.Views
 
                         CrossConnectivity.Current.ConnectivityChanged -= HandleConnectivityChanged;
 
-                        Application.Current.MainPage = new NavigationPage(new StartPageView());
+                        Application.Current.MainPage = new NavigationPage(new StartPage());
                         await Application.Current.MainPage.DisplayAlert("You have been signed out", "The account owner may have changed the password.", "OK");
                     }
                 }
@@ -238,7 +238,7 @@ namespace Joyleaf.Views
 
             CrossConnectivity.Current.ConnectivityChanged -= HandleConnectivityChanged;
 
-            Application.Current.MainPage = new NavigationPage(new StartPageView());
+            Application.Current.MainPage = new NavigationPage(new StartPage());
         }
     }
 }

@@ -21,7 +21,7 @@ namespace Joyleaf.Services
                 FirebaseAuthLink auth = Task.Run(() => authProvider.SignInWithEmailAndPasswordAsync(email, password)).Result;
 
                 SetAuth(auth);
-                Application.Current.MainPage = new NavigationPage(new MainPageView());
+                Application.Current.MainPage = new NavigationPage(new MainPage());
             }
             catch (Exception e)
             {
@@ -49,7 +49,7 @@ namespace Joyleaf.Services
             Task.Run(() => firebase.Child("users").Child(auth.User.LocalId).PutAsync(account));
 
             SetAuth(auth);
-            Application.Current.MainPage = new NavigationPage(new MainPageView());
+            Application.Current.MainPage = new NavigationPage(new MainPage());
         }
 
         public static async Task<Account> GetAccountAsync()

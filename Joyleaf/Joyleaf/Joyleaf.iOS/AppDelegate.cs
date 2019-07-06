@@ -18,13 +18,11 @@ namespace Joyleaf.iOS
         //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
-            Xamarin.Forms.Forms.Init();
-
-            LoadApplication(new App());
-
-            UINavigationBar.Appearance.TintColor = UIColor.FromRGB(51, 51, 51);
             UITabBar.Appearance.TintColor = UIColor.FromRGB(51, 51, 51);
+            Rg.Plugins.Popup.Popup.Init();
 
+            Xamarin.Forms.Forms.Init();
+            LoadApplication(new App());
             return base.FinishedLaunching(app, options);
         }
     }
