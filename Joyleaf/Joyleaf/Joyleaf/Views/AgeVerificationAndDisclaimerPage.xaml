@@ -28,7 +28,7 @@
                 FontSize="13"
                 HorizontalOptions="Start"
                 Margin="8,0,8,20"
-                Text="By tapping 'Create Account' you confirm that you are at least 19 years of age and you agree that neither Joyleaf nor its creators are liable for any injuries, deaths, or other consequences resulting from actions taken based on information provided on this app. We make no guarantees on the credibility of the information provided on marijuana strains or their use. By using this app the user assumes all risk."
+                Text="By tapping 'Create Account' you confirm that you are at least 19 years of age and you agree that neither Joyleaf nor its creators are liable for any injuries, deaths, or other consequences resulting from actions taken based on information provided on the Joyleaf mobile application. We make no guarantees on the credibility of the information provided on marijuana strains or their use. By using the Joyleaf mobile application the user assumes all risk."
                 TextColor="White">
             </Label>
             

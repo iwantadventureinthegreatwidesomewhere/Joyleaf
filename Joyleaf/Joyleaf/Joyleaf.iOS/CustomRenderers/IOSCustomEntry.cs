@@ -7,11 +7,11 @@ using Xamarin.Forms.Platform.iOS;
 
 using ReturnType = Joyleaf.CustomTypes.ReturnType;
 
-[assembly: ExportRenderer(typeof(CustomEntry), typeof(IOSCustomEntry))]
+[assembly: ExportRenderer(typeof(CustomEntry), typeof(iOSCustomEntry))]
 
 namespace Joyleaf.iOS.CustomRenderers
 {
-    public class IOSCustomEntry : EntryRenderer
+    public class iOSCustomEntry : EntryRenderer
     {
         protected override void OnElementChanged(ElementChangedEventArgs<Entry> e)
         {

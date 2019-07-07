@@ -4,11 +4,11 @@ using UIKit;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
 
-[assembly: ExportRenderer(typeof(CustomButton), typeof(IOSCustomButton))]
+[assembly: ExportRenderer(typeof(CustomButton), typeof(iOSCustomButton))]
 
 namespace Joyleaf.iOS.CustomRenderers
 {
-    public class IOSCustomButton : ButtonRenderer
+    public class iOSCustomButton : ButtonRenderer
     {
         protected override void OnElementChanged(ElementChangedEventArgs<Button> e)
         {

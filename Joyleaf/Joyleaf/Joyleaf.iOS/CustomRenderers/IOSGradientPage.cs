@@ -7,11 +7,11 @@ using UIKit;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
 
-[assembly: ExportRenderer(typeof(GradientPage), typeof(IOSGradientPage))]
+[assembly: ExportRenderer(typeof(GradientPage), typeof(iOSGradientPage))]
 
 namespace Joyleaf.iOS.CustomRenderers
 {
-    public class IOSGradientPage : PageRenderer
+    public class iOSGradientPage : PageRenderer
     {
         protected override void OnElementChanged(VisualElementChangedEventArgs e)
         {

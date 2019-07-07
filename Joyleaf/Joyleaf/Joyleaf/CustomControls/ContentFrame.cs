@@ -7,7 +7,7 @@ namespace Joyleaf.CustomControls
     {
         public ContentFrame(Datum datum)
         {
-            CornerRadius = 13;
+            CornerRadius = 15;
             Margin = new Thickness(0, 0, 0, 5);
 
             StackLayout itemStack = new StackLayout();

@@ -5,11 +5,11 @@ using UIKit;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
 
-[assembly: ExportRenderer(typeof(ContentFrame), typeof(IOSContentFrame))]
+[assembly: ExportRenderer(typeof(ContentFrame), typeof(iOSContentFrame))]
 
 namespace Joyleaf.iOS.CustomRenderers
 {
-    public class IOSContentFrame : FrameRenderer
+    public class iOSContentFrame : FrameRenderer
     {
         public override void Draw(CGRect rect)
         {

@@ -1,15 +1,17 @@
-﻿using System;
+﻿using Joyleaf.Views;
+using Rg.Plugins.Popup.Services;
+using System;
 using Xamarin.Forms;
 
 namespace Joyleaf.Helpers
 {
     public class ContentItem : Grid
     {
-        public readonly Item item;
+        public readonly ProductPopupPage productPopupPage;
 
         public ContentItem(Item item, bool islastToLoad)
         {
-            this.item = item;
+            productPopupPage = new ProductPopupPage(item);
 
             HeightRequest = 70;
             Margin = new Thickness(0, 0, 0, 3);
@@ -95,9 +97,9 @@ namespace Joyleaf.Helpers
             Children.Add(moreStack, 2, 0);
         }
 
-        private async void PushItemViewAsync(object sender, EventArgs e)
+        private void PushItemViewAsync(object sender, EventArgs e)
         {
-            //await Navigation.PushAsync(contentItemView);
+            PopupNavigation.Instance.PushAsync(productPopupPage);
         }
 
         private string Truncate(string value, int maxChars)
