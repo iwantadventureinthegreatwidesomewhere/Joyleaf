@@ -104,6 +104,7 @@
     <Compile Include="CustomRenderers\iOSCustomButton.cs" />
     <Compile Include="CustomRenderers\iOSContentFrame.cs" />
     <Compile Include="CustomRenderers\iOSGradientPage.cs" />
+    <Compile Include="CustomRenderers\iOSCustomLabel.cs" />
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\Contents.json">
@@ -168,9 +169,9 @@
     <ImageAsset Include="Assets.xcassets\Sativa.imageset\Sativa%402x.png" />
     <ImageAsset Include="Assets.xcassets\Sativa.imageset\Sativa%403x.png" />
     <ImageAsset Include="Assets.xcassets\Hybrid.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\Hybrid.imageset\Hybrid.png" />
-    <ImageAsset Include="Assets.xcassets\Hybrid.imageset\Hybrid%402x.png" />
-    <ImageAsset Include="Assets.xcassets\Hybrid.imageset\Hybrid%403x.png" />
+    <ImageAsset Include="Assets.xcassets\Hybrid.imageset\Hybrid-1.png" />
+    <ImageAsset Include="Assets.xcassets\Hybrid.imageset\Hybrid%402x-1.png" />
+    <ImageAsset Include="Assets.xcassets\Hybrid.imageset\Hybrid%403x-1.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

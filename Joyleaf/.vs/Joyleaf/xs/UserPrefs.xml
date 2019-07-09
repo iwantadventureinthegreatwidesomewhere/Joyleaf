@@ -3,10 +3,9 @@
   <MonoDevelop.Ide.Workbench>
     <Files>
       <File FileName="Joyleaf/Joyleaf/Views/ProductPopupPage.xaml" Line="30" Column="19" />
-      <File FileName="Joyleaf/Joyleaf/Views/ProductPopupPage.xaml.cs" Line="1" Column="1" />
+      <File FileName="Joyleaf/Joyleaf/Views/ProductPopupPage.xaml.cs" />
       <File FileName="Joyleaf/Joyleaf/CustomControls/ContentFrame.cs" />
       <File FileName="Joyleaf/Joyleaf/Views/MainPage.xaml.cs" />
-      <File FileName="Joyleaf/Joyleaf/Views/AgeVerificationAndDisclaimerPage.xaml" Line="31" Column="449" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -14,12 +13,8 @@
           <Node name="Joyleaf" expanded="True">
             <Node name="Joyleaf" expanded="True">
               <Node name="CustomControls" expanded="True" />
-              <Node name="Helpers" expanded="True" />
               <Node name="Views" expanded="True">
-                <Node name="AgeVerificationAndDisclaimerPage.xaml" selected="True" />
-                <Node name="LogInPage.xaml" expanded="True" />
-                <Node name="MainPage.xaml" expanded="True" />
-                <Node name="ProductPopupPage.xaml" expanded="True" />
+                <Node name="ProductPopupPage.xaml" selected="True" />
               </Node>
             </Node>
             <Node name="Joyleaf.iOS" expanded="True">
