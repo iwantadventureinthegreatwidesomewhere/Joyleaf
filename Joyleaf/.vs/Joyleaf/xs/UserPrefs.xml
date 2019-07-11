@@ -2,19 +2,19 @@
   <MonoDevelop.Ide.ItemProperties.Joyleaf.iOS automaticSigning="False" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.AFAA1D33-384F-4B1E-8C69-A380D9C93468" />
   <MonoDevelop.Ide.Workbench>
     <Files>
-      <File FileName="Joyleaf/Joyleaf/Views/ProductPopupPage.xaml" Line="30" Column="19" />
-      <File FileName="Joyleaf/Joyleaf/Views/ProductPopupPage.xaml.cs" />
-      <File FileName="Joyleaf/Joyleaf/CustomControls/ContentFrame.cs" />
-      <File FileName="Joyleaf/Joyleaf/Views/MainPage.xaml.cs" />
+      <File FileName="Joyleaf/Joyleaf/Helpers/CategoryStack.cs" Line="32" Column="50" />
+      <File FileName="Joyleaf/Joyleaf/Helpers/CategoryItem.cs" Line="25" Column="31" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Joyleaf" expanded="True">
             <Node name="Joyleaf" expanded="True">
-              <Node name="CustomControls" expanded="True" />
+              <Node name="Helpers" expanded="True">
+                <Node name="CategoryItem.cs" selected="True" />
+              </Node>
               <Node name="Views" expanded="True">
-                <Node name="ProductPopupPage.xaml" selected="True" />
+                <Node name="MainPage.xaml" expanded="True" />
               </Node>
             </Node>
             <Node name="Joyleaf.iOS" expanded="True">

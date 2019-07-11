@@ -102,7 +102,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="CustomRenderers\iOSCustomEntry.cs" />
     <Compile Include="CustomRenderers\iOSCustomButton.cs" />
-    <Compile Include="CustomRenderers\iOSContentFrame.cs" />
     <Compile Include="CustomRenderers\iOSGradientPage.cs" />
     <Compile Include="CustomRenderers\iOSCustomLabel.cs" />
   </ItemGroup>
@@ -116,9 +115,6 @@
     <ImageAsset Include="Assets.xcassets\Explore.imageset\baseline_explore_black_24pt_2x.png" />
     <ImageAsset Include="Assets.xcassets\Explore.imageset\baseline_explore_black_24pt_3x.png" />
     <ImageAsset Include="Assets.xcassets\Account.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\Account.imageset\baseline_account_circle_black_24pt_1x.png" />
-    <ImageAsset Include="Assets.xcassets\Account.imageset\baseline_account_circle_black_24pt_2x.png" />
-    <ImageAsset Include="Assets.xcassets\Account.imageset\baseline_account_circle_black_24pt_3x.png" />
     <ImageAsset Include="Assets.xcassets\Logo.imageset\logo.png" />
     <ImageAsset Include="Assets.xcassets\Logo.imageset\logo%402x.png" />
     <ImageAsset Include="Assets.xcassets\Logo.imageset\logo%403x.png" />
@@ -126,9 +122,6 @@
     <ImageAsset Include="Assets.xcassets\HighFive.imageset\AwesomeButton%402x.png" />
     <ImageAsset Include="Assets.xcassets\HighFive.imageset\AwesomeButton%403x-1.png" />
     <ImageAsset Include="Assets.xcassets\HighFive.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\HighFive.imageset\HighFive.png" />
-    <ImageAsset Include="Assets.xcassets\HighFive.imageset\HighFive%402x.png" />
-    <ImageAsset Include="Assets.xcassets\HighFive.imageset\HighFive%403x-1.png" />
     <ImageAsset Include="Assets.xcassets\BackButtonWhite.imageset\baseline_arrow_back_ios_white_24pt_1x.png" />
     <ImageAsset Include="Assets.xcassets\BackButtonWhite.imageset\baseline_arrow_back_ios_white_24pt_2x.png" />
     <ImageAsset Include="Assets.xcassets\BackButtonWhite.imageset\baseline_arrow_back_ios_white_24pt_3x.png" />
@@ -161,17 +154,39 @@
     <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\iPhone 8%402x.png" />
     <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\iPhone SE%402x.png" />
     <ImageAsset Include="Assets.xcassets\Indica.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\Indica.imageset\Indica.png" />
-    <ImageAsset Include="Assets.xcassets\Indica.imageset\Indica%402x.png" />
-    <ImageAsset Include="Assets.xcassets\Indica.imageset\Indica%403x.png" />
     <ImageAsset Include="Assets.xcassets\Sativa.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\Sativa.imageset\Sativa.png" />
-    <ImageAsset Include="Assets.xcassets\Sativa.imageset\Sativa%402x.png" />
-    <ImageAsset Include="Assets.xcassets\Sativa.imageset\Sativa%403x.png" />
     <ImageAsset Include="Assets.xcassets\Hybrid.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Search.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Search.imageset\search-1.png" />
+    <ImageAsset Include="Assets.xcassets\Search.imageset\search%402x-1.png" />
+    <ImageAsset Include="Assets.xcassets\Search.imageset\search%403x-1.png" />
+    <ImageAsset Include="Assets.xcassets\Account.imageset\account.png" />
+    <ImageAsset Include="Assets.xcassets\Account.imageset\account%402x.png" />
+    <ImageAsset Include="Assets.xcassets\Account.imageset\account%403x-1.png" />
+    <ImageAsset Include="Assets.xcassets\Sativa.imageset\Sativa-1.png" />
+    <ImageAsset Include="Assets.xcassets\Sativa.imageset\Sativa%402x-1.png" />
+    <ImageAsset Include="Assets.xcassets\Sativa.imageset\Sativa%403x-1.png" />
+    <ImageAsset Include="Assets.xcassets\Sativa2.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Sativa2.imageset\sativa2.png" />
+    <ImageAsset Include="Assets.xcassets\Sativa2.imageset\sativa2%402x.png" />
+    <ImageAsset Include="Assets.xcassets\Sativa2.imageset\sativa2%403x.png" />
+    <ImageAsset Include="Assets.xcassets\Indica2.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Indica2.imageset\indica2.png" />
+    <ImageAsset Include="Assets.xcassets\Indica2.imageset\indica2%402x.png" />
+    <ImageAsset Include="Assets.xcassets\Indica2.imageset\indica2%403x.png" />
+    <ImageAsset Include="Assets.xcassets\Hybrid2.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\HighFive.imageset\HighFive-1.png" />
+    <ImageAsset Include="Assets.xcassets\HighFive.imageset\HighFive%402x-1.png" />
+    <ImageAsset Include="Assets.xcassets\HighFive.imageset\HighFive%403x.png" />
     <ImageAsset Include="Assets.xcassets\Hybrid.imageset\Hybrid-1.png" />
     <ImageAsset Include="Assets.xcassets\Hybrid.imageset\Hybrid%402x-1.png" />
     <ImageAsset Include="Assets.xcassets\Hybrid.imageset\Hybrid%403x-1.png" />
+    <ImageAsset Include="Assets.xcassets\Hybrid2.imageset\hybrid2-1.png" />
+    <ImageAsset Include="Assets.xcassets\Hybrid2.imageset\hybrid2%402x-1.png" />
+    <ImageAsset Include="Assets.xcassets\Hybrid2.imageset\hybrid2%403x-1.png" />
+    <ImageAsset Include="Assets.xcassets\Indica.imageset\Indica.png" />
+    <ImageAsset Include="Assets.xcassets\Indica.imageset\Indica%402x.png" />
+    <ImageAsset Include="Assets.xcassets\Indica.imageset\Indica%403x.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -223,5 +238,9 @@
     <Folder Include="Assets.xcassets\Indica.imageset\" />
     <Folder Include="Assets.xcassets\Sativa.imageset\" />
     <Folder Include="Assets.xcassets\Hybrid.imageset\" />
+    <Folder Include="Assets.xcassets\Search.imageset\" />
+    <Folder Include="Assets.xcassets\Sativa2.imageset\" />
+    <Folder Include="Assets.xcassets\Indica2.imageset\" />
+    <Folder Include="Assets.xcassets\Hybrid2.imageset\" />
   </ItemGroup>
 </Project>

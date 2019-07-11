@@ -11,22 +11,48 @@ namespace Joyleaf.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
 
-    public partial class MainPage : TabbedPage
+    public partial class MainPage : ContentPage
     {
-        private readonly StackLayout ConnectionErrorText;
         private readonly Button HighFiveButton;
-        private readonly StackLayout LoadingErrorText;
         private readonly ActivityIndicator LoadingWheel;
-
+        private readonly StackLayout ConnectionErrorText;
+        private readonly StackLayout LoadingErrorText;
+        
         public MainPage()
         {
             InitializeComponent();
 
             NavigationPage.SetHasNavigationBar(this, false);
-            NavigationPage.SetHasNavigationBar(ExplorePage, false);
 
-            ContentStack.Padding = 25;
-            ContentStack.Spacing = 25;
+            ContentStack.Padding = new Thickness(0, 15);
+            ContentStack.Spacing = 30;
+
+            //######################################################
+
+            HighFiveButton = new Button
+            {
+                CornerRadius = 29,
+                HeightRequest = 164,
+                HorizontalOptions = LayoutOptions.Center,
+                Image = "HighFive",
+                WidthRequest = 275
+            };
+
+            HighFiveButton.Clicked += HighFiveButtonClick;
+
+            //######################################################
+
+            LoadingWheel = new ActivityIndicator
+            {
+                Color = Color.Gray,
+                IsEnabled = false,
+                IsRunning = true,
+                IsVisible = false
+            };
+
+            ExploreRelativeLayout.Children.Add(LoadingWheel, Constraint.RelativeToParent(parent => (parent.Width / 2) - (LoadingWheel.Width / 2)), Constraint.RelativeToParent(parent => (parent.Height / 2) - (LoadingWheel.Height / 2)));
+
+            //######################################################
 
             ConnectionErrorText = new StackLayout
             {
@@ -53,17 +79,9 @@ namespace Joyleaf.Views
 
             ExploreRelativeLayout.Children.Add(ConnectionErrorText, Constraint.RelativeToParent(parent => (parent.Width / 2) - (ConnectionErrorText.Width / 2)), Constraint.RelativeToParent(parent => (parent.Height / 2) - (ConnectionErrorText.Height / 2)));
 
-            HighFiveButton = new Button
-            {
-                BackgroundColor = Color.FromHex("#23C7A5"),
-                CornerRadius = 30,
-                HeightRequest = 60,
-                Image = "HighFive",
-                WidthRequest = 60,
+            CrossConnectivity.Current.ConnectivityChanged += HandleConnectivityChanged;
 
-            };
-
-            HighFiveButton.Clicked += HighFiveButtonClick;
+            //######################################################
 
             LoadingErrorText = new StackLayout
             {
@@ -98,17 +116,7 @@ namespace Joyleaf.Views
 
             ExploreRelativeLayout.Children.Add(LoadingErrorText, Constraint.RelativeToParent(parent => (parent.Width / 2) - (LoadingErrorText.Width / 2)), Constraint.RelativeToParent(parent => (parent.Height / 2) - (LoadingErrorText.Height / 2)));
 
-            LoadingWheel = new ActivityIndicator
-            {
-                Color = Color.Gray,
-                IsEnabled = false,
-                IsRunning = true,
-                IsVisible = false
-            };
-
-            ExploreRelativeLayout.Children.Add(LoadingWheel, Constraint.RelativeToParent(parent => (parent.Width / 2) - (LoadingWheel.Width / 2)), Constraint.RelativeToParent(parent => (parent.Height / 2) - (LoadingWheel.Height / 2)));
-
-            CrossConnectivity.Current.ConnectivityChanged += HandleConnectivityChanged;
+            //######################################################
 
             RefreshContentAsync();
             VerifyAuthAsync();
@@ -137,25 +145,20 @@ namespace Joyleaf.Views
                 {
                     Content content = await FirebaseBackend.LoadContentAsync();
 
-                    ContentStack.Children.Add(new Label
-                    {
-                        FontAttributes = FontAttributes.Bold,
-                        FontSize = 27,
-                        Margin = new Thickness(7, 0),
-                        Text = "Explore",
-                        TextColor = Color.FromHex("#333333")
-                    });
+                    ContentStack.Children.Add(HighFiveButton);
+                    ContentStack.Children.Add(new CategoryStack());
+                    ContentStack.Children.Add(new CategoryStack());
+                    ContentStack.Children.Add(new CategoryStack());
+                    ContentStack.Children.Add(new CategoryStack());
 
-                    foreach (Datum datum in content.Data)
+                    /*foreach (Datum datum in content.Data)
                     {
                         ContentFrame contentItem = new ContentFrame(datum);
                         ContentStack.Children.Add(contentItem);
-                    }
+                    }*/
 
                     LoadingWheel.IsEnabled = false;
                     LoadingWheel.IsVisible = false;
-
-                    ExploreRelativeLayout.Children.Add(HighFiveButton, Constraint.RelativeToParent(parent => parent.Width - 75), Constraint.RelativeToParent(parent => parent.Height - 75));
 
                     Scroller.IsEnabled = true;
                 }
@@ -168,8 +171,6 @@ namespace Joyleaf.Views
 
                     ContentStack.Children.Clear();
 
-                    ExploreRelativeLayout.Children.Remove(HighFiveButton);
-
                     LoadingErrorText.IsEnabled = true;
                     LoadingErrorText.IsVisible = true;
                 }
@@ -179,8 +180,6 @@ namespace Joyleaf.Views
                 Scroller.IsEnabled = false;
 
                 ContentStack.Children.Clear();
-
-                ExploreRelativeLayout.Children.Remove(HighFiveButton);
 
                 ConnectionErrorText.IsEnabled = true;
                 ConnectionErrorText.IsVisible = true;

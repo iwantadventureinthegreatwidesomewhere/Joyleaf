@@ -1,49 +1,63 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
-            xmlns:customControls="clr-namespace:Joyleaf.CustomControls;assembly=Joyleaf"
-            xmlns:local="clr-namespace:Joyleaf;assembly=Joyleaf"
-            xmlns:system="clr-namespace:System;assembly=netstandard"
-            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-            x:Class="Joyleaf.Views.MainPage"
-            BackgroundColor="White">
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:customControls="clr-namespace:Joyleaf.CustomControls;assembly=Joyleaf"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
+             xmlns:local="clr-namespace:Joyleaf;assembly=Joyleaf"
+             xmlns:system="clr-namespace:System;assembly=netstandard"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Joyleaf.Views.MainPage"
+             ios:Page.UseSafeArea="true"
+             BackgroundColor="White">
     
-    <NavigationPage Icon="Explore">
-        <x:Arguments>
-            <ContentPage x:Name="ExplorePage">
-                <RelativeLayout x:Name="ExploreRelativeLayout" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                    <ScrollView
-                        x:Name="Scroller"
-                        Orientation="Vertical"
-                        RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=1}"
-                        RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=1}"               
-                        VerticalOptions="Fill"
-                        VerticalScrollBarVisibility="Never">
-                        
-                        <StackLayout
-                            x:Name="ContentStack" 
-                            Orientation="Vertical" 
-                            VerticalOptions="Fill">
-                        </StackLayout>
-                    </ScrollView>
-                </RelativeLayout>
-            </ContentPage>
-        </x:Arguments>    
-    </NavigationPage>
-    
-    <ContentPage Icon="Account">
-        <StackLayout Margin="0, 200, 0, 0">
-            <customControls:CustomButton
-                x:Name="LogoutButton"
-                BackgroundColor="#00c88c"
-                Clicked="LogoutButtonClick"
-                FontAttributes="Bold"
-                FontSize="13"
-                HeightRequest="45"
-                HorizontalOptions="Fill"
-                Margin="30,30"
-                Text="LOG OUT"
-                TextColor="White">      
-            </customControls:CustomButton>
+    <RelativeLayout x:Name="ExploreRelativeLayout">
+        <StackLayout 
+            Orientation="Vertical" 
+            VerticalOptions="FillAndExpand"
+            RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=1}"
+            RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=1}">
+            
+            <StackLayout BackgroundColor="White" HorizontalOptions="FillAndExpand" Margin="25,10" Orientation="Horizontal">
+                <Label
+                    FontAttributes="Bold"
+                    FontSize="27"
+                    HorizontalOptions="Start"
+                    Text="Explore"
+                    TextColor="#333333"
+                    VerticalOptions="Center"/>
+                
+                <StackLayout HorizontalOptions="EndAndExpand" Orientation="Horizontal">
+                    <Button
+                        CornerRadius="11"
+                        HeightRequest="22"
+                        HorizontalOptions="EndAndExpand"
+                        Image="Search"
+                        Margin="0,0,30,0"
+                        VerticalOptions="Center"
+                        WidthRequest="22"
+                        />
+                    
+                    <Button
+                        CornerRadius="14"
+                        HeightRequest="27"
+                        HorizontalOptions="EndAndExpand"
+                        Image="Account"
+                        VerticalOptions="Center"
+                        WidthRequest="27"/>
+                </StackLayout>
+            </StackLayout>
+            
+            <ScrollView
+                x:Name="Scroller"
+                Orientation="Vertical"
+                VerticalOptions="FillAndExpand"
+                VerticalScrollBarVisibility="Never">
+                            
+                <StackLayout
+                    x:Name="ContentStack"
+                    Orientation="Vertical"
+                    VerticalOptions="FillAndExpand">
+                </StackLayout>
+            </ScrollView>
         </StackLayout>
-    </ContentPage>
-</TabbedPage>  
+    </RelativeLayout>
+</ContentPage>  
