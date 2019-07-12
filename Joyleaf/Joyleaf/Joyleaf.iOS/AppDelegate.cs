@@ -1,4 +1,5 @@
 ﻿using Foundation;
+using Syncfusion.SfRating.XForms.iOS;
 using UIKit;
 
 namespace Joyleaf.iOS
@@ -20,6 +21,7 @@ namespace Joyleaf.iOS
         {
             UITabBar.Appearance.TintColor = UIColor.FromRGB(51, 51, 51);
             Rg.Plugins.Popup.Popup.Init();
+            new SfRatingRenderer();
 
             Xamarin.Forms.Forms.Init();
             LoadApplication(new App());

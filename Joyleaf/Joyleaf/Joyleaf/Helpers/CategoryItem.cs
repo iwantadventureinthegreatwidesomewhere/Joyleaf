@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using Syncfusion.SfRating.XForms;
+using Xamarin.Forms;
 
 namespace Joyleaf.Helpers
 {
@@ -11,8 +12,8 @@ namespace Joyleaf.Helpers
             CornerRadius = 20;
             Padding = 10;
             HasShadow = false;
-            HeightRequest = 90;
-            WidthRequest = 140;
+            HeightRequest = 100;
+            WidthRequest = 133;
 
             StackLayout detailStack = new StackLayout{
                 HorizontalOptions = LayoutOptions.FillAndExpand,
@@ -27,6 +28,7 @@ namespace Joyleaf.Helpers
                 {
                     HeightRequest = 25,
                     HorizontalOptions = LayoutOptions.Start,
+                    Margin = new Thickness(0, 0, 0, 5),
                     Source = "Sativa2"
                 });
             }
@@ -37,7 +39,7 @@ namespace Joyleaf.Helpers
                 {
                     HeightRequest = 17,
                     HorizontalOptions = LayoutOptions.Start,
-                    Margin = new Thickness(0, 4, 0, 0),
+                    Margin = new Thickness(0, 4, 0, 9),
                     Source = "Indica2"
                 });
             }
@@ -48,11 +50,52 @@ namespace Joyleaf.Helpers
                 {
                     HeightRequest = 25,
                     HorizontalOptions = LayoutOptions.Start,
+                    Margin = new Thickness(0, 0, 0, 5),
                     Source = "Hybrid2"
                 });
             }
 
+            detailStack.Children.Add(new Label
+            {
+                FontAttributes = FontAttributes.Bold,
+                FontSize = 15,
+                HorizontalOptions = LayoutOptions.Center,
+                HorizontalTextAlignment = TextAlignment.Center,
+                Margin = new Thickness(0, 0, 0, 5),
+                Text = Truncate("Lorem ipsum dolor sit amet, consectetur adipiscing", 23),
+                TextColor = Color.White,
+                VerticalOptions = LayoutOptions.CenterAndExpand
+            });
+
+            SfRating rating = new SfRating
+            {
+                HorizontalOptions = LayoutOptions.Center,
+                ItemCount = 5,
+                ItemSize = 13,
+                Margin = new Thickness(0, 0, 0, 5),
+                Precision = Precision.Exact,
+                ReadOnly = true,
+                Value = 3,
+                VerticalOptions = LayoutOptions.EndAndExpand
+            };
+
+            rating.RatingSettings.RatedFill = Color.White;
+            rating.RatingSettings.RatedStroke = Color.Transparent;
+            rating.RatingSettings.UnRatedFill = Color.LightGray;
+            rating.RatingSettings.UnRatedStroke = Color.Transparent;
+
+            detailStack.Children.Add(rating);
+
+
+
+
+
             Content = detailStack;
+        }
+
+        private string Truncate(string value, int maxChars)
+        {
+            return value.Length <= maxChars ? value : value.Substring(0, maxChars) + "...";
         }
     }
 }

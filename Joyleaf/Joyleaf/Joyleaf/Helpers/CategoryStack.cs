@@ -39,14 +39,13 @@ namespace Joyleaf.Helpers
             {
                 HorizontalOptions = LayoutOptions.FillAndExpand,
                 Orientation = StackOrientation.Horizontal,
-                Padding = new Thickness(20, 0),
-                Spacing = 20
+                Padding = new Thickness(17, 0),
+                Spacing = 17
             };
 
             scrollView.Content = itemStack;
 
             itemStack.Children.Add(new CategoryItem("sativa"));
-
             itemStack.Children.Add(new CategoryItem("indica"));
             itemStack.Children.Add(new CategoryItem("hybrid"));
 

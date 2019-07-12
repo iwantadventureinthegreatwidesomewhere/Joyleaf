@@ -2,20 +2,22 @@
   <MonoDevelop.Ide.ItemProperties.Joyleaf.iOS automaticSigning="False" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.AFAA1D33-384F-4B1E-8C69-A380D9C93468" />
   <MonoDevelop.Ide.Workbench>
     <Files>
-      <File FileName="Joyleaf/Joyleaf/Helpers/CategoryStack.cs" Line="32" Column="50" />
-      <File FileName="Joyleaf/Joyleaf/Helpers/CategoryItem.cs" Line="25" Column="31" />
+      <File FileName="Joyleaf/Joyleaf/Helpers/CategoryStack.cs" Line="25" Column="75" />
+      <File FileName="Joyleaf/Joyleaf/Helpers/CategoryItem.cs" Line="65" Column="84" />
+      <File FileName="Joyleaf/Joyleaf/Views/MainPage.xaml.cs" Line="189" Column="45" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Joyleaf" expanded="True">
             <Node name="Joyleaf" expanded="True">
-              <Node name="Helpers" expanded="True">
-                <Node name="CategoryItem.cs" selected="True" />
-              </Node>
+              <Node name="Helpers" expanded="True" />
               <Node name="Views" expanded="True">
-                <Node name="MainPage.xaml" expanded="True" />
+                <Node name="MainPage.xaml" expanded="True">
+                  <Node name="MainPage.xaml.cs" selected="True" />
+                </Node>
               </Node>
+              <Node name="App.xaml" expanded="True" />
             </Node>
             <Node name="Joyleaf.iOS" expanded="True">
               <Node name="CustomRenderers" expanded="True" />
