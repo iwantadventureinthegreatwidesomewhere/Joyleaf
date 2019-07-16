@@ -32,10 +32,10 @@ namespace Joyleaf.Views
             HighFiveButton = new Button
             {
                 CornerRadius = 29,
-                HeightRequest = 164,
+                HeightRequest = 165,
                 HorizontalOptions = LayoutOptions.Center,
                 Image = "HighFive",
-                WidthRequest = 275
+                WidthRequest = 300
             };
 
             HighFiveButton.Clicked += HighFiveButtonClick;
