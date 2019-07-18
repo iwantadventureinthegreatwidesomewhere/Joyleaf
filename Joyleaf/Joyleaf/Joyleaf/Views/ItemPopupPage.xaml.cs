@@ -6,9 +6,9 @@ using Xamarin.Forms;
 
 namespace Joyleaf.Views
 {
-    public partial class ProductPopupPage : PopupPage
+    public partial class ItemPopupPage : PopupPage
     {
-        public ProductPopupPage(Item item)
+        public ItemPopupPage(Item item)
         {
             InitializeComponent();
 

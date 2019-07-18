@@ -1,4 +1,5 @@
 ﻿using System;
+using Joyleaf.Views;
 using Rg.Plugins.Popup.Services;
 using Syncfusion.SfRating.XForms;
 using Xamarin.Forms;
@@ -8,6 +9,7 @@ namespace Joyleaf.Helpers
     public class CategoryItem : Frame
     {
         private readonly Item item;
+        private readonly ItemPopupPage itemPopupPage;
 
         public CategoryItem(Item item)
         {
@@ -16,7 +18,7 @@ namespace Joyleaf.Helpers
             CornerRadius = 20;
             Padding = 10;
             HasShadow = false;
-            HeightRequest = 100;
+            HeightRequest = 110;
             WidthRequest = 133;
 
             StackLayout detailStack = new StackLayout{
@@ -27,7 +29,7 @@ namespace Joyleaf.Helpers
 
             if (item.Race == Race.Sativa)
             {
-                BackgroundColor = Color.FromHex("f3ba6d");
+                BackgroundColor = Color.FromHex("#ffb742");
                 detailStack.Children.Add(new Image
                 {
                     HeightRequest = 25,
@@ -38,7 +40,7 @@ namespace Joyleaf.Helpers
             }
             else if (item.Race == Race.Indica)
             {
-                BackgroundColor = Color.FromHex("5D98F7");
+                BackgroundColor = Color.FromHex("#774dff");
                 detailStack.Children.Add(new Image
                 {
                     HeightRequest = 17,
@@ -49,7 +51,7 @@ namespace Joyleaf.Helpers
             }
             else if (item.Race == Race.Hybrid)
             {
-                BackgroundColor = Color.FromHex("#6fc294");
+                BackgroundColor = Color.FromHex("#00b368");
                 detailStack.Children.Add(new Image
                 {
                     HeightRequest = 25,
@@ -62,9 +64,10 @@ namespace Joyleaf.Helpers
             detailStack.Children.Add(new Label
             {
                 FontAttributes = FontAttributes.Bold,
-                FontSize = 16,
+                FontSize = 17,
                 HorizontalOptions = LayoutOptions.Center,
                 HorizontalTextAlignment = TextAlignment.Center,
+                Margin = new Thickness(0, 0, 0, 3),
                 Text = Truncate(item.Name, 20),
                 TextColor = Color.White,
                 VerticalOptions = LayoutOptions.CenterAndExpand
@@ -89,14 +92,18 @@ namespace Joyleaf.Helpers
 
             detailStack.Children.Add(rating);
 
+            itemPopupPage = new ItemPopupPage(item);
 
+            TapGestureRecognizer TapGesture = new TapGestureRecognizer();
+            TapGesture.Tapped += PushItemViewAsync;
+            GestureRecognizers.Add(TapGesture);
 
             Content = detailStack;
         }
 
         private void PushItemViewAsync(object sender, EventArgs e)
         {
-            //PopupNavigation.Instance.PushAsync(productPopupPage);
+            PopupNavigation.Instance.PushAsync(itemPopupPage);
         }
 
         private string Truncate(string value, int maxChars)

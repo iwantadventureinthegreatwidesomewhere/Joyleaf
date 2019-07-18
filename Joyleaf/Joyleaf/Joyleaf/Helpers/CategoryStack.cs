@@ -20,7 +20,7 @@ namespace Joyleaf.Helpers
 
             Children.Add(new Label
             {
-                FontSize = 16,
+                FontSize = 17,
                 Margin = new Thickness(25, 0),
                 Text = categoryData.Description,
                 TextColor = Color.Gray
