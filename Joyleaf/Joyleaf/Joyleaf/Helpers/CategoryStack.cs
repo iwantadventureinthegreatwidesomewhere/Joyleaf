@@ -49,13 +49,6 @@ namespace Joyleaf.Helpers
             {
                 itemStack.Children.Add(new CategoryItem(item));
             }
-
-
-
-
-
-
-
         }
     }
 }

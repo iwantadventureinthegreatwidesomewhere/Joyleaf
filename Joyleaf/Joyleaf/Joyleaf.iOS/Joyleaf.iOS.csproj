@@ -163,9 +163,6 @@
     <ImageAsset Include="Assets.xcassets\Account.imageset\account.png" />
     <ImageAsset Include="Assets.xcassets\Account.imageset\account%402x.png" />
     <ImageAsset Include="Assets.xcassets\Account.imageset\account%403x-1.png" />
-    <ImageAsset Include="Assets.xcassets\Sativa.imageset\Sativa-1.png" />
-    <ImageAsset Include="Assets.xcassets\Sativa.imageset\Sativa%402x-1.png" />
-    <ImageAsset Include="Assets.xcassets\Sativa.imageset\Sativa%403x-1.png" />
     <ImageAsset Include="Assets.xcassets\Sativa2.imageset\Contents.json" />
     <ImageAsset Include="Assets.xcassets\Sativa2.imageset\sativa2.png" />
     <ImageAsset Include="Assets.xcassets\Sativa2.imageset\sativa2%402x.png" />
@@ -175,18 +172,21 @@
     <ImageAsset Include="Assets.xcassets\Indica2.imageset\indica2%402x.png" />
     <ImageAsset Include="Assets.xcassets\Indica2.imageset\indica2%403x.png" />
     <ImageAsset Include="Assets.xcassets\Hybrid2.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\Hybrid.imageset\Hybrid-1.png" />
-    <ImageAsset Include="Assets.xcassets\Hybrid.imageset\Hybrid%402x-1.png" />
-    <ImageAsset Include="Assets.xcassets\Hybrid.imageset\Hybrid%403x-1.png" />
     <ImageAsset Include="Assets.xcassets\Hybrid2.imageset\hybrid2-1.png" />
     <ImageAsset Include="Assets.xcassets\Hybrid2.imageset\hybrid2%402x-1.png" />
     <ImageAsset Include="Assets.xcassets\Hybrid2.imageset\hybrid2%403x-1.png" />
-    <ImageAsset Include="Assets.xcassets\Indica.imageset\Indica.png" />
-    <ImageAsset Include="Assets.xcassets\Indica.imageset\Indica%402x.png" />
-    <ImageAsset Include="Assets.xcassets\Indica.imageset\Indica%403x.png" />
     <ImageAsset Include="Assets.xcassets\HighFive.imageset\HighFive-1.png" />
     <ImageAsset Include="Assets.xcassets\HighFive.imageset\HighFive%402x-1.png" />
     <ImageAsset Include="Assets.xcassets\HighFive.imageset\HighFive%403x.png" />
+    <ImageAsset Include="Assets.xcassets\Hybrid.imageset\Hybrid-1.png" />
+    <ImageAsset Include="Assets.xcassets\Hybrid.imageset\Hybrid%402x-1.png" />
+    <ImageAsset Include="Assets.xcassets\Hybrid.imageset\Hybrid%403x-1.png" />
+    <ImageAsset Include="Assets.xcassets\Indica.imageset\Indica.png" />
+    <ImageAsset Include="Assets.xcassets\Indica.imageset\Indica%402x.png" />
+    <ImageAsset Include="Assets.xcassets\Indica.imageset\Indica%403x-1.png" />
+    <ImageAsset Include="Assets.xcassets\Sativa.imageset\Sativa-1.png" />
+    <ImageAsset Include="Assets.xcassets\Sativa.imageset\Sativa%402x-1.png" />
+    <ImageAsset Include="Assets.xcassets\Sativa.imageset\Sativa%403x.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

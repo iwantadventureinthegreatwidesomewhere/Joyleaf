@@ -1,26 +1,24 @@
 ﻿<Properties StartupConfiguration="{928BF896-B912-476D-86D7-5A6B2B2B065A}|Default">
   <MonoDevelop.Ide.ItemProperties.Joyleaf.iOS automaticSigning="False" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.7ECDEF56-16C5-40AA-A642-162E25DEEC00" />
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench ActiveDocument="Joyleaf/Joyleaf/Views/ItemPopupPage.xaml">
     <Files>
-      <File FileName="Joyleaf/Joyleaf/Helpers/CategoryStack.cs" Line="35" Column="1" />
-      <File FileName="Joyleaf/Joyleaf/Helpers/CategoryItem.cs" Line="54" Column="57" />
-      <File FileName="Joyleaf/Joyleaf/Views/MainPage.xaml.cs" Line="148" Column="63" />
-      <File FileName="Joyleaf/Joyleaf/Views/ItemPopupPage.xaml.cs" Line="15" Column="42" />
+      <File FileName="Joyleaf/Joyleaf/Views/MainPage.xaml" Line="50" Column="35" />
+      <File FileName="Joyleaf/Joyleaf/Views/MainPage.xaml.cs" Line="132" Column="27" />
+      <File FileName="Joyleaf/Joyleaf/Views/ItemPopupPage.xaml.cs" Line="90" Column="52" />
+      <File FileName="Joyleaf/Joyleaf/Helpers/CategoryItem.cs" Line="53" Column="57" />
+      <File FileName="Joyleaf/Joyleaf/Views/ItemPopupPage.xaml" Line="25" Column="84" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Joyleaf" expanded="True">
             <Node name="Joyleaf" expanded="True">
-              <Node name="Helpers" expanded="True">
-                <Node name="CategoryItem.cs" selected="True" />
-              </Node>
-              <Node name="Services" expanded="True" />
+              <Node name="CustomControls" expanded="True" />
+              <Node name="Helpers" expanded="True" />
               <Node name="Views" expanded="True">
-                <Node name="ItemPopupPage.xaml" expanded="True" />
+                <Node name="ItemPopupPage.xaml" expanded="True" selected="True" />
                 <Node name="MainPage.xaml" expanded="True" />
               </Node>
-              <Node name="App.xaml" expanded="True" />
             </Node>
             <Node name="Joyleaf.iOS" expanded="True" />
           </Node>

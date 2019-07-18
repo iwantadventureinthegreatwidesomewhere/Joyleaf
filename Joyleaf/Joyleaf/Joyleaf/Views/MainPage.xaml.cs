@@ -129,7 +129,7 @@ namespace Joyleaf.Views
 
             if (CrossConnectivity.Current.IsConnected)
             {
-                Scroller.IsEnabled = false;
+                scrollView.IsEnabled = false;
 
                 ContentStack.Children.Clear();
 
@@ -155,14 +155,14 @@ namespace Joyleaf.Views
                     LoadingWheel.IsEnabled = false;
                     LoadingWheel.IsVisible = false;
 
-                    Scroller.IsEnabled = true;
+                    scrollView.IsEnabled = true;
                 }
                 catch (Exception)
                 {
                     LoadingWheel.IsEnabled = false;
                     LoadingWheel.IsVisible = false;
 
-                    Scroller.IsEnabled = false;
+                    scrollView.IsEnabled = false;
 
                     ContentStack.Children.Clear();
 
@@ -172,7 +172,7 @@ namespace Joyleaf.Views
             }
             else
             {
-                Scroller.IsEnabled = false;
+                scrollView.IsEnabled = false;
 
                 ContentStack.Children.Clear();
 

@@ -17,14 +17,18 @@
             ScaleOut="1"/>
     </pages:PopupPage.Animation>
     
-    <Frame BackgroundColor="White" CornerRadius="15" HorizontalOptions="Fill" Margin="25,150" VerticalOptions="Fill">
-        <StackLayout Margin="10" Orientation="Vertical">
-            <Label x:Name="ProductName" TextColor="#333333" FontAttributes="Bold" FontSize="23"/>
-        
-            <Label Text="In order to use The Strain API you need to apply for an API key. Applying for a key is easy and approval is automated. This system is in place only to track usage and try to prevent abuse of the API. " FontSize="15"/>
-
-        
+    <Frame BackgroundColor="White" CornerRadius="15" HorizontalOptions="Fill" Margin="25,125" VerticalOptions="Fill">
+        <StackLayout Orientation="Vertical" Padding="10" VerticalOptions="FillAndExpand">
+            <ScrollView x:Name="scrollView" Orientation="Vertical" VerticalOptions="FillAndExpand" VerticalScrollBarVisibility="Never">
+                <ScrollView.Content>
+                    <StackLayout Orientation="Vertical">
+                        <Label x:Name="ItemName" FontAttributes="Bold" FontSize="25" Margin="0,0,0,3" TextColor="#333333"/>
+                        <StackLayout x:Name="SpeciesStack" Margin="0,0,0,3" Orientation="Horizontal"/>
+                        <StackLayout x:Name="RatingStack" Margin="0,0,0,10" Orientation="Horizontal"/>
+                        <Label x:Name="ItemDesc" FontSize="15" TextColor="#333333"/>
+                    </StackLayout>    
+                </ScrollView.Content>
+            </ScrollView>
         </StackLayout>
-        
     </Frame>
 </pages:PopupPage>

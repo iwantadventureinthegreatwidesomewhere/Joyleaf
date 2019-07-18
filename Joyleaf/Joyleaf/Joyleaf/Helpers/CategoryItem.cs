@@ -9,7 +9,6 @@ namespace Joyleaf.Helpers
     public class CategoryItem : Frame
     {
         private readonly Item item;
-        private readonly ItemPopupPage itemPopupPage;
 
         public CategoryItem(Item item)
         {
@@ -29,7 +28,7 @@ namespace Joyleaf.Helpers
 
             if (item.Race == Race.Sativa)
             {
-                BackgroundColor = Color.FromHex("#ffb742");
+                BackgroundColor = Color.FromHex("#ffa742");
                 detailStack.Children.Add(new Image
                 {
                     HeightRequest = 25,
@@ -68,7 +67,7 @@ namespace Joyleaf.Helpers
                 HorizontalOptions = LayoutOptions.Center,
                 HorizontalTextAlignment = TextAlignment.Center,
                 Margin = new Thickness(0, 0, 0, 3),
-                Text = Truncate(item.Name, 20),
+                Text = Truncate(item.Name, 15),
                 TextColor = Color.White,
                 VerticalOptions = LayoutOptions.CenterAndExpand
             });
@@ -92,8 +91,6 @@ namespace Joyleaf.Helpers
 
             detailStack.Children.Add(rating);
 
-            itemPopupPage = new ItemPopupPage(item);
-
             TapGestureRecognizer TapGesture = new TapGestureRecognizer();
             TapGesture.Tapped += PushItemViewAsync;
             GestureRecognizers.Add(TapGesture);
@@ -103,7 +100,7 @@ namespace Joyleaf.Helpers
 
         private void PushItemViewAsync(object sender, EventArgs e)
         {
-            PopupNavigation.Instance.PushAsync(itemPopupPage);
+            PopupNavigation.Instance.PushAsync(new ItemPopupPage(item));
         }
 
         private string Truncate(string value, int maxChars)

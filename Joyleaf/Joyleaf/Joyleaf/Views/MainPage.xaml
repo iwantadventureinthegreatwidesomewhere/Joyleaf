@@ -47,7 +47,7 @@
             </StackLayout>
             
             <ScrollView
-                x:Name="Scroller"
+                x:Name="scrollView"
                 Orientation="Vertical"
                 VerticalOptions="FillAndExpand"
                 VerticalScrollBarVisibility="Never">
