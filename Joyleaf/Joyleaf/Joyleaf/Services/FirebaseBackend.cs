@@ -139,7 +139,7 @@ namespace Joyleaf.Services
 
                 HttpRequestMessage request = new HttpRequestMessage
                 {
-                    RequestUri = new Uri("https://us-central1-joyleaf-c142c.cloudfunctions.net/app_content_loader?uid=" + GetAuth().User.LocalId),
+                    RequestUri = new Uri("https://us-central1-joyleaf-c142c.cloudfunctions.net/content_getter?uid=" + GetAuth().User.LocalId),
                     Method = HttpMethod.Get
                 };
 

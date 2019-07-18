@@ -1,13 +1,17 @@
-﻿using Syncfusion.SfRating.XForms;
+﻿using System;
+using Rg.Plugins.Popup.Services;
+using Syncfusion.SfRating.XForms;
 using Xamarin.Forms;
 
 namespace Joyleaf.Helpers
 {
     public class CategoryItem : Frame
     {
-        public CategoryItem(string s)
+        private readonly Item item;
+
+        public CategoryItem(Item item)
         {
-            string species = s;
+            this.item = item;
 
             CornerRadius = 20;
             Padding = 10;
@@ -21,7 +25,7 @@ namespace Joyleaf.Helpers
                 VerticalOptions = LayoutOptions.FillAndExpand
             };
 
-            if (species.Equals("sativa"))
+            if (item.Race == Race.Sativa)
             {
                 BackgroundColor = Color.FromHex("f3ba6d");
                 detailStack.Children.Add(new Image
@@ -32,7 +36,7 @@ namespace Joyleaf.Helpers
                     Source = "Sativa2"
                 });
             }
-            else if (species.Equals("indica"))
+            else if (item.Race == Race.Indica)
             {
                 BackgroundColor = Color.FromHex("5D98F7");
                 detailStack.Children.Add(new Image
@@ -43,7 +47,7 @@ namespace Joyleaf.Helpers
                     Source = "Indica2"
                 });
             }
-            else if (species.Equals("hybrid"))
+            else if (item.Race == Race.Hybrid)
             {
                 BackgroundColor = Color.FromHex("#6fc294");
                 detailStack.Children.Add(new Image
@@ -58,11 +62,10 @@ namespace Joyleaf.Helpers
             detailStack.Children.Add(new Label
             {
                 FontAttributes = FontAttributes.Bold,
-                FontSize = 15,
+                FontSize = 16,
                 HorizontalOptions = LayoutOptions.Center,
                 HorizontalTextAlignment = TextAlignment.Center,
-                Margin = new Thickness(0, 0, 0, 5),
-                Text = Truncate("Lorem ipsum dolor sit amet, consectetur adipiscing", 23),
+                Text = Truncate(item.Name, 20),
                 TextColor = Color.White,
                 VerticalOptions = LayoutOptions.CenterAndExpand
             });
@@ -72,7 +75,7 @@ namespace Joyleaf.Helpers
                 HorizontalOptions = LayoutOptions.Center,
                 ItemCount = 5,
                 ItemSize = 13,
-                Margin = new Thickness(0, 0, 0, 5),
+                Margin = new Thickness(0, 0, 0, 3),
                 Precision = Precision.Exact,
                 ReadOnly = true,
                 Value = 3,
@@ -88,9 +91,12 @@ namespace Joyleaf.Helpers
 
 
 
-
-
             Content = detailStack;
+        }
+
+        private void PushItemViewAsync(object sender, EventArgs e)
+        {
+            //PopupNavigation.Instance.PushAsync(productPopupPage);
         }
 
         private string Truncate(string value, int maxChars)

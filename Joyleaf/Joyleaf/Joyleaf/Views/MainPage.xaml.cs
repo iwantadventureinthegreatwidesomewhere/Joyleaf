@@ -146,16 +146,11 @@ namespace Joyleaf.Views
                     Content content = await FirebaseBackend.LoadContentAsync();
 
                     ContentStack.Children.Add(HighFiveButton);
-                    ContentStack.Children.Add(new CategoryStack());
-                    ContentStack.Children.Add(new CategoryStack());
-                    ContentStack.Children.Add(new CategoryStack());
-                    ContentStack.Children.Add(new CategoryStack());
 
-                    /*foreach (Datum datum in content.Data)
+                    foreach (Curated categoryData in content.Curated)
                     {
-                        ContentFrame contentItem = new ContentFrame(datum);
-                        ContentStack.Children.Add(contentItem);
-                    }*/
+                        ContentStack.Children.Add(new CategoryStack(categoryData));
+                    }
 
                     LoadingWheel.IsEnabled = false;
                     LoadingWheel.IsVisible = false;

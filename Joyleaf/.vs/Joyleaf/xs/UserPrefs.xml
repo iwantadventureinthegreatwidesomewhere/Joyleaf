@@ -2,26 +2,23 @@
   <MonoDevelop.Ide.ItemProperties.Joyleaf.iOS automaticSigning="False" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.7ECDEF56-16C5-40AA-A642-162E25DEEC00" />
   <MonoDevelop.Ide.Workbench>
     <Files>
-      <File FileName="Joyleaf/Joyleaf/Helpers/CategoryStack.cs" Line="25" Column="75" />
-      <File FileName="Joyleaf/Joyleaf/Helpers/CategoryItem.cs" />
-      <File FileName="Joyleaf/Joyleaf/Views/MainPage.xaml.cs" />
-      <File FileName="Joyleaf/Joyleaf/Views/MainPage.xaml" Line="14" Column="36" />
-      <File FileName="Joyleaf/Joyleaf/Views/AgeVerificationAndDisclaimerPage.xaml" Line="32" Column="87" />
+      <File FileName="Joyleaf/Joyleaf/Helpers/CategoryStack.cs" Line="22" Column="14" />
+      <File FileName="Joyleaf/Joyleaf/Helpers/CategoryItem.cs" Line="107" Column="2" />
+      <File FileName="Joyleaf/Joyleaf/Views/MainPage.xaml.cs" Line="148" Column="63" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Joyleaf" expanded="True">
             <Node name="Joyleaf" expanded="True">
-              <Node name="Helpers" expanded="True" />
+              <Node name="Helpers" expanded="True">
+                <Node name="CategoryItem.cs" selected="True" />
+              </Node>
+              <Node name="Services" expanded="True" />
               <Node name="Views" expanded="True">
-                <Node name="AgeVerificationAndDisclaimerPage.xaml" selected="True" />
                 <Node name="MainPage.xaml" expanded="True" />
               </Node>
               <Node name="App.xaml" expanded="True" />
-            </Node>
-            <Node name="Joyleaf.iOS" expanded="True">
-              <Node name="CustomRenderers" expanded="True" />
             </Node>
           </Node>
         </State>
