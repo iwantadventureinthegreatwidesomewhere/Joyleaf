@@ -163,7 +163,7 @@ namespace Joyleaf.Views
                     TextColor = Color.FromHex("#e349c2")
                 });
 
-                FlexLayout FlavorLayout = new FlexLayout
+                FlexLayout FlavorsLayout = new FlexLayout
                 {
                     AlignContent = FlexAlignContent.Start,
                     AlignItems = FlexAlignItems.Start,
@@ -174,7 +174,13 @@ namespace Joyleaf.Views
 
                 foreach (KeyValuePair<string, string> entry in item.Flavors)
                 {
-                    FlavorLayout.Children.Add(new Frame
+                    StackLayout TagStack = new StackLayout
+                    {
+                        Margin = new Thickness(0, 5, 0, 5),
+                        Orientation = StackOrientation.Horizontal
+                    };
+
+                    TagStack.Children.Add(new Frame
                     {
                         BackgroundColor = Color.Transparent,
                         BorderColor = Color.FromHex("#e349c2"),
@@ -186,20 +192,20 @@ namespace Joyleaf.Views
                             TextColor = Color.FromHex("#e349c2")
                         },
                         CornerRadius = 10,
-                        Margin = new Thickness(0, 5, 0, 5),
                         Padding = 0,
                         HasShadow = false
                     });
 
-                    FlavorLayout.Children.Add(new BoxView
+                    TagStack.Children.Add(new BoxView
                     {
-                        BackgroundColor = Color.Transparent,
                         HeightRequest = 0,
-                        WidthRequest = 10
+                        WidthRequest = 5
                     });
+
+                    FlavorsLayout.Children.Add(TagStack);
                 }
 
-                Stack.Children.Add(FlavorLayout);
+                Stack.Children.Add(FlavorsLayout);
             }
 
             if(item.Effects.Medical != null || item.Effects.Negative != null || item.Effects.Positive != null)
@@ -212,7 +218,7 @@ namespace Joyleaf.Views
                     TextColor = Color.FromHex("#3269e6")
                 });
 
-                FlexLayout EffectLayout = new FlexLayout
+                FlexLayout EffectsLayout = new FlexLayout
                 {
                     AlignContent = FlexAlignContent.Start,
                     AlignItems = FlexAlignItems.Start,
@@ -225,7 +231,13 @@ namespace Joyleaf.Views
                 {
                     foreach (KeyValuePair<string, string> entry in item.Effects.Positive)
                     {
-                        EffectLayout.Children.Add(new Frame
+                        StackLayout TagStack = new StackLayout
+                        {
+                            Margin = new Thickness(0, 5, 0, 5),
+                            Orientation = StackOrientation.Horizontal
+                        };
+
+                        TagStack.Children.Add(new Frame
                         {
                             BackgroundColor = Color.Transparent,
                             BorderColor = Color.FromHex("#00b368"),
@@ -237,17 +249,17 @@ namespace Joyleaf.Views
                                 TextColor = Color.FromHex("#00b368")
                             },
                             CornerRadius = 10,
-                            Margin = new Thickness(0, 5, 0, 5),
                             Padding = 0,
                             HasShadow = false
                         });
 
-                        EffectLayout.Children.Add(new BoxView
+                        TagStack.Children.Add(new BoxView
                         {
-                            BackgroundColor = Color.Transparent,
                             HeightRequest = 0,
-                            WidthRequest = 10
+                            WidthRequest = 5
                         });
+
+                        EffectsLayout.Children.Add(TagStack);
                     }
                 }
 
@@ -255,7 +267,13 @@ namespace Joyleaf.Views
                 {
                     foreach (KeyValuePair<string, string> entry in item.Effects.Negative)
                     {
-                        EffectLayout.Children.Add(new Frame
+                        StackLayout TagStack = new StackLayout
+                        {
+                            Margin = new Thickness(0, 5, 0, 5),
+                            Orientation = StackOrientation.Horizontal
+                        };
+
+                        TagStack.Children.Add(new Frame
                         {
                             BackgroundColor = Color.Transparent,
                             BorderColor = Color.FromHex("#EC5B55"),
@@ -267,17 +285,17 @@ namespace Joyleaf.Views
                                 TextColor = Color.FromHex("#EC5B55")
                             },
                             CornerRadius = 10,
-                            Margin = new Thickness(0, 5, 0, 5),
                             Padding = 0,
                             HasShadow = false
                         });
 
-                        EffectLayout.Children.Add(new BoxView
+                        TagStack.Children.Add(new BoxView
                         {
-                            BackgroundColor = Color.Transparent,
                             HeightRequest = 0,
-                            WidthRequest = 10
+                            WidthRequest = 5
                         });
+
+                        EffectsLayout.Children.Add(TagStack);
                     }
                 }
 
@@ -285,34 +303,50 @@ namespace Joyleaf.Views
                 {
                     foreach (KeyValuePair<string, string> entry in item.Effects.Medical)
                     {
-                        EffectLayout.Children.Add(new Frame
+                        if(entry.Value != "Headache")
                         {
-                            BackgroundColor = Color.Transparent,
-                            BorderColor = Color.FromHex("#3269e6"),
-                            Content = new Label
+                            StackLayout TagStack = new StackLayout
                             {
-                                FontSize = 15,
-                                Margin = new Thickness(15, 5),
-                                Text = entry.Value + " Relief",
-                                TextColor = Color.FromHex("#3269e6")
-                            },
-                            CornerRadius = 10,
-                            Margin = new Thickness(0, 5, 0, 5),
-                            Padding = 0,
-                            HasShadow = false
-                        });
+                                Margin = new Thickness(0, 5, 0, 5),
+                                Orientation = StackOrientation.Horizontal
+                            };
 
-                        EffectLayout.Children.Add(new BoxView
-                        {
-                            BackgroundColor = Color.Transparent,
-                            HeightRequest = 0,
-                            WidthRequest = 10
-                        });
+                            TagStack.Children.Add(new Frame
+                            {
+                                BackgroundColor = Color.Transparent,
+                                BorderColor = Color.FromHex("#3269e6"),
+                                Content = new Label
+                                {
+                                    FontSize = 15,
+                                    Margin = new Thickness(15, 5),
+                                    Text = "Treats " + entry.Value,
+                                    TextColor = Color.FromHex("#3269e6")
+                                },
+                                CornerRadius = 10,
+                                Padding = 0,
+                                HasShadow = false
+                            });
+
+                            TagStack.Children.Add(new BoxView
+                            {
+                                HeightRequest = 0,
+                                WidthRequest = 5
+                            });
+
+                            EffectsLayout.Children.Add(TagStack);
+                        }
                     }
                 }
 
-                Stack.Children.Add(EffectLayout);
+                Stack.Children.Add(EffectsLayout);
             }
+
+
+
+
+
+
+
 
 
 

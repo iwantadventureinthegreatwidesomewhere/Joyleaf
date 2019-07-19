@@ -67,7 +67,7 @@ namespace Joyleaf.Helpers
                 HorizontalOptions = LayoutOptions.Center,
                 HorizontalTextAlignment = TextAlignment.Center,
                 Margin = new Thickness(0, 0, 0, 3),
-                Text = Truncate(item.Name, 15),
+                Text = Truncate(item.Name, 17),
                 TextColor = Color.White,
                 VerticalOptions = LayoutOptions.CenterAndExpand
             });

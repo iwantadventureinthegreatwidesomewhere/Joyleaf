@@ -4,7 +4,7 @@
     <Files>
       <File FileName="Joyleaf/Joyleaf/Views/MainPage.xaml" Line="13" Column="9" />
       <File FileName="Joyleaf/Joyleaf/Views/MainPage.xaml.cs" Line="132" Column="27" />
-      <File FileName="Joyleaf/Joyleaf/Views/ItemPopupPage.xaml.cs" Line="212" Column="48" />
+      <File FileName="Joyleaf/Joyleaf/Views/ItemPopupPage.xaml.cs" Line="205" Column="28" />
       <File FileName="Joyleaf/Joyleaf/Views/ItemPopupPage.xaml" Line="22" Column="56" />
     </Files>
     <Pads>
