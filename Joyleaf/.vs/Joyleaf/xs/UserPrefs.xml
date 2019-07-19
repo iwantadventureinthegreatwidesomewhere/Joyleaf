@@ -4,9 +4,9 @@
     <Files>
       <File FileName="Joyleaf/Joyleaf/Views/MainPage.xaml" Line="50" Column="35" />
       <File FileName="Joyleaf/Joyleaf/Views/MainPage.xaml.cs" Line="132" Column="27" />
-      <File FileName="Joyleaf/Joyleaf/Views/ItemPopupPage.xaml.cs" Line="90" Column="52" />
+      <File FileName="Joyleaf/Joyleaf/Views/ItemPopupPage.xaml.cs" Line="28" Column="51" />
       <File FileName="Joyleaf/Joyleaf/Helpers/CategoryItem.cs" Line="53" Column="57" />
-      <File FileName="Joyleaf/Joyleaf/Views/ItemPopupPage.xaml" Line="25" Column="84" />
+      <File FileName="Joyleaf/Joyleaf/Views/ItemPopupPage.xaml" Line="4" Column="38" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">

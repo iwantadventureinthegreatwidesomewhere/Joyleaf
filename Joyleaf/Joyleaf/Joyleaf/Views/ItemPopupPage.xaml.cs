@@ -25,7 +25,7 @@ namespace Joyleaf.Views
                 {
                     HeightRequest = 30,
                     HorizontalOptions = LayoutOptions.Start,
-                    Margin = new Thickness(0, 0, 7, 0),
+                    Margin = new Thickness(0, 0, 3, 0),
                     Source = "Sativa"
                 });
 
@@ -44,7 +44,7 @@ namespace Joyleaf.Views
                 {
                     HeightRequest = 30,
                     HorizontalOptions = LayoutOptions.Start,
-                    Margin = new Thickness(0, 0, 7, 0),
+                    Margin = new Thickness(0, 0, 3, 0),
                     Source = "Indica"
                 });
 
@@ -63,7 +63,7 @@ namespace Joyleaf.Views
                 {
                     HeightRequest = 30,
                     HorizontalOptions = LayoutOptions.Start,
-                    Margin = new Thickness(0, 0, 7, 0),
+                    Margin = new Thickness(0, 0, 3, 0),
                     Source = "Hybrid"
                 });
 
