@@ -20,14 +20,9 @@
     
     <Frame BackgroundColor="White" CornerRadius="15" HorizontalOptions="Fill" Margin="25,125" VerticalOptions="Fill">
         <StackLayout Orientation="Vertical" Padding="10" VerticalOptions="FillAndExpand">
-            <ScrollView x:Name="scrollView" Orientation="Vertical" VerticalOptions="FillAndExpand" VerticalScrollBarVisibility="Never">
+            <ScrollView Orientation="Vertical" VerticalOptions="FillAndExpand" VerticalScrollBarVisibility="Never">
                 <ScrollView.Content>
-                    <StackLayout Orientation="Vertical">
-                        <Label x:Name="ItemName" FontAttributes="Bold" FontSize="25" Margin="0,0,0,3" TextColor="#333333"/>
-                        <StackLayout x:Name="SpeciesStack" Margin="0,0,0,3" Orientation="Horizontal"/>
-                        <StackLayout x:Name="RatingStack" Margin="0,0,0,10" Orientation="Horizontal"/>
-                        <Label x:Name="ItemDesc" FontSize="15" TextColor="#333333"/>
-                    </StackLayout>    
+                    <StackLayout x:Name="Stack" Orientation="Vertical"/> 
                 </ScrollView.Content>
             </ScrollView>
         </StackLayout>
