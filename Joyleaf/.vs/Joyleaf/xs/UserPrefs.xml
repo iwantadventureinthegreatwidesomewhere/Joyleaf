@@ -1,11 +1,11 @@
 ﻿<Properties StartupConfiguration="{928BF896-B912-476D-86D7-5A6B2B2B065A}|Default">
-  <MonoDevelop.Ide.ItemProperties.Joyleaf.iOS automaticSigning="False" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.7ECDEF56-16C5-40AA-A642-162E25DEEC00" />
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.Joyleaf.iOS automaticSigning="False" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.AFAA1D33-384F-4B1E-8C69-A380D9C93468" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Joyleaf/Joyleaf/Views/ItemPopupPage.xaml">
     <Files>
       <File FileName="Joyleaf/Joyleaf/Views/MainPage.xaml" Line="13" Column="9" />
       <File FileName="Joyleaf/Joyleaf/Views/MainPage.xaml.cs" Line="132" Column="27" />
-      <File FileName="Joyleaf/Joyleaf/Views/ItemPopupPage.xaml.cs" Line="205" Column="28" />
-      <File FileName="Joyleaf/Joyleaf/Views/ItemPopupPage.xaml" Line="22" Column="56" />
+      <File FileName="Joyleaf/Joyleaf/Views/ItemPopupPage.xaml.cs" Line="23" Column="45" />
+      <File FileName="Joyleaf/Joyleaf/Views/ItemPopupPage.xaml" Line="22" Column="45" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -14,10 +14,9 @@
             <Node name="Joyleaf" expanded="True">
               <Node name="CustomControls" expanded="True" />
               <Node name="Helpers" expanded="True" />
+              <Node name="Services" expanded="True" />
               <Node name="Views" expanded="True">
-                <Node name="ItemPopupPage.xaml" expanded="True">
-                  <Node name="ItemPopupPage.xaml.cs" selected="True" />
-                </Node>
+                <Node name="ItemPopupPage.xaml" expanded="True" selected="True" />
                 <Node name="MainPage.xaml" expanded="True" />
               </Node>
             </Node>

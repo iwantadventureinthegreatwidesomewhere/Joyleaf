@@ -20,7 +20,7 @@ namespace Joyleaf.Views
             {
                 FontAttributes = FontAttributes.Bold,
                 FontSize = 25,
-                Margin = new Thickness(0, 0, 0, 3),
+                Margin = new Thickness(0, 10, 0, 3),
                 Text = item.Name,
                 TextColor = Color.FromHex("#333333")
             });
@@ -340,6 +340,18 @@ namespace Joyleaf.Views
 
                 Stack.Children.Add(EffectsLayout);
             }
+
+            Stack.Children.Add(new Label
+            {
+                FontAttributes = FontAttributes.Bold,
+                FontSize = 17,
+                Text = "RATINGS & REVIEWS",
+                TextColor = Color.FromHex("#333333")
+            });
+
+
+
+
 
 
 

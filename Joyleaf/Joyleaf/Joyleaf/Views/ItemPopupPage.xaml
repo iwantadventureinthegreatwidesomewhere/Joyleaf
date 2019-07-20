@@ -18,8 +18,8 @@
             ScaleOut="1"/>
     </pages:PopupPage.Animation>
     
-    <Frame BackgroundColor="White" CornerRadius="15" HorizontalOptions="Fill" Margin="25,125" VerticalOptions="Fill">
-        <StackLayout Orientation="Vertical" Padding="10" VerticalOptions="FillAndExpand">
+    <Frame BackgroundColor="White" CornerRadius="15" HorizontalOptions="Fill" Margin="25,100" VerticalOptions="Fill">
+        <StackLayout Orientation="Vertical" Padding="10,0" VerticalOptions="FillAndExpand">
             <ScrollView Orientation="Vertical" VerticalOptions="FillAndExpand" VerticalScrollBarVisibility="Never">
                 <ScrollView.Content>
                     <StackLayout x:Name="Stack" Orientation="Vertical"/> 
