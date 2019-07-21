@@ -121,7 +121,7 @@ namespace Joyleaf.Views
                 Margin = new Thickness(0, 0, 3, 0),
                 Precision = Precision.Exact,
                 ReadOnly = true,
-                Value = 3.5,
+                Value = ratingScore,
                 VerticalOptions = LayoutOptions.Center
             };
 

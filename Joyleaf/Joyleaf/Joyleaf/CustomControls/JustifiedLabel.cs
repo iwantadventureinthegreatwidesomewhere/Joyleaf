@@ -2,7 +2,7 @@
 
 namespace Joyleaf.CustomControls
 {
-    public class CustomLabel : Label
+    public class JustifiedLabel : Label
     {
     }
 }

@@ -25,7 +25,7 @@ namespace Joyleaf.Views
             NavigationPage.SetHasNavigationBar(this, false);
 
             ContentStack.Padding = new Thickness(0, 15);
-            ContentStack.Spacing = 30;
+            ContentStack.Spacing = 35;
 
             //######################################################
 
@@ -147,9 +147,17 @@ namespace Joyleaf.Views
 
                     ContentStack.Children.Add(HighFiveButton);
 
+                    int count = 0;
+
                     foreach (Curated categoryData in content.Curated)
                     {
+                        count++;
+
                         ContentStack.Children.Add(new CategoryStack(categoryData));
+
+                        if(count%2 == 0){
+                            ContentStack.Children.Add(new FeaturedItem(content.Featured[(count/2)-1]));
+                        }
                     }
 
                     LoadingWheel.IsEnabled = false;

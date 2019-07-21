@@ -12,7 +12,7 @@ namespace Joyleaf.Helpers
         public Curated[] Curated { get; set; }
 
         [JsonProperty("featured")]
-        public Featured[] Featured { get; set; }
+        public Item[] Featured { get; set; }
     }
 
     public partial class Curated
@@ -58,27 +58,6 @@ namespace Joyleaf.Helpers
 
         [JsonProperty("positive")]
         public Dictionary<string, string> Positive { get; set; }
-    }
-
-    public partial class Featured
-    {
-        [JsonProperty("desc")]
-        public string Desc { get; set; }
-
-        [JsonProperty("effects")]
-        public Effects Effects { get; set; }
-
-        [JsonProperty("flavors")]
-        public Dictionary<string, string> Flavors { get; set; }
-
-        [JsonProperty("id")]
-        public long Id { get; set; }
-
-        [JsonProperty("name")]
-        public string Name { get; set; }
-
-        [JsonProperty("race")]
-        public Race Race { get; set; }
     }
 
     public enum Race { Hybrid, Indica, Sativa };

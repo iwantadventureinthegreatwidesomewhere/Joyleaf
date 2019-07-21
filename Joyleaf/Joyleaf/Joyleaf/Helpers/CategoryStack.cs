@@ -7,13 +7,12 @@ namespace Joyleaf.Helpers
         public CategoryStack(Curated categoryData)
         {
             Orientation = StackOrientation.Vertical;
-            Spacing = 15;
 
             Children.Add(new Label
             {
                 FontAttributes = FontAttributes.Bold,
                 FontSize = 23,
-                Margin = new Thickness(25, 0),
+                Margin = new Thickness(25, 0, 25, 3),
                 Text = categoryData.Title,
                 TextColor = Color.FromHex("#333333")
             });
@@ -21,7 +20,7 @@ namespace Joyleaf.Helpers
             Children.Add(new Label
             {
                 FontSize = 17,
-                Margin = new Thickness(25, 0),
+                Margin = new Thickness(25, 0, 25, 15),
                 Text = categoryData.Description,
                 TextColor = Color.Gray
             });

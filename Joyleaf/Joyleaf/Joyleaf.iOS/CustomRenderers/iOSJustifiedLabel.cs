@@ -4,11 +4,11 @@ using UIKit;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
 
-[assembly: ExportRenderer(typeof(CustomLabel), typeof(iOSCustomLabel))]
+[assembly: ExportRenderer(typeof(JustifiedLabel), typeof(iOSJustifiedLabel))]
 
 namespace Joyleaf.iOS.CustomRenderers
 {
-    public class iOSCustomLabel : LabelRenderer
+    public class iOSJustifiedLabel : LabelRenderer
     {
         protected override void OnElementChanged(ElementChangedEventArgs<Label> e)
         {

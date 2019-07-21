@@ -103,7 +103,8 @@
     <Compile Include="CustomRenderers\iOSCustomEntry.cs" />
     <Compile Include="CustomRenderers\iOSCustomButton.cs" />
     <Compile Include="CustomRenderers\iOSGradientPage.cs" />
-    <Compile Include="CustomRenderers\iOSCustomLabel.cs" />
+    <Compile Include="CustomRenderers\iOSJustifiedLabel.cs" />
+    <Compile Include="CustomRenderers\iOSShadowFrame.cs" />
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\Contents.json">
@@ -187,6 +188,18 @@
     <ImageAsset Include="Assets.xcassets\Sativa.imageset\Sativa-1.png" />
     <ImageAsset Include="Assets.xcassets\Sativa.imageset\Sativa%402x-1.png" />
     <ImageAsset Include="Assets.xcassets\Sativa.imageset\Sativa%403x.png" />
+    <ImageAsset Include="Assets.xcassets\FeaturedHybrid.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\FeaturedSativa.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\FeaturedIndica.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\FeaturedHybrid.imageset\hybridBig-1.png" />
+    <ImageAsset Include="Assets.xcassets\FeaturedHybrid.imageset\hybridBig%402x-1.png" />
+    <ImageAsset Include="Assets.xcassets\FeaturedHybrid.imageset\hybridBig%403x-1.png" />
+    <ImageAsset Include="Assets.xcassets\FeaturedIndica.imageset\indicaBig-1.png" />
+    <ImageAsset Include="Assets.xcassets\FeaturedIndica.imageset\indicaBig%402x-1.png" />
+    <ImageAsset Include="Assets.xcassets\FeaturedIndica.imageset\indicaBig%403x-1.png" />
+    <ImageAsset Include="Assets.xcassets\FeaturedSativa.imageset\sativaBig-1.png" />
+    <ImageAsset Include="Assets.xcassets\FeaturedSativa.imageset\sativaBig%402x-1.png" />
+    <ImageAsset Include="Assets.xcassets\FeaturedSativa.imageset\sativaBig%403x-1.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -242,5 +255,8 @@
     <Folder Include="Assets.xcassets\Sativa2.imageset\" />
     <Folder Include="Assets.xcassets\Indica2.imageset\" />
     <Folder Include="Assets.xcassets\Hybrid2.imageset\" />
+    <Folder Include="Assets.xcassets\FeaturedHybrid.imageset\" />
+    <Folder Include="Assets.xcassets\FeaturedSativa.imageset\" />
+    <Folder Include="Assets.xcassets\FeaturedIndica.imageset\" />
   </ItemGroup>
 </Project>
