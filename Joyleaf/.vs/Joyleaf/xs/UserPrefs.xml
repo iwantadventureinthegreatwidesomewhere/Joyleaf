@@ -1,9 +1,9 @@
 ﻿<Properties StartupConfiguration="{928BF896-B912-476D-86D7-5A6B2B2B065A}|Default">
   <MonoDevelop.Ide.ItemProperties.Joyleaf.iOS automaticSigning="False" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.AFAA1D33-384F-4B1E-8C69-A380D9C93468" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Joyleaf/Joyleaf/Views/MainPage.xaml.cs">
+  <MonoDevelop.Ide.Workbench>
     <Files>
-      <File FileName="Joyleaf/Joyleaf/Views/MainPage.xaml" Line="13" Column="9" />
-      <File FileName="Joyleaf/Joyleaf/Views/MainPage.xaml.cs" Line="34" Column="34" />
+      <File FileName="Joyleaf/Joyleaf/Views/MainPage.xaml" Line="61" Column="23" />
+      <File FileName="Joyleaf/Joyleaf/Views/MainPage.xaml.cs" Line="160" Column="18" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">

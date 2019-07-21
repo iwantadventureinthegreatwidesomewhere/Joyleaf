@@ -50,7 +50,12 @@ namespace Joyleaf.Views
                 IsVisible = false
             };
 
-            ExploreRelativeLayout.Children.Add(LoadingWheel, Constraint.RelativeToParent(parent => (parent.Width / 2) - (LoadingWheel.Width / 2)), Constraint.RelativeToParent(parent => (parent.Height / 2) - (LoadingWheel.Height / 2)));
+            ExploreRelativeLayout.Children.Add(LoadingWheel,
+                Constraint.RelativeToParent(parent => (parent.Width / 2) - (getLoadingWheelWidth(parent) / 2)),
+                Constraint.RelativeToParent(parent => (parent.Height / 2) - (getLoadingWheelHeight(parent) / 2)));
+            
+            double getLoadingWheelWidth(RelativeLayout parent) => LoadingWheel.Measure(parent.Width, parent.Height).Request.Width;
+            double getLoadingWheelHeight(RelativeLayout parent) => LoadingWheel.Measure(parent.Width, parent.Height).Request.Height;
 
             //######################################################
 
@@ -77,7 +82,12 @@ namespace Joyleaf.Views
                 TextColor = Color.Gray
             });
 
-            ExploreRelativeLayout.Children.Add(ConnectionErrorText, Constraint.RelativeToParent(parent => (parent.Width / 2) - (ConnectionErrorText.Width / 2)), Constraint.RelativeToParent(parent => (parent.Height / 2) - (ConnectionErrorText.Height / 2)));
+            ExploreRelativeLayout.Children.Add(ConnectionErrorText,
+                Constraint.RelativeToParent(parent => (parent.Width / 2) - (getConnectionErrorTextWidth(parent) / 2)),
+                Constraint.RelativeToParent(parent => (parent.Height / 2) - (getConnectionErrorTextHeight(parent) / 2)));
+
+            double getConnectionErrorTextWidth(RelativeLayout parent) => ConnectionErrorText.Measure(parent.Width, parent.Height).Request.Width;
+            double getConnectionErrorTextHeight(RelativeLayout parent) => ConnectionErrorText.Measure(parent.Width, parent.Height).Request.Height;
 
             CrossConnectivity.Current.ConnectivityChanged += HandleConnectivityChanged;
 
@@ -92,7 +102,7 @@ namespace Joyleaf.Views
             LoadingErrorText.Children.Add(new Label
             {
                 FontAttributes = FontAttributes.Bold,
-                FontSize = 25,
+                FontSize = 27,
                 HorizontalTextAlignment = TextAlignment.Center,
                 Text = "Loading Error",
                 TextColor = Color.FromHex("#333333")
@@ -114,7 +124,12 @@ namespace Joyleaf.Views
 
             LoadingErrorText.GestureRecognizers.Add(LoadingRetryTapGesture);
 
-            ExploreRelativeLayout.Children.Add(LoadingErrorText, Constraint.RelativeToParent(parent => (parent.Width / 2) - (LoadingErrorText.Width / 2)), Constraint.RelativeToParent(parent => (parent.Height / 2) - (LoadingErrorText.Height / 2)));
+            ExploreRelativeLayout.Children.Add(LoadingErrorText,
+                Constraint.RelativeToParent(parent => (parent.Width / 2) - (getLoadingErrorTextWidth(parent) / 2)),
+                Constraint.RelativeToParent(parent => (parent.Height / 2) - (getLoadingErrorTextHeight(parent) / 2)));
+
+            double getLoadingErrorTextWidth(RelativeLayout parent) => LoadingErrorText.Measure(parent.Width, parent.Height).Request.Width;
+            double getLoadingErrorTextHeight(RelativeLayout parent) => LoadingErrorText.Measure(parent.Width, parent.Height).Request.Height;
 
             //######################################################
 
