@@ -35,7 +35,7 @@ namespace Joyleaf.Views
                 HeightRequest = 165,
                 HorizontalOptions = LayoutOptions.Center,
                 Image = "HighFive",
-                WidthRequest = 300
+                WidthRequest = 340
             };
 
             HighFiveButton.Clicked += HighFiveButtonClick;
