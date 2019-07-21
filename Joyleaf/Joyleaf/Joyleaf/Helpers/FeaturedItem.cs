@@ -122,7 +122,7 @@ namespace Joyleaf.Helpers
                     AlignContent = FlexAlignContent.Start,
                     AlignItems = FlexAlignItems.Start,
                     Direction = FlexDirection.Row,
-                    Margin = new Thickness(0, 15, 0, 10),
+                    Margin = new Thickness(0, 10, 0, 5),
                     Wrap = FlexWrap.Wrap
                 };
 

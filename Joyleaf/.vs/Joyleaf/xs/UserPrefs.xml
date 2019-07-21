@@ -4,6 +4,7 @@
     <Files>
       <File FileName="Joyleaf/Joyleaf/Views/MainPage.xaml" Line="61" Column="23" />
       <File FileName="Joyleaf/Joyleaf/Views/MainPage.xaml.cs" Line="160" Column="18" />
+      <File FileName="Joyleaf/Joyleaf/Helpers/FeaturedItem.cs" Line="125" Column="49" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -11,12 +12,12 @@
           <Node name="Joyleaf" expanded="True">
             <Node name="Joyleaf" expanded="True">
               <Node name="CustomControls" expanded="True" />
-              <Node name="Helpers" expanded="True" />
+              <Node name="Helpers" expanded="True">
+                <Node name="FeaturedItem.cs" selected="True" />
+              </Node>
               <Node name="Views" expanded="True">
                 <Node name="ItemPopupPage.xaml" expanded="True" />
-                <Node name="MainPage.xaml" expanded="True">
-                  <Node name="MainPage.xaml.cs" selected="True" />
-                </Node>
+                <Node name="MainPage.xaml" expanded="True" />
               </Node>
             </Node>
           </Node>
