@@ -31,7 +31,7 @@ namespace Joyleaf.Views
 
             HighFiveButton = new Button
             {
-                CornerRadius = 29,
+                CornerRadius = 30,
                 HeightRequest = 165,
                 HorizontalOptions = LayoutOptions.Center,
                 Image = "HighFive",

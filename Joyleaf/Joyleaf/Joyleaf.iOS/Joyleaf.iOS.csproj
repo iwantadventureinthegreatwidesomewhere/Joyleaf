@@ -197,9 +197,9 @@
     <ImageAsset Include="Assets.xcassets\FeaturedSativa.imageset\sativaBig-1.png" />
     <ImageAsset Include="Assets.xcassets\FeaturedSativa.imageset\sativaBig%402x-1.png" />
     <ImageAsset Include="Assets.xcassets\FeaturedSativa.imageset\sativaBig%403x-1.png" />
-    <ImageAsset Include="Assets.xcassets\HighFive.imageset\HighFive.png" />
-    <ImageAsset Include="Assets.xcassets\HighFive.imageset\HighFive%402x.png" />
-    <ImageAsset Include="Assets.xcassets\HighFive.imageset\HighFive%403x-1.png" />
+    <ImageAsset Include="Assets.xcassets\HighFive.imageset\HighFive-1.png" />
+    <ImageAsset Include="Assets.xcassets\HighFive.imageset\HighFive%402x-1.png" />
+    <ImageAsset Include="Assets.xcassets\HighFive.imageset\HighFive%403x.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

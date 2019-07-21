@@ -20,7 +20,7 @@ namespace Joyleaf.Views
             {
                 FontAttributes = FontAttributes.Bold,
                 FontSize = 25,
-                Margin = new Thickness(0, 10, 0, 3),
+                Margin = new Thickness(0, 30, 0, 3),
                 Text = item.Name,
                 TextColor = Color.FromHex("#333333")
             });

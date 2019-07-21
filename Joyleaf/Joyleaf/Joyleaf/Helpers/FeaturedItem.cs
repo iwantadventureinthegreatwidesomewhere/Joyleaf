@@ -19,14 +19,14 @@ namespace Joyleaf.Helpers
 
             this.item = item;
 
-            HeightRequest = 350;
+            CornerRadius = 30;
             Margin = new Thickness(17);
 
             StackLayout stack = new StackLayout
             {
                 HorizontalOptions = LayoutOptions.Fill,
                 Orientation = StackOrientation.Vertical,
-                Padding = 5,
+                Padding = 10,
                 VerticalOptions = LayoutOptions.Fill
             };
 
@@ -81,7 +81,7 @@ namespace Joyleaf.Helpers
                 FontAttributes = FontAttributes.Bold,
                 FontSize = 23,
                 HorizontalOptions = LayoutOptions.Start,
-                Margin = new Thickness(0, 15, 0, 5),
+                Margin = new Thickness(0, 10, 0, 5),
                 Text = Truncate(item.Name, 20),
                 TextColor = Color.FromHex("#333333")
             });
@@ -89,8 +89,7 @@ namespace Joyleaf.Helpers
             SfRating rating = new SfRating
             {
                 ItemCount = 5,
-                ItemSize = 20,
-                Margin = new Thickness(0, 0, 0, 7),
+                ItemSize = 17,
                 Precision = Precision.Exact,
                 ReadOnly = true,
                 Value = ratingScore,
@@ -104,14 +103,17 @@ namespace Joyleaf.Helpers
 
             stack.Children.Add(rating);
 
-            stack.Children.Add(new Label
+            if (!String.IsNullOrEmpty(item.Desc))
             {
-                FontSize = 15,
-                HorizontalOptions = LayoutOptions.Start,
-                Margin = new Thickness(0, 0, 0, 15),
-                Text = Truncate(item.Desc, 100),
-                TextColor = Color.Gray
-            });
+                stack.Children.Add(new Label
+                {
+                    FontSize = 15,
+                    HorizontalOptions = LayoutOptions.Start,
+                    Margin = new Thickness(0, 10, 0, 0),
+                    Text = Truncate(item.Desc, 200),
+                    TextColor = Color.Gray
+                });
+            }
 
             if (item.Flavors != null || item.Effects.Positive != null)
             {
@@ -120,6 +122,7 @@ namespace Joyleaf.Helpers
                     AlignContent = FlexAlignContent.Start,
                     AlignItems = FlexAlignItems.Start,
                     Direction = FlexDirection.Row,
+                    Margin = new Thickness(0, 15, 0, 10),
                     Wrap = FlexWrap.Wrap
                 };
 
