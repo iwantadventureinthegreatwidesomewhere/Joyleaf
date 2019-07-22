@@ -13,7 +13,7 @@ namespace Joyleaf.Views
 
     public partial class MainPage : ContentPage
     {
-        private readonly Button HighFiveButton;
+        private readonly Image Highfive;
         private readonly ActivityIndicator LoadingWheel;
         private readonly StackLayout ConnectionErrorText;
         private readonly StackLayout LoadingErrorText;
@@ -24,21 +24,26 @@ namespace Joyleaf.Views
 
             NavigationPage.SetHasNavigationBar(this, false);
 
-            ContentStack.Padding = new Thickness(0, 15);
+            ContentStack.Padding = new Thickness(0, 15, 0, 30);
             ContentStack.Spacing = 35;
 
             //######################################################
 
-            HighFiveButton = new Button
+            Highfive = new Image
             {
-                CornerRadius = 30,
-                HeightRequest = 165,
-                HorizontalOptions = LayoutOptions.Center,
-                Image = "HighFive",
-                WidthRequest = 340
+                Aspect = Aspect.AspectFit,
+                HorizontalOptions = LayoutOptions.FillAndExpand,
+                Source = "HighFive",
+                VerticalOptions = LayoutOptions.FillAndExpand
             };
 
-            HighFiveButton.Clicked += HighFiveButtonClick;
+            TapGestureRecognizer HighfiveTapGesture = new TapGestureRecognizer();
+            HighfiveTapGesture.Tapped += (s, e) =>
+            {
+                HighfiveImageClick();
+            };
+
+            Highfive.GestureRecognizers.Add(HighfiveTapGesture);
 
             //######################################################
 
@@ -137,6 +142,13 @@ namespace Joyleaf.Views
             VerifyAuthAsync();
         }
 
+        private void HighfiveImageClick()
+        {
+
+
+
+        }
+
         private async Task RefreshContentAsync()
         {
             LoadingErrorText.IsEnabled = false;
@@ -160,7 +172,7 @@ namespace Joyleaf.Views
                 {
                     Content content = await FirebaseBackend.LoadContentAsync();
 
-                    ContentStack.Children.Add(HighFiveButton);
+                    ContentStack.Children.Add(Highfive);
 
                     int count = 0;
 
@@ -228,6 +240,12 @@ namespace Joyleaf.Views
             }
         }
 
+        private void HandleConnectivityChanged(object sender, EventArgs a)
+        {
+            RefreshContentAsync();
+            VerifyAuthAsync();
+        }
+
         public void Resume()
         {
             if (FirebaseBackend.IsContentExpired() || LoadingErrorText.IsVisible)
@@ -236,17 +254,6 @@ namespace Joyleaf.Views
             }
 
             VerifyAuthAsync();
-        }
-
-        private void HandleConnectivityChanged(object sender, EventArgs a)
-        {
-            RefreshContentAsync();
-            VerifyAuthAsync();
-        }
-
-        private void HighFiveButtonClick(object sender, EventArgs e)
-        {
-
         }
 
         private void LogoutButtonClick(object sender, EventArgs e)

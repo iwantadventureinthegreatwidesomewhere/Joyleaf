@@ -20,14 +20,14 @@ namespace Joyleaf.Views
             {
                 FontAttributes = FontAttributes.Bold,
                 FontSize = 25,
-                Margin = new Thickness(0, 30, 0, 3),
+                Margin = new Thickness(0, 30, 0, 5),
                 Text = item.Name,
                 TextColor = Color.FromHex("#333333")
             });
 
             StackLayout SpeciesStack = new StackLayout
             {
-                Margin = new Thickness(0, 0, 0, 3),
+                Margin = new Thickness(0, 0, 0, 5),
                 Orientation = StackOrientation.Horizontal
             };
 
@@ -97,23 +97,6 @@ namespace Joyleaf.Views
                 Orientation = StackOrientation.Horizontal
             };
 
-            string number = "" + ratingScore;
-            var characteristic = number.Substring(0, number.IndexOf("."));
-            var mantissa = number.Substring(number.IndexOf("."));
-
-            var fs = new FormattedString();
-            fs.Spans.Add(new Span { Text = characteristic, TextColor = Color.FromHex("#333333"), FontAttributes = FontAttributes.Bold, FontSize = 20 });
-            fs.Spans.Add(new Span { Text = mantissa.Length > 2 ? mantissa.Substring(0, 3) : mantissa, TextColor = Color.FromHex("#333333"), FontAttributes = FontAttributes.Bold, FontSize = 15 });
-
-            Label formattedRatingScore = new Label
-            {
-                Margin = new Thickness(0, 0, 3, 0),
-                FormattedText = fs,
-                VerticalOptions = LayoutOptions.Center
-            };
-
-            RatingStack.Children.Add(formattedRatingScore);
-
             SfRating rating = new SfRating
             {
                 ItemCount = 5,
@@ -153,7 +136,7 @@ namespace Joyleaf.Views
                 });
             }
 
-            if(item.Flavors != null)
+            if (item.Flavors != null)
             {
                 Stack.Children.Add(new Label
                 {
@@ -208,7 +191,7 @@ namespace Joyleaf.Views
                 Stack.Children.Add(FlavorsLayout);
             }
 
-            if(item.Effects.Medical != null || item.Effects.Negative != null || item.Effects.Positive != null)
+            if (item.Effects.Medical != null || item.Effects.Negative != null || item.Effects.Positive != null)
             {
                 Stack.Children.Add(new Label
                 {
@@ -223,7 +206,7 @@ namespace Joyleaf.Views
                     AlignContent = FlexAlignContent.Start,
                     AlignItems = FlexAlignItems.Start,
                     Direction = FlexDirection.Row,
-                    Margin = new Thickness(0, 0, 0, 10),
+                    Margin = new Thickness(0, 0, 0, 15),
                     Wrap = FlexWrap.Wrap
                 };
 
@@ -303,7 +286,7 @@ namespace Joyleaf.Views
                 {
                     foreach (KeyValuePair<string, string> entry in item.Effects.Medical)
                     {
-                        if(entry.Value != "Headache")
+                        if (entry.Value != "Headache")
                         {
                             StackLayout TagStack = new StackLayout
                             {
@@ -341,13 +324,24 @@ namespace Joyleaf.Views
                 Stack.Children.Add(EffectsLayout);
             }
 
+            Stack.Children.Add(new BoxView
+            {
+                Color = Color.LightGray,
+                HeightRequest = 0.5,
+                Margin = new Thickness(0, 0, 0, 10)
+            });
+
             Stack.Children.Add(new Label
             {
                 FontAttributes = FontAttributes.Bold,
-                FontSize = 17,
-                Text = "RATINGS & REVIEWS",
-                TextColor = Color.FromHex("#333333")
+                FontSize = 23,
+                Text = "Ratings & Reviews",
+                TextColor = Color.FromHex("#333333"),
+                Margin = new Thickness(0, 0, 0, 100)
             });
+
+            string number = "" + ratingScore;
+            var scoreSubstring = number.Substring(0, 2);
 
 
 
