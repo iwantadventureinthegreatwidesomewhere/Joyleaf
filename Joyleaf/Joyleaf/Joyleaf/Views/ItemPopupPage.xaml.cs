@@ -328,7 +328,7 @@ namespace Joyleaf.Views
             {
                 Color = Color.LightGray,
                 HeightRequest = 0.5,
-                Margin = new Thickness(0, 0, 0, 10)
+                Margin = new Thickness(0, 0, 0, 15)
             });
 
             Stack.Children.Add(new Label

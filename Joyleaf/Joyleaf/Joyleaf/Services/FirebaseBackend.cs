@@ -52,17 +52,6 @@ namespace Joyleaf.Services
             Application.Current.MainPage = new NavigationPage(new MainPage());
         }
 
-        public static async Task<Account> GetAccountAsync()
-        {
-            FirebaseClient firebase = new FirebaseClient(
-                Constants.FIREBASE_DATABASE_URL,
-                new FirebaseOptions { AuthTokenAsyncFactory = () => Task.FromResult(GetAuth().FirebaseToken) }
-            );
-
-            Account account = await firebase.Child("users").Child(GetAuth().User.LocalId).OnceSingleAsync<Account>();
-            return account;
-        }
-
         public static void SendPasswordReset(string email)
         {
             if (!IsEmailAvailable(email))

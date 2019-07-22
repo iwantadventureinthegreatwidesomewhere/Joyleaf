@@ -200,6 +200,10 @@
     <ImageAsset Include="Assets.xcassets\HighFive.imageset\HighFive-1.png" />
     <ImageAsset Include="Assets.xcassets\HighFive.imageset\HighFive%402x-1.png" />
     <ImageAsset Include="Assets.xcassets\HighFive.imageset\HighFive%403x.png" />
+    <ImageAsset Include="Assets.xcassets\ScrollMore.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\ScrollMore.imageset\ScrollMore.png" />
+    <ImageAsset Include="Assets.xcassets\ScrollMore.imageset\ScrollMore%402x.png" />
+    <ImageAsset Include="Assets.xcassets\ScrollMore.imageset\ScrollMore%403x.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -258,5 +262,6 @@
     <Folder Include="Assets.xcassets\FeaturedHybrid.imageset\" />
     <Folder Include="Assets.xcassets\FeaturedSativa.imageset\" />
     <Folder Include="Assets.xcassets\FeaturedIndica.imageset\" />
+    <Folder Include="Assets.xcassets\ScrollMore.imageset\" />
   </ItemGroup>
 </Project>

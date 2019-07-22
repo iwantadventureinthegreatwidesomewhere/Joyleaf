@@ -25,14 +25,12 @@ namespace Joyleaf.Helpers
                 TextColor = Color.Gray
             });
 
-           ScrollView scrollView = new ScrollView
+            ScrollView scrollView = new ScrollView
             {
                 HorizontalOptions = LayoutOptions.FillAndExpand,
                 HorizontalScrollBarVisibility = ScrollBarVisibility.Never,
                 Orientation = ScrollOrientation.Horizontal
             };
-
-            Children.Add(scrollView);
 
             StackLayout itemStack = new StackLayout
             {
@@ -48,6 +46,30 @@ namespace Joyleaf.Helpers
             {
                 itemStack.Children.Add(new CategoryItem(item));
             }
+
+            Image ScrollMore = new Image
+            {
+                HeightRequest = 63,
+                Source = "ScrollMore",
+                WidthRequest = 32
+            };
+
+            RelativeLayout scrollLayout = new RelativeLayout
+            {
+                HeightRequest = 130
+            };
+
+            scrollLayout.Children.Add(scrollView,
+                Constraint.RelativeToParent(parent => 0),
+                Constraint.RelativeToParent(parent => 0),
+                Constraint.RelativeToParent(parent => parent.Width),
+                Constraint.Constant(130));
+
+            scrollLayout.Children.Add(ScrollMore,
+                Constraint.RelativeToParent(parent => parent.Width - 32),
+                Constraint.RelativeToParent(parent => parent.Height/2 - 32));
+
+            Children.Add(scrollLayout);
         }
     }
 }

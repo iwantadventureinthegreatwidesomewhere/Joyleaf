@@ -1,5 +1,4 @@
-﻿using Joyleaf.CustomControls;
-using Joyleaf.Helpers;
+﻿using Joyleaf.Helpers;
 using Joyleaf.Services;
 using Plugin.Connectivity;
 using System;
