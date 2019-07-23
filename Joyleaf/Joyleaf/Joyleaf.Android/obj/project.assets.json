@@ -1727,11 +1727,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/marcoguida/Projects/iwantadventureinthegreatwidesomewhere/Project-Tangerine.git/Joyleaf/Joyleaf/Joyleaf.Android/Joyleaf.Android.csproj",
+      "projectUniqueName": "/Users/marcoguida/Projects/Joyleaf/Joyleaf/Joyleaf/Joyleaf.Android/Joyleaf.Android.csproj",
       "projectName": "Joyleaf.Android",
-      "projectPath": "/Users/marcoguida/Projects/iwantadventureinthegreatwidesomewhere/Project-Tangerine.git/Joyleaf/Joyleaf/Joyleaf.Android/Joyleaf.Android.csproj",
+      "projectPath": "/Users/marcoguida/Projects/Joyleaf/Joyleaf/Joyleaf/Joyleaf.Android/Joyleaf.Android.csproj",
       "packagesPath": "/Users/marcoguida/.nuget/packages/",
-      "outputPath": "/Users/marcoguida/Projects/iwantadventureinthegreatwidesomewhere/Project-Tangerine.git/Joyleaf/Joyleaf/Joyleaf.Android/obj/",
+      "outputPath": "/Users/marcoguida/Projects/Joyleaf/Joyleaf/Joyleaf/Joyleaf.Android/obj/",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "configFilePaths": [
@@ -1746,8 +1746,8 @@
       "frameworks": {
         "monoandroid81": {
           "projectReferences": {
-            "/Users/marcoguida/Projects/iwantadventureinthegreatwidesomewhere/Project-Tangerine.git/Joyleaf/Joyleaf/Joyleaf/Joyleaf.csproj": {
-              "projectPath": "/Users/marcoguida/Projects/iwantadventureinthegreatwidesomewhere/Project-Tangerine.git/Joyleaf/Joyleaf/Joyleaf/Joyleaf.csproj"
+            "/Users/marcoguida/Projects/Joyleaf/Joyleaf/Joyleaf/Joyleaf/Joyleaf.csproj": {
+              "projectPath": "/Users/marcoguida/Projects/Joyleaf/Joyleaf/Joyleaf/Joyleaf/Joyleaf.csproj"
             }
           }
         }

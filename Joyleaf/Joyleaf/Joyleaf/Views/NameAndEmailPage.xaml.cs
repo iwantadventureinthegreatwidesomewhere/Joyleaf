@@ -47,12 +47,12 @@ namespace Joyleaf.Views
                         }
                         catch (Exception)
                         {
-                            await Application.Current.MainPage.DisplayAlert("Error", "Whoops, looks like there is a problem on our end. Please try again later.", "OK");
+                            await Application.Current.MainPage.DisplayAlert("Error", "Whoops, looks like there's a problem on our end. Please try again later.", "OK");
                         }
                     }
                     else
                     {
-                        await DisplayAlert("Invalid email", "The email address you entered is invalid. Please try again.", "Try Again");
+                        await DisplayAlert("Invalid email", "The email address you entered is invalid. Please try again.", "OK");
                     }
                 }
                 else

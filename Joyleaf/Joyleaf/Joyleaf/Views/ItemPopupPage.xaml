@@ -4,7 +4,8 @@
                  xmlns:customControls="clr-namespace:Joyleaf.CustomControls;assembly=Joyleaf"
                  xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
                  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-                 x:Class="Joyleaf.Views.ItemPopupPage">
+                 x:Class="Joyleaf.Views.ItemPopupPage"
+                 HasKeyboardOffset="false">
     
     <pages:PopupPage.Animation>
         <animations:ScaleAnimation

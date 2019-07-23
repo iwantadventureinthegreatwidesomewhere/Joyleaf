@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Joyleaf.Helpers;
+using Joyleaf.Services;
 using Rg.Plugins.Popup.Pages;
 using Syncfusion.SfRating.XForms;
 using Xamarin.Forms;
@@ -9,12 +10,19 @@ namespace Joyleaf.Views
 {
     public partial class ItemPopupPage : PopupPage
     {
+        private Item item;
+        private Button postReviewButton;
+        private Editor writeReviewEditor;
+        private SfRating writeReviewRating;
+
         public ItemPopupPage(Item item)
         {
             double ratingScore = 3.52213;
             double numberOfRatings = 273;
 
             InitializeComponent();
+
+            this.item = item;
 
             Stack.Children.Add(new Label
             {
@@ -337,11 +345,141 @@ namespace Joyleaf.Views
                 FontSize = 23,
                 Text = "Ratings & Reviews",
                 TextColor = Color.FromHex("#333333"),
-                Margin = new Thickness(0, 0, 0, 100)
             });
 
             string number = "" + ratingScore;
-            var scoreSubstring = number.Substring(0, 2);
+            var scoreSubstring = number.Substring(0, 3);
+
+            StackLayout scoreStack = new StackLayout
+            {
+                HorizontalOptions = LayoutOptions.FillAndExpand,
+                Margin = new Thickness(0, 0, 0, 5),
+                Orientation = StackOrientation.Horizontal
+            };
+
+            scoreStack.Children.Add(new Label
+            {
+                FontAttributes = FontAttributes.Bold,
+                FontSize = 50,
+                Text = scoreSubstring,
+                TextColor = Color.Gray,
+                VerticalOptions = LayoutOptions.Center
+            });
+
+            StackLayout scoreFooterStack = new StackLayout
+            {
+                Margin = 10,
+                Orientation = StackOrientation.Vertical,
+                Spacing = 5,
+                VerticalOptions = LayoutOptions.Center
+            };
+
+            scoreFooterStack.Children.Add(new Label
+            {
+                FontAttributes = FontAttributes.Bold,
+                FontSize = 17,
+                HorizontalOptions = LayoutOptions.Start,
+                Text = "out of 5",
+                TextColor = Color.Gray
+            });
+
+            scoreFooterStack.Children.Add(new Label
+            {
+                FontSize = 13,
+                Margin = new Thickness(0, 0, 0, 3),
+                Text = "" + numberOfRatings + " Ratings",
+                TextColor = Color.Gray,
+            });
+
+            scoreStack.Children.Add(scoreFooterStack);
+
+            Stack.Children.Add(scoreStack);
+
+            Frame writeReview = new Frame
+            {
+                BorderColor = Color.LightGray,
+                CornerRadius = 10,
+                HasShadow = false,
+                HorizontalOptions = LayoutOptions.FillAndExpand,
+                Margin = new Thickness(0, 0, 0, 300),
+                Padding = 0
+            };
+
+            StackLayout writeReviewStack = new StackLayout
+            {
+                HorizontalOptions = LayoutOptions.FillAndExpand
+            };
+
+            StackLayout headerReviewStack = new StackLayout
+            {
+                HorizontalOptions = LayoutOptions.FillAndExpand,
+                Margin = new Thickness(15, 12, 15, 7),
+                Orientation = StackOrientation.Horizontal,
+                VerticalOptions = LayoutOptions.Center
+            };
+
+            writeReviewRating = new SfRating
+            {
+                HorizontalOptions = LayoutOptions.Start,
+                ItemCount = 5,
+                ItemSize = 17,
+                Precision = Precision.Half,
+                ReadOnly = false,
+                Value = 0,
+                VerticalOptions = LayoutOptions.Center
+            };
+
+            writeReviewRating.RatingSettings.RatedFill = Color.FromHex("#ffa742");
+            writeReviewRating.RatingSettings.RatedStroke = Color.Transparent;
+            writeReviewRating.RatingSettings.UnRatedFill = Color.LightGray;
+            writeReviewRating.RatingSettings.UnRatedStroke = Color.Transparent;
+
+            headerReviewStack.Children.Add(writeReviewRating);
+
+            postReviewButton = new Button
+            {
+                BackgroundColor = Color.FromHex("#00C88C"),
+                FontAttributes = FontAttributes.Bold,
+                FontSize = 15,
+                HeightRequest = 25,
+                HorizontalOptions = LayoutOptions.EndAndExpand,
+                Text = "Post Review",
+                TextColor = Color.White,
+                VerticalOptions = LayoutOptions.Center,
+                WidthRequest = 100
+            };
+
+            postReviewButton.Clicked += PostReviewClicked;
+
+            headerReviewStack.Children.Add(postReviewButton);
+
+            writeReviewStack.Children.Add(headerReviewStack);
+
+            writeReviewStack.Children.Add(new BoxView
+            {
+                Color = Color.LightGray,
+                HeightRequest = 1,
+            });
+
+            writeReviewEditor = new Editor
+            {
+                FontSize = 15,
+                HeightRequest = 75,
+                HorizontalOptions = LayoutOptions.FillAndExpand,
+                Margin = new Thickness(7, 0, 7, 7),
+                Text = "Write a review. Help others learn more about this strain.",
+                TextColor = Color.Gray,
+                VerticalOptions = LayoutOptions.FillAndExpand
+            };
+
+            writeReviewEditor.Focused += EditorFocused;
+            writeReviewEditor.Unfocused += EditorUnfocused;
+
+            writeReviewStack.Children.Add(writeReviewEditor);
+
+            writeReview.Content = writeReviewStack;
+
+            Stack.Children.Add(writeReview);
 
 
 
@@ -350,12 +488,29 @@ namespace Joyleaf.Views
 
 
 
+        }
 
+        private void PostReviewClicked(object sender, EventArgs e)
+        {
+            FirebaseBackend.PostReviewAsync(item.Id, writeReviewRating.Value, writeReviewEditor.Text);
+        }
 
+        private void EditorFocused(object sender, FocusEventArgs e)
+        {
+            if (writeReviewEditor.Text.Equals("Write a review. Help others learn more about this strain."))
+            {
+                writeReviewEditor.Text = "";
+                writeReviewEditor.TextColor = Color.FromHex("#333333");
+            }
+        }
 
-
-
-
+        private void EditorUnfocused(object sender, FocusEventArgs e)
+        {
+            if (writeReviewEditor.Text.Equals(""))
+            {
+                writeReviewEditor.Text = "Write a review. Help others learn more about this strain.";
+                writeReviewEditor.TextColor = Color.Gray;
+            }
         }
     }
 }

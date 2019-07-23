@@ -45,17 +45,17 @@ namespace Joyleaf.Views
                             }
                             else
                             {
-                                await DisplayAlert("Choose a stronger password", "Make sure to use at least eight characters. Please try again.", "Try Again");
+                                await DisplayAlert("Choose a stronger password", "Make sure to use at least eight characters. Please try again.", "OK");
                             }
                         }
                         else
                         {
-                            await DisplayAlert("Passwords do not match", "The passwords you entered do not match. Please try again.", "Try Again");
+                            await DisplayAlert("Passwords do not match", "The passwords you entered do not match. Please try again.", "OK");
                         }
                     }
                     else
                     {
-                        await DisplayAlert("Invalid password", "The password you entered is invalid. Please try again.", "Try Again");
+                        await DisplayAlert("Invalid password", "The password you entered is invalid. Please try again.", "OK");
                     }
                 }
                 else

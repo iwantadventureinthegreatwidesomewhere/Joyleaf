@@ -5,6 +5,7 @@ using Joyleaf.Helpers;
 using Joyleaf.Views;
 using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Xamarin.Forms;
@@ -17,7 +18,7 @@ namespace Joyleaf.Services
         {
             try
             {
-                FirebaseAuthProvider authProvider = new FirebaseAuthProvider(new FirebaseConfig(Constants.FIREBASE_DATABASE_API_KEY));
+                FirebaseAuthProvider authProvider = new FirebaseAuthProvider(new FirebaseConfig(Constants.FIREBASE_API_KEY));
                 FirebaseAuthLink auth = Task.Run(() => authProvider.SignInWithEmailAndPasswordAsync(email, password)).Result;
 
                 SetAuth(auth);
@@ -27,7 +28,7 @@ namespace Joyleaf.Services
             {
                 if (e.InnerException.Message.Contains("EMAIL_NOT_FOUND") || e.InnerException.Message.Contains("INVALID_EMAIL") || e.InnerException.Message.Contains("INVALID_PASSWORD"))
                 {
-                    Application.Current.MainPage.DisplayAlert("Incorrect password for " + email, "The password you entered is incorrect. Please try again.", "Try Again");
+                    Application.Current.MainPage.DisplayAlert("Incorrect password for " + email, "The password you entered is incorrect. Please try again.", "OK");
                 }
                 else
                 {
@@ -38,7 +39,7 @@ namespace Joyleaf.Services
 
         public static void SignUp(Account account, string email, string password)
         {
-            FirebaseAuthProvider authProvider = new FirebaseAuthProvider(new FirebaseConfig(Constants.FIREBASE_DATABASE_API_KEY));
+            FirebaseAuthProvider authProvider = new FirebaseAuthProvider(new FirebaseConfig(Constants.FIREBASE_API_KEY));
             FirebaseAuthLink auth = Task.Run(() => authProvider.CreateUserWithEmailAndPasswordAsync(email, password)).Result;
 
             FirebaseClient firebase = new FirebaseClient(
@@ -56,7 +57,8 @@ namespace Joyleaf.Services
         {
             if (!IsEmailAvailable(email))
             {
-                FirebaseAuthProvider authProvider = new FirebaseAuthProvider(new FirebaseConfig(Constants.FIREBASE_DATABASE_API_KEY));
+                FirebaseAuthProvider authProvider = new FirebaseAuthProvider(new FirebaseConfig(Constants.FIREBASE_API_KEY));
+
                 authProvider.SendPasswordResetEmailAsync(email);
 
                 Application.Current.MainPage.DisplayAlert("Password reset email sent", "Follow the directions in the email to reset your password.", "OK");
@@ -72,8 +74,9 @@ namespace Joyleaf.Services
         {
             try
             {
-                FirebaseAuthProvider authProvider = new FirebaseAuthProvider(new FirebaseConfig(Constants.FIREBASE_DATABASE_API_KEY));
+                FirebaseAuthProvider authProvider = new FirebaseAuthProvider(new FirebaseConfig(Constants.FIREBASE_API_KEY));
                 FirebaseAuthLink auth = Task.Run(() => authProvider.SignInWithEmailAndPasswordAsync(email, "~")).Result;
+
                 return false;
             }
             catch (Exception e)
@@ -96,9 +99,11 @@ namespace Joyleaf.Services
         {
             try
             {
-                FirebaseAuthProvider authProvider = new FirebaseAuthProvider(new FirebaseConfig(Constants.FIREBASE_DATABASE_API_KEY));
+                FirebaseAuthProvider authProvider = new FirebaseAuthProvider(new FirebaseConfig(Constants.FIREBASE_API_KEY));
                 FirebaseAuthLink auth = new FirebaseAuthLink(authProvider, GetAuth());
+
                 await authProvider.GetUserAsync(auth.FirebaseToken);
+
                 return true;
             }
             catch (Exception e)
@@ -114,10 +119,12 @@ namespace Joyleaf.Services
 
         public static async Task RefreshAuthAsync()
         {
-            FirebaseAuthProvider authProvider = new FirebaseAuthProvider(new FirebaseConfig(Constants.FIREBASE_DATABASE_API_KEY));
-            FirebaseAuthLink authLink = new FirebaseAuthLink(authProvider, GetAuth());
-            Task<FirebaseAuthLink> freshAuthLink = authLink.GetFreshAuthAsync();
-            SetAuth(await freshAuthLink);
+            FirebaseAuthProvider authProvider = new FirebaseAuthProvider(new FirebaseConfig(Constants.FIREBASE_API_KEY));
+            FirebaseAuthLink auth = new FirebaseAuthLink(authProvider, GetAuth());
+
+            Task<FirebaseAuthLink> freshAuth = auth.GetFreshAuthAsync();
+
+            SetAuth(await freshAuth);
         }
 
         public static async Task<Content> LoadContentAsync()
@@ -142,6 +149,22 @@ namespace Joyleaf.Services
             }
 
             return Content.FromJson(Settings.Content);
+        }
+
+        public static async Task PostReviewAsync(long id, double rating, string review)
+        {
+            HttpClient client = new HttpClient();
+
+            var values = new Dictionary<string, string>
+            {
+                { "id", "" + id },
+                { "rating", "" + rating },
+                { "review", review }
+            };
+
+            var content = new FormUrlEncodedContent(values);
+            var response = await client.PostAsync("https://us-central1-joyleaf-c142c.cloudfunctions.net/post_review", content);
+            var responseString = await response.Content.ReadAsStringAsync();
         }
 
         public static bool IsContentExpired()
