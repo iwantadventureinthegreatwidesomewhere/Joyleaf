@@ -163,8 +163,8 @@ namespace Joyleaf.Services
             };
 
             var content = new FormUrlEncodedContent(values);
-            var response = await client.PostAsync("https://us-central1-joyleaf-c142c.cloudfunctions.net/post_review", content);
-            var responseString = await response.Content.ReadAsStringAsync();
+            var response = await client.PostAsync("https://us-central1-joyleaf-c142c.cloudfunctions.net/post_review?uid=" + GetAuth().User.LocalId, content);
+            await response.Content.ReadAsStringAsync();
         }
 
         public static bool IsContentExpired()

@@ -398,10 +398,9 @@ namespace Joyleaf.Views
             Frame writeReview = new Frame
             {
                 BorderColor = Color.LightGray,
-                CornerRadius = 10,
+                CornerRadius = 15,
                 HasShadow = false,
                 HorizontalOptions = LayoutOptions.FillAndExpand,
-                Margin = new Thickness(0, 0, 0, 300),
                 Padding = 0
             };
 
@@ -439,14 +438,15 @@ namespace Joyleaf.Views
             postReviewButton = new Button
             {
                 BackgroundColor = Color.FromHex("#00C88C"),
+                CornerRadius = 10,
                 FontAttributes = FontAttributes.Bold,
                 FontSize = 15,
-                HeightRequest = 25,
+                HeightRequest = 30,
                 HorizontalOptions = LayoutOptions.EndAndExpand,
                 Text = "Post Review",
                 TextColor = Color.White,
                 VerticalOptions = LayoutOptions.Center,
-                WidthRequest = 100
+                WidthRequest = 110
             };
 
             postReviewButton.Clicked += PostReviewClicked;
