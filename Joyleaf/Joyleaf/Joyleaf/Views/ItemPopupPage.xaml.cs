@@ -492,7 +492,15 @@ namespace Joyleaf.Views
 
         private void PostReviewClicked(object sender, EventArgs e)
         {
-            FirebaseBackend.PostReviewAsync(item.Id, writeReviewRating.Value, writeReviewEditor.Text);
+            if (writeReviewRating.Value > 0 && writeReviewEditor.TextColor != Color.Gray && !string.IsNullOrEmpty(writeReviewEditor.Text))
+            {
+                FirebaseBackend.PostReviewAsync(item.Id, writeReviewRating.Value, writeReviewEditor.Text);
+                Application.Current.MainPage.DisplayAlert("Rating submitted!", "Thank you for taking a moment to rate this strain. The Joyleaf community appreciates your support.", "OK");
+            }
+            else
+            {
+                Application.Current.MainPage.DisplayAlert("Incomplete rating", "Please provide a rating greater than zero and use the text space to write a brief review.", "OK");
+            }
         }
 
         private void EditorFocused(object sender, FocusEventArgs e)

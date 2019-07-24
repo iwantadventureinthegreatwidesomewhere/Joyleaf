@@ -165,6 +165,8 @@ namespace Joyleaf.Services
             var content = new FormUrlEncodedContent(values);
             var response = await client.PostAsync("https://us-central1-joyleaf-c142c.cloudfunctions.net/post_review?uid=" + GetAuth().User.LocalId, content);
             await response.Content.ReadAsStringAsync();
+
+            //refresh reviews and ratings for this item on popup and mainpage
         }
 
         public static bool IsContentExpired()
