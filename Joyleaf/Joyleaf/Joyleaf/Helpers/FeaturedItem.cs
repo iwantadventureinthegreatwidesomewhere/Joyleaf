@@ -44,7 +44,7 @@ namespace Joyleaf.Helpers
                 TextColor = Color.Gray
             });
 
-            if (item.Race == Race.Sativa)
+            if (item.Info.Race == Race.Sativa)
             {
                 header.Children.Add(new Image
                 {
@@ -53,7 +53,7 @@ namespace Joyleaf.Helpers
                     Source = "FeaturedSativa"
                 });
             }
-            else if (item.Race == Race.Indica)
+            else if (item.Info.Race == Race.Indica)
             {
                 header.Children.Add(new Image
                 {
@@ -63,7 +63,7 @@ namespace Joyleaf.Helpers
                     Source = "FeaturedIndica"
                 });
             }
-            else if (item.Race == Race.Hybrid)
+            else if (item.Info.Race == Race.Hybrid)
             {
                 header.Children.Add(new Image
                 {
@@ -82,7 +82,7 @@ namespace Joyleaf.Helpers
                 FontSize = 23,
                 HorizontalOptions = LayoutOptions.Start,
                 Margin = new Thickness(0, 10, 0, 5),
-                Text = Truncate(item.Name, 20),
+                Text = Truncate(item.Info.Name, 20),
                 TextColor = Color.FromHex("#333333")
             });
 
@@ -103,19 +103,19 @@ namespace Joyleaf.Helpers
 
             stack.Children.Add(rating);
 
-            if (!String.IsNullOrEmpty(item.Desc))
+            if (!String.IsNullOrEmpty(item.Info.Desc))
             {
                 stack.Children.Add(new Label
                 {
                     FontSize = 15,
                     HorizontalOptions = LayoutOptions.Start,
                     Margin = new Thickness(0, 10, 0, 0),
-                    Text = Truncate(item.Desc, 200),
+                    Text = Truncate(item.Info.Desc, 200),
                     TextColor = Color.Gray
                 });
             }
 
-            if (item.Flavors != null || item.Effects.Positive != null)
+            if (item.Info.Flavors != null || item.Info.Effects.Positive != null)
             {
                 FlexLayout flexLayout = new FlexLayout
                 {
@@ -126,8 +126,8 @@ namespace Joyleaf.Helpers
                     Wrap = FlexWrap.Wrap
                 };
 
-                var flavors = item.Flavors;
-                var effects = item.Effects.Positive;
+                var flavors = item.Info.Flavors;
+                var effects = item.Info.Effects.Positive;
 
                 flavors.ToList().ForEach(x => effects.Add(flavors.Count+x.Key, x.Value));
 
@@ -144,7 +144,7 @@ namespace Joyleaf.Helpers
                     {
                         Color color;
 
-                        if (item.Flavors.ContainsValue(entry.Value))
+                        if (item.Info.Flavors.ContainsValue(entry.Value))
                         {
                             color = Color.FromHex("#e349c2");
                         }

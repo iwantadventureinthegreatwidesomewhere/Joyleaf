@@ -26,7 +26,7 @@ namespace Joyleaf.Helpers
                 VerticalOptions = LayoutOptions.FillAndExpand
             };
 
-            if (item.Race == Race.Sativa)
+            if (item.Info.Race == Race.Sativa)
             {
                 BackgroundColor = Color.FromHex("#ffa742");
                 detailStack.Children.Add(new Image
@@ -37,7 +37,7 @@ namespace Joyleaf.Helpers
                     Source = "Sativa2"
                 });
             }
-            else if (item.Race == Race.Indica)
+            else if (item.Info.Race == Race.Indica)
             {
                 BackgroundColor = Color.FromHex("#774dff");
                 detailStack.Children.Add(new Image
@@ -48,7 +48,7 @@ namespace Joyleaf.Helpers
                     Source = "Indica2"
                 });
             }
-            else if (item.Race == Race.Hybrid)
+            else if (item.Info.Race == Race.Hybrid)
             {
                 BackgroundColor = Color.FromHex("#00b368");
                 detailStack.Children.Add(new Image
@@ -67,7 +67,7 @@ namespace Joyleaf.Helpers
                 HorizontalOptions = LayoutOptions.Center,
                 HorizontalTextAlignment = TextAlignment.Center,
                 Margin = new Thickness(0, 0, 0, 3),
-                Text = Truncate(item.Name, 17),
+                Text = Truncate(item.Info.Name, 17),
                 TextColor = Color.White,
                 VerticalOptions = LayoutOptions.CenterAndExpand
             });

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Joyleaf.Helpers;
 using Joyleaf.Services;
 using Rg.Plugins.Popup.Pages;
@@ -29,7 +30,7 @@ namespace Joyleaf.Views
                 FontAttributes = FontAttributes.Bold,
                 FontSize = 25,
                 Margin = new Thickness(0, 30, 0, 5),
-                Text = item.Name,
+                Text = item.Info.Name,
                 TextColor = Color.FromHex("#333333")
             });
 
@@ -39,7 +40,7 @@ namespace Joyleaf.Views
                 Orientation = StackOrientation.Horizontal
             };
 
-            if (item.Race == Race.Sativa)
+            if (item.Info.Race == Race.Sativa)
             {
                 SpeciesStack.Children.Add(new Image
                 {
@@ -58,7 +59,7 @@ namespace Joyleaf.Views
                     VerticalOptions = LayoutOptions.Center
                 });
             }
-            else if (item.Race == Race.Indica)
+            else if (item.Info.Race == Race.Indica)
             {
                 SpeciesStack.Children.Add(new Image
                 {
@@ -77,7 +78,7 @@ namespace Joyleaf.Views
                     VerticalOptions = LayoutOptions.Center
                 });
             }
-            else if (item.Race == Race.Hybrid)
+            else if (item.Info.Race == Race.Hybrid)
             {
                 SpeciesStack.Children.Add(new Image
                 {
@@ -133,18 +134,18 @@ namespace Joyleaf.Views
 
             Stack.Children.Add(RatingStack);
 
-            if (!String.IsNullOrEmpty(item.Desc))
+            if (!String.IsNullOrEmpty(item.Info.Desc))
             {
                 Stack.Children.Add(new Label
                 {
                     FontSize = 15,
                     Margin = new Thickness(0, 0, 0, 10),
-                    Text = item.Desc,
+                    Text = item.Info.Desc,
                     TextColor = Color.FromHex("#333333")
                 });
             }
 
-            if (item.Flavors != null)
+            if (item.Info.Flavors != null)
             {
                 Stack.Children.Add(new Label
                 {
@@ -163,7 +164,7 @@ namespace Joyleaf.Views
                     Wrap = FlexWrap.Wrap
                 };
 
-                foreach (KeyValuePair<string, string> entry in item.Flavors)
+                foreach (KeyValuePair<string, string> entry in item.Info.Flavors)
                 {
                     StackLayout TagStack = new StackLayout
                     {
@@ -199,7 +200,7 @@ namespace Joyleaf.Views
                 Stack.Children.Add(FlavorsLayout);
             }
 
-            if (item.Effects.Medical != null || item.Effects.Negative != null || item.Effects.Positive != null)
+            if (item.Info.Effects.Medical != null || item.Info.Effects.Negative != null || item.Info.Effects.Positive != null)
             {
                 Stack.Children.Add(new Label
                 {
@@ -218,9 +219,9 @@ namespace Joyleaf.Views
                     Wrap = FlexWrap.Wrap
                 };
 
-                if (item.Effects.Positive != null)
+                if (item.Info.Effects.Positive != null)
                 {
-                    foreach (KeyValuePair<string, string> entry in item.Effects.Positive)
+                    foreach (KeyValuePair<string, string> entry in item.Info.Effects.Positive)
                     {
                         StackLayout TagStack = new StackLayout
                         {
@@ -254,9 +255,9 @@ namespace Joyleaf.Views
                     }
                 }
 
-                if (item.Effects.Negative != null)
+                if (item.Info.Effects.Negative != null)
                 {
-                    foreach (KeyValuePair<string, string> entry in item.Effects.Negative)
+                    foreach (KeyValuePair<string, string> entry in item.Info.Effects.Negative)
                     {
                         StackLayout TagStack = new StackLayout
                         {
@@ -290,9 +291,9 @@ namespace Joyleaf.Views
                     }
                 }
 
-                if (item.Effects.Medical != null)
+                if (item.Info.Effects.Medical != null)
                 {
-                    foreach (KeyValuePair<string, string> entry in item.Effects.Medical)
+                    foreach (KeyValuePair<string, string> entry in item.Info.Effects.Medical)
                     {
                         if (entry.Value != "Headache")
                         {
@@ -485,16 +486,23 @@ namespace Joyleaf.Views
 
 
 
+        }
 
+        private async Task UpdateRatingAsync()
+        {
+            Reviews reviews = await FirebaseBackend.GetRatingAsync(item.Info.Id);
 
-
+            foreach (KeyValuePair<string, Rating> entry in reviews.Ratings)
+            {
+                Application.Current.MainPage.DisplayAlert("" + entry.Value.Score, "", "OK");
+            }
         }
 
         private void PostReviewClicked(object sender, EventArgs e)
         {
             if (writeReviewRating.Value > 0 && writeReviewEditor.TextColor != Color.Gray && !string.IsNullOrEmpty(writeReviewEditor.Text))
             {
-                FirebaseBackend.PostReviewAsync(item.Id, writeReviewRating.Value, writeReviewEditor.Text);
+                FirebaseBackend.PostReviewAsync(item.Info.Id, writeReviewRating.Value, writeReviewEditor.Text);
                 Application.Current.MainPage.DisplayAlert("Rating submitted!", "Thank you for taking a moment to rate this strain. The Joyleaf community appreciates your support.", "OK");
             }
             else

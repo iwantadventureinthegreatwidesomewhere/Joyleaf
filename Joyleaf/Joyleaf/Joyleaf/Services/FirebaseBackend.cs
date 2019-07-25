@@ -135,7 +135,7 @@ namespace Joyleaf.Services
 
                 HttpRequestMessage request = new HttpRequestMessage
                 {
-                    RequestUri = new Uri("https://us-central1-joyleaf-c142c.cloudfunctions.net/content_getter?uid=" + GetAuth().User.LocalId),
+                    RequestUri = new Uri("https://us-central1-joyleaf-c142c.cloudfunctions.net/get_content?uid=" + GetAuth().User.LocalId),
                     Method = HttpMethod.Get
                 };
 
@@ -167,12 +167,33 @@ namespace Joyleaf.Services
             await response.Content.ReadAsStringAsync();
 
             //refresh reviews and ratings for this item on popup and mainpage
+            //caching reviews
+        }
+
+        public static async Task<Reviews> GetRatingAsync(long id)
+        {
+            HttpRequestMessage request = new HttpRequestMessage
+            {
+                RequestUri = new Uri("https://us-central1-joyleaf-c142c.cloudfunctions.net/get_reviews?strain_id=" + id + "&uid=" + GetAuth().User.LocalId),
+                Method = HttpMethod.Get
+            };
+
+            HttpClient client = new HttpClient();
+            HttpResponseMessage response = await client.SendAsync(request);
+            string json = await response.Content.ReadAsStringAsync();
+
+            return Reviews.FromJson(json);
         }
 
         public static bool IsContentExpired()
         {
             int UnixTimestamp = (int)DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1)).TotalSeconds;
             return UnixTimestamp - Settings.LastContentUpdateTimestamp >= 10800;
+        }
+
+        public static void ResetContentTimer()
+        {
+            Settings.LastContentUpdateTimestamp = -1;
         }
 
         public static void SetAuth(FirebaseAuth auth)

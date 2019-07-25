@@ -29,6 +29,15 @@ namespace Joyleaf.Helpers
 
     public partial class Item
     {
+        [JsonProperty("info")]
+        public Info Info { get; set; }
+
+        [JsonProperty("reviews")]
+        public Reviews Reviews { get; set; }
+    }
+
+    public partial class Info
+    {
         [JsonProperty("desc", NullValueHandling = NullValueHandling.Ignore)]
         public string Desc { get; set; }
 
@@ -56,7 +65,7 @@ namespace Joyleaf.Helpers
         [JsonProperty("negative", NullValueHandling = NullValueHandling.Ignore)]
         public Dictionary<string, string> Negative { get; set; }
 
-        [JsonProperty("positive")]
+        [JsonProperty("positive", NullValueHandling = NullValueHandling.Ignore)]
         public Dictionary<string, string> Positive { get; set; }
     }
 
@@ -64,15 +73,15 @@ namespace Joyleaf.Helpers
 
     public partial class Content
     {
-        public static Content FromJson(string json) => JsonConvert.DeserializeObject<Content>(json, Converter.Settings);
+        public static Content FromJson(string json) => JsonConvert.DeserializeObject<Content>(json, Content_Converter.Settings);
     }
 
-    public static class Serialize
+    public static class Content_Serialize
     {
-        public static string ToJson(this Content self) => JsonConvert.SerializeObject(self, Converter.Settings);
+        public static string ToJson(this Content self) => JsonConvert.SerializeObject(self, Content_Converter.Settings);
     }
 
-    internal static class Converter
+    internal static class Content_Converter
     {
         public static readonly JsonSerializerSettings Settings = new JsonSerializerSettings
         {
@@ -80,13 +89,13 @@ namespace Joyleaf.Helpers
             DateParseHandling = DateParseHandling.None,
             Converters =
             {
-                RaceConverter.Singleton,
+                Content_RaceConverter.Singleton,
                 new IsoDateTimeConverter { DateTimeStyles = DateTimeStyles.AssumeUniversal }
             },
         };
     }
 
-    internal class RaceConverter : JsonConverter
+    internal class Content_RaceConverter : JsonConverter
     {
         public override bool CanConvert(Type t) => t == typeof(Race) || t == typeof(Race?);
 
@@ -129,6 +138,6 @@ namespace Joyleaf.Helpers
             throw new Exception("Cannot marshal type Race");
         }
 
-        public static readonly RaceConverter Singleton = new RaceConverter();
+        public static readonly Content_RaceConverter Singleton = new Content_RaceConverter();
     }
 }

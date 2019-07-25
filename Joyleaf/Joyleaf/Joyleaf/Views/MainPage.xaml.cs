@@ -175,11 +175,11 @@ namespace Joyleaf.Views
 
                     int count = 0;
 
-                    foreach (Curated categoryData in content.Curated)
+                    foreach (Curated category in content.Curated)
                     {
                         count++;
 
-                        ContentStack.Children.Add(new CategoryStack(categoryData));
+                        ContentStack.Children.Add(new CategoryStack(category));
 
                         if(count%2 == 0){
                             ContentStack.Children.Add(new FeaturedItem(content.Featured[(count/2)-1]));
@@ -193,6 +193,8 @@ namespace Joyleaf.Views
                 }
                 catch (Exception)
                 {
+                    FirebaseBackend.ResetContentTimer();
+
                     LoadingWheel.IsEnabled = false;
                     LoadingWheel.IsVisible = false;
 
