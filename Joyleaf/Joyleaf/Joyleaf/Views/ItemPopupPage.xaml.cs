@@ -501,7 +501,7 @@ namespace Joyleaf.Views
         {
             Reviews reviews = await FirebaseBackend.GetRatingAsync(item.Info.Id);
 
-            //caching review for strain
+            Task.Factory.StartNew(() => FirebaseBackend.CacheRating(item.Info.Id, reviews));
 
             mainPageFrame.updateRating(reviews.AverageRating);
 

@@ -182,6 +182,32 @@ namespace Joyleaf.Services
             return Reviews.FromJson(json);
         }
 
+        public static void CacheRating(long id, Reviews reviews)
+        {
+            Content content = Content.FromJson(Settings.Content);
+
+            foreach (Curated curated in content.Curated)
+            {
+                foreach(Item item in curated.Items)
+                {
+                    if(item.Info.Id == id)
+                    {
+                        item.Reviews = reviews;
+                    }
+                }
+            }
+
+            foreach (Item item in content.Featured)
+            {
+                if (item.Info.Id == id)
+                {
+                    item.Reviews = reviews;
+                }
+            }
+
+            Settings.Content = Content_Serialize.ToJson(content);
+        }
+
         public static bool IsContentExpired()
         {
             int UnixTimestamp = (int)DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1)).TotalSeconds;
