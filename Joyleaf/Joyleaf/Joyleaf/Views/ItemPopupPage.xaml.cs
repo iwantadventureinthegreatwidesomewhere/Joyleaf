@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Joyleaf.Helpers;
 using Joyleaf.Services;
@@ -20,6 +21,7 @@ namespace Joyleaf.Views
         private Button postReviewButton;
         private Editor writeReviewEditor;
         private SfRating writeReviewRating;
+        private StackLayout latestReviews;
 
         public ItemPopupPage(Item item, ItemInterface mainPageFrame)
         {
@@ -107,7 +109,7 @@ namespace Joyleaf.Views
 
             StackLayout RatingStack = new StackLayout
             {
-                Margin = new Thickness(0, 0, 0, 7),
+                Margin = new Thickness(0, 0, 0, 10),
                 Orientation = StackOrientation.Horizontal
             };
 
@@ -115,16 +117,18 @@ namespace Joyleaf.Views
             {
                 ItemCount = 5,
                 ItemSize = 17,
-                Margin = new Thickness(0, 0, 3, 3),
+                Margin = new Thickness(0, 0, 3, 0),
                 Precision = Precision.Exact,
                 ReadOnly = true,
                 VerticalOptions = LayoutOptions.Center
             };
 
             headerRating.RatingSettings.RatedFill = Color.FromHex("#ffa742");
-            headerRating.RatingSettings.RatedStroke = Color.Transparent;
-            headerRating.RatingSettings.UnRatedFill = Color.LightGray;
-            headerRating.RatingSettings.UnRatedStroke = Color.Transparent;
+            headerRating.RatingSettings.RatedStroke = Color.FromHex("#ffa742");
+            headerRating.RatingSettings.RatedStrokeWidth = 1;
+            headerRating.RatingSettings.UnRatedFill = Color.Transparent;
+            headerRating.RatingSettings.UnRatedStroke = Color.FromHex("#ffa742");
+            headerRating.RatingSettings.UnRatedStrokeWidth = 1;
 
             RatingStack.Children.Add(headerRating);
 
@@ -406,6 +410,7 @@ namespace Joyleaf.Views
                 CornerRadius = 15,
                 HasShadow = false,
                 HorizontalOptions = LayoutOptions.FillAndExpand,
+                Margin = new Thickness(0, 0, 0, 15),
                 Padding = 0
             };
 
@@ -434,9 +439,11 @@ namespace Joyleaf.Views
             };
 
             writeReviewRating.RatingSettings.RatedFill = Color.FromHex("#ffa742");
-            writeReviewRating.RatingSettings.RatedStroke = Color.Transparent;
-            writeReviewRating.RatingSettings.UnRatedFill = Color.LightGray;
-            writeReviewRating.RatingSettings.UnRatedStroke = Color.Transparent;
+            writeReviewRating.RatingSettings.RatedStroke = Color.FromHex("#ffa742");
+            writeReviewRating.RatingSettings.RatedStrokeWidth = 1;
+            writeReviewRating.RatingSettings.UnRatedFill = Color.Transparent;
+            writeReviewRating.RatingSettings.UnRatedStroke = Color.FromHex("#ffa742");
+            writeReviewRating.RatingSettings.UnRatedStrokeWidth = 1;
 
             headerReviewStack.Children.Add(writeReviewRating);
 
@@ -486,15 +493,24 @@ namespace Joyleaf.Views
 
             Stack.Children.Add(writeReview);
 
+            Stack.Children.Add(new Label
+            {
+                FontAttributes = FontAttributes.Bold,
+                FontSize = 20,
+                Margin = new Thickness(0, 0, 0, 10),
+                Text = "Latest Reviews",
+                TextColor = Color.FromHex("#333333")
+            });
 
+            latestReviews = new StackLayout
+            {
+                HorizontalOptions = LayoutOptions.FillAndExpand,
+                Margin = new Thickness(0, 0, 0, 30),
+                Orientation = StackOrientation.Vertical,
+                Spacing = 15
+            };
 
-            
-
-
-
-
-
-
+            Stack.Children.Add(latestReviews);
         }
 
         public async Task UpdateRatingAsync()
@@ -514,19 +530,133 @@ namespace Joyleaf.Views
 
             sectionNumberOfRatings.Text = "" + reviews.NumberOfReviews + " Ratings";
 
-            /*foreach (KeyValuePair<string, Rating> entry in reviews.Ratings)
-            {
+            latestReviews.Children.Clear();
 
-            }*/
+            if(reviews.NumberOfReviews > 0)
+            {
+                var reversedRatings = reviews.Ratings.OrderByDescending(pair => pair.Key);
+
+                foreach (KeyValuePair<string, Rating> entry in reversedRatings)
+                {
+                    Console.WriteLine(entry.Value.Review);
+
+                    Frame review = new Frame
+                    {
+                        BackgroundColor = Color.FromHex("#f0f0f7"),
+                        CornerRadius = 15,
+                        HasShadow = false,
+                        HorizontalOptions = LayoutOptions.FillAndExpand
+                    };
+
+                    StackLayout reviewStack = new StackLayout
+                    {
+                        HorizontalOptions = LayoutOptions.FillAndExpand,
+                        Orientation = StackOrientation.Vertical,
+                        VerticalOptions = LayoutOptions.FillAndExpand
+                    };
+
+                    StackLayout headerStack = new StackLayout
+                    {
+                        HorizontalOptions = LayoutOptions.FillAndExpand,
+                        Margin = new Thickness(0, 0, 0, 7),
+                        Orientation = StackOrientation.Horizontal
+                    };
+
+                    StackLayout nameAndRatingStack = new StackLayout
+                    {
+                        HorizontalOptions = LayoutOptions.Start,
+                        Orientation = StackOrientation.Vertical
+                    };
+
+                    SfRating reviewRating = new SfRating
+                    {
+                        ItemCount = 5,
+                        ItemSize = 15,
+                        Margin = new Thickness(0, 0, 0, 3),
+                        Precision = Precision.Exact,
+                        ReadOnly = true,
+                        Value = entry.Value.Score
+                    };
+
+                    reviewRating.RatingSettings.RatedFill = Color.FromHex("#ffa742");
+                    reviewRating.RatingSettings.RatedStroke = Color.FromHex("#ffa742");
+                    reviewRating.RatingSettings.RatedStrokeWidth = 1;
+                    reviewRating.RatingSettings.UnRatedFill = Color.Transparent;
+                    reviewRating.RatingSettings.UnRatedStroke = Color.FromHex("#ffa742");
+                    reviewRating.RatingSettings.UnRatedStrokeWidth = 1;
+
+                    nameAndRatingStack.Children.Add(reviewRating);
+
+                    nameAndRatingStack.Children.Add(new Label
+                    {
+                        FontAttributes = FontAttributes.Bold,
+                        FontSize = 15,
+                        HorizontalOptions = LayoutOptions.Start,
+                        Text = Truncate("By " + entry.Value.PosterName, 15),
+                        TextColor = Color.FromHex("#333333")
+                    });
+
+                    headerStack.Children.Add(nameAndRatingStack);
+
+                    StackLayout dateStack = new StackLayout
+                    {
+                        HorizontalOptions = LayoutOptions.EndAndExpand,
+                        Margin = new Thickness(0, 0, 0, 15),
+                        Orientation = StackOrientation.Vertical
+                    };
+
+                    dateStack.Children.Add(new Label
+                    {
+                        FontSize = 15,
+                        HorizontalOptions = LayoutOptions.EndAndExpand,
+                        Text = entry.Value.Timestamp,
+                        TextColor = Color.Gray
+                    });
+
+                    headerStack.Children.Add(dateStack);
+
+                    reviewStack.Children.Add(headerStack);
+
+                    StackLayout descStack = new StackLayout
+                    {
+                        HorizontalOptions = LayoutOptions.FillAndExpand,
+                        Orientation = StackOrientation.Vertical,
+                        VerticalOptions = LayoutOptions.FillAndExpand
+                    };
+
+                    descStack.Children.Add(new Label
+                    {
+                        FontSize = 15,
+                        Text = entry.Value.Review,
+                        TextColor = Color.Gray
+                    });
+
+                    reviewStack.Children.Add(descStack);
+
+                    review.Content = reviewStack;
+
+                    latestReviews.Children.Add(review);
+                }
+            }
+            else
+            {
+                latestReviews.Children.Add(new Label
+                {
+                    FontAttributes = FontAttributes.Italic,
+                    FontSize = 15,
+                    Text = "There are no user reviews for this strain.",
+                    TextColor = Color.Gray
+                });
+            }
         }
 
         private async void PostReviewClickedAsync(object sender, EventArgs e)
         {
             if (writeReviewRating.Value > 0 && writeReviewEditor.TextColor != Color.Gray && !string.IsNullOrEmpty(writeReviewEditor.Text))
             {
-                await FirebaseBackend.PostReviewAsync(item.Info.Id, writeReviewRating.Value, writeReviewEditor.Text);
-
                 await Application.Current.MainPage.DisplayAlert("Rating submitted!", "Thank you for taking a moment to rate this strain. The Joyleaf community appreciates your support.", "OK");
+
+                await FirebaseBackend.PostReviewAsync(item.Info.Id, writeReviewRating.Value, writeReviewEditor.Text);
 
                 await UpdateRatingAsync();
             }
@@ -552,6 +682,11 @@ namespace Joyleaf.Views
                 writeReviewEditor.Text = "Write a review. Help others learn more about this strain.";
                 writeReviewEditor.TextColor = Color.Gray;
             }
+        }
+
+        private string Truncate(string value, int maxChars)
+        {
+            return value.Length <= maxChars ? value : value.Substring(0, maxChars) + "...";
         }
     }
 }

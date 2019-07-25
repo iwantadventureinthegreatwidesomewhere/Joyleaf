@@ -86,9 +86,11 @@ namespace Joyleaf.Helpers
             };
 
             rating.RatingSettings.RatedFill = Color.White;
-            rating.RatingSettings.RatedStroke = Color.Transparent;
-            rating.RatingSettings.UnRatedFill = Color.LightGray;
-            rating.RatingSettings.UnRatedStroke = Color.Transparent;
+            rating.RatingSettings.RatedStroke = Color.White;
+            rating.RatingSettings.RatedStrokeWidth = 1;
+            rating.RatingSettings.UnRatedFill = Color.Transparent;
+            rating.RatingSettings.UnRatedStroke = Color.White;
+            rating.RatingSettings.UnRatedStrokeWidth = 1;
 
             detailStack.Children.Add(rating);
 
