@@ -12,18 +12,23 @@ namespace Joyleaf.Views
     public partial class ItemPopupPage : PopupPage
     {
         private Item item;
+        private ItemInterface mainPageFrame;
+        private SfRating headerRating;
+        private Label headerNumberOfRatings;
+        private Label sectionRating;
+        private Label sectionNumberOfRatings;
         private Button postReviewButton;
         private Editor writeReviewEditor;
         private SfRating writeReviewRating;
 
-        public ItemPopupPage(Item item)
+        public ItemPopupPage(Item item, ItemInterface mainPageFrame)
         {
-            double ratingScore = 3.52213;
-            double numberOfRatings = 273;
-
             InitializeComponent();
 
             this.item = item;
+            this.mainPageFrame = mainPageFrame;
+
+            UpdateRatingAsync();
 
             Stack.Children.Add(new Label
             {
@@ -106,31 +111,31 @@ namespace Joyleaf.Views
                 Orientation = StackOrientation.Horizontal
             };
 
-            SfRating rating = new SfRating
+            headerRating = new SfRating
             {
                 ItemCount = 5,
                 ItemSize = 17,
                 Margin = new Thickness(0, 0, 3, 0),
                 Precision = Precision.Exact,
                 ReadOnly = true,
-                Value = ratingScore,
                 VerticalOptions = LayoutOptions.Center
             };
 
-            rating.RatingSettings.RatedFill = Color.FromHex("#ffa742");
-            rating.RatingSettings.RatedStroke = Color.Transparent;
-            rating.RatingSettings.UnRatedFill = Color.LightGray;
-            rating.RatingSettings.UnRatedStroke = Color.Transparent;
+            headerRating.RatingSettings.RatedFill = Color.FromHex("#ffa742");
+            headerRating.RatingSettings.RatedStroke = Color.Transparent;
+            headerRating.RatingSettings.UnRatedFill = Color.LightGray;
+            headerRating.RatingSettings.UnRatedStroke = Color.Transparent;
 
-            RatingStack.Children.Add(rating);
+            RatingStack.Children.Add(headerRating);
 
-            RatingStack.Children.Add(new Label
+            headerNumberOfRatings = new Label
             {
                 FontSize = 15,
-                Text = "(" + numberOfRatings + ")",
                 TextColor = Color.Gray,
                 VerticalOptions = LayoutOptions.Center
-            });
+            };
+
+            RatingStack.Children.Add(headerNumberOfRatings);
 
             Stack.Children.Add(RatingStack);
 
@@ -348,9 +353,6 @@ namespace Joyleaf.Views
                 TextColor = Color.FromHex("#333333"),
             });
 
-            string number = "" + ratingScore;
-            var scoreSubstring = number.Substring(0, 3);
-
             StackLayout scoreStack = new StackLayout
             {
                 HorizontalOptions = LayoutOptions.FillAndExpand,
@@ -358,14 +360,15 @@ namespace Joyleaf.Views
                 Orientation = StackOrientation.Horizontal
             };
 
-            scoreStack.Children.Add(new Label
+            sectionRating = new Label
             {
                 FontAttributes = FontAttributes.Bold,
                 FontSize = 50,
-                Text = scoreSubstring,
                 TextColor = Color.Gray,
                 VerticalOptions = LayoutOptions.Center
-            });
+            };
+
+            scoreStack.Children.Add(sectionRating);
 
             StackLayout scoreFooterStack = new StackLayout
             {
@@ -384,13 +387,14 @@ namespace Joyleaf.Views
                 TextColor = Color.Gray
             });
 
-            scoreFooterStack.Children.Add(new Label
+            sectionNumberOfRatings = new Label
             {
                 FontSize = 13,
                 Margin = new Thickness(0, 0, 0, 3),
-                Text = "" + numberOfRatings + " Ratings",
                 TextColor = Color.Gray,
-            });
+            };
+
+            scoreFooterStack.Children.Add(sectionNumberOfRatings);
 
             scoreStack.Children.Add(scoreFooterStack);
 
@@ -450,7 +454,7 @@ namespace Joyleaf.Views
                 WidthRequest = 110
             };
 
-            postReviewButton.Clicked += PostReviewClicked;
+            postReviewButton.Clicked += PostReviewClickedAsync;
 
             headerReviewStack.Children.Add(postReviewButton);
 
@@ -484,30 +488,52 @@ namespace Joyleaf.Views
 
 
 
+            
+
+
+
+
 
 
         }
 
-        private async Task UpdateRatingAsync()
+        public async Task UpdateRatingAsync()
         {
             Reviews reviews = await FirebaseBackend.GetRatingAsync(item.Info.Id);
 
-            foreach (KeyValuePair<string, Rating> entry in reviews.Ratings)
+            mainPageFrame.updateRating(reviews.AverageRating);
+
+            headerRating.Value = reviews.AverageRating;
+            headerNumberOfRatings.Text = "(" + reviews.NumberOfReviews + ")";
+
+            string rating = "" + (reviews.AverageRating + 0.001);
+            string ratingSubstring = rating.Substring(0, 3);
+            sectionRating.Text = ratingSubstring;
+
+            sectionNumberOfRatings.Text = "" + reviews.NumberOfReviews + " Ratings";
+
+            /*foreach (KeyValuePair<string, Rating> entry in reviews.Ratings)
             {
-                Application.Current.MainPage.DisplayAlert("" + entry.Value.Score, "", "OK");
-            }
+
+            }*/
+
+
+            //caching review for strain
         }
 
-        private void PostReviewClicked(object sender, EventArgs e)
+        private async void PostReviewClickedAsync(object sender, EventArgs e)
         {
             if (writeReviewRating.Value > 0 && writeReviewEditor.TextColor != Color.Gray && !string.IsNullOrEmpty(writeReviewEditor.Text))
             {
-                FirebaseBackend.PostReviewAsync(item.Info.Id, writeReviewRating.Value, writeReviewEditor.Text);
-                Application.Current.MainPage.DisplayAlert("Rating submitted!", "Thank you for taking a moment to rate this strain. The Joyleaf community appreciates your support.", "OK");
+                await FirebaseBackend.PostReviewAsync(item.Info.Id, writeReviewRating.Value, writeReviewEditor.Text);
+
+                await Application.Current.MainPage.DisplayAlert("Rating submitted!", "Thank you for taking a moment to rate this strain. The Joyleaf community appreciates your support.", "OK");
+
+                await UpdateRatingAsync();
             }
             else
             {
-                Application.Current.MainPage.DisplayAlert("Incomplete rating", "Please provide a rating greater than zero and use the text space to write a brief review.", "OK");
+                await Application.Current.MainPage.DisplayAlert("Incomplete rating", "Please provide a rating greater than zero and use the text space to write a brief review.", "OK");
             }
         }
 

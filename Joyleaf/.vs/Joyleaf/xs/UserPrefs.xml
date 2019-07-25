@@ -2,23 +2,19 @@
   <MonoDevelop.Ide.ItemProperties.Joyleaf.iOS automaticSigning="False" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.AFAA1D33-384F-4B1E-8C69-A380D9C93468" />
   <MonoDevelop.Ide.Workbench>
     <Files>
-      <File FileName="Joyleaf/Joyleaf/Helpers/CategoryItem.cs" Line="1" Column="1" />
-      <File FileName="Joyleaf/Joyleaf/Views/ItemPopupPage.xaml.cs" Line="493" Column="80" />
-      <File FileName="Joyleaf/Joyleaf/Services/FirebaseBackend.cs" Line="200" Column="10" />
+      <File FileName="Joyleaf/Joyleaf/Views/ItemPopupPage.xaml.cs" Line="522" Column="10" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Joyleaf" expanded="True">
             <Node name="Joyleaf" expanded="True">
-              <Node name="Helpers" expanded="True">
-                <Node name="CategoryItem.cs" selected="True" />
-              </Node>
               <Node name="Services" expanded="True" />
               <Node name="Views" expanded="True">
-                <Node name="ItemPopupPage.xaml" expanded="True" />
+                <Node name="ItemPopupPage.xaml" expanded="True">
+                  <Node name="ItemPopupPage.xaml.cs" selected="True" />
+                </Node>
                 <Node name="LogInPage.xaml" expanded="True" />
-                <Node name="MainPage.xaml" expanded="True" />
               </Node>
             </Node>
           </Node>

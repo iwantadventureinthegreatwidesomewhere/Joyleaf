@@ -9,14 +9,13 @@ using Xamarin.Forms;
 
 namespace Joyleaf.Helpers
 {
-    public class FeaturedItem : ShadowFrame
+    public class FeaturedItem : ShadowFrame, ItemInterface
     {
         private readonly Item item;
+        private SfRating rating;
 
         public FeaturedItem(Item item)
         {
-            double ratingScore = 3.5233;
-
             this.item = item;
 
             CornerRadius = 30;
@@ -86,13 +85,13 @@ namespace Joyleaf.Helpers
                 TextColor = Color.FromHex("#333333")
             });
 
-            SfRating rating = new SfRating
+            rating = new SfRating
             {
                 ItemCount = 5,
                 ItemSize = 17,
                 Precision = Precision.Exact,
                 ReadOnly = true,
-                Value = ratingScore,
+                Value = item.Reviews.AverageRating,
                 VerticalOptions = LayoutOptions.Center
             };
 
@@ -197,12 +196,17 @@ namespace Joyleaf.Helpers
 
         private void PushItemViewAsync(object sender, EventArgs e)
         {
-            PopupNavigation.Instance.PushAsync(new ItemPopupPage(item));
+            PopupNavigation.Instance.PushAsync(new ItemPopupPage(item, this));
         }
 
         private string Truncate(string value, int maxChars)
         {
             return value.Length <= maxChars ? value : value.Substring(0, maxChars) + "...";
+        }
+
+        void ItemInterface.updateRating(double averageRating)
+        {
+            rating.Value = averageRating;
         }
     }
 }

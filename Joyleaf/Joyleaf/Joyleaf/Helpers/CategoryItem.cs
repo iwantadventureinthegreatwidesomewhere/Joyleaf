@@ -6,9 +6,10 @@ using Xamarin.Forms;
 
 namespace Joyleaf.Helpers
 {
-    public class CategoryItem : Frame
+    public class CategoryItem : Frame, ItemInterface
     {
         private readonly Item item;
+        private SfRating rating;
 
         public CategoryItem(Item item)
         {
@@ -72,7 +73,7 @@ namespace Joyleaf.Helpers
                 VerticalOptions = LayoutOptions.CenterAndExpand
             });
 
-            SfRating rating = new SfRating
+            rating = new SfRating
             {
                 HorizontalOptions = LayoutOptions.Center,
                 ItemCount = 5,
@@ -80,7 +81,7 @@ namespace Joyleaf.Helpers
                 Margin = new Thickness(0, 0, 0, 3),
                 Precision = Precision.Exact,
                 ReadOnly = true,
-                Value = 3,
+                Value = item.Reviews.AverageRating,
                 VerticalOptions = LayoutOptions.EndAndExpand
             };
 
@@ -100,12 +101,17 @@ namespace Joyleaf.Helpers
 
         private void PushItemViewAsync(object sender, EventArgs e)
         {
-            PopupNavigation.Instance.PushAsync(new ItemPopupPage(item));
+            PopupNavigation.Instance.PushAsync(new ItemPopupPage(item, this));
         }
 
         private string Truncate(string value, int maxChars)
         {
             return value.Length <= maxChars ? value : value.Substring(0, maxChars) + "...";
+        }
+
+        void ItemInterface.updateRating(double averageRating)
+        {
+            rating.Value = averageRating;
         }
     }
 }
