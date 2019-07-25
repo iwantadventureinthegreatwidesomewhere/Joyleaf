@@ -107,7 +107,7 @@ namespace Joyleaf.Views
 
             StackLayout RatingStack = new StackLayout
             {
-                Margin = new Thickness(0, 0, 0, 10),
+                Margin = new Thickness(0, 0, 0, 7),
                 Orientation = StackOrientation.Horizontal
             };
 
@@ -115,7 +115,7 @@ namespace Joyleaf.Views
             {
                 ItemCount = 5,
                 ItemSize = 17,
-                Margin = new Thickness(0, 0, 3, 0),
+                Margin = new Thickness(0, 0, 3, 3),
                 Precision = Precision.Exact,
                 ReadOnly = true,
                 VerticalOptions = LayoutOptions.Center
@@ -501,6 +501,8 @@ namespace Joyleaf.Views
         {
             Reviews reviews = await FirebaseBackend.GetRatingAsync(item.Info.Id);
 
+            //caching review for strain
+
             mainPageFrame.updateRating(reviews.AverageRating);
 
             headerRating.Value = reviews.AverageRating;
@@ -516,9 +518,6 @@ namespace Joyleaf.Views
             {
 
             }*/
-
-
-            //caching review for strain
         }
 
         private async void PostReviewClickedAsync(object sender, EventArgs e)
