@@ -39,7 +39,7 @@ namespace Joyleaf.Views
             TapGestureRecognizer HighfiveTapGesture = new TapGestureRecognizer();
             HighfiveTapGesture.Tapped += (s, e) =>
             {
-                HighfiveImageClick();
+                HighfiveClicked();
             };
 
             Highfive.GestureRecognizers.Add(HighfiveTapGesture);
@@ -141,11 +141,16 @@ namespace Joyleaf.Views
             VerifyAuthAsync();
         }
 
-        private void HighfiveImageClick()
+        private void HighfiveClicked()
         {
 
 
 
+        }
+
+        private async void SearchClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new SearchPage());
         }
 
         private async Task RefreshContentAsync()
@@ -257,7 +262,7 @@ namespace Joyleaf.Views
             VerifyAuthAsync();
         }
 
-        private void LogoutButtonClick(object sender, EventArgs e)
+        private void LogoutButtonClicked(object sender, EventArgs e)
         {
             Settings.ResetSettings();
 

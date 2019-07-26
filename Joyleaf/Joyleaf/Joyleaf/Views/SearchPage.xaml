@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
+             xmlns:local="clr-namespace:Joyleaf;assembly=Joyleaf"
+             xmlns:system="clr-namespace:System;assembly=netstandard"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="Joyleaf.Views.SearchPage"
+             ios:Page.UseSafeArea="true"
+             BackgroundColor="White">
+    
+    <StackLayout
+        Orientation="Vertical" 
+        VerticalOptions="FillAndExpand">
+        
+        <StackLayout BackgroundColor="White" HorizontalOptions="FillAndExpand" Margin="10,5" Orientation="Horizontal">
+            <Button
+                Clicked="BackButtonClicked"
+                CornerRadius="25"
+                HeightRequest="50"
+                HorizontalOptions="Start"
+                Image="BackButtonBlack"
+                VerticalOptions="Center"
+                WidthRequest="50"/>
+            
+            <Label
+                FontAttributes="Bold"
+                FontSize="27"
+                HorizontalOptions="Start"
+                Margin="0,2,0,0"
+                Text="Search"
+                TextColor="#333333"
+                VerticalOptions="Center"/>
+        </StackLayout>
+        
+        <ScrollView
+            x:Name="scrollView"
+            Orientation="Vertical"
+            VerticalOptions="FillAndExpand"
+            VerticalScrollBarVisibility="Never">
+                        
+            <StackLayout
+                x:Name="ContentStack"
+                Orientation="Vertical"
+                VerticalOptions="FillAndExpand">
+            </StackLayout>
+        </ScrollView>
+    </StackLayout>
+</ContentPage>

@@ -202,6 +202,10 @@
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_76pt%402x-1.png" />
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_83.5%402x-1.png" />
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Smooth Corners.png" />
+    <ImageAsset Include="Assets.xcassets\BackButtonBlack.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\BackButtonBlack.imageset\back_black-1.png" />
+    <ImageAsset Include="Assets.xcassets\BackButtonBlack.imageset\back_black%402x-1.png" />
+    <ImageAsset Include="Assets.xcassets\BackButtonBlack.imageset\back_black%403x-1.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -261,5 +265,6 @@
     <Folder Include="Assets.xcassets\FeaturedSativa.imageset\" />
     <Folder Include="Assets.xcassets\FeaturedIndica.imageset\" />
     <Folder Include="Assets.xcassets\ScrollMore.imageset\" />
+    <Folder Include="Assets.xcassets\BackButtonBlack.imageset\" />
   </ItemGroup>
 </Project>
