@@ -135,6 +135,7 @@ namespace Joyleaf.Views
             headerNumberOfRatings = new Label
             {
                 FontSize = 15,
+                HeightRequest = 15,
                 TextColor = Color.Gray,
                 VerticalOptions = LayoutOptions.Center
             };
