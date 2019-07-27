@@ -534,9 +534,7 @@ namespace Joyleaf.Views
 
             if(reviews.NumberOfReviews > 0)
             {
-                var reversedRatings = reviews.Ratings.OrderByDescending(pair => pair.Key);
-
-                foreach (KeyValuePair<string, Rating> entry in reversedRatings)
+                foreach (KeyValuePair<string, Rating> entry in reviews.Ratings.Reverse())
                 {
                     Console.WriteLine(entry.Value.Review);
 

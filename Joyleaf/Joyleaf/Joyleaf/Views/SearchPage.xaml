@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:customControls="clr-namespace:Joyleaf.CustomControls;assembly=Joyleaf"
              xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
              xmlns:local="clr-namespace:Joyleaf;assembly=Joyleaf"
              xmlns:system="clr-namespace:System;assembly=netstandard"
@@ -8,28 +9,31 @@
              ios:Page.UseSafeArea="true"
              BackgroundColor="White">
     
-    <StackLayout
-        Orientation="Vertical" 
-        VerticalOptions="FillAndExpand">
-        
-        <StackLayout BackgroundColor="White" HorizontalOptions="FillAndExpand" Margin="10,5" Orientation="Horizontal">
-            <Button
-                Clicked="BackButtonClicked"
-                CornerRadius="25"
-                HeightRequest="50"
-                HorizontalOptions="Start"
-                Image="BackButtonBlack"
-                VerticalOptions="Center"
-                WidthRequest="50"/>
+    <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand">
+        <StackLayout BackgroundColor="White" HorizontalOptions="FillAndExpand" Margin="7,5">
+            <StackLayout BackgroundColor="White" HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+                <Button
+                    Clicked="BackButtonClicked"
+                    CornerRadius="13"
+                    HeightRequest="27"
+                    HorizontalOptions="Start"
+                    Image="BackButtonBlack"
+                    VerticalOptions="Center"
+                    WidthRequest="50"/>
+                
+                <Label
+                    FontAttributes="Bold"
+                    FontSize="27"
+                    HorizontalOptions="Start"
+                    Text="Search"
+                    TextColor="#333333"
+                    VerticalOptions="Center"/>
+            </StackLayout>
             
-            <Label
-                FontAttributes="Bold"
-                FontSize="27"
-                HorizontalOptions="Start"
-                Margin="0,2,0,0"
-                Text="Search"
-                TextColor="#333333"
-                VerticalOptions="Center"/>
+            <customControls:CustomSearchBar
+                HorizontalOptions="FillAndExpand"
+                Margin = "10,0"
+                Placeholder="Search strains, flavors, effects..."/>
         </StackLayout>
         
         <ScrollView
@@ -41,6 +45,7 @@
             <StackLayout
                 x:Name="ContentStack"
                 Orientation="Vertical"
+                Padding="17,15"
                 VerticalOptions="FillAndExpand">
             </StackLayout>
         </ScrollView>

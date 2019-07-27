@@ -19,7 +19,7 @@ namespace Joyleaf.Helpers
             this.item = item;
 
             CornerRadius = 30;
-            Margin = new Thickness(17);
+            Margin = new Thickness(17, 17, 17, 12);
 
             StackLayout stack = new StackLayout
             {

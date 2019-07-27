@@ -32,12 +32,12 @@
                         HeightRequest="22"
                         HorizontalOptions="EndAndExpand"
                         Image="Search"
-                        Margin="0,0,40,0"
+                        Margin="0,0,35,0"
                         VerticalOptions="Center"
                         WidthRequest="22"/>
                     
                     <Button
-                        CornerRadius="14"
+                        CornerRadius="13"
                         HeightRequest="27"
                         HorizontalOptions="EndAndExpand"
                         Image="Account"

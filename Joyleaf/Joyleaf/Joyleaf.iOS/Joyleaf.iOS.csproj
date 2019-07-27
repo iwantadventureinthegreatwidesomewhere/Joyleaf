@@ -105,6 +105,7 @@
     <Compile Include="CustomRenderers\iOSGradientPage.cs" />
     <Compile Include="CustomRenderers\iOSJustifiedLabel.cs" />
     <Compile Include="CustomRenderers\iOSShadowFrame.cs" />
+    <Compile Include="CustomRenderers\iOSCustomSearchBar.cs" />
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\Contents.json">
@@ -203,9 +204,9 @@
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_83.5%402x-1.png" />
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Smooth Corners.png" />
     <ImageAsset Include="Assets.xcassets\BackButtonBlack.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\BackButtonBlack.imageset\back_black-1.png" />
-    <ImageAsset Include="Assets.xcassets\BackButtonBlack.imageset\back_black%402x-1.png" />
-    <ImageAsset Include="Assets.xcassets\BackButtonBlack.imageset\back_black%403x-1.png" />
+    <ImageAsset Include="Assets.xcassets\BackButtonBlack.imageset\black_arrow-1.png" />
+    <ImageAsset Include="Assets.xcassets\BackButtonBlack.imageset\black_arrow%402x-1.png" />
+    <ImageAsset Include="Assets.xcassets\BackButtonBlack.imageset\black_arrow%403x-1.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

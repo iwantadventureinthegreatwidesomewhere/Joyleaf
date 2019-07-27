@@ -23,7 +23,7 @@ namespace Joyleaf.Views
 
             NavigationPage.SetHasNavigationBar(this, false);
 
-            ContentStack.Padding = new Thickness(0, 15, 0, 30);
+            ContentStack.Padding = new Thickness(0, 15);
             ContentStack.Spacing = 35;
 
             //######################################################
