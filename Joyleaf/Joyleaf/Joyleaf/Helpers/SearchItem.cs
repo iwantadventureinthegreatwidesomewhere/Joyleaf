@@ -9,18 +9,17 @@ using Xamarin.Forms;
 
 namespace Joyleaf.Helpers
 {
-    public class FeaturedItem : ShadowFrame, ItemInterface
+    public class SearchItem : ShadowFrame, ItemInterface
     {
         private readonly Item item;
         private SfRating rating;
 
-        public FeaturedItem(Item item)
+        public SearchItem(Item item) 
         {
             this.item = item;
 
             CornerRadius = 30;
-            HorizontalOptions = LayoutOptions.FillAndExpand;
-            Margin = new Thickness(17, 17, 17, 12);
+            HorizontalOptions = LayoutOptions.Fill;
 
             StackLayout stack = new StackLayout
             {
@@ -30,61 +29,81 @@ namespace Joyleaf.Helpers
                 VerticalOptions = LayoutOptions.Fill
             };
 
-            StackLayout header = new StackLayout
-            {
-                Orientation = StackOrientation.Horizontal
-            };
-
-            header.Children.Add(new Label
-            {
-                FontAttributes = FontAttributes.Bold,
-                FontSize = 17,
-                HorizontalOptions = LayoutOptions.Start,
-                Text = "FEATURED STRAIN",
-                TextColor = Color.Gray
-            });
-
-            if (item.Info.Race == Race.Sativa)
-            {
-                header.Children.Add(new Image
-                {
-                    HeightRequest = 45,
-                    HorizontalOptions = LayoutOptions.EndAndExpand,
-                    Source = "FeaturedSativa"
-                });
-            }
-            else if (item.Info.Race == Race.Indica)
-            {
-                header.Children.Add(new Image
-                {
-                    HeightRequest = 35,
-                    HorizontalOptions = LayoutOptions.EndAndExpand,
-                    Margin = new Thickness(0, 0, 0, 10),
-                    Source = "FeaturedIndica"
-                });
-            }
-            else if (item.Info.Race == Race.Hybrid)
-            {
-                header.Children.Add(new Image
-                {
-                    HeightRequest = 40,
-                    HorizontalOptions = LayoutOptions.EndAndExpand,
-                    Margin = new Thickness(0, 0, 0, 5),
-                    Source = "FeaturedHybrid"
-                });
-            }
-
-            stack.Children.Add(header);
-
             stack.Children.Add(new Label
             {
                 FontAttributes = FontAttributes.Bold,
                 FontSize = 23,
                 HorizontalOptions = LayoutOptions.Start,
-                Margin = new Thickness(0, 10, 0, 5),
+                Margin = new Thickness(0, 0, 0, 5),
                 Text = Truncate(item.Info.Name, 20),
                 TextColor = Color.FromHex("#333333")
             });
+
+            StackLayout SpeciesStack = new StackLayout
+            {
+                Margin = new Thickness(0, 0, 0, 5),
+                Orientation = StackOrientation.Horizontal
+            };
+
+            if (item.Info.Race == Race.Sativa)
+            {
+                SpeciesStack.Children.Add(new Image
+                {
+                    HeightRequest = 30,
+                    HorizontalOptions = LayoutOptions.Start,
+                    Margin = new Thickness(0, 0, 3, 0),
+                    Source = "Sativa"
+                });
+
+                SpeciesStack.Children.Add(new Label
+                {
+                    FontAttributes = FontAttributes.Bold,
+                    FontSize = 15,
+                    Text = "SATIVA",
+                    TextColor = Color.FromHex("#ffa742"),
+                    VerticalOptions = LayoutOptions.Center
+                });
+            }
+            else if (item.Info.Race == Race.Indica)
+            {
+                SpeciesStack.Children.Add(new Image
+                {
+                    HeightRequest = 30,
+                    HorizontalOptions = LayoutOptions.Start,
+                    Margin = new Thickness(0, 0, 3, 0),
+                    Source = "Indica"
+                });
+
+                SpeciesStack.Children.Add(new Label
+                {
+                    FontAttributes = FontAttributes.Bold,
+                    FontSize = 15,
+                    Text = "INDICA",
+                    TextColor = Color.FromHex("#774dff"),
+                    VerticalOptions = LayoutOptions.Center
+                });
+            }
+            else if (item.Info.Race == Race.Hybrid)
+            {
+                SpeciesStack.Children.Add(new Image
+                {
+                    HeightRequest = 30,
+                    HorizontalOptions = LayoutOptions.Start,
+                    Margin = new Thickness(0, 0, 3, 0),
+                    Source = "Hybrid"
+                });
+
+                SpeciesStack.Children.Add(new Label
+                {
+                    FontAttributes = FontAttributes.Bold,
+                    FontSize = 15,
+                    Text = "HYBRID",
+                    TextColor = Color.FromHex("#00b368"),
+                    VerticalOptions = LayoutOptions.Center
+                });
+            }
+
+            stack.Children.Add(SpeciesStack);
 
             rating = new SfRating
             {
@@ -112,7 +131,7 @@ namespace Joyleaf.Helpers
                     FontSize = 15,
                     HorizontalOptions = LayoutOptions.Start,
                     Margin = new Thickness(0, 10, 0, 0),
-                    Text = Truncate(item.Info.Desc, 200),
+                    Text = Truncate(item.Info.Desc, 150),
                     TextColor = Color.Gray
                 });
             }
@@ -131,7 +150,7 @@ namespace Joyleaf.Helpers
                 var flavors = item.Info.Flavors;
                 var effects = item.Info.Effects.Positive;
 
-                flavors.ToList().ForEach(x => effects.Add(flavors.Count+x.Key, x.Value));
+                flavors.ToList().ForEach(x => effects.Add(flavors.Count + x.Key, x.Value));
 
                 Random rand = new Random();
                 var shuffled = effects.OrderBy(x => rand.Next()).ToDictionary(x => x.Key, x => x.Value);
@@ -142,7 +161,7 @@ namespace Joyleaf.Helpers
                 {
                     count++;
 
-                    if (count <= 7)
+                    if (count <= 3)
                     {
                         Color color;
 

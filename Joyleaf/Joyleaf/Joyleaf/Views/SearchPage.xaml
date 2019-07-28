@@ -9,45 +9,54 @@
              ios:Page.UseSafeArea="true"
              BackgroundColor="White">
     
-    <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand">
-        <StackLayout BackgroundColor="White" HorizontalOptions="FillAndExpand" Margin="7,5">
-            <StackLayout BackgroundColor="White" HorizontalOptions="FillAndExpand" Orientation="Horizontal">
-                <Button
-                    Clicked="BackButtonClicked"
-                    CornerRadius="13"
-                    HeightRequest="27"
-                    HorizontalOptions="Start"
-                    Image="BackButtonBlack"
-                    VerticalOptions="Center"
-                    WidthRequest="50"/>
+    <RelativeLayout x:Name="SearchRelativeLayout">
+        <StackLayout
+            Orientation="Vertical" 
+            VerticalOptions="FillAndExpand"
+            RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=1}"
+            RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=1}">
+            
+            <StackLayout BackgroundColor="White" HorizontalOptions="FillAndExpand" Margin="7,5,7,0">
+                <StackLayout BackgroundColor="White" HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+                    <Button
+                        Clicked="BackButtonClicked"
+                        CornerRadius="13"
+                        HeightRequest="27"
+                        HorizontalOptions="Start"
+                        Image="BackButtonBlack"
+                        VerticalOptions="Center"
+                        WidthRequest="50"/>
+                    
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="27"
+                        HorizontalOptions="Start"
+                        Text="Search"
+                        TextColor="#333333"
+                        VerticalOptions="Center"/>
+                </StackLayout>
                 
-                <Label
-                    FontAttributes="Bold"
-                    FontSize="27"
-                    HorizontalOptions="Start"
-                    Text="Search"
-                    TextColor="#333333"
-                    VerticalOptions="Center"/>
+                <customControls:CustomSearchBar
+                    HorizontalOptions="FillAndExpand"
+                    Margin = "10,0"
+                    Placeholder="Search strains, flavors, effects..."/>
             </StackLayout>
             
-            <customControls:CustomSearchBar
-                HorizontalOptions="FillAndExpand"
-                Margin = "10,0"
-                Placeholder="Search strains, flavors, effects..."/>
-        </StackLayout>
-        
-        <ScrollView
-            x:Name="scrollView"
-            Orientation="Vertical"
-            VerticalOptions="FillAndExpand"
-            VerticalScrollBarVisibility="Never">
-                        
-            <StackLayout
-                x:Name="ContentStack"
+            <ScrollView
+                x:Name="scrollView"
                 Orientation="Vertical"
-                Padding="17,15"
-                VerticalOptions="FillAndExpand">
-            </StackLayout>
-        </ScrollView>
-    </StackLayout>
+                VerticalOptions="FillAndExpand"
+                VerticalScrollBarVisibility="Never">
+                            
+                <StackLayout
+                    x:Name="ContentStack"
+                    Orientation="Vertical"
+                    Padding="17,30"
+                    Spacing="30"
+                    VerticalOptions="FillAndExpand">
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+    </RelativeLayout>
 </ContentPage>
+

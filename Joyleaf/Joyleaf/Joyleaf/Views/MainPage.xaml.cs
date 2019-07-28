@@ -150,7 +150,14 @@ namespace Joyleaf.Views
 
         private async void SearchClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new SearchPage());
+            if (CrossConnectivity.Current.IsConnected)
+            {
+                await Navigation.PushAsync(new SearchPage());
+            }
+            else
+            {
+                await DisplayAlert("Connection error", "Please check your network connection, then try again.", "OK");
+            }
         }
 
         private async Task RefreshContentAsync()

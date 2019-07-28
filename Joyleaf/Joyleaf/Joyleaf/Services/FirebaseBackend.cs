@@ -6,6 +6,7 @@ using Joyleaf.Views;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Xamarin.Forms;
@@ -206,6 +207,19 @@ namespace Joyleaf.Services
             }
 
             Settings.Content = Content_Serialize.ToJson(content);
+        }
+
+        public static async Task<SearchResult> SearchAsync(string s)
+        {
+            string[] words = s.Trim().Split();
+
+            HttpClient client = new HttpClient();
+
+            var content = new StringContent(JsonConvert.SerializeObject(new SearchRequest(words)));
+            var response = await client.PostAsync("https://us-central1-joyleaf-c142c.cloudfunctions.net/search?uid=" + GetAuth().User.LocalId, content);
+            string json = await response.Content.ReadAsStringAsync();
+
+            return SearchResult.FromJson(json);
         }
 
         public static bool IsContentExpired()
