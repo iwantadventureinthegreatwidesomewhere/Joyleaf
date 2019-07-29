@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -17,6 +18,8 @@ namespace Joyleaf.Views
         private readonly string[] Flavors = { "Earthy", "Chemical", "Pine", "Spicy/Herbal", "Pungent", "Pepper", "Flowery", "Citrus", "Orange", "Sweet", "Skunk", "Grape", "Minty", "Woody", "Cheese", "Diesel", "Tropical", "Grapefruit", "Nutty", "Lemon", "Berry", "Blueberry", "Ammonia", "Apple", "Rose", "Butter", "Honey", "Tea", "Lime", "Lavender", "Strawberry", "Mint", "Chestnut", "Tree Fruit", "Pear", "Apricot", "Peach", "Blue Cheese", "Menthol", "Coffee", "Tar", "Mango", "Pineapple", "Sage", "Vanilla", "Plum", "Tobacco", "Violet" };
         private readonly string[] PositiveEffects = { "Relaxed", "Hungry", "Euphoric", "Happy", "Creative", "Energetic", "Talkative", "Uplifted", "Tingly", "Sleepy", "Focused", "Giggly", "Aroused" };
         private readonly string[] MedicalEffects = { "Insomnia", "Pain", "Stress", "Fatigue", "Headaches" };
+
+        private readonly string[] wordsToRemove = { "a", "an", "the", "for", "and", "nor", "but", "or", "yet", "so", "at", "around", "by", "after", "along", "from", "of", "on", "to", "with", "without" };
 
         private readonly ActivityIndicator LoadingWheel;
         private readonly StackLayout LoadingErrorText;
@@ -185,54 +188,72 @@ namespace Joyleaf.Views
 
         private async Task SearchAsync(string s)
         {
-            cachedSearchString = s;
-
-            if (!string.IsNullOrEmpty(s))
+            if (!string.IsNullOrWhiteSpace(s))
             {
-                LoadingErrorText.IsEnabled = false;
-                LoadingErrorText.IsVisible = false;
+                string[] words = System.Text.RegularExpressions.Regex.Split(s.Trim(), @"\s+");
 
-                scrollView.IsEnabled = false;
+                ArrayList t = new ArrayList();
 
-                ContentStack.Children.Clear();
-
-                LoadingWheel.IsEnabled = true;
-                LoadingWheel.IsVisible = true;
-
-                await Task.Delay(250);
-
-                try
+                foreach (string word in words)
                 {
-                    SearchResult searchResult = await FirebaseBackend.SearchAsync(s);
-
-                    if(searchResult.Items.Count() > 0)
+                    if (!wordsToRemove.Contains(word))
                     {
-                        foreach (Item item in searchResult.Items)
-                        {
-                            ContentStack.Children.Add(new SearchItem(item));
-                        }
+                        t.Add(word);
                     }
-                    else
-                    {
-                        //no results message
-                    }
-
-                    LoadingWheel.IsEnabled = false;
-                    LoadingWheel.IsVisible = false;
-
-                    scrollView.IsEnabled = true;
                 }
-                catch (Exception)
+
+                string[] filteredWords = (string[])t.ToArray(typeof(string));
+
+                if (filteredWords.Count() > 0)
                 {
-                    LoadingWheel.IsEnabled = false;
-                    LoadingWheel.IsVisible = false;
+                    searchBar.Text = s;
+                    cachedSearchString = s;
+
+                    LoadingErrorText.IsEnabled = false;
+                    LoadingErrorText.IsVisible = false;
 
                     scrollView.IsEnabled = false;
 
                     ContentStack.Children.Clear();
 
-                    LoadingErrorText.IsEnabled = true;
-                    LoadingErrorText.IsVisible = true;
+                    LoadingWheel.IsEnabled = true;
+                    LoadingWheel.IsVisible = true;
+
+                    await Task.Delay(250);
+
+                    try
+                    {
+                        SearchResult searchResult = await FirebaseBackend.SearchAsync(filteredWords);
+
+                        if (searchResult.Items.Count() > 0)
+                        {
+                            foreach (Item item in searchResult.Items)
+                            {
+                                ContentStack.Children.Add(new SearchItem(item));
+                            }
+                        }
+                        else
+                        {
+                            //no results message
+                        }
+
+                        LoadingWheel.IsEnabled = false;
+                        LoadingWheel.IsVisible = false;
+
+                        scrollView.IsEnabled = true;
+                    }
+                    catch (Exception)
+                    {
+                        LoadingWheel.IsEnabled = false;
+                        LoadingWheel.IsVisible = false;
+
+                        scrollView.IsEnabled = false;
+
+                        ContentStack.Children.Clear();
+
+                        LoadingErrorText.IsEnabled = true;
+                        LoadingErrorText.IsVisible = true;
+                    }
                 }
             }
         }
@@ -240,6 +261,11 @@ namespace Joyleaf.Views
         private void ClearSearch()
         {
 
+        }
+
+        private void SearchButtonPressed(object sender, EventArgs e)
+        {
+            SearchAsync(searchBar.Text);
         }
 
         private async void HandleConnectivityChanged(object sender, ConnectivityChangedEventArgs e)

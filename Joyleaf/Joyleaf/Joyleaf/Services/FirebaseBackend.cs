@@ -209,10 +209,8 @@ namespace Joyleaf.Services
             Settings.Content = Content_Serialize.ToJson(content);
         }
 
-        public static async Task<SearchResult> SearchAsync(string s)
+        public static async Task<SearchResult> SearchAsync(string[] words)
         {
-            string[] words = s.Trim().Split();
-
             HttpClient client = new HttpClient();
 
             var content = new StringContent(JsonConvert.SerializeObject(new SearchRequest(words)));
