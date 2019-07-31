@@ -131,7 +131,7 @@ namespace Joyleaf.Helpers
                     FontSize = 15,
                     HorizontalOptions = LayoutOptions.Start,
                     Margin = new Thickness(0, 10, 0, 0),
-                    Text = Truncate(item.Info.Desc, 150),
+                    Text = Truncate(item.Info.Desc, 200),
                     TextColor = Color.Gray
                 });
             }

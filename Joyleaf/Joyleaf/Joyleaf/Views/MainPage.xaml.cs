@@ -23,9 +23,6 @@ namespace Joyleaf.Views
 
             NavigationPage.SetHasNavigationBar(this, false);
 
-            ContentStack.Padding = new Thickness(0, 15, 0, 30);
-            ContentStack.Spacing = 35;
-
             //######################################################
 
             Highfive = new Image
@@ -153,6 +150,18 @@ namespace Joyleaf.Views
             if (CrossConnectivity.Current.IsConnected)
             {
                 await Navigation.PushAsync(new SearchPage());
+            }
+            else
+            {
+                await DisplayAlert("Connection error", "Please check your network connection, then try again.", "OK");
+            }
+        }
+
+        private async void AccountClicked(object sender, EventArgs e)
+        {
+            if (CrossConnectivity.Current.IsConnected)
+            {
+                await Navigation.PushAsync(new AccountPage());
             }
             else
             {

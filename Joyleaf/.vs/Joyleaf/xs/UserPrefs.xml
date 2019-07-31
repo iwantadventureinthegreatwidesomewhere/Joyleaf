@@ -1,8 +1,9 @@
 ﻿<Properties StartupConfiguration="{928BF896-B912-476D-86D7-5A6B2B2B065A}|Default">
   <MonoDevelop.Ide.ItemProperties.Joyleaf.iOS automaticSigning="False" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.AFAA1D33-384F-4B1E-8C69-A380D9C93468" />
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench ActiveDocument="Joyleaf/Joyleaf/Views/AccountPage.xaml.cs">
     <Files>
-      <File FileName="Joyleaf/Joyleaf/Views/SearchPage.xaml.cs" Line="236" Column="44" />
+      <File FileName="Joyleaf/Joyleaf/Views/AccountPage.xaml" Line="23" Column="42" />
+      <File FileName="Joyleaf/Joyleaf/Views/AccountPage.xaml.cs" Line="13" Column="35" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -12,11 +13,11 @@
               <Node name="Helpers" expanded="True" />
               <Node name="Services" expanded="True" />
               <Node name="Views" expanded="True">
-                <Node name="ItemPopupPage.xaml" expanded="True" />
-                <Node name="MainPage.xaml" expanded="True" />
-                <Node name="SearchPage.xaml" expanded="True">
-                  <Node name="SearchPage.xaml.cs" selected="True" />
+                <Node name="AccountPage.xaml" expanded="True">
+                  <Node name="AccountPage.xaml.cs" selected="True" />
                 </Node>
+                <Node name="MainPage.xaml" expanded="True" />
+                <Node name="SearchPage.xaml" expanded="True" />
                 <Node name="StartPage.xaml" expanded="True" />
               </Node>
             </Node>

@@ -1,47 +1,39 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:customControls="clr-namespace:Joyleaf.CustomControls;assembly=Joyleaf"
              xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
              xmlns:local="clr-namespace:Joyleaf;assembly=Joyleaf"
              xmlns:system="clr-namespace:System;assembly=netstandard"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Joyleaf.Views.MainPage"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="Joyleaf.Views.AccountPage"
              ios:Page.UseSafeArea="true"
              BackgroundColor="White">
     
-    <RelativeLayout x:Name="ExploreRelativeLayout">
-        <StackLayout 
+    <RelativeLayout x:Name="SearchRelativeLayout">
+        <StackLayout
             Orientation="Vertical" 
             VerticalOptions="FillAndExpand"
             RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=1}"
             RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=1}">
             
-            <StackLayout BackgroundColor="White" HorizontalOptions="FillAndExpand" Margin="25,10" Orientation="Horizontal">
-                <Label
-                    FontAttributes="Bold"
-                    FontSize="27"
-                    HorizontalOptions="Start"
-                    Text="Explore"
-                    TextColor="#333333"
-                    VerticalOptions="Center"/>
-                
-                <StackLayout HorizontalOptions="EndAndExpand" Orientation="Horizontal">
+            <StackLayout BackgroundColor="White" HorizontalOptions="FillAndExpand" Margin="7,10,7,0">
+                <StackLayout BackgroundColor="White" HorizontalOptions="FillAndExpand" Orientation="Horizontal">
                     <Button
-                        Clicked="SearchClicked"
-                        HeightRequest="22"
-                        HorizontalOptions="EndAndExpand"
-                        Image="Search"
-                        Margin="0,0,15,0"
+                        BackgroundColor="Transparent"
+                        Clicked="BackButtonClicked"
+                        CornerRadius="13"
+                        HeightRequest="27"
+                        HorizontalOptions="Start"
+                        Image="BackButtonBlack"
                         VerticalOptions="Center"
                         WidthRequest="50"/>
                     
-                    <Button
-                        Clicked="AccountClicked"
-                        HeightRequest="27"
-                        HorizontalOptions="EndAndExpand"
-                        Image="Account"
-                        VerticalOptions="Center"
-                        WidthRequest="50"/>
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="27"
+                        HorizontalOptions="Start"
+                        Text="Account"
+                        TextColor="#333333"
+                        VerticalOptions="Center"/>
                 </StackLayout>
             </StackLayout>
             
@@ -54,8 +46,8 @@
                 <StackLayout
                     x:Name="ContentStack"
                     Orientation="Vertical"
-                    Padding="0,15,0,30"
-                    Spacing="35"
+                    Padding="17,30"
+                    Spacing="30"
                     VerticalOptions="FillAndExpand">
                 </StackLayout>
             </ScrollView>
