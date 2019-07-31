@@ -41,7 +41,7 @@ namespace Joyleaf.Helpers
 
             StackLayout SpeciesStack = new StackLayout
             {
-                Margin = new Thickness(0, 0, 0, 5),
+                Margin = new Thickness(0, 0, 0, 7),
                 Orientation = StackOrientation.Horizontal
             };
 
@@ -161,7 +161,7 @@ namespace Joyleaf.Helpers
                 {
                     count++;
 
-                    if (count <= 3)
+                    if (count <= 4)
                     {
                         Color color;
 

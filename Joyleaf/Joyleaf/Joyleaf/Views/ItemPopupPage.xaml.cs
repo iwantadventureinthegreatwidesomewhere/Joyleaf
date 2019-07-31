@@ -43,7 +43,7 @@ namespace Joyleaf.Views
 
             StackLayout SpeciesStack = new StackLayout
             {
-                Margin = new Thickness(0, 0, 0, 5),
+                Margin = new Thickness(0, 0, 0, 7),
                 Orientation = StackOrientation.Horizontal
             };
 

@@ -16,9 +16,10 @@
             RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=1}"
             RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=1}">
             
-            <StackLayout BackgroundColor="White" HorizontalOptions="FillAndExpand" Margin="7,5,7,0">
+            <StackLayout BackgroundColor="White" HorizontalOptions="FillAndExpand" Margin="7,10,7,0">
                 <StackLayout BackgroundColor="White" HorizontalOptions="FillAndExpand" Orientation="Horizontal">
                     <Button
+                        BackgroundColor="Transparent"
                         Clicked="BackButtonClicked"
                         CornerRadius="13"
                         HeightRequest="27"
@@ -33,6 +34,19 @@
                         HorizontalOptions="Start"
                         Text="Search"
                         TextColor="#333333"
+                        VerticalOptions="Center"/>
+                    
+                    <Button
+                        x:Name="ClearButton"
+                        BackgroundColor="Transparent"
+                        Clicked="ClearSearch"
+                        FontSize="20"
+                        HeightRequest="15"
+                        HorizontalOptions="EndAndExpand"
+                        IsVisible="false"
+                        Margin="0,5,27,0"
+                        Text="Clear"
+                        TextColor="#00C88C"
                         VerticalOptions="Center"/>
                 </StackLayout>
                 
