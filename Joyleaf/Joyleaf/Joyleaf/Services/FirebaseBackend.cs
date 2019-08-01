@@ -20,9 +20,9 @@ namespace Joyleaf.Services
             try
             {
                 FirebaseAuthProvider authProvider = new FirebaseAuthProvider(new FirebaseConfig(Constants.FIREBASE_API_KEY));
-                FirebaseAuthLink auth = Task.Run(() => authProvider.SignInWithEmailAndPasswordAsync(email, password)).Result;
+                FirebaseAuthLink authLink = Task.Run(() => authProvider.SignInWithEmailAndPasswordAsync(email, password)).Result;
 
-                SetAuth(auth);
+                SetAuth(authLink);
                 Application.Current.MainPage = new NavigationPage(new MainPage());
             }
             catch (Exception e)
@@ -41,16 +41,16 @@ namespace Joyleaf.Services
         public static void SignUp(Account account, string email, string password)
         {
             FirebaseAuthProvider authProvider = new FirebaseAuthProvider(new FirebaseConfig(Constants.FIREBASE_API_KEY));
-            FirebaseAuthLink auth = Task.Run(() => authProvider.CreateUserWithEmailAndPasswordAsync(email, password)).Result;
+            FirebaseAuthLink authLink = Task.Run(() => authProvider.CreateUserWithEmailAndPasswordAsync(email, password)).Result;
 
-            FirebaseClient firebase = new FirebaseClient(
+            FirebaseClient firebaseClient = new FirebaseClient(
                 Constants.FIREBASE_DATABASE_URL,
-                new FirebaseOptions{ AuthTokenAsyncFactory = () => Task.FromResult(auth.FirebaseToken) }
+                new FirebaseOptions { AuthTokenAsyncFactory = () => Task.FromResult(authLink.FirebaseToken) }
             );
 
-            Task.Run(() => firebase.Child("users").Child(auth.User.LocalId).PutAsync(account));
+            Task.Run(() => firebaseClient.Child("users").Child(authLink.User.LocalId).PutAsync(account));
 
-            SetAuth(auth);
+            SetAuth(authLink);
             Application.Current.MainPage = new NavigationPage(new MainPage());
         }
 
@@ -76,7 +76,11 @@ namespace Joyleaf.Services
             try
             {
                 FirebaseAuthProvider authProvider = new FirebaseAuthProvider(new FirebaseConfig(Constants.FIREBASE_API_KEY));
-                FirebaseAuthLink auth = Task.Run(() => authProvider.SignInWithEmailAndPasswordAsync(email, "~")).Result;
+
+                string chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+                string test = new string(Enumerable.Repeat(chars, 100).Select(s => s[new Random().Next(s.Length)]).ToArray());
+
+                FirebaseAuthLink authLink = Task.Run(() => authProvider.SignInWithEmailAndPasswordAsync(email, test)).Result;
 
                 return false;
             }
@@ -101,9 +105,9 @@ namespace Joyleaf.Services
             try
             {
                 FirebaseAuthProvider authProvider = new FirebaseAuthProvider(new FirebaseConfig(Constants.FIREBASE_API_KEY));
-                FirebaseAuthLink auth = new FirebaseAuthLink(authProvider, GetAuth());
+                FirebaseAuthLink authLink = new FirebaseAuthLink(authProvider, GetAuth());
 
-                await authProvider.GetUserAsync(auth.FirebaseToken);
+                await authProvider.GetUserAsync(authLink.FirebaseToken);
 
                 return true;
             }
@@ -121,18 +125,20 @@ namespace Joyleaf.Services
         public static async Task RefreshAuthAsync()
         {
             FirebaseAuthProvider authProvider = new FirebaseAuthProvider(new FirebaseConfig(Constants.FIREBASE_API_KEY));
-            FirebaseAuthLink auth = new FirebaseAuthLink(authProvider, GetAuth());
+            FirebaseAuthLink authLink = new FirebaseAuthLink(authProvider, GetAuth());
 
-            Task<FirebaseAuthLink> freshAuth = auth.GetFreshAuthAsync();
+            Task<FirebaseAuthLink> freshAuthLink = authLink.GetFreshAuthAsync();
 
-            SetAuth(await freshAuth);
+            SetAuth(await freshAuthLink);
         }
 
         public static async Task<Content> LoadContentAsync()
         {
             if (IsContentExpired())
             {
-                int UnixTimestamp = (int)DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1)).TotalSeconds;
+                int unixTimestamp = (int)DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1)).TotalSeconds;
+
+                HttpClient client = new HttpClient();
 
                 HttpRequestMessage request = new HttpRequestMessage
                 {
@@ -140,43 +146,55 @@ namespace Joyleaf.Services
                     Method = HttpMethod.Get
                 };
 
-                HttpClient client = new HttpClient();
                 HttpResponseMessage response = await client.SendAsync(request);
                 string json = await response.Content.ReadAsStringAsync();
 
                 Settings.Content = json;
-                Settings.LastContentUpdateTimestamp = UnixTimestamp;
+                Settings.LastContentUpdateTimestamp = unixTimestamp;
                 return Content.FromJson(json);
             }
 
             return Content.FromJson(Settings.Content);
         }
 
+        public static bool IsContentExpired()
+        {
+            int unixTimestamp = (int)DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1)).TotalSeconds;
+            return unixTimestamp - Settings.LastContentUpdateTimestamp >= 10800;
+        }
+
+        public static void ResetContentTimer()
+        {
+            Settings.LastContentUpdateTimestamp = -1;
+        }
+
         public static async Task PostReviewAsync(long id, double rating, string review)
         {
             HttpClient client = new HttpClient();
 
-            var values = new Dictionary<string, string>
+            Dictionary<string, string> values = new Dictionary<string, string>
             {
                 { "id", "" + id },
                 { "rating", "" + rating },
                 { "review", review }
             };
 
-            var content = new FormUrlEncodedContent(values);
-            var response = await client.PostAsync("https://us-central1-joyleaf-c142c.cloudfunctions.net/post_review?uid=" + GetAuth().User.LocalId, content);
+            FormUrlEncodedContent content = new FormUrlEncodedContent(values);
+
+            HttpResponseMessage response = await client.PostAsync("https://us-central1-joyleaf-c142c.cloudfunctions.net/post_review?uid=" + GetAuth().User.LocalId, content);
             await response.Content.ReadAsStringAsync();
         }
 
         public static async Task<Reviews> GetRatingAsync(long id)
         {
+            HttpClient client = new HttpClient();
+
             HttpRequestMessage request = new HttpRequestMessage
             {
                 RequestUri = new Uri("https://us-central1-joyleaf-c142c.cloudfunctions.net/get_reviews?strain_id=" + id + "&uid=" + GetAuth().User.LocalId),
                 Method = HttpMethod.Get
             };
-
-            HttpClient client = new HttpClient();
+            
             HttpResponseMessage response = await client.SendAsync(request);
             string json = await response.Content.ReadAsStringAsync();
 
@@ -206,29 +224,19 @@ namespace Joyleaf.Services
                 }
             }
 
-            Settings.Content = Content_Serialize.ToJson(content);
+            Settings.Content = content.ToJson();
         }
 
         public static async Task<SearchResult> SearchAsync(string[] words)
         {
             HttpClient client = new HttpClient();
 
-            var content = new StringContent(JsonConvert.SerializeObject(new SearchRequest(words)));
-            var response = await client.PostAsync("https://us-central1-joyleaf-c142c.cloudfunctions.net/search?uid=" + GetAuth().User.LocalId, content);
+            StringContent content = new StringContent(JsonConvert.SerializeObject(new SearchRequest(words)));
+
+            HttpResponseMessage response = await client.PostAsync("https://us-central1-joyleaf-c142c.cloudfunctions.net/search?uid=" + GetAuth().User.LocalId, content);
             string json = await response.Content.ReadAsStringAsync();
 
             return SearchResult.FromJson(json);
-        }
-
-        public static bool IsContentExpired()
-        {
-            int UnixTimestamp = (int)DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1)).TotalSeconds;
-            return UnixTimestamp - Settings.LastContentUpdateTimestamp >= 10800;
-        }
-
-        public static void ResetContentTimer()
-        {
-            Settings.LastContentUpdateTimestamp = -1;
         }
 
         public static void SetAuth(FirebaseAuth auth)

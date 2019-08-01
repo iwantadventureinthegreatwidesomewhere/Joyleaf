@@ -14,6 +14,20 @@ namespace Joyleaf.Views
 
             NavigationPage.SetHasNavigationBar(this, false);
 
+            ContentStack.Children.Add(new Label
+            {
+                
+            });
+
+
+
+
+
+
+
+
+
+
             CrossConnectivity.Current.ConnectivityChanged += HandleConnectivityChanged;
         }
 
