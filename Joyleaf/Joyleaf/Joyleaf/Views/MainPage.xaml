@@ -31,7 +31,7 @@
                         HeightRequest="22"
                         HorizontalOptions="EndAndExpand"
                         Image="Search"
-                        Margin="0,0,15,0"
+                        Margin="0,0,10,0"
                         VerticalOptions="Center"
                         WidthRequest="50"/>
                     
