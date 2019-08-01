@@ -1,14 +1,11 @@
-﻿using System;
+﻿using Joyleaf.Helpers;
+using Joyleaf.Services;
+using Rg.Plugins.Popup.Pages;
+using Syncfusion.SfRating.XForms;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Joyleaf.Helpers;
-using Joyleaf.Services;
-using Plugin.Connectivity;
-using Plugin.Connectivity.Abstractions;
-using Rg.Plugins.Popup.Pages;
-using Rg.Plugins.Popup.Services;
-using Syncfusion.SfRating.XForms;
 using Xamarin.Forms;
 
 namespace Joyleaf.Views
@@ -515,8 +512,6 @@ namespace Joyleaf.Views
             };
 
             Stack.Children.Add(latestReviews);
-
-            CrossConnectivity.Current.ConnectivityChanged += HandleConnectivityChanged;
         }
 
         public async Task UpdateRatingAsync()
@@ -538,7 +533,7 @@ namespace Joyleaf.Views
 
             latestReviews.Children.Clear();
 
-            if(reviews.NumberOfReviews > 0)
+            if (reviews.NumberOfReviews > 0)
             {
                 foreach (KeyValuePair<string, Rating> entry in reviews.Ratings.Reverse())
                 {
@@ -691,14 +686,6 @@ namespace Joyleaf.Views
         private string Truncate(string value, int maxChars)
         {
             return value.Length <= maxChars ? value : value.Substring(0, maxChars) + "...";
-        }
-
-        private void HandleConnectivityChanged(object sender, ConnectivityChangedEventArgs e)
-        {
-            if (!CrossConnectivity.Current.IsConnected)
-            {
-                PopupNavigation.Instance.PopAsync();
-            }
         }
     }
 }

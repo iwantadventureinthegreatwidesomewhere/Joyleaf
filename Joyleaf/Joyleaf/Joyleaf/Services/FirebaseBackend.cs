@@ -71,6 +71,16 @@ namespace Joyleaf.Services
             }
         }
 
+        public static async Task<Account> GetAccountAsync()
+        {
+            FirebaseClient firebase = new FirebaseClient(
+                Constants.FIREBASE_DATABASE_URL,
+                new FirebaseOptions { AuthTokenAsyncFactory = () => Task.FromResult(GetAuth().FirebaseToken) }
+            );
+
+            return await firebase.Child("users").Child(GetAuth().User.LocalId).OnceSingleAsync<Account>();
+        }
+
         public static bool IsEmailAvailable(string email)
         {
             try

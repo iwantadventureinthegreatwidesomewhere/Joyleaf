@@ -1,6 +1,7 @@
 ﻿using Joyleaf.Helpers;
 using Joyleaf.Services;
 using Plugin.Connectivity;
+using Rg.Plugins.Popup.Services;
 using System;
 using System.Threading.Tasks;
 using Xamarin.Forms;
@@ -13,17 +14,15 @@ namespace Joyleaf.Views
     public partial class MainPage : ContentPage
     {
         private readonly Image Highfive;
-        private readonly ActivityIndicator LoadingWheel;
-        private readonly StackLayout ConnectionErrorText;
-        private readonly StackLayout LoadingErrorText;
+        private readonly ActivityIndicator LoadingActivityIndicator;
+        private readonly StackLayout ConnectionErrorStack;
+        private readonly StackLayout LoadingErrorStack;
         
         public MainPage()
         {
             InitializeComponent();
 
             NavigationPage.SetHasNavigationBar(this, false);
-
-            //######################################################
 
             Highfive = new Image
             {
@@ -41,9 +40,7 @@ namespace Joyleaf.Views
 
             Highfive.GestureRecognizers.Add(HighfiveTapGesture);
 
-            //######################################################
-
-            LoadingWheel = new ActivityIndicator
+            LoadingActivityIndicator = new ActivityIndicator
             {
                 Color = Color.Gray,
                 IsEnabled = false,
@@ -51,22 +48,20 @@ namespace Joyleaf.Views
                 IsVisible = false
             };
 
-            ExploreRelativeLayout.Children.Add(LoadingWheel,
+            ExploreRelativeLayout.Children.Add(LoadingActivityIndicator,
                 Constraint.RelativeToParent(parent => (parent.Width / 2) - (getLoadingWheelWidth(parent) / 2)),
                 Constraint.RelativeToParent(parent => (parent.Height / 2) - (getLoadingWheelHeight(parent) / 2)));
             
-            double getLoadingWheelWidth(RelativeLayout parent) => LoadingWheel.Measure(parent.Width, parent.Height).Request.Width;
-            double getLoadingWheelHeight(RelativeLayout parent) => LoadingWheel.Measure(parent.Width, parent.Height).Request.Height;
+            double getLoadingWheelWidth(RelativeLayout parent) => LoadingActivityIndicator.Measure(parent.Width, parent.Height).Request.Width;
+            double getLoadingWheelHeight(RelativeLayout parent) => LoadingActivityIndicator.Measure(parent.Width, parent.Height).Request.Height;
 
-            //######################################################
-
-            ConnectionErrorText = new StackLayout
+            ConnectionErrorStack = new StackLayout
             {
                 IsEnabled = false,
                 IsVisible = false
             };
 
-            ConnectionErrorText.Children.Add(new Label
+            ConnectionErrorStack.Children.Add(new Label
             {
                 FontAttributes = FontAttributes.Bold,
                 FontSize = 35,
@@ -75,7 +70,7 @@ namespace Joyleaf.Views
                 TextColor = Color.FromHex("#333333")
             });
 
-            ConnectionErrorText.Children.Add(new Label
+            ConnectionErrorStack.Children.Add(new Label
             {
                 FontSize = 23,
                 HorizontalTextAlignment = TextAlignment.Center,
@@ -83,24 +78,22 @@ namespace Joyleaf.Views
                 TextColor = Color.Gray
             });
 
-            ExploreRelativeLayout.Children.Add(ConnectionErrorText,
+            ExploreRelativeLayout.Children.Add(ConnectionErrorStack,
                 Constraint.RelativeToParent(parent => (parent.Width / 2) - (getConnectionErrorTextWidth(parent) / 2)),
                 Constraint.RelativeToParent(parent => (parent.Height / 2) - (getConnectionErrorTextHeight(parent) / 2)));
 
-            double getConnectionErrorTextWidth(RelativeLayout parent) => ConnectionErrorText.Measure(parent.Width, parent.Height).Request.Width;
-            double getConnectionErrorTextHeight(RelativeLayout parent) => ConnectionErrorText.Measure(parent.Width, parent.Height).Request.Height;
+            double getConnectionErrorTextWidth(RelativeLayout parent) => ConnectionErrorStack.Measure(parent.Width, parent.Height).Request.Width;
+            double getConnectionErrorTextHeight(RelativeLayout parent) => ConnectionErrorStack.Measure(parent.Width, parent.Height).Request.Height;
 
             CrossConnectivity.Current.ConnectivityChanged += HandleConnectivityChanged;
 
-            //######################################################
-
-            LoadingErrorText = new StackLayout
+            LoadingErrorStack = new StackLayout
             {
                 IsEnabled = false,
                 IsVisible = false
             };
 
-            LoadingErrorText.Children.Add(new Label
+            LoadingErrorStack.Children.Add(new Label
             {
                 FontAttributes = FontAttributes.Bold,
                 FontSize = 27,
@@ -109,7 +102,7 @@ namespace Joyleaf.Views
                 TextColor = Color.FromHex("#333333")
             });
 
-            LoadingErrorText.Children.Add(new Label
+            LoadingErrorStack.Children.Add(new Label
             {
                 FontSize = 23,
                 HorizontalTextAlignment = TextAlignment.Center,
@@ -123,16 +116,14 @@ namespace Joyleaf.Views
                 RefreshContentAsync();
             };
 
-            LoadingErrorText.GestureRecognizers.Add(LoadingRetryTapGesture);
+            LoadingErrorStack.GestureRecognizers.Add(LoadingRetryTapGesture);
 
-            ExploreRelativeLayout.Children.Add(LoadingErrorText,
+            ExploreRelativeLayout.Children.Add(LoadingErrorStack,
                 Constraint.RelativeToParent(parent => (parent.Width / 2) - (getLoadingErrorTextWidth(parent) / 2)),
                 Constraint.RelativeToParent(parent => (parent.Height / 2) - (getLoadingErrorTextHeight(parent) / 2)));
 
-            double getLoadingErrorTextWidth(RelativeLayout parent) => LoadingErrorText.Measure(parent.Width, parent.Height).Request.Width;
-            double getLoadingErrorTextHeight(RelativeLayout parent) => LoadingErrorText.Measure(parent.Width, parent.Height).Request.Height;
-
-            //######################################################
+            double getLoadingErrorTextWidth(RelativeLayout parent) => LoadingErrorStack.Measure(parent.Width, parent.Height).Request.Width;
+            double getLoadingErrorTextHeight(RelativeLayout parent) => LoadingErrorStack.Measure(parent.Width, parent.Height).Request.Height;
 
             RefreshContentAsync();
             VerifyAuthAsync();
@@ -171,111 +162,108 @@ namespace Joyleaf.Views
 
         private async Task RefreshContentAsync()
         {
-            LoadingErrorText.IsEnabled = false;
-            LoadingErrorText.IsVisible = false;
+            ContentStack.Children.Clear();
 
-            if (CrossConnectivity.Current.IsConnected)
+            ConnectionErrorStack.IsEnabled = false;
+            ConnectionErrorStack.IsVisible = false;
+
+            LoadingActivityIndicator.IsEnabled = true;
+            LoadingActivityIndicator.IsVisible = true;
+
+            await Task.Delay(250);
+
+            try
             {
-                scrollView.IsEnabled = false;
+                Content content = await FirebaseBackend.LoadContentAsync();
 
-                ContentStack.Children.Clear();
+                ContentStack.Children.Add(Highfive);
 
-                ConnectionErrorText.IsEnabled = false;
-                ConnectionErrorText.IsVisible = false;
+                int count = 0;
 
-                LoadingWheel.IsEnabled = true;
-                LoadingWheel.IsVisible = true;
-
-                await Task.Delay(250);
-
-                try
+                foreach (Curated category in content.Curated)
                 {
-                    Content content = await FirebaseBackend.LoadContentAsync();
+                    count++;
 
-                    ContentStack.Children.Add(Highfive);
+                    ContentStack.Children.Add(new CategoryStack(category));
 
-                    int count = 0;
-
-                    foreach (Curated category in content.Curated)
+                    if (count % 2 == 0)
                     {
-                        count++;
-
-                        ContentStack.Children.Add(new CategoryStack(category));
-
-                        if(count%2 == 0){
-                            ContentStack.Children.Add(new FeaturedItem(content.Featured[(count/2)-1]));
-                        }
+                        ContentStack.Children.Add(new FeaturedItem(content.Featured[(count / 2) - 1]));
                     }
-
-                    LoadingWheel.IsEnabled = false;
-                    LoadingWheel.IsVisible = false;
-
-                    scrollView.IsEnabled = true;
                 }
-                catch (Exception)
-                {
-                    FirebaseBackend.ResetContentTimer();
 
-                    LoadingWheel.IsEnabled = false;
-                    LoadingWheel.IsVisible = false;
-
-                    scrollView.IsEnabled = false;
-
-                    ContentStack.Children.Clear();
-
-                    LoadingErrorText.IsEnabled = true;
-                    LoadingErrorText.IsVisible = true;
-                }
+                LoadingActivityIndicator.IsEnabled = false;
+                LoadingActivityIndicator.IsVisible = false;
             }
-            else
+            catch (Exception)
             {
-                scrollView.IsEnabled = false;
+                FirebaseBackend.ResetContentTimer();
+
+                LoadingActivityIndicator.IsEnabled = false;
+                LoadingActivityIndicator.IsVisible = false;
 
                 ContentStack.Children.Clear();
 
-                ConnectionErrorText.IsEnabled = true;
-                ConnectionErrorText.IsVisible = true;
+                LoadingErrorStack.IsEnabled = true;
+                LoadingErrorStack.IsVisible = true;
             }
         }
 
         private async Task VerifyAuthAsync()
         {
-            if (CrossConnectivity.Current.IsConnected)
+            bool valid = await FirebaseBackend.IsCurrentAuthValidAsync();
+
+            if (!valid)
             {
-                bool valid = await FirebaseBackend.IsCurrentAuthValidAsync();
+                await FirebaseBackend.RefreshAuthAsync();
+                bool isFreshAuthValid = await FirebaseBackend.IsCurrentAuthValidAsync();
 
-                if (!valid)
+                if (!isFreshAuthValid)
                 {
-                    await FirebaseBackend.RefreshAuthAsync();
-                    bool isFreshAuthValid = await FirebaseBackend.IsCurrentAuthValidAsync();
+                    Settings.ResetSettings();
 
-                    if (!isFreshAuthValid)
-                    {
-                        Settings.ResetSettings();
+                    CrossConnectivity.Current.ConnectivityChanged -= HandleConnectivityChanged;
 
-                        CrossConnectivity.Current.ConnectivityChanged -= HandleConnectivityChanged;
-
-                        Application.Current.MainPage = new NavigationPage(new StartPage());
-                        await Application.Current.MainPage.DisplayAlert("You have been signed out", "The account owner may have changed the password.", "OK");
-                    }
+                    Application.Current.MainPage = new NavigationPage(new StartPage());
+                    await Application.Current.MainPage.DisplayAlert("You have been signed out", "The account owner may have changed the password.", "OK");
                 }
             }
         }
 
-        private void HandleConnectivityChanged(object sender, EventArgs a)
-        {
-            RefreshContentAsync();
-            VerifyAuthAsync();
-        }
-
         public void Resume()
         {
-            if (FirebaseBackend.IsContentExpired() || LoadingErrorText.IsVisible)
+            if (FirebaseBackend.IsContentExpired() || LoadingErrorStack.IsVisible)
             {
                 RefreshContentAsync();
             }
 
             VerifyAuthAsync();
+        }
+
+        private void HandleConnectivityChanged(object sender, EventArgs a)
+        {
+            LoadingErrorStack.IsEnabled = false;
+            LoadingErrorStack.IsVisible = false;
+
+            if (CrossConnectivity.Current.IsConnected)
+            {
+                RefreshContentAsync();
+                VerifyAuthAsync();
+            }
+            else
+            {
+                ContentStack.Children.Clear();
+
+                ConnectionErrorStack.IsEnabled = true;
+                ConnectionErrorStack.IsVisible = true;
+
+                Navigation.PopToRootAsync();
+
+                if (PopupNavigation.Instance.PopupStack.Count > 0)
+                {
+                    PopupNavigation.Instance.PopAllAsync();
+                }
+            }
         }
 
         private void LogoutButtonClicked(object sender, EventArgs e)

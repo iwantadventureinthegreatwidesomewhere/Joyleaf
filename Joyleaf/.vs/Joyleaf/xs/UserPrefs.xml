@@ -1,27 +1,20 @@
 ﻿<Properties StartupConfiguration="{928BF896-B912-476D-86D7-5A6B2B2B065A}|Default">
-  <MonoDevelop.Ide.ItemProperties.Joyleaf.iOS automaticSigning="False" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.AFAA1D33-384F-4B1E-8C69-A380D9C93468" />
+  <MonoDevelop.Ide.ItemProperties.Joyleaf.iOS automaticSigning="False" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget.7f6c676ffe6635747836a89a194d39f6c7f48766" />
   <MonoDevelop.Ide.Workbench>
-    <Files>
-      <File FileName="Joyleaf/Joyleaf/Views/AccountPage.xaml" Line="23" Column="42" />
-      <File FileName="Joyleaf/Joyleaf/Views/AccountPage.xaml.cs" Line="19" Column="17" />
-      <File FileName="Joyleaf/Joyleaf/Helpers/Account.cs" Line="1" Column="1" />
-    </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Joyleaf" expanded="True">
             <Node name="Joyleaf" expanded="True">
-              <Node name="Helpers" expanded="True" />
-              <Node name="Services" expanded="True" />
               <Node name="Views" expanded="True">
-                <Node name="AccountPage.xaml" expanded="True">
-                  <Node name="AccountPage.xaml.cs" selected="True" />
+                <Node name="ItemPopupPage.xaml" expanded="True" />
+                <Node name="MainPage.xaml" expanded="True">
+                  <Node name="MainPage.xaml.cs" selected="True" />
                 </Node>
-                <Node name="MainPage.xaml" expanded="True" />
                 <Node name="SearchPage.xaml" expanded="True" />
-                <Node name="StartPage.xaml" expanded="True" />
               </Node>
             </Node>
+            <Node name="Joyleaf.iOS" expanded="True" />
           </Node>
         </State>
       </Pad>
@@ -29,7 +22,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.ItemProperties.Joyleaf.Android PreferredExecutionTarget="Android.pixel_xl" />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release|iPhoneSimulator" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhone" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

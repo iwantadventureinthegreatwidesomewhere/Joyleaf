@@ -5,12 +5,12 @@ namespace Joyleaf.Helpers
     public class Account
     {
         public readonly string name;
-        public readonly string createdOn;
+        public readonly string dateCreated;
 
         public Account(string name)
         {
             this.name = name;
-            createdOn = DateTime.Now.ToString("MM/dd/yyyy");
+            dateCreated = DateTime.Now.ToString("MM/dd/yyyy");
         }
     }
 }

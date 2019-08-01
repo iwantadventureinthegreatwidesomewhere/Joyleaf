@@ -54,7 +54,7 @@
                     x:Name="searchBar"
                     HorizontalOptions="FillAndExpand"
                     Margin = "10,0"
-                    Placeholder="Search strains, flavors, effects..."
+                    Placeholder="Search strains, flavors, effects"
                     SearchButtonPressed="SearchButtonPressed"/>
             </StackLayout>
             

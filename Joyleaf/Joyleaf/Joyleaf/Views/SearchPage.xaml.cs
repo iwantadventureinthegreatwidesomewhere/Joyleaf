@@ -1,32 +1,29 @@
-﻿using System;
+﻿using Joyleaf.Helpers;
+using Joyleaf.Services;
+using System;
 using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Joyleaf.Helpers;
-using Joyleaf.Services;
-using Plugin.Connectivity;
-using Plugin.Connectivity.Abstractions;
 using Xamarin.Forms;
 
 namespace Joyleaf.Views
 {
     public partial class SearchPage : ContentPage
     {
-        private readonly StackLayout SuggestedTopicsStack;
+        private readonly StackLayout SuggestedStack;
 
         private readonly string[] Flavors = { "Earthy", "Chemical", "Pine", "Spicy/Herbal", "Pungent", "Pepper", "Flowery", "Citrus", "Orange", "Sweet", "Skunk", "Grape", "Minty", "Woody", "Cheese", "Diesel", "Tropical", "Grapefruit", "Nutty", "Lemon", "Berry", "Blueberry", "Ammonia", "Apple", "Rose", "Butter", "Honey", "Tea", "Lime", "Lavender", "Strawberry", "Mint", "Chestnut", "Tree Fruit", "Pear", "Apricot", "Peach", "Blue Cheese", "Menthol", "Coffee", "Tar", "Mango", "Pineapple", "Sage", "Vanilla", "Plum", "Tobacco", "Violet" };
         private readonly string[] PositiveEffects = { "Relaxed", "Hungry", "Euphoric", "Happy", "Creative", "Energetic", "Talkative", "Uplifted", "Tingly", "Sleepy", "Focused", "Giggly", "Aroused" };
         private readonly string[] MedicalEffects = { "Insomnia", "Pain", "Stress", "Fatigue", "Headaches" };
 
-        private readonly string[] wordsToRemove = { "a", "an", "the", "for", "and", "nor", "but", "or", "yet", "so", "at", "around", "by", "after", "along", "from", "of", "on", "to", "with", "without" };
+        private readonly string[] WordsToRemove = { "a", "an", "the", "for", "and", "nor", "but", "or", "yet", "so", "at", "around", "by", "after", "along", "from", "of", "on", "to", "with", "without" };
 
-        private readonly ActivityIndicator LoadingWheel;
-        private readonly StackLayout LoadingErrorText;
-        private readonly StackLayout NoResultsText;
-        private Label NoResultsDetail;
+        private readonly ActivityIndicator LoadingActivityIndicator;
+        private readonly StackLayout LoadingErrorStack;
+        private readonly StackLayout NoResultsStack;
+        private readonly Label NoResultsText;
 
-        private string cachedSearchString;
+        private string CachedPreviousSearch;
 
         public SearchPage()
         {
@@ -43,14 +40,14 @@ namespace Joyleaf.Views
             Random rand = new Random();
             string[] shuffled = merged.OrderBy(x => rand.Next()).Take(6).ToArray();
 
-            SuggestedTopicsStack = new StackLayout
+            SuggestedStack = new StackLayout
             {
                 HorizontalOptions = LayoutOptions.FillAndExpand,
                 Margin = new Thickness(10,0),
                 Orientation = StackOrientation.Vertical
             };
 
-            SuggestedTopicsStack.Children.Add(new Label
+            SuggestedStack.Children.Add(new Label
             {
                 FontAttributes = FontAttributes.Bold,
                 FontSize = 22,
@@ -80,7 +77,7 @@ namespace Joyleaf.Views
                     color = Color.Transparent;
                 }
 
-                SuggestedTopicsStack.Children.Add(new BoxView
+                SuggestedStack.Children.Add(new BoxView
                 {
                     Color = Color.LightGray,
                     HeightRequest = 0.5,
@@ -121,14 +118,12 @@ namespace Joyleaf.Views
 
                 SuggestedLabelStack.GestureRecognizers.Add(SuggestedLabelTapGesture);
 
-                SuggestedTopicsStack.Children.Add(SuggestedLabelStack);
+                SuggestedStack.Children.Add(SuggestedLabelStack);
             }
 
-            ContentStack.Children.Add(SuggestedTopicsStack);
+            ContentStack.Children.Add(SuggestedStack);
 
-            //######################################################
-
-            LoadingWheel = new ActivityIndicator
+            LoadingActivityIndicator = new ActivityIndicator
             {
                 Color = Color.Gray,
                 IsEnabled = false,
@@ -136,22 +131,20 @@ namespace Joyleaf.Views
                 IsVisible = false
             };
 
-            SearchRelativeLayout.Children.Add(LoadingWheel,
+            SearchRelativeLayout.Children.Add(LoadingActivityIndicator,
                 Constraint.RelativeToParent(parent => (parent.Width / 2) - (getLoadingWheelWidth(parent) / 2)),
                 Constraint.RelativeToParent(parent => (parent.Height / 2) - (getLoadingWheelHeight(parent) / 2)));
 
-            double getLoadingWheelWidth(RelativeLayout parent) => LoadingWheel.Measure(parent.Width, parent.Height).Request.Width;
-            double getLoadingWheelHeight(RelativeLayout parent) => LoadingWheel.Measure(parent.Width, parent.Height).Request.Height;
+            double getLoadingWheelWidth(RelativeLayout parent) => LoadingActivityIndicator.Measure(parent.Width, parent.Height).Request.Width;
+            double getLoadingWheelHeight(RelativeLayout parent) => LoadingActivityIndicator.Measure(parent.Width, parent.Height).Request.Height;
 
-            //######################################################
-
-            LoadingErrorText = new StackLayout
+            LoadingErrorStack = new StackLayout
             {
                 IsEnabled = false,
                 IsVisible = false
             };
 
-            LoadingErrorText.Children.Add(new Label
+            LoadingErrorStack.Children.Add(new Label
             {
                 FontAttributes = FontAttributes.Bold,
                 FontSize = 27,
@@ -160,7 +153,7 @@ namespace Joyleaf.Views
                 TextColor = Color.FromHex("#333333")
             });
 
-            LoadingErrorText.Children.Add(new Label
+            LoadingErrorStack.Children.Add(new Label
             {
                 FontSize = 23,
                 HorizontalTextAlignment = TextAlignment.Center,
@@ -171,27 +164,25 @@ namespace Joyleaf.Views
             TapGestureRecognizer LoadingRetryTapGesture = new TapGestureRecognizer();
             LoadingRetryTapGesture.Tapped += (s, e) =>
             {
-                SearchAsync(cachedSearchString);
+                SearchAsync(CachedPreviousSearch);
             };
 
-            LoadingErrorText.GestureRecognizers.Add(LoadingRetryTapGesture);
+            LoadingErrorStack.GestureRecognizers.Add(LoadingRetryTapGesture);
 
-            SearchRelativeLayout.Children.Add(LoadingErrorText,
+            SearchRelativeLayout.Children.Add(LoadingErrorStack,
                 Constraint.RelativeToParent(parent => (parent.Width / 2) - (getLoadingErrorTextWidth(parent) / 2)),
                 Constraint.RelativeToParent(parent => (parent.Height / 2) - (getLoadingErrorTextHeight(parent) / 2)));
 
-            double getLoadingErrorTextWidth(RelativeLayout parent) => LoadingErrorText.Measure(parent.Width, parent.Height).Request.Width;
-            double getLoadingErrorTextHeight(RelativeLayout parent) => LoadingErrorText.Measure(parent.Width, parent.Height).Request.Height;
+            double getLoadingErrorTextWidth(RelativeLayout parent) => LoadingErrorStack.Measure(parent.Width, parent.Height).Request.Width;
+            double getLoadingErrorTextHeight(RelativeLayout parent) => LoadingErrorStack.Measure(parent.Width, parent.Height).Request.Height;
 
-            //######################################################
-
-            NoResultsText = new StackLayout
+            NoResultsStack = new StackLayout
             {
                 IsEnabled = false,
                 IsVisible = false,
             };
 
-            NoResultsText.Children.Add(new Label
+            NoResultsStack.Children.Add(new Label
             {
                 FontAttributes = FontAttributes.Bold,
                 FontSize = 35,
@@ -200,25 +191,21 @@ namespace Joyleaf.Views
                 TextColor = Color.FromHex("#333333")
             });
 
-            NoResultsDetail = new Label
+            NoResultsText = new Label
             {
                 FontSize = 23,
                 HorizontalTextAlignment = TextAlignment.Center,
                 TextColor = Color.Gray
             };
 
-            NoResultsText.Children.Add(NoResultsDetail);
+            NoResultsStack.Children.Add(NoResultsText);
 
-            SearchRelativeLayout.Children.Add(NoResultsText,
+            SearchRelativeLayout.Children.Add(NoResultsStack,
                 Constraint.RelativeToParent(parent => (parent.Width / 2) - (getNoResultsTextWidth(parent) / 2)),
                 Constraint.RelativeToParent(parent => (parent.Height / 2) - (getNoResultsTextHeight(parent) / 2)));
 
-            double getNoResultsTextWidth(RelativeLayout parent) => NoResultsText.Measure(parent.Width, parent.Height).Request.Width;
-            double getNoResultsTextHeight(RelativeLayout parent) => NoResultsText.Measure(parent.Width, parent.Height).Request.Height;
-
-            //######################################################
-
-            CrossConnectivity.Current.ConnectivityChanged += HandleConnectivityChanged;
+            double getNoResultsTextWidth(RelativeLayout parent) => NoResultsStack.Measure(parent.Width, parent.Height).Request.Width;
+            double getNoResultsTextHeight(RelativeLayout parent) => NoResultsStack.Measure(parent.Width, parent.Height).Request.Height;
         }
 
         private async Task SearchAsync(string s)
@@ -233,7 +220,7 @@ namespace Joyleaf.Views
 
                 foreach (string word in words)
                 {
-                    if (word.Length > 1 && !wordsToRemove.Contains(word.ToLower()))
+                    if (word.Length > 1 && !WordsToRemove.Contains(word.ToLower()))
                     {
                         t.Add(word);
                     }
@@ -244,20 +231,18 @@ namespace Joyleaf.Views
                 if (filteredWords.Count() > 0)
                 {
                     searchBar.Text = s;
-                    cachedSearchString = s;
+                    CachedPreviousSearch = s;
 
-                    LoadingErrorText.IsEnabled = false;
-                    LoadingErrorText.IsVisible = false;
+                    LoadingErrorStack.IsEnabled = false;
+                    LoadingErrorStack.IsVisible = false;
 
-                    NoResultsText.IsEnabled = false;
-                    NoResultsText.IsVisible = false;
-
-                    scrollView.IsEnabled = false;
+                    NoResultsStack.IsEnabled = false;
+                    NoResultsStack.IsVisible = false;
 
                     ContentStack.Children.Clear();
 
-                    LoadingWheel.IsEnabled = true;
-                    LoadingWheel.IsVisible = true;
+                    LoadingActivityIndicator.IsEnabled = true;
+                    LoadingActivityIndicator.IsVisible = true;
 
                     await Task.Delay(250);
 
@@ -274,30 +259,26 @@ namespace Joyleaf.Views
                         }
                         else
                         {
-                            NoResultsDetail.Text = "for \"" + s + "\"";
+                            NoResultsText.Text = "for \"" + s + "\"";
 
-                            NoResultsText.IsEnabled = true;
-                            NoResultsText.IsVisible = true;
+                            NoResultsStack.IsEnabled = true;
+                            NoResultsStack.IsVisible = true;
                         }
                     
-                        LoadingWheel.IsVisible = false;
-                        LoadingWheel.IsEnabled = false;
+                        LoadingActivityIndicator.IsVisible = false;
+                        LoadingActivityIndicator.IsEnabled = false;
                         
                         ClearButton.IsVisible = true;
-
-                        scrollView.IsEnabled = true;
                     }
                     catch (Exception)
                     {
-                        LoadingWheel.IsEnabled = false;
-                        LoadingWheel.IsVisible = false;
-
-                        scrollView.IsEnabled = false;
+                        LoadingActivityIndicator.IsEnabled = false;
+                        LoadingActivityIndicator.IsVisible = false;
 
                         ContentStack.Children.Clear();
 
-                        LoadingErrorText.IsEnabled = true;
-                        LoadingErrorText.IsVisible = true;
+                        LoadingErrorStack.IsEnabled = true;
+                        LoadingErrorStack.IsVisible = true;
                     }
                 }
             }
@@ -312,26 +293,18 @@ namespace Joyleaf.Views
             ContentStack.Children.Clear();
             searchBar.Text = "";
 
-            LoadingErrorText.IsEnabled = false;
-            LoadingErrorText.IsVisible = false;
+            LoadingErrorStack.IsEnabled = false;
+            LoadingErrorStack.IsVisible = false;
 
-            NoResultsText.IsEnabled = false;
-            NoResultsText.IsVisible = false;
+            NoResultsStack.IsEnabled = false;
+            NoResultsStack.IsVisible = false;
 
-            ContentStack.Children.Add(SuggestedTopicsStack);
+            ContentStack.Children.Add(SuggestedStack);
         }
 
         private void SearchButtonPressed(object sender, EventArgs e)
         {
             SearchAsync(searchBar.Text);
-        }
-
-        private async void HandleConnectivityChanged(object sender, ConnectivityChangedEventArgs e)
-        {
-            if (!CrossConnectivity.Current.IsConnected)
-            {
-                await Navigation.PopAsync();
-            }
         }
 
         private async void BackButtonClicked(object sender, EventArgs e)
