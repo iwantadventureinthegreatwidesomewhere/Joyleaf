@@ -16,7 +16,7 @@
             RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=1}"
             RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=1}">
             
-            <StackLayout BackgroundColor="White" HorizontalOptions="FillAndExpand" Margin="25,10" Orientation="Horizontal">
+            <StackLayout BackgroundColor="White" HorizontalOptions="FillAndExpand" Margin="25,10,12,10" Orientation="Horizontal">
                 <Label
                     FontAttributes="Bold"
                     FontSize="27"
