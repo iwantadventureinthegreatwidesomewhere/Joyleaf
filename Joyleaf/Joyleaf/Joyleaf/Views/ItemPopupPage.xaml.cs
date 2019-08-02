@@ -661,7 +661,7 @@ namespace Joyleaf.Views
             }
             else
             {
-                await Application.Current.MainPage.DisplayAlert("Incomplete rating", "Please provide a rating greater than zero and use the text space to write a brief review.", "OK");
+                await Application.Current.MainPage.DisplayAlert("Incomplete rating", "Please provide a rating and use the text space to write a review.", "OK");
             }
         }
 

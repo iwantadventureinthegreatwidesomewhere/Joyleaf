@@ -14,6 +14,7 @@ namespace Joyleaf.Views
     public partial class MainPage : ContentPage
     {
         private readonly Image Highfive;
+
         private readonly ActivityIndicator LoadingActivityIndicator;
         private readonly StackLayout ConnectionErrorStack;
         private readonly StackLayout LoadingErrorStack;
@@ -24,6 +25,8 @@ namespace Joyleaf.Views
 
             NavigationPage.SetHasNavigationBar(this, false);
 
+            CrossConnectivity.Current.ConnectivityChanged += HandleConnectivityChanged;
+
             Highfive = new Image
             {
                 Aspect = Aspect.AspectFit,
@@ -32,32 +35,30 @@ namespace Joyleaf.Views
                 VerticalOptions = LayoutOptions.FillAndExpand
             };
 
-            TapGestureRecognizer HighfiveTapGesture = new TapGestureRecognizer();
-            HighfiveTapGesture.Tapped += (s, e) =>
+            TapGestureRecognizer HighfiveTap = new TapGestureRecognizer();
+            HighfiveTap.Tapped += (sender, e) =>
             {
                 HighfiveClicked();
             };
 
-            Highfive.GestureRecognizers.Add(HighfiveTapGesture);
+            Highfive.GestureRecognizers.Add(HighfiveTap);
 
             LoadingActivityIndicator = new ActivityIndicator
             {
                 Color = Color.Gray,
-                IsEnabled = false,
                 IsRunning = true,
                 IsVisible = false
             };
 
             ExploreRelativeLayout.Children.Add(LoadingActivityIndicator,
-                Constraint.RelativeToParent(parent => (parent.Width / 2) - (getLoadingWheelWidth(parent) / 2)),
-                Constraint.RelativeToParent(parent => (parent.Height / 2) - (getLoadingWheelHeight(parent) / 2)));
+                Constraint.RelativeToParent(parent => (parent.Width / 2) - (getLoadingActivityIndicatorWidth(parent) / 2)),
+                Constraint.RelativeToParent(parent => (parent.Height / 2) - (getLoadingActivityIndicatorHeight(parent) / 2)));
             
-            double getLoadingWheelWidth(RelativeLayout parent) => LoadingActivityIndicator.Measure(parent.Width, parent.Height).Request.Width;
-            double getLoadingWheelHeight(RelativeLayout parent) => LoadingActivityIndicator.Measure(parent.Width, parent.Height).Request.Height;
+            double getLoadingActivityIndicatorWidth(RelativeLayout parent) => LoadingActivityIndicator.Measure(parent.Width, parent.Height).Request.Width;
+            double getLoadingActivityIndicatorHeight(RelativeLayout parent) => LoadingActivityIndicator.Measure(parent.Width, parent.Height).Request.Height;
 
             ConnectionErrorStack = new StackLayout
             {
-                IsEnabled = false,
                 IsVisible = false
             };
 
@@ -79,17 +80,14 @@ namespace Joyleaf.Views
             });
 
             ExploreRelativeLayout.Children.Add(ConnectionErrorStack,
-                Constraint.RelativeToParent(parent => (parent.Width / 2) - (getConnectionErrorTextWidth(parent) / 2)),
-                Constraint.RelativeToParent(parent => (parent.Height / 2) - (getConnectionErrorTextHeight(parent) / 2)));
+                Constraint.RelativeToParent(parent => (parent.Width / 2) - (getConnectionErrorStackWidth(parent) / 2)),
+                Constraint.RelativeToParent(parent => (parent.Height / 2) - (getConnectionErrorStackHeight(parent) / 2)));
 
-            double getConnectionErrorTextWidth(RelativeLayout parent) => ConnectionErrorStack.Measure(parent.Width, parent.Height).Request.Width;
-            double getConnectionErrorTextHeight(RelativeLayout parent) => ConnectionErrorStack.Measure(parent.Width, parent.Height).Request.Height;
-
-            CrossConnectivity.Current.ConnectivityChanged += HandleConnectivityChanged;
+            double getConnectionErrorStackWidth(RelativeLayout parent) => ConnectionErrorStack.Measure(parent.Width, parent.Height).Request.Width;
+            double getConnectionErrorStackHeight(RelativeLayout parent) => ConnectionErrorStack.Measure(parent.Width, parent.Height).Request.Height;
 
             LoadingErrorStack = new StackLayout
             {
-                IsEnabled = false,
                 IsVisible = false
             };
 
@@ -110,30 +108,38 @@ namespace Joyleaf.Views
                 TextColor = Color.Gray
             });
 
-            TapGestureRecognizer LoadingRetryTapGesture = new TapGestureRecognizer();
-            LoadingRetryTapGesture.Tapped += (s, e) =>
+            TapGestureRecognizer RetryLoadingTap = new TapGestureRecognizer();
+            RetryLoadingTap.Tapped += (sender, e) =>
             {
-                RefreshContentAsync();
+                GetContentAsync();
             };
 
-            LoadingErrorStack.GestureRecognizers.Add(LoadingRetryTapGesture);
+            LoadingErrorStack.GestureRecognizers.Add(RetryLoadingTap);
 
             ExploreRelativeLayout.Children.Add(LoadingErrorStack,
-                Constraint.RelativeToParent(parent => (parent.Width / 2) - (getLoadingErrorTextWidth(parent) / 2)),
-                Constraint.RelativeToParent(parent => (parent.Height / 2) - (getLoadingErrorTextHeight(parent) / 2)));
+                Constraint.RelativeToParent(parent => (parent.Width / 2) - (getLoadingErrorStackWidth(parent) / 2)),
+                Constraint.RelativeToParent(parent => (parent.Height / 2) - (getLoadingErrorStackHeight(parent) / 2)));
 
-            double getLoadingErrorTextWidth(RelativeLayout parent) => LoadingErrorStack.Measure(parent.Width, parent.Height).Request.Width;
-            double getLoadingErrorTextHeight(RelativeLayout parent) => LoadingErrorStack.Measure(parent.Width, parent.Height).Request.Height;
+            double getLoadingErrorStackWidth(RelativeLayout parent) => LoadingErrorStack.Measure(parent.Width, parent.Height).Request.Width;
+            double getLoadingErrorStackHeight(RelativeLayout parent) => LoadingErrorStack.Measure(parent.Width, parent.Height).Request.Height;
 
-            RefreshContentAsync();
-            VerifyAuthAsync();
+            if (CrossConnectivity.Current.IsConnected)
+            {
+                GetContentAsync();
+                VerifyAuthAsync();
+            }
+            else
+            {
+                LoadingErrorStack.IsVisible = false;
+
+                ContentStack.Children.Clear();
+
+                ConnectionErrorStack.IsVisible = true;
+            }
         }
 
         private void HighfiveClicked()
         {
-
-
-
         }
 
         private async void SearchClicked(object sender, EventArgs e)
@@ -160,14 +166,13 @@ namespace Joyleaf.Views
             }
         }
 
-        private async Task RefreshContentAsync()
+        private async Task GetContentAsync()
         {
+            ConnectionErrorStack.IsVisible = false;
+            LoadingErrorStack.IsVisible = false;
+
             ContentStack.Children.Clear();
 
-            ConnectionErrorStack.IsEnabled = false;
-            ConnectionErrorStack.IsVisible = false;
-
-            LoadingActivityIndicator.IsEnabled = true;
             LoadingActivityIndicator.IsVisible = true;
 
             await Task.Delay(250);
@@ -192,19 +197,16 @@ namespace Joyleaf.Views
                     }
                 }
 
-                LoadingActivityIndicator.IsEnabled = false;
                 LoadingActivityIndicator.IsVisible = false;
             }
             catch (Exception)
             {
                 FirebaseBackend.ResetContentTimer();
 
-                LoadingActivityIndicator.IsEnabled = false;
                 LoadingActivityIndicator.IsVisible = false;
 
                 ContentStack.Children.Clear();
 
-                LoadingErrorStack.IsEnabled = true;
                 LoadingErrorStack.IsVisible = true;
             }
         }
@@ -232,29 +234,45 @@ namespace Joyleaf.Views
 
         public void Resume()
         {
-            if (FirebaseBackend.IsContentExpired() || LoadingErrorStack.IsVisible)
-            {
-                RefreshContentAsync();
-            }
-
-            VerifyAuthAsync();
-        }
-
-        private void HandleConnectivityChanged(object sender, EventArgs a)
-        {
-            LoadingErrorStack.IsEnabled = false;
-            LoadingErrorStack.IsVisible = false;
-
             if (CrossConnectivity.Current.IsConnected)
             {
-                RefreshContentAsync();
+                if (FirebaseBackend.IsContentExpired() || LoadingErrorStack.IsVisible)
+                {
+                    GetContentAsync();
+                }
+
                 VerifyAuthAsync();
             }
             else
             {
+                LoadingErrorStack.IsVisible = false;
+
                 ContentStack.Children.Clear();
 
-                ConnectionErrorStack.IsEnabled = true;
+                ConnectionErrorStack.IsVisible = true;
+
+                Navigation.PopToRootAsync();
+
+                if (PopupNavigation.Instance.PopupStack.Count > 0)
+                {
+                    PopupNavigation.Instance.PopAllAsync();
+                }
+            }
+        }
+
+        private void HandleConnectivityChanged(object sender, EventArgs a)
+        {
+            if (CrossConnectivity.Current.IsConnected)
+            {
+                GetContentAsync();
+                VerifyAuthAsync();
+            }
+            else
+            {
+                LoadingErrorStack.IsVisible = false;
+
+                ContentStack.Children.Clear();
+
                 ConnectionErrorStack.IsVisible = true;
 
                 Navigation.PopToRootAsync();

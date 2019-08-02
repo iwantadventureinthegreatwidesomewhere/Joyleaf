@@ -10,6 +10,8 @@ namespace Joyleaf.Views
             InitializeComponent();
 
             NavigationPage.SetHasNavigationBar(this, false);
+
+
         }
 
         private async void BackButtonClicked(object sender, EventArgs e)
