@@ -232,6 +232,30 @@ namespace Joyleaf.Views
             }
         }
 
+        public void HandleConnectivityChanged(object sender, EventArgs a)
+        {
+            if (CrossConnectivity.Current.IsConnected)
+            {
+                GetContentAsync();
+                VerifyAuthAsync();
+            }
+            else
+            {
+                LoadingErrorStack.IsVisible = false;
+
+                ContentStack.Children.Clear();
+
+                ConnectionErrorStack.IsVisible = true;
+
+                Navigation.PopToRootAsync();
+
+                if (PopupNavigation.Instance.PopupStack.Count > 0)
+                {
+                    PopupNavigation.Instance.PopAllAsync();
+                }
+            }
+        }
+
         public void Resume()
         {
             if (CrossConnectivity.Current.IsConnected)
@@ -258,39 +282,6 @@ namespace Joyleaf.Views
                     PopupNavigation.Instance.PopAllAsync();
                 }
             }
-        }
-
-        private void HandleConnectivityChanged(object sender, EventArgs a)
-        {
-            if (CrossConnectivity.Current.IsConnected)
-            {
-                GetContentAsync();
-                VerifyAuthAsync();
-            }
-            else
-            {
-                LoadingErrorStack.IsVisible = false;
-
-                ContentStack.Children.Clear();
-
-                ConnectionErrorStack.IsVisible = true;
-
-                Navigation.PopToRootAsync();
-
-                if (PopupNavigation.Instance.PopupStack.Count > 0)
-                {
-                    PopupNavigation.Instance.PopAllAsync();
-                }
-            }
-        }
-
-        private void LogoutButtonClicked(object sender, EventArgs e)
-        {
-            Settings.ResetSettings();
-
-            CrossConnectivity.Current.ConnectivityChanged -= HandleConnectivityChanged;
-
-            Application.Current.MainPage = new NavigationPage(new StartPage());
         }
     }
 }

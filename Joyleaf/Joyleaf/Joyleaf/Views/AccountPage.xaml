@@ -46,8 +46,7 @@
                 <StackLayout
                     x:Name="ContentStack"
                     Orientation="Vertical"
-                    Padding="17,30"
-                    Spacing="30"
+                    Padding="0,30"
                     VerticalOptions="FillAndExpand">
                 </StackLayout>
             </ScrollView>

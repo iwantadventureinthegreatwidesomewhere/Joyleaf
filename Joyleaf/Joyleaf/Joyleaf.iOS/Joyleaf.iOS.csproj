@@ -207,6 +207,26 @@
     <ImageAsset Include="Assets.xcassets\BackButtonBlack.imageset\black_arrow-1.png" />
     <ImageAsset Include="Assets.xcassets\BackButtonBlack.imageset\black_arrow%402x-1.png" />
     <ImageAsset Include="Assets.xcassets\BackButtonBlack.imageset\black_arrow%403x-1.png" />
+    <ImageAsset Include="Assets.xcassets\ChangePassword.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\ChangePassword.imageset\ChangePassword.png" />
+    <ImageAsset Include="Assets.xcassets\ChangePassword.imageset\ChangePassword%402x.png" />
+    <ImageAsset Include="Assets.xcassets\ChangePassword.imageset\ChangePassword%403x.png" />
+    <ImageAsset Include="Assets.xcassets\EditReviews.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\EditReviews.imageset\EditReviews.png" />
+    <ImageAsset Include="Assets.xcassets\EditReviews.imageset\EditReviews%402x.png" />
+    <ImageAsset Include="Assets.xcassets\EditReviews.imageset\EditReviews%403x.png" />
+    <ImageAsset Include="Assets.xcassets\ContactSupport.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\ContactSupport.imageset\Support.png" />
+    <ImageAsset Include="Assets.xcassets\ContactSupport.imageset\Support%402x.png" />
+    <ImageAsset Include="Assets.xcassets\ContactSupport.imageset\Support%403x.png" />
+    <ImageAsset Include="Assets.xcassets\AccountArrow.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\AccountArrow.imageset\account-arrow-1.png" />
+    <ImageAsset Include="Assets.xcassets\AccountArrow.imageset\account-arrow%402x-1.png" />
+    <ImageAsset Include="Assets.xcassets\AccountArrow.imageset\account-arrow%403x-1.png" />
+    <ImageAsset Include="Assets.xcassets\Terms.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Terms.imageset\Terms.png" />
+    <ImageAsset Include="Assets.xcassets\Terms.imageset\Terms%402x.png" />
+    <ImageAsset Include="Assets.xcassets\Terms.imageset\Terms%403x.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -267,5 +287,10 @@
     <Folder Include="Assets.xcassets\FeaturedIndica.imageset\" />
     <Folder Include="Assets.xcassets\ScrollMore.imageset\" />
     <Folder Include="Assets.xcassets\BackButtonBlack.imageset\" />
+    <Folder Include="Assets.xcassets\ChangePassword.imageset\" />
+    <Folder Include="Assets.xcassets\EditReviews.imageset\" />
+    <Folder Include="Assets.xcassets\ContactSupport.imageset\" />
+    <Folder Include="Assets.xcassets\AccountArrow.imageset\" />
+    <Folder Include="Assets.xcassets\Terms.imageset\" />
   </ItemGroup>
 </Project>

@@ -653,7 +653,7 @@ namespace Joyleaf.Views
         {
             if (writeReviewRating.Value > 0 && writeReviewEditor.TextColor != Color.Gray && !string.IsNullOrEmpty(writeReviewEditor.Text))
             {
-                await Application.Current.MainPage.DisplayAlert("Rating submitted!", "Thank you for taking a moment to rate this strain. The Joyleaf community appreciates your support.", "OK");
+                await Application.Current.MainPage.DisplayAlert("Rating submitted!", "Thank you for taking a moment to rate this strain.", "OK");
 
                 await FirebaseBackend.PostReviewAsync(item.Info.Id, writeReviewRating.Value, writeReviewEditor.Text);
 

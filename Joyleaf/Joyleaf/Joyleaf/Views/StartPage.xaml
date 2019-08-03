@@ -25,7 +25,7 @@
                 FontSize="23"
                 HorizontalOptions="Center"
                 Margin="0,0,0,20"
-                Text="Discover hundreds of strains."
+                Text="Find the best strains for you."
                 TextColor="#ffffff">
             </Label>
             
@@ -34,7 +34,7 @@
                 FontSize="23"
                 HorizontalOptions="Center"
                 Margin="0,0,0,20"
-                Text="Browse personal selections."
+                Text="All within seconds."
                 TextColor="#ffffff">
             </Label>
             
@@ -42,7 +42,7 @@
                 FontAttributes="Bold"
                 FontSize="23"
                 HorizontalOptions="Center"
-                Text="Totally free."
+                Text="All totally free."
                 TextColor="#ffffff">
             </Label>
         </StackLayout>
@@ -56,7 +56,7 @@
                 FontAttributes="Bold"
                 FontSize="15"
                 Margin="0,0,0,10"
-                Text="SIGN UP"
+                Text="SIGN UP FREE"
                 TextColor="#333333">
             </Button>
             
