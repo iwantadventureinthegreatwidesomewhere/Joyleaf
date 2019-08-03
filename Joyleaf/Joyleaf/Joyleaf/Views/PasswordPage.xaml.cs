@@ -1,6 +1,7 @@
 ﻿using Joyleaf.CustomControls;
 using Plugin.Connectivity;
 using System;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace Joyleaf.Views
@@ -29,6 +30,10 @@ namespace Joyleaf.Views
 
         private async void NextButtonClicked(object sender, EventArgs e)
         {
+            NextButton.IsBusy = true;
+
+            await Task.Delay(250);
+
             if (!string.IsNullOrEmpty(PasswordEntry.Text))
             {
                 if (CrossConnectivity.Current.IsConnected)
@@ -42,29 +47,35 @@ namespace Joyleaf.Views
                             if (count >= 8)
                             {
                                 await Navigation.PushAsync(new AgeVerificationAndDisclaimerPage(name, email, PasswordEntry.Text));
+                                NextButton.IsBusy = false;
                             }
                             else
                             {
+                                NextButton.IsBusy = false;
                                 await DisplayAlert("Choose a stronger password", "Make sure to use at least eight characters. Please try again.", "OK");
                             }
                         }
                         else
                         {
+                            NextButton.IsBusy = false;
                             await DisplayAlert("Passwords do not match", "The passwords you entered do not match. Please try again.", "OK");
                         }
                     }
                     else
                     {
+                        NextButton.IsBusy = false;
                         await DisplayAlert("Invalid password", "The password you entered is invalid. Please try again.", "OK");
                     }
                 }
                 else
                 {
+                    NextButton.IsBusy = false;
                     await DisplayAlert("Connection error", "Please check your network connection, then try again.", "OK");
                 }
             }
             else
             {
+                NextButton.IsBusy = false;
                 PasswordEntry.Focus();
             }
         }

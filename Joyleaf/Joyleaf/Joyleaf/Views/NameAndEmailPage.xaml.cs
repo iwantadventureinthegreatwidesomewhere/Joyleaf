@@ -2,6 +2,7 @@
 using Joyleaf.Services;
 using Plugin.Connectivity;
 using System;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -28,6 +29,10 @@ namespace Joyleaf.Views
 
         private async void NextButtonClicked(object sender, EventArgs e)
         {
+            NextButton.IsBusy = true;
+
+            await Task.Delay(250);
+
             if (!string.IsNullOrEmpty(NameEntry.Text))
             {
                 if (CrossConnectivity.Current.IsConnected)
@@ -39,29 +44,35 @@ namespace Joyleaf.Views
                             if (FirebaseBackend.IsEmailAvailable(EmailEntry.Text))
                             {
                                 await Navigation.PushAsync(new PasswordPage(NameEntry.Text, EmailEntry.Text));
+                                NextButton.IsBusy = false;
                             }
                             else
                             {
-                                await Application.Current.MainPage.DisplayAlert("Email is taken", "That email belongs to an existing account. Try another.", "OK");
+                                NextButton.IsBusy = false;
+                                await DisplayAlert("Email is taken", "That email belongs to an existing account. Try another.", "OK");
                             }
                         }
                         catch (Exception)
                         {
-                            await Application.Current.MainPage.DisplayAlert("Error", "Whoops, looks like there's a problem on our end. Please try again later.", "OK");
+                            NextButton.IsBusy = false;
+                            await DisplayAlert("Error", "Whoops, looks like there's a problem on our end. Please try again later.", "OK");
                         }
                     }
                     else
                     {
+                        NextButton.IsBusy = false;
                         await DisplayAlert("Invalid email", "The email address you entered is invalid. Please try again.", "OK");
                     }
                 }
                 else
                 {
+                    NextButton.IsBusy = false;
                     await DisplayAlert("Connection error", "Please check your network connection, then try again.", "OK");
                 }
             }
             else
             {
+                NextButton.IsBusy = false;
                 NameEntry.Focus();
             }
         }

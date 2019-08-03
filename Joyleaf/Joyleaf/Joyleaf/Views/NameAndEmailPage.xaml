@@ -66,21 +66,16 @@
                 TextColor="White"
                 TextChanged="TextChanged"
             />
-        
-            <customControls:CustomButton
+            
+            <customControls:ButtonWithBusyIndicator
                 x:Name="NextButton"
-                BackgroundColor="White"
                 Clicked="NextButtonClicked"
-                CornerRadius="23"
-                FontAttributes="Bold"
-                FontSize="15"
                 HeightRequest="45"
                 HorizontalOptions="Center"
                 IsEnabled="false"
                 Text="NEXT"
-                TextColor="#333333"
-                WidthRequest="150">
-            </customControls:CustomButton>
+                VerticalOptions="Center"
+                WidthRequest="150"/>
         </StackLayout>
         
         <Button

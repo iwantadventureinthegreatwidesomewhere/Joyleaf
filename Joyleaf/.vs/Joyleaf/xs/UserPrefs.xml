@@ -5,10 +5,7 @@
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Joyleaf" expanded="True">
-            <Node name="Joyleaf" expanded="True">
-              <Node name="CustomControls" expanded="True" />
-            </Node>
-            <Node name="Joyleaf.iOS" expanded="True" />
+            <Node name="Joyleaf" expanded="True" />
           </Node>
         </State>
       </Pad>

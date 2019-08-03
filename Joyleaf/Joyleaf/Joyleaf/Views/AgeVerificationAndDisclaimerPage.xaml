@@ -33,19 +33,14 @@
                 TextColor="White">
             </customControls:JustifiedLabel>
             
-            <customControls:CustomButton
+            <customControls:ButtonWithBusyIndicator
                 x:Name="NextButton"
-                BackgroundColor="White"
                 Clicked="NextButtonClicked"
-                CornerRadius="23"
-                FontAttributes="Bold"
-                FontSize="15"
                 HeightRequest="45"
                 HorizontalOptions="Center"
                 Text="CREATE ACCOUNT"
-                TextColor="#333333"
-                WidthRequest="200">
-            </customControls:CustomButton>
+                VerticalOptions="Center"
+                WidthRequest="200"/>
         </StackLayout>
         
         <Button

@@ -2,6 +2,7 @@
 using Joyleaf.Services;
 using Plugin.Connectivity;
 using System;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace Joyleaf.Views
@@ -14,7 +15,7 @@ namespace Joyleaf.Views
 
             InitializeComponent();
 
-            EmailEntry.Completed += SendButtonClick;
+            EmailEntry.Completed += SendButtonClicked;
         }
 
         private async void BackButtonClicked(object sender, EventArgs e)
@@ -22,8 +23,12 @@ namespace Joyleaf.Views
             await Navigation.PopAsync();
         }
 
-        private async void SendButtonClick(object sender, EventArgs e)
+        private async void SendButtonClicked(object sender, EventArgs e)
         {
+            SendButton.IsBusy = true;
+
+            await Task.Delay(250);
+
             if (CrossConnectivity.Current.IsConnected)
             {
                 if (EmailEntry.VerifyText(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$"))
@@ -31,19 +36,23 @@ namespace Joyleaf.Views
                     try
                     {
                         FirebaseBackend.SendPasswordReset(EmailEntry.Text);
+                        SendButton.IsBusy = false;
                     }
                     catch (Exception)
                     {
-                        await Application.Current.MainPage.DisplayAlert("Error", "Whoops, looks like there's a problem on our end. Please try again later.", "OK");
+                        SendButton.IsBusy = false;
+                        await DisplayAlert("Error", "Whoops, looks like there's a problem on our end. Please try again later.", "OK");
                     }
                 }
                 else
                 {
+                    SendButton.IsBusy = false;
                     await DisplayAlert("Invalid email", "The email address you entered is invalid. Please try again.", "OK");
                 }
             }
             else
             {
+                SendButton.IsBusy = false;
                 await DisplayAlert("Connection error", "Please check your network connection, then try again.", "OK");
             }
         }

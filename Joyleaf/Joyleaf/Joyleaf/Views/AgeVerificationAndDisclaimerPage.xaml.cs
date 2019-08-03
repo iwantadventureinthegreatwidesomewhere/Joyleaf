@@ -3,6 +3,7 @@ using Joyleaf.Helpers;
 using Joyleaf.Services;
 using Plugin.Connectivity;
 using System;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace Joyleaf.Views
@@ -29,6 +30,10 @@ namespace Joyleaf.Views
 
         private async void NextButtonClicked(object sender, EventArgs e)
         {
+            NextButton.IsBusy = true;
+
+            await Task.Delay(250);
+
             if (CrossConnectivity.Current.IsConnected)
             {
                 Account account = new Account(name);
@@ -36,14 +41,17 @@ namespace Joyleaf.Views
                 try
                 {
                     FirebaseBackend.SignUp(account, email, password);
+                    NextButton.IsBusy = false;
                 }
                 catch (Exception)
                 {
-                    await Application.Current.MainPage.DisplayAlert("Error", "Whoops, looks like there's a problem on our end. Please try again later.", "OK");
+                    NextButton.IsBusy = false;
+                    await DisplayAlert("Error", "Whoops, looks like there's a problem on our end. Please try again later.", "OK");
                 }
             }
             else
             {
+                NextButton.IsBusy = false;
                 await DisplayAlert("Connection error", "Please check your network connection, then try again.", "OK");
             }
         }

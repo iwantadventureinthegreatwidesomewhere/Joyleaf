@@ -67,22 +67,17 @@
                 TextColor="White"
                 TextChanged="TextChanged"
             />
-        
-            <customControls:CustomButton
+            
+            <customControls:ButtonWithBusyIndicator
                 x:Name="LogInButton"
-                BackgroundColor="White"
                 Clicked="LogInButtonClicked"
-                CornerRadius="23"
-                FontAttributes="Bold"
-                FontSize="15"
                 HeightRequest="45"
                 HorizontalOptions="Center"
                 IsEnabled="false"
                 Margin="0,0,0,10"
                 Text="GO"
-                TextColor="#333333"
-                WidthRequest="150">
-            </customControls:CustomButton>
+                VerticalOptions="Center"
+                WidthRequest="150"/>
         
             <Button
                 BackgroundColor="Transparent"

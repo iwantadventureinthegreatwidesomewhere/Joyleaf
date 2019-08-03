@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using Joyleaf.CustomControls;
 using Joyleaf.Services;
 using Plugin.Connectivity;
@@ -22,9 +23,12 @@ namespace Joyleaf.Views
             await Navigation.PopAsync();
         }
 
-        private async void LogInButtonClicked(object sender, EventArgs e)         {             if (!string.IsNullOrEmpty(EmailEntry.Text))             {                 if (CrossConnectivity.Current.IsConnected)                 {                     try                     {                         FirebaseBackend.SignIn(EmailEntry.Text, PasswordEntry.Text);                     }                     catch (Exception)                     {                         await Application.Current.MainPage.DisplayAlert("Error", "Whoops, looks like there's a problem on our end. Please try again later.", "OK");                     }                 }                 else                 {                     await DisplayAlert("Connection error", "Please check your network connection, then try again.", "OK");                 }             }
+        private async void LogInButtonClicked(object sender, EventArgs e)         {             LogInButton.IsBusy = true;
+
+            await Task.Delay(250);              if (!string.IsNullOrEmpty(EmailEntry.Text))             {                 if (CrossConnectivity.Current.IsConnected)                 {                     try                     {                         FirebaseBackend.SignIn(EmailEntry.Text, PasswordEntry.Text);                         LogInButton.IsBusy = false;                     }                     catch (Exception)                     {                         LogInButton.IsBusy = false;                         await DisplayAlert("Error", "Whoops, looks like there's a problem on our end. Please try again later.", "OK");                     }                 }                 else                 {                     LogInButton.IsBusy = false;                     await DisplayAlert("Connection error", "Please check your network connection, then try again.", "OK");                 }             }
             else
             {
+                LogInButton.IsBusy = false;
                 EmailEntry.Focus();
             }         }
 

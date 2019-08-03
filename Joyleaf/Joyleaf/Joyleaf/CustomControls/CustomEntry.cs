@@ -39,7 +39,6 @@ namespace Joyleaf.CustomControls
             }
         }
 
-
         public bool VerifyText(string pattern)
         {
             Regex textRegex = new Regex(pattern);

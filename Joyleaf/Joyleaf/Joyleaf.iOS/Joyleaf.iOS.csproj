@@ -101,7 +101,6 @@
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="CustomRenderers\iOSCustomEntry.cs" />
-    <Compile Include="CustomRenderers\iOSCustomButton.cs" />
     <Compile Include="CustomRenderers\iOSGradientPage.cs" />
     <Compile Include="CustomRenderers\iOSJustifiedLabel.cs" />
     <Compile Include="CustomRenderers\iOSShadowFrame.cs" />
