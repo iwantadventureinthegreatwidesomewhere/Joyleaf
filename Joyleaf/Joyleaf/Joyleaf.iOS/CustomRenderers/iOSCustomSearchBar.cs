@@ -22,7 +22,7 @@ namespace Joyleaf.iOS.CustomRenderers
             Foundation.NSString _searchField = new Foundation.NSString("searchField");
             var insideSearchBar = (UITextField)searchBar.ValueForKey(_searchField);
 
-            insideSearchBar.BackgroundColor = UIColor.FromRGB(240, 240, 240);
+            insideSearchBar.BackgroundColor = UIColor.FromRGB(240, 240, 245);
         }
 
         protected override void OnElementPropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)

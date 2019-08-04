@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Threading.Tasks;
 using Joyleaf.Helpers;
+using Joyleaf.Services;
 using Plugin.Connectivity;
 using Xamarin.Forms;
 
@@ -7,6 +9,8 @@ namespace Joyleaf.Views
 {
     public partial class AccountPage : ContentPage
     {
+        private readonly Account account;
+
         public AccountPage()
         {
             InitializeComponent();
@@ -16,7 +20,8 @@ namespace Joyleaf.Views
             StackLayout MenuStack = new StackLayout
             {
                 HorizontalOptions = LayoutOptions.FillAndExpand,
-                Orientation = StackOrientation.Vertical
+                Orientation = StackOrientation.Vertical,
+                Spacing = 0
             };
 
             MenuStack.Children.Add(new BoxView
@@ -26,30 +31,30 @@ namespace Joyleaf.Views
                 HorizontalOptions = LayoutOptions.FillAndExpand
             });
 
-            StackLayout ChangePasswordStack = new StackLayout
+            StackLayout ResetPasswordStack = new StackLayout
             {
                 HorizontalOptions = LayoutOptions.FillAndExpand,
                 Orientation = StackOrientation.Horizontal
             };
 
-            ChangePasswordStack.Children.Add(new Image
+            ResetPasswordStack.Children.Add(new Image
             {
                 HeightRequest = 25,
                 Margin = new Thickness(25, 0, 7, 0),
-                Source = "ChangePassword",
+                Source = "ResetPassword",
                 VerticalOptions = LayoutOptions.Center,
                 WidthRequest = 25
             });
 
-            ChangePasswordStack.Children.Add(new Label
+            ResetPasswordStack.Children.Add(new Label
             {
                 FontSize = 17,
                 HorizontalOptions = LayoutOptions.Start,
-                Margin = new Thickness(0, 10),
-                Text = "Change Password"
+                Margin = new Thickness(0, 15),
+                Text = "Reset Password"
             });
 
-            ChangePasswordStack.Children.Add(new Image
+            ResetPasswordStack.Children.Add(new Image
             {
                 HeightRequest = 15,
                 HorizontalOptions = LayoutOptions.EndAndExpand,
@@ -59,15 +64,19 @@ namespace Joyleaf.Views
                 WidthRequest = 15
             });
 
-            TapGestureRecognizer ChangePasswordTap = new TapGestureRecognizer();
-            ChangePasswordTap.Tapped += (sender, e) =>
+            TapGestureRecognizer ResetPasswordTap = new TapGestureRecognizer();
+            ResetPasswordTap.Tapped += async (sender, e) =>
             {
-                
+                ResetPasswordStack.BackgroundColor = Color.LightGray;
+                await Task.Delay(100);
+                ResetPasswordStack.BackgroundColor = Color.White;
+
+                FirebaseBackend.SendPasswordReset(FirebaseBackend.GetAuth().User.Email, false);
             };
 
-            ChangePasswordStack.GestureRecognizers.Add(ChangePasswordTap);
+            ResetPasswordStack.GestureRecognizers.Add(ResetPasswordTap);
 
-            MenuStack.Children.Add(ChangePasswordStack);
+            MenuStack.Children.Add(ResetPasswordStack);
 
             MenuStack.Children.Add(new BoxView
             {
@@ -95,7 +104,7 @@ namespace Joyleaf.Views
             {
                 FontSize = 17,
                 HorizontalOptions = LayoutOptions.Start,
-                Margin = new Thickness(0, 10),
+                Margin = new Thickness(0, 15),
                 Text = "Manage My Reviews"
             });
 
@@ -110,9 +119,11 @@ namespace Joyleaf.Views
             });
 
             TapGestureRecognizer ManageReviewsTap = new TapGestureRecognizer();
-            ManageReviewsTap.Tapped += (sender, e) =>
+            ManageReviewsTap.Tapped += async (sender, e) =>
             {
-
+                ManageReviewsStack.BackgroundColor = Color.LightGray;
+                await Task.Delay(100);
+                ManageReviewsStack.BackgroundColor = Color.White;
             };
 
             ManageReviewsStack.GestureRecognizers.Add(ManageReviewsTap);
@@ -145,7 +156,7 @@ namespace Joyleaf.Views
             {
                 FontSize = 17,
                 HorizontalOptions = LayoutOptions.Start,
-                Margin = new Thickness(0, 10),
+                Margin = new Thickness(0, 15),
                 Text = "Contact Support"
             });
 
@@ -160,8 +171,12 @@ namespace Joyleaf.Views
             });
 
             TapGestureRecognizer ContactSupportTap = new TapGestureRecognizer();
-            ContactSupportTap.Tapped += (sender, e) =>
+            ContactSupportTap.Tapped += async (sender, e) =>
             {
+                ContactSupportStack.BackgroundColor = Color.LightGray;
+                await Task.Delay(100);
+                ContactSupportStack.BackgroundColor = Color.White;
+
                 Device.OpenUri(new Uri("mailto:support@joyleaf.ca"));
             };
 
@@ -195,7 +210,7 @@ namespace Joyleaf.Views
             {
                 FontSize = 17,
                 HorizontalOptions = LayoutOptions.Start,
-                Margin = new Thickness(0, 10),
+                Margin = new Thickness(0, 15),
                 Text = "Terms of Use & Privacy"
             });
 
@@ -210,9 +225,11 @@ namespace Joyleaf.Views
             });
 
             TapGestureRecognizer TermsTap = new TapGestureRecognizer();
-            TermsTap.Tapped += (sender, e) =>
+            TermsTap.Tapped += async (sender, e) =>
             {
-
+                TermsStack.BackgroundColor = Color.LightGray;
+                await Task.Delay(100);
+                TermsStack.BackgroundColor = Color.White;
             };
 
             TermsStack.GestureRecognizers.Add(TermsTap);
@@ -244,7 +261,7 @@ namespace Joyleaf.Views
             {
                 FontSize = 17,
                 HorizontalOptions = LayoutOptions.CenterAndExpand,
-                Margin = new Thickness(0, 10),
+                Margin = new Thickness(0, 15),
                 Text = "Sign Out",
                 TextColor = Color.FromHex("#EC5B55")
             });
@@ -252,6 +269,10 @@ namespace Joyleaf.Views
             TapGestureRecognizer LogoutTap = new TapGestureRecognizer();
             LogoutTap.Tapped += async (sender, e) =>
             {
+                LogoutStack.BackgroundColor = Color.LightGray;
+                await Task.Delay(100);
+                LogoutStack.BackgroundColor = Color.White;
+
                 bool answer = await DisplayAlert("Are you sure you want to sign out?", "", "Yes", "Cancel");
                 if (answer)
                 {

@@ -54,31 +54,41 @@ namespace Joyleaf.Services
             Application.Current.MainPage = new NavigationPage(new MainPage());
         }
 
-        public static void SendPasswordReset(string email)
+        public static void SendPasswordReset(string email, bool checkEmail)
         {
-            if (!IsEmailAvailable(email))
+            if (checkEmail)
+            {
+                if (!IsEmailAvailable(email))
+                {
+                    FirebaseAuthProvider authProvider = new FirebaseAuthProvider(new FirebaseConfig(Constants.FIREBASE_API_KEY));
+
+                    authProvider.SendPasswordResetEmailAsync(email);
+
+                    Application.Current.MainPage.DisplayAlert("Password reset email sent", "Follow the directions in the email to reset your password.", "OK");
+                }
+                else
+                {
+                    Application.Current.MainPage.DisplayAlert("Cannot find account", "That email does not have an existing Joyleaf account.", "OK");
+                }
+            }
+            else
             {
                 FirebaseAuthProvider authProvider = new FirebaseAuthProvider(new FirebaseConfig(Constants.FIREBASE_API_KEY));
 
                 authProvider.SendPasswordResetEmailAsync(email);
 
                 Application.Current.MainPage.DisplayAlert("Password reset email sent", "Follow the directions in the email to reset your password.", "OK");
-                Application.Current.MainPage.Navigation.PopAsync();
-            }
-            else
-            {
-                Application.Current.MainPage.DisplayAlert("Cannot find account", "That email does not have an existing Joyleaf account.", "OK");
             }
         }
 
-        public static async Task<Account> GetAccountAsync()
+        public static Account GetAccount()
         {
             FirebaseClient firebase = new FirebaseClient(
                 Constants.FIREBASE_DATABASE_URL,
                 new FirebaseOptions { AuthTokenAsyncFactory = () => Task.FromResult(GetAuth().FirebaseToken) }
             );
 
-            return await firebase.Child("users").Child(GetAuth().User.LocalId).OnceSingleAsync<Account>();
+            return Task.Run(() => firebase.Child("users").Child(GetAuth().User.LocalId).OnceSingleAsync<Account>()).Result;
         }
 
         public static bool IsEmailAvailable(string email)
@@ -89,7 +99,7 @@ namespace Joyleaf.Services
 
                 string chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
                 string test = new string(Enumerable.Repeat(chars, 100).Select(s => s[new Random().Next(s.Length)]).ToArray());
-
+                Console.WriteLine(test);
                 FirebaseAuthLink authLink = Task.Run(() => authProvider.SignInWithEmailAndPasswordAsync(email, test)).Result;
 
                 return false;

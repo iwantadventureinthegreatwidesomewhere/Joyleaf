@@ -4,14 +4,17 @@
       "idiom": "universal"
     },
     {
+      "filename": "ChangePassword-1.png",
       "scale": "1x",
       "idiom": "universal"
     },
     {
+      "filename": "ChangePassword@2x-1.png",
       "scale": "2x",
       "idiom": "universal"
     },
     {
+      "filename": "ChangePassword@3x-1.png",
       "scale": "3x",
       "idiom": "universal"
     },
@@ -19,17 +22,14 @@
       "idiom": "iphone"
     },
     {
-      "filename": "ChangePassword.png",
       "scale": "1x",
       "idiom": "iphone"
     },
     {
-      "filename": "ChangePassword@2x.png",
       "scale": "2x",
       "idiom": "iphone"
     },
     {
-      "filename": "ChangePassword@3x.png",
       "subtype": "retina4",
       "scale": "2x",
       "idiom": "iphone"
