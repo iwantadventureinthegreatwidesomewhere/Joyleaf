@@ -10,11 +10,11 @@
         <State name="__root__">
           <Node name="Joyleaf" expanded="True">
             <Node name="Joyleaf" expanded="True">
-              <Node name="Services" expanded="True" />
               <Node name="Views" expanded="True">
                 <Node name="AccountPage.xaml" expanded="True">
                   <Node name="AccountPage.xaml.cs" selected="True" />
                 </Node>
+                <Node name="ForgotPasswordPage.xaml" expanded="True" />
               </Node>
             </Node>
             <Node name="Joyleaf.iOS" expanded="True" />

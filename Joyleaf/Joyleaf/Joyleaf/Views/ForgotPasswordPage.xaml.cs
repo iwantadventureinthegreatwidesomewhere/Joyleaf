@@ -35,7 +35,7 @@ namespace Joyleaf.Views
                 {
                     try
                     {
-                        FirebaseBackend.SendPasswordReset(EmailEntry.Text);
+                        FirebaseBackend.SendPasswordReset(EmailEntry.Text, true);
                         SendButton.IsBusy = false;
                     }
                     catch (Exception)
