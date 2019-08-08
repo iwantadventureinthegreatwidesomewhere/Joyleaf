@@ -125,8 +125,9 @@ namespace Joyleaf.Views
 
             if (CrossConnectivity.Current.IsConnected)
             {
-                GetContentAsync();
                 VerifyAuthAsync();
+
+                GetContentAsync();
             }
             else
             {
@@ -150,20 +151,13 @@ namespace Joyleaf.Views
             }
             else
             {
-                await DisplayAlert("Connection error", "Please check your network connection, then try again.", "OK");
+                await DisplayAlert("Search requires Internet", "Please check your network connection, then try again.", "OK");
             }
         }
 
         private async void AccountClicked(object sender, EventArgs e)
         {
-            if (CrossConnectivity.Current.IsConnected)
-            {
-                await Navigation.PushAsync(new AccountPage());
-            }
-            else
-            {
-                await DisplayAlert("Connection error", "Please check your network connection, then try again.", "OK");
-            }
+            await Navigation.PushAsync(new AccountPage());
         }
 
         private async Task GetContentAsync()
@@ -236,8 +230,9 @@ namespace Joyleaf.Views
         {
             if (CrossConnectivity.Current.IsConnected)
             {
-                GetContentAsync();
                 VerifyAuthAsync();
+
+                GetContentAsync();
             }
             else
             {
@@ -260,12 +255,12 @@ namespace Joyleaf.Views
         {
             if (CrossConnectivity.Current.IsConnected)
             {
+                VerifyAuthAsync();
+
                 if (FirebaseBackend.IsContentExpired() || LoadingErrorStack.IsVisible)
                 {
                     GetContentAsync();
                 }
-
-                VerifyAuthAsync();
             }
             else
             {

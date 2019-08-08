@@ -3,7 +3,8 @@
   <MonoDevelop.Ide.Workbench>
     <Files>
       <File FileName="Joyleaf/Joyleaf/Views/AccountPage.xaml" Line="40" Column="24" />
-      <File FileName="Joyleaf/Joyleaf/Views/AccountPage.xaml.cs" Line="74" Column="94" />
+      <File FileName="Joyleaf/Joyleaf/Views/AccountPage.xaml.cs" Line="1" Column="1" />
+      <File FileName="Joyleaf/Joyleaf/Views/MainPage.xaml.cs" Line="130" Column="35" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -11,10 +12,12 @@
           <Node name="Joyleaf" expanded="True">
             <Node name="Joyleaf" expanded="True">
               <Node name="Views" expanded="True">
-                <Node name="AccountPage.xaml" expanded="True">
-                  <Node name="AccountPage.xaml.cs" selected="True" />
-                </Node>
+                <Node name="AccountPage.xaml" expanded="True" />
                 <Node name="ForgotPasswordPage.xaml" expanded="True" />
+                <Node name="MainPage.xaml" expanded="True">
+                  <Node name="MainPage.xaml.cs" selected="True" />
+                </Node>
+                <Node name="SearchPage.xaml" expanded="True" />
               </Node>
             </Node>
             <Node name="Joyleaf.iOS" expanded="True" />
