@@ -15,6 +15,9 @@ namespace Joyleaf.Views
     {
         private readonly Image Highfive;
 
+        private SearchPage searchPage;
+        private AccountPage accountPage;
+
         private readonly ActivityIndicator LoadingActivityIndicator;
         private readonly StackLayout ConnectionErrorStack;
         private readonly StackLayout LoadingErrorStack;
@@ -145,19 +148,14 @@ namespace Joyleaf.Views
 
         private async void SearchClicked(object sender, EventArgs e)
         {
-            if (CrossConnectivity.Current.IsConnected)
-            {
-                await Navigation.PushAsync(new SearchPage());
-            }
-            else
-            {
-                await DisplayAlert("Search requires Internet", "Please check your network connection, then try again.", "OK");
-            }
+            searchPage = new SearchPage();
+            await Navigation.PushAsync(searchPage);
         }
 
         private async void AccountClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new AccountPage());
+            accountPage = new AccountPage();
+            await Navigation.PushAsync(accountPage);
         }
 
         private async Task GetContentAsync()
@@ -221,12 +219,12 @@ namespace Joyleaf.Views
                     CrossConnectivity.Current.ConnectivityChanged -= HandleConnectivityChanged;
 
                     Application.Current.MainPage = new NavigationPage(new StartPage());
-                    await Application.Current.MainPage.DisplayAlert("You have been signed out", "The account owner may have changed the password.", "OK");
+                    await DisplayAlert("You have been signed out", "The account owner may have changed the password.", "OK");
                 }
             }
         }
 
-        public void HandleConnectivityChanged(object sender, EventArgs a)
+        public void HandleConnectivityChanged(object sender, EventArgs e)
         {
             if (CrossConnectivity.Current.IsConnected)
             {
@@ -242,12 +240,15 @@ namespace Joyleaf.Views
 
                 ConnectionErrorStack.IsVisible = true;
 
-                Navigation.PopToRootAsync();
-
                 if (PopupNavigation.Instance.PopupStack.Count > 0)
                 {
                     PopupNavigation.Instance.PopAllAsync();
                 }
+            }
+
+            if(searchPage != null)
+            {
+                searchPage.HandleConnectivityChanged();
             }
         }
 
@@ -270,12 +271,15 @@ namespace Joyleaf.Views
 
                 ConnectionErrorStack.IsVisible = true;
 
-                Navigation.PopToRootAsync();
-
                 if (PopupNavigation.Instance.PopupStack.Count > 0)
                 {
                     PopupNavigation.Instance.PopAllAsync();
                 }
+            }
+
+            if (searchPage != null)
+            {
+                searchPage.HandleConnectivityChanged();
             }
         }
     }

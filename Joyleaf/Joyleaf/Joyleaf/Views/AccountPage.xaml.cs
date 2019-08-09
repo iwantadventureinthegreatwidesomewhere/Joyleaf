@@ -71,7 +71,14 @@ namespace Joyleaf.Views
                 await Task.Delay(100);
                 ResetPasswordStack.BackgroundColor = Color.White;
 
-                FirebaseBackend.SendPasswordReset(FirebaseBackend.GetAuth().User.Email, false);
+                if (CrossConnectivity.Current.IsConnected)
+                {
+                    FirebaseBackend.SendPasswordReset(FirebaseBackend.GetAuth().User.Email, false);
+                }
+                else
+                {
+                    await DisplayAlert("Connection error", "Please check your network connection, then try again.", "OK");
+                }
             };
 
             ResetPasswordStack.GestureRecognizers.Add(ResetPasswordTap);
@@ -124,6 +131,15 @@ namespace Joyleaf.Views
                 ManageReviewsStack.BackgroundColor = Color.LightGray;
                 await Task.Delay(100);
                 ManageReviewsStack.BackgroundColor = Color.White;
+
+                if (CrossConnectivity.Current.IsConnected)
+                {
+
+                }
+                else
+                {
+                    await DisplayAlert("Connection error", "Please check your network connection, then try again.", "OK");
+                }
             };
 
             ManageReviewsStack.GestureRecognizers.Add(ManageReviewsTap);

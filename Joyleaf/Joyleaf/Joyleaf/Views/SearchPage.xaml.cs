@@ -1,8 +1,10 @@
 ﻿using Joyleaf.Helpers;
 using Joyleaf.Services;
+using Plugin.Connectivity;
 using System;
 using System.Collections;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
@@ -21,9 +23,12 @@ namespace Joyleaf.Views
         private readonly ActivityIndicator LoadingActivityIndicator;
         private readonly StackLayout NoResultsStack;
         private readonly Label NoResultsText;
+        private readonly StackLayout ConnectionErrorStack;
         private readonly StackLayout SearchErrorStack;
 
         private string CachePreviousSearch;
+
+        private CancellationTokenSource CancellationTokenSource;
 
         public SearchPage()
         {
@@ -113,6 +118,8 @@ namespace Joyleaf.Views
                 TapGestureRecognizer TopicTap = new TapGestureRecognizer();
                 TopicTap.Tapped += (sender, e) =>
                 {
+                    CancellationTokenSource = new CancellationTokenSource();
+
                     SearchAsync(s);
                 };
 
@@ -167,6 +174,35 @@ namespace Joyleaf.Views
             double getNoResultsTextWidth(RelativeLayout parent) => NoResultsStack.Measure(parent.Width, parent.Height).Request.Width;
             double getNoResultsTextHeight(RelativeLayout parent) => NoResultsStack.Measure(parent.Width, parent.Height).Request.Height;
 
+            ConnectionErrorStack = new StackLayout
+            {
+                IsVisible = false
+            };
+
+            ConnectionErrorStack.Children.Add(new Label
+            {
+                FontAttributes = FontAttributes.Bold,
+                FontSize = 35,
+                HorizontalTextAlignment = TextAlignment.Center,
+                Text = "You're Offline",
+                TextColor = Color.FromHex("#333333")
+            });
+
+            ConnectionErrorStack.Children.Add(new Label
+            {
+                FontSize = 23,
+                HorizontalTextAlignment = TextAlignment.Center,
+                Text = "Please check your network connection.",
+                TextColor = Color.Gray
+            });
+
+            SearchRelativeLayout.Children.Add(ConnectionErrorStack,
+                Constraint.RelativeToParent(parent => (parent.Width / 2) - (getConnectionErrorStackWidth(parent) / 2)),
+                Constraint.RelativeToParent(parent => (parent.Height / 2) - (getConnectionErrorStackHeight(parent) / 2)));
+
+            double getConnectionErrorStackWidth(RelativeLayout parent) => ConnectionErrorStack.Measure(parent.Width, parent.Height).Request.Width;
+            double getConnectionErrorStackHeight(RelativeLayout parent) => ConnectionErrorStack.Measure(parent.Width, parent.Height).Request.Height;
+
             SearchErrorStack = new StackLayout
             {
                 IsVisible = false
@@ -192,6 +228,8 @@ namespace Joyleaf.Views
             TapGestureRecognizer RetrySearchTap = new TapGestureRecognizer();
             RetrySearchTap.Tapped += (sender, e) =>
             {
+                CancellationTokenSource = new CancellationTokenSource();
+
                 SearchAsync(CachePreviousSearch);
             };
 
@@ -203,44 +241,47 @@ namespace Joyleaf.Views
 
             double getSearchErrorTextWidth(RelativeLayout parent) => SearchErrorStack.Measure(parent.Width, parent.Height).Request.Width;
             double getSearchErrorTextHeight(RelativeLayout parent) => SearchErrorStack.Measure(parent.Width, parent.Height).Request.Height;
+
+            HandleConnectivityChanged();
         }
 
         private async Task SearchAsync(string s)
         {
             searchBar.IsEnabled = false;
 
-            if (!string.IsNullOrWhiteSpace(s))
+            try
             {
-                string[] words = System.Text.RegularExpressions.Regex.Split(s.Trim(), @"\s+");
-                ArrayList a = new ArrayList();
-
-                foreach (string word in words)
+                if (!string.IsNullOrWhiteSpace(s))
                 {
-                    if (word.Length > 1 && !WordsToRemove.Contains(word.ToLower()))
+                    string[] words = System.Text.RegularExpressions.Regex.Split(s.Trim(), @"\s+");
+                    ArrayList a = new ArrayList();
+
+                    foreach (string word in words)
                     {
-                        a.Add(word);
+                        if (word.Length > 1 && !WordsToRemove.Contains(word.ToLower()))
+                        {
+                            a.Add(word);
+                        }
                     }
-                }
 
-                string[] filtered = (string[])a.ToArray(typeof(string));
+                    string[] filtered = (string[])a.ToArray(typeof(string));
 
-                if (filtered.Any())
-                {
-                    searchBar.Text = s;
-                    CachePreviousSearch = s;
-                    
-                    NoResultsStack.IsVisible = false;
-                    SearchErrorStack.IsVisible = false;
-
-                    ContentStack.Children.Clear();
-
-                    LoadingActivityIndicator.IsVisible = true;
-
-                    await Task.Delay(250);
-
-                    try
+                    if (filtered.Any())
                     {
-                        SearchResult result = await FirebaseBackend.SearchAsync(filtered);
+                        searchBar.Text = s;
+                        CachePreviousSearch = s;
+
+                        NoResultsStack.IsVisible = false;
+                        SearchErrorStack.IsVisible = false;
+
+                        ContentStack.Children.Clear();
+
+                        LoadingActivityIndicator.IsVisible = true;
+
+                        await Task.Delay(250);
+
+
+                        SearchResult result = await FirebaseBackend.SearchAsync(filtered, CancellationTokenSource);
 
                         if (result.Items.Any())
                         {
@@ -255,23 +296,30 @@ namespace Joyleaf.Views
 
                             NoResultsStack.IsVisible = true;
                         }
-                    
+
                         LoadingActivityIndicator.IsVisible = false;
 
                         ClearButton.IsVisible = true;
                     }
-                    catch (Exception)
-                    {
-                        LoadingActivityIndicator.IsVisible = false;
-
-                        ContentStack.Children.Clear();
-
-                        SearchErrorStack.IsVisible = true;
-                    }
                 }
-            }
 
-            searchBar.IsEnabled = true;
+                searchBar.IsEnabled = true;
+            }
+            catch (OperationCanceledException)
+            {
+                LoadingActivityIndicator.IsVisible = false;
+
+                ContentStack.Children.Clear();
+            }
+            catch (Exception)
+            {
+                LoadingActivityIndicator.IsVisible = false;
+
+                searchBar.IsEnabled = true;
+                ContentStack.Children.Clear();
+
+                SearchErrorStack.IsVisible = true;
+            }
         }
 
         private void ClearSearch(object sender, EventArgs e)
@@ -289,12 +337,46 @@ namespace Joyleaf.Views
 
         private void SearchButtonPressed(object sender, EventArgs e)
         {
+            CancellationTokenSource = new CancellationTokenSource();
+
             SearchAsync(searchBar.Text);
         }
 
         private async void BackButtonClicked(object sender, EventArgs e)
         {
             await Navigation.PopAsync();
+        }
+
+        public void HandleConnectivityChanged()
+        {
+            if (CrossConnectivity.Current.IsConnected)
+            {
+                ConnectionErrorStack.IsVisible = false;
+
+                searchBar.IsEnabled = true;
+
+                ContentStack.Children.Add(SuggestedStack);
+            }
+            else
+            {
+                if(CancellationTokenSource != null)
+                {
+                    CancellationTokenSource.Cancel();
+                }
+
+                LoadingActivityIndicator.IsVisible = false;
+
+                ClearButton.IsVisible = false;
+
+                searchBar.IsEnabled = false;
+                searchBar.Text = "";
+                ContentStack.Children.Clear();
+
+                NoResultsStack.IsVisible = false;
+                SearchErrorStack.IsVisible = false;
+
+                ConnectionErrorStack.IsVisible = true;
+            }
         }
     }
 }
