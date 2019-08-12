@@ -260,6 +260,11 @@ namespace Joyleaf.Services
             return SearchResult.FromJson(json);
         }
 
+        public static void Highfive()
+        {
+
+        }
+
         public static void SetAuth(FirebaseAuth auth)
         {
             string s = JsonConvert.SerializeObject(auth);

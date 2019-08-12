@@ -142,8 +142,9 @@ namespace Joyleaf.Views
             }
         }
 
-        private void HighfiveClicked()
+        private async void HighfiveClicked()
         {
+            await Navigation.PushAsync(new HighfivePage());
         }
 
         private async void SearchClicked(object sender, EventArgs e)

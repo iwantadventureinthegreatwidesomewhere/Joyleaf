@@ -1,9 +1,12 @@
 ﻿<Properties StartupConfiguration="{928BF896-B912-476D-86D7-5A6B2B2B065A}|Default">
-  <MonoDevelop.Ide.ItemProperties.Joyleaf.iOS automaticSigning="False" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget.7f6c676ffe6635747836a89a194d39f6c7f48766" />
+  <MonoDevelop.Ide.ItemProperties.Joyleaf.iOS automaticSigning="True" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.AFAA1D33-384F-4B1E-8C69-A380D9C93468">
+    <MonoDevelop.MacDev.AppleDevelopmentTeam DeveloperId="3JMLWFAB2Y" TeamId="S86798AD2W" />
+  </MonoDevelop.Ide.ItemProperties.Joyleaf.iOS>
   <MonoDevelop.Ide.Workbench>
     <Files>
-      <File FileName="Joyleaf/Joyleaf/Views/MainPage.xaml.cs" Line="283" Column="14" />
-      <File FileName="Joyleaf/Joyleaf/Views/SearchPage.xaml.cs" Line="306" Column="44" />
+      <File FileName="Joyleaf/Joyleaf/Views/HighfivePage.xaml.cs" Line="26" Column="50" />
+      <File FileName="Joyleaf/Joyleaf/Services/FirebaseBackend.cs" Line="265" Column="1" />
+      <File FileName="Joyleaf/Joyleaf/Views/HighfivePage.xaml" Line="15" Column="26" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -12,13 +15,14 @@
             <Node name="Joyleaf" expanded="True">
               <Node name="Services" expanded="True" />
               <Node name="Views" expanded="True">
-                <Node name="MainPage.xaml" expanded="True" />
-                <Node name="SearchPage.xaml" expanded="True">
-                  <Node name="SearchPage.xaml.cs" selected="True" />
+                <Node name="HighfivePage.xaml" expanded="True">
+                  <Node name="HighfivePage.xaml.cs" selected="True" />
                 </Node>
+                <Node name="LogInPage.xaml" expanded="True" />
+                <Node name="MainPage.xaml" expanded="True" />
               </Node>
+              <Node name="App.xaml" expanded="True" />
             </Node>
-            <Node name="Joyleaf.iOS" expanded="True" />
           </Node>
         </State>
       </Pad>
@@ -26,7 +30,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.ItemProperties.Joyleaf.Android PreferredExecutionTarget="Android.pixel_xl" />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhone" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

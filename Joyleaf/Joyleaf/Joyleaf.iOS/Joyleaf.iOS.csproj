@@ -25,8 +25,8 @@
     <MtouchArch>x86_64</MtouchArch>
     <MtouchLink>None</MtouchLink>
     <MtouchDebug>true</MtouchDebug>
-    <CodesignKey>iPhone Developer</CodesignKey>
-    <CodesignProvision />
+    <CodesignKey>iPhone Developer: marcoguida724@gmail.com (69J66K6MGJ)</CodesignKey>
+    <CodesignProvision>VS: WildCard Development</CodesignProvision>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
     <DebugType>none</DebugType>
@@ -37,6 +37,8 @@
     <MtouchLink>None</MtouchLink>
     <MtouchArch>x86_64</MtouchArch>
     <ConsolePause>false</ConsolePause>
+    <CodesignProvision>VS: WildCard Development</CodesignProvision>
+    <CodesignKey>iPhone Developer: marcoguida724@gmail.com (69J66K6MGJ)</CodesignKey>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
     <DebugSymbols>true</DebugSymbols>
@@ -48,9 +50,10 @@
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
     <MtouchArch>ARM64</MtouchArch>
-    <CodesignKey>iPhone Developer</CodesignKey>
+    <CodesignKey>iPhone Developer: marcoguida724@gmail.com (69J66K6MGJ)</CodesignKey>
     <MtouchDebug>true</MtouchDebug>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <CodesignProvision>VS: WildCard Development</CodesignProvision>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
     <DebugType>none</DebugType>
@@ -60,8 +63,9 @@
     <WarningLevel>4</WarningLevel>
     <MtouchArch>ARM64</MtouchArch>
     <ConsolePause>false</ConsolePause>
-    <CodesignKey>iPhone Developer</CodesignKey>
+    <CodesignKey>iPhone Developer: marcoguida724@gmail.com (69J66K6MGJ)</CodesignKey>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <CodesignProvision>VS: WildCard Development</CodesignProvision>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Ad-Hoc|iPhone' ">
     <DebugType>none</DebugType>
@@ -72,8 +76,8 @@
     <ConsolePause>False</ConsolePause>
     <MtouchArch>ARM64</MtouchArch>
     <BuildIpa>True</BuildIpa>
-    <CodesignProvision>Automatic:AdHoc</CodesignProvision>
-    <CodesignKey>iPhone Distribution</CodesignKey>
+    <CodesignProvision>VS: WildCard Development</CodesignProvision>
+    <CodesignKey>iPhone Developer: marcoguida724@gmail.com (69J66K6MGJ)</CodesignKey>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'AppStore|iPhone' ">
@@ -84,8 +88,8 @@
     <WarningLevel>4</WarningLevel>
     <ConsolePause>False</ConsolePause>
     <MtouchArch>ARM64</MtouchArch>
-    <CodesignProvision>Automatic:AppStore</CodesignProvision>
-    <CodesignKey>iPhone Distribution</CodesignKey>
+    <CodesignProvision>VS: WildCard Development</CodesignProvision>
+    <CodesignKey>iPhone Developer: marcoguida724@gmail.com (69J66K6MGJ)</CodesignKey>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'Default' ">
@@ -111,10 +115,6 @@
       <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\Logo.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\Explore.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\Explore.imageset\baseline_explore_black_24pt_1x.png" />
-    <ImageAsset Include="Assets.xcassets\Explore.imageset\baseline_explore_black_24pt_2x.png" />
-    <ImageAsset Include="Assets.xcassets\Explore.imageset\baseline_explore_black_24pt_3x.png" />
     <ImageAsset Include="Assets.xcassets\Account.imageset\Contents.json" />
     <ImageAsset Include="Assets.xcassets\Logo.imageset\logo.png" />
     <ImageAsset Include="Assets.xcassets\Logo.imageset\logo%402x.png" />
@@ -206,10 +206,6 @@
     <ImageAsset Include="Assets.xcassets\BackButtonBlack.imageset\black_arrow-1.png" />
     <ImageAsset Include="Assets.xcassets\BackButtonBlack.imageset\black_arrow%402x-1.png" />
     <ImageAsset Include="Assets.xcassets\BackButtonBlack.imageset\black_arrow%403x-1.png" />
-    <ImageAsset Include="Assets.xcassets\EditReviews.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\EditReviews.imageset\EditReviews.png" />
-    <ImageAsset Include="Assets.xcassets\EditReviews.imageset\EditReviews%402x.png" />
-    <ImageAsset Include="Assets.xcassets\EditReviews.imageset\EditReviews%403x.png" />
     <ImageAsset Include="Assets.xcassets\ContactSupport.imageset\Contents.json" />
     <ImageAsset Include="Assets.xcassets\ContactSupport.imageset\Support.png" />
     <ImageAsset Include="Assets.xcassets\ContactSupport.imageset\Support%402x.png" />
@@ -229,6 +225,10 @@
     <ImageAsset Include="Assets.xcassets\ResetPassword.imageset\ChangePassword-1.png" />
     <ImageAsset Include="Assets.xcassets\ResetPassword.imageset\ChangePassword%402x-1.png" />
     <ImageAsset Include="Assets.xcassets\ResetPassword.imageset\ChangePassword%403x-1.png" />
+    <ImageAsset Include="Assets.xcassets\Hand.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Hand.imageset\hand.png" />
+    <ImageAsset Include="Assets.xcassets\Hand.imageset\hand%402x.png" />
+    <ImageAsset Include="Assets.xcassets\Hand.imageset\hand%403x.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -294,5 +294,6 @@
     <Folder Include="Assets.xcassets\AccountArrow.imageset\" />
     <Folder Include="Assets.xcassets\Terms.imageset\" />
     <Folder Include="Assets.xcassets\ResetPassword.imageset\" />
+    <Folder Include="Assets.xcassets\Hand.imageset\" />
   </ItemGroup>
 </Project>

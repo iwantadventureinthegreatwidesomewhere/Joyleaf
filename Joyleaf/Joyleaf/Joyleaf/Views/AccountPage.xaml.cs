@@ -92,67 +92,6 @@ namespace Joyleaf.Views
                 HorizontalOptions = LayoutOptions.FillAndExpand
             });
 
-            StackLayout ManageReviewsStack = new StackLayout
-            {
-                HorizontalOptions = LayoutOptions.FillAndExpand,
-                Orientation = StackOrientation.Horizontal
-            };
-
-            ManageReviewsStack.Children.Add(new Image
-            {
-                HeightRequest = 25,
-                Margin = new Thickness(25, 0, 7, 0),
-                Source = "EditReviews",
-                VerticalOptions = LayoutOptions.Center,
-                WidthRequest = 25
-            });
-
-            ManageReviewsStack.Children.Add(new Label
-            {
-                FontSize = 17,
-                HorizontalOptions = LayoutOptions.Start,
-                Margin = new Thickness(0, 15),
-                Text = "Manage My Reviews"
-            });
-
-            ManageReviewsStack.Children.Add(new Image
-            {
-                HeightRequest = 15,
-                HorizontalOptions = LayoutOptions.EndAndExpand,
-                Margin = new Thickness(0, 0, 25, 0),
-                Source = "AccountArrow",
-                VerticalOptions = LayoutOptions.Center,
-                WidthRequest = 15
-            });
-
-            TapGestureRecognizer ManageReviewsTap = new TapGestureRecognizer();
-            ManageReviewsTap.Tapped += async (sender, e) =>
-            {
-                ManageReviewsStack.BackgroundColor = Color.LightGray;
-                await Task.Delay(100);
-                ManageReviewsStack.BackgroundColor = Color.White;
-
-                if (CrossConnectivity.Current.IsConnected)
-                {
-
-                }
-                else
-                {
-                    await DisplayAlert("Connection error", "Please check your network connection, then try again.", "OK");
-                }
-            };
-
-            ManageReviewsStack.GestureRecognizers.Add(ManageReviewsTap);
-
-            MenuStack.Children.Add(ManageReviewsStack);
-
-            MenuStack.Children.Add(new BoxView
-            {
-                Color = Color.LightGray,
-                HeightRequest = 0.5,
-                HorizontalOptions = LayoutOptions.FillAndExpand
-            });
-
             StackLayout ContactSupportStack = new StackLayout
             {
                 HorizontalOptions = LayoutOptions.FillAndExpand,
