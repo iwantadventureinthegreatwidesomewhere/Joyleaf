@@ -17,7 +17,11 @@ namespace Joyleaf.Views
 
             InitializeComponent();
 
-            StackLayout WelcomeStack = new StackLayout();
+            StackLayout WelcomeStack = new StackLayout
+            {
+                HorizontalOptions = LayoutOptions.FillAndExpand,
+                Margin = new Thickness(0, 25)
+            };
 
             WelcomeStack.Children.Add(new Image
             {
@@ -30,29 +34,39 @@ namespace Joyleaf.Views
             WelcomeStack.Children.Add(new Label
             {
                 FontAttributes = FontAttributes.Bold,
-                FontSize = 25,
+                FontSize = 27,
                 HorizontalOptions = LayoutOptions.CenterAndExpand,
-                Margin = new Thickness(0, 0, 0, 25),
+                Margin = new Thickness(0, 0, 0, 30),
                 Text = "Welcome to Highfive",
                 TextColor = Color.White
             });
 
-            WelcomeStack.Children.Add(new JustifiedLabel
+            WelcomeStack.Children.Add(new Label
             {
                 FontAttributes = FontAttributes.Bold,
-                FontSize = 16,
+                FontSize = 17,
+                HorizontalTextAlignment = TextAlignment.Center,
+                Margin = new Thickness(0, 0, 0, 25),
+                Text = "Highfive searches our 2,000 unique strains to instantly find strains best suited to your interests.",
+                TextColor = Color.White,
+            });
+
+            WelcomeStack.Children.Add(new Label
+            {
+                FontAttributes = FontAttributes.Bold,
+                FontSize = 17,
+                HorizontalTextAlignment = TextAlignment.Center,
                 Margin = new Thickness(0, 0, 0, 50),
-                Text = "Highfive searches our database of over 2,000 items to instantly find strains best suited to your interests. The more you use Joyleaf, the more tailored the results!",
+                Text = "The more you use Joyleaf, the more tailored the results!",
                 TextColor = Color.White,
             });
 
             FindStrainsButton = new ButtonWithBusyIndicator
             {
                 HeightRequest = 45,
-                HorizontalOptions = LayoutOptions.CenterAndExpand,
+                HorizontalOptions = LayoutOptions.FillAndExpand,
+                Margin = new Thickness(25, 0),
                 Text = "FIND STRAINS NOW",
-                VerticalOptions = LayoutOptions.CenterAndExpand,
-                WidthRequest = 200
             };
 
             FindStrainsButton.Clicked += FindStrainsButtonClicked;

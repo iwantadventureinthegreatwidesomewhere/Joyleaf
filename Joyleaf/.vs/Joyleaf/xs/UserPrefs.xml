@@ -2,11 +2,10 @@
   <MonoDevelop.Ide.ItemProperties.Joyleaf.iOS automaticSigning="True" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.AFAA1D33-384F-4B1E-8C69-A380D9C93468">
     <MonoDevelop.MacDev.AppleDevelopmentTeam DeveloperId="3JMLWFAB2Y" TeamId="S86798AD2W" />
   </MonoDevelop.Ide.ItemProperties.Joyleaf.iOS>
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench ActiveDocument="Joyleaf/Joyleaf/Views/HighfivePage.xaml.cs">
     <Files>
-      <File FileName="Joyleaf/Joyleaf/Views/HighfivePage.xaml.cs" Line="26" Column="50" />
-      <File FileName="Joyleaf/Joyleaf/Services/FirebaseBackend.cs" Line="265" Column="1" />
       <File FileName="Joyleaf/Joyleaf/Views/HighfivePage.xaml" Line="15" Column="26" />
+      <File FileName="Joyleaf/Joyleaf/Views/HighfivePage.xaml.cs" Line="44" Column="48" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
