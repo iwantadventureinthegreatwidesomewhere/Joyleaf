@@ -20,31 +20,31 @@ namespace Joyleaf.Views
             StackLayout WelcomeStack = new StackLayout
             {
                 HorizontalOptions = LayoutOptions.FillAndExpand,
-                Margin = new Thickness(0, 25)
+                Margin = new Thickness(20, 25)
             };
 
             WelcomeStack.Children.Add(new Image
             {
                 Aspect = Aspect.AspectFit,
                 HorizontalOptions = LayoutOptions.CenterAndExpand,
-                Margin = new Thickness(0, 0, 0, 50),
+                Margin = new Thickness(0, 0, 0, 40),
                 Source = "Hand"
             });
 
             WelcomeStack.Children.Add(new Label
             {
                 FontAttributes = FontAttributes.Bold,
-                FontSize = 27,
+                FontSize = 30,
                 HorizontalOptions = LayoutOptions.CenterAndExpand,
                 Margin = new Thickness(0, 0, 0, 30),
-                Text = "Welcome to Highfive",
+                Text = "Highfive",
                 TextColor = Color.White
             });
 
             WelcomeStack.Children.Add(new Label
             {
                 FontAttributes = FontAttributes.Bold,
-                FontSize = 17,
+                FontSize = 16,
                 HorizontalTextAlignment = TextAlignment.Center,
                 Margin = new Thickness(0, 0, 0, 25),
                 Text = "Highfive searches our 2,000 unique strains to instantly find strains best suited to your interests.",
@@ -54,10 +54,10 @@ namespace Joyleaf.Views
             WelcomeStack.Children.Add(new Label
             {
                 FontAttributes = FontAttributes.Bold,
-                FontSize = 17,
+                FontSize = 16,
                 HorizontalTextAlignment = TextAlignment.Center,
-                Margin = new Thickness(0, 0, 0, 50),
-                Text = "The more you use Joyleaf, the more tailored the results!",
+                Margin = new Thickness(0, 0, 0, 40),
+                Text = "The more you use Joyleaf, the more personalized the results!",
                 TextColor = Color.White,
             });
 
@@ -65,8 +65,8 @@ namespace Joyleaf.Views
             {
                 HeightRequest = 45,
                 HorizontalOptions = LayoutOptions.FillAndExpand,
-                Margin = new Thickness(25, 0),
-                Text = "FIND STRAINS NOW",
+                Margin = new Thickness(20, 0),
+                Text = "GET STRAINS NOW",
             };
 
             FindStrainsButton.Clicked += FindStrainsButtonClicked;

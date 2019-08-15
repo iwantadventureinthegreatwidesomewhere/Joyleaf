@@ -19,7 +19,7 @@ namespace Joyleaf
             }
             else
             {
-                MainPage = new NavigationPage(new HighfivePage());
+                MainPage = new NavigationPage(new MainPage());
             }
         }
 
