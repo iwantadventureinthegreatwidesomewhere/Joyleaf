@@ -3,6 +3,7 @@ using Joyleaf.Services;
 using Plugin.Connectivity;
 using Rg.Plugins.Popup.Services;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -114,7 +115,7 @@ namespace Joyleaf.Views
             TapGestureRecognizer RetryLoadingTap = new TapGestureRecognizer();
             RetryLoadingTap.Tapped += (sender, e) =>
             {
-                GetContentAsync();
+                RefreshAsync();
             };
 
             LoadingErrorStack.GestureRecognizers.Add(RetryLoadingTap);
@@ -130,7 +131,7 @@ namespace Joyleaf.Views
             {
                 VerifyAuthAsync();
 
-                GetContentAsync();
+                RefreshAsync();
             }
             else
             {
@@ -159,7 +160,7 @@ namespace Joyleaf.Views
             await Navigation.PushAsync(accountPage);
         }
 
-        private async Task GetContentAsync()
+        private async Task RefreshAsync()
         {
             ConnectionErrorStack.IsVisible = false;
             LoadingErrorStack.IsVisible = false;
@@ -172,6 +173,8 @@ namespace Joyleaf.Views
 
             try
             {
+                await FirebaseBackend.SendLogAsync();
+                
                 Content content = await FirebaseBackend.LoadContentAsync();
 
                 ContentStack.Children.Add(Highfive);
@@ -231,7 +234,7 @@ namespace Joyleaf.Views
             {
                 VerifyAuthAsync();
 
-                GetContentAsync();
+                RefreshAsync();
             }
             else
             {
@@ -261,7 +264,7 @@ namespace Joyleaf.Views
 
                 if (FirebaseBackend.IsContentExpired() || LoadingErrorStack.IsVisible)
                 {
-                    GetContentAsync();
+                    RefreshAsync();
                 }
             }
             else

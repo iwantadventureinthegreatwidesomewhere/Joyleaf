@@ -176,6 +176,8 @@ namespace Joyleaf.Views
 
                 foreach (KeyValuePair<string, string> entry in item.Info.Flavors)
                 {
+                    Log.AddTag(entry.Value);
+
                     StackLayout TagStack = new StackLayout
                     {
                         Margin = new Thickness(0, 5, 0, 5),
@@ -233,6 +235,8 @@ namespace Joyleaf.Views
                 {
                     foreach (KeyValuePair<string, string> entry in item.Info.Effects.Positive)
                     {
+                        Log.AddTag(entry.Value);
+
                         StackLayout TagStack = new StackLayout
                         {
                             Margin = new Thickness(0, 5, 0, 5),
@@ -307,6 +311,8 @@ namespace Joyleaf.Views
                     {
                         if (entry.Value != "Headache")
                         {
+                            Log.AddTag(entry.Value);
+
                             StackLayout TagStack = new StackLayout
                             {
                                 Margin = new Thickness(0, 5, 0, 5),

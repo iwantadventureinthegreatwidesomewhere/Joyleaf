@@ -36,7 +36,7 @@ namespace Joyleaf.Views
                 FontAttributes = FontAttributes.Bold,
                 FontSize = 30,
                 HorizontalOptions = LayoutOptions.CenterAndExpand,
-                Margin = new Thickness(0, 0, 0, 30),
+                Margin = new Thickness(0, 0, 0, 20),
                 Text = "Highfive",
                 TextColor = Color.White
             });
@@ -46,7 +46,7 @@ namespace Joyleaf.Views
                 FontAttributes = FontAttributes.Bold,
                 FontSize = 16,
                 HorizontalTextAlignment = TextAlignment.Center,
-                Margin = new Thickness(0, 0, 0, 25),
+                Margin = new Thickness(0, 0, 0, 20),
                 Text = "Highfive searches our 2,000 unique strains to instantly find strains best suited to your interests.",
                 TextColor = Color.White,
             });

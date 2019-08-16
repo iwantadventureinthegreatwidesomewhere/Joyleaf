@@ -44,7 +44,7 @@ namespace Joyleaf.Helpers
 
             foreach(Item item in categoryData.Items)
             {
-                itemStack.Children.Add(new CategoryItem(item));
+                itemStack.Children.Add(new CategoryItem(item, categoryData.Title));
             }
 
             Image ScrollMore = new Image

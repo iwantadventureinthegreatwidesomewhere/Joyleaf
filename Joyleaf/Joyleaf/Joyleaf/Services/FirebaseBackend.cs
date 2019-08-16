@@ -265,6 +265,18 @@ namespace Joyleaf.Services
 
         }
 
+        public static async Task SendLogAsync()
+        {
+            HttpClient client = new HttpClient();
+
+            StringContent log = new StringContent(JsonConvert.SerializeObject(new { Log.Topics, Log.Tags }));
+
+            HttpResponseMessage response = await client.PostAsync("https://us-central1-joyleaf-c142c.cloudfunctions.net/update_logs?uid=" + GetAuth().User.LocalId, log);
+            await response.Content.ReadAsStringAsync();
+
+            Log.Reset();
+        }
+
         public static void SetAuth(FirebaseAuth auth)
         {
             string s = JsonConvert.SerializeObject(auth);

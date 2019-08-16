@@ -9,11 +9,13 @@ namespace Joyleaf.Helpers
     public class CategoryItem : Frame, ItemInterface
     {
         private readonly Item item;
+        private readonly string topic;
         private SfRating rating;
 
-        public CategoryItem(Item item)
+        public CategoryItem(Item item, string topic)
         {
             this.item = item;
+            this.topic = topic;
 
             CornerRadius = 20;
             Padding = 10;
@@ -103,6 +105,7 @@ namespace Joyleaf.Helpers
 
         private void PushItemViewAsync(object sender, EventArgs e)
         {
+            Log.AddTopic(topic);
             PopupNavigation.Instance.PushAsync(new ItemPopupPage(item, this));
         }
 

@@ -4,23 +4,13 @@
   </MonoDevelop.Ide.ItemProperties.Joyleaf.iOS>
   <MonoDevelop.Ide.Workbench>
     <Files>
-      <File FileName="Joyleaf/Joyleaf/Views/HighfivePage.xaml.cs" Line="37" Column="31" />
-      <File FileName="Joyleaf/Joyleaf/App.xaml.cs" Line="22" Column="59" />
+      <File FileName="Joyleaf/Joyleaf/Views/MainPage.xaml.cs" Line="181" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Joyleaf" expanded="True">
-            <Node name="Joyleaf" expanded="True">
-              <Node name="Services" expanded="True" />
-              <Node name="Views" expanded="True">
-                <Node name="HighfivePage.xaml" expanded="True">
-                  <Node name="HighfivePage.xaml.cs" selected="True" />
-                </Node>
-              </Node>
-              <Node name="App.xaml" expanded="True" />
-            </Node>
-            <Node name="Joyleaf.iOS" expanded="True" />
+            <Node name="Joyleaf" expanded="True" />
           </Node>
         </State>
       </Pad>
