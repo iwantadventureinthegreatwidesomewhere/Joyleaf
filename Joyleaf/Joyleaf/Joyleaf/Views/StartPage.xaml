@@ -5,8 +5,8 @@
                              xmlns:system="clr-namespace:System;assembly=netstandard"
                              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                              x:Class="Joyleaf.Views.StartPage"
-                             StartColor="#11998e"
-                             EndColor="#38ef7d">
+                             StartColor="#742BE4"
+                             EndColor="#17D39B">
     
     <Grid>
         <Grid.RowDefinitions>

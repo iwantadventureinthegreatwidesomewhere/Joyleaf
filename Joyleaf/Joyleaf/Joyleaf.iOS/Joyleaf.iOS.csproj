@@ -186,22 +186,6 @@
     <ImageAsset Include="Assets.xcassets\ScrollMore.imageset\ScrollMore.png" />
     <ImageAsset Include="Assets.xcassets\ScrollMore.imageset\ScrollMore%402x.png" />
     <ImageAsset Include="Assets.xcassets\ScrollMore.imageset\ScrollMore%403x.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_20pt%402x-1.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_20pt%403x-1.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_29pt%403x.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_40pt%403x.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_60pt%402x.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_60pt%403x.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_20pt-1.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_20pt%402x.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_29pt-1.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_29pt%402x-1.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_40pt-1.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_40pt%402x-1.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_76pt-1.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_76pt%402x-1.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_83.5%402x-1.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Smooth Corners.png" />
     <ImageAsset Include="Assets.xcassets\BackButtonBlack.imageset\Contents.json" />
     <ImageAsset Include="Assets.xcassets\BackButtonBlack.imageset\black_arrow-1.png" />
     <ImageAsset Include="Assets.xcassets\BackButtonBlack.imageset\black_arrow%402x-1.png" />
@@ -229,6 +213,24 @@
     <ImageAsset Include="Assets.xcassets\Hand.imageset\hand.png" />
     <ImageAsset Include="Assets.xcassets\Hand.imageset\hand%402x.png" />
     <ImageAsset Include="Assets.xcassets\Hand.imageset\hand%403x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_20pt%402x-1.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_20pt%403x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_29pt%402x-2.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_29pt%403x-1.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_40pt%402x-2.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_40pt%403x-1.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_60pt%402x-1.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_60pt%403x-1.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_20pt.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_20pt%402x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_29pt.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_29pt%402x-1.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_40pt.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_40pt%402x-1.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_76pt.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_76pt%402x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_83.5%402x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\App Store.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
