@@ -280,7 +280,6 @@ namespace Joyleaf.Views
 
                         await Task.Delay(250);
 
-
                         SearchResult result = await FirebaseBackend.SearchAsync(filtered, CancellationTokenSource);
 
                         if (result.Items.Any())

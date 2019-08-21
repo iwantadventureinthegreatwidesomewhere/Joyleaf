@@ -260,16 +260,27 @@ namespace Joyleaf.Services
             return SearchResult.FromJson(json);
         }
 
-        public static void Highfive()
+        public static async Task<HighfiveResult> HighfiveAsync()
         {
+            HttpClient client = new HttpClient();
 
+            HttpRequestMessage request = new HttpRequestMessage
+            {
+                RequestUri = new Uri("https://us-central1-joyleaf-c142c.cloudfunctions.net/highfive?uid=" + GetAuth().User.LocalId),
+                Method = HttpMethod.Get
+            };
+
+            HttpResponseMessage response = await client.SendAsync(request);
+            string json = await response.Content.ReadAsStringAsync();
+
+            return HighfiveResult.FromJson(json);
         }
 
         public static async Task SendLogAsync()
         {
             HttpClient client = new HttpClient();
 
-            StringContent log = new StringContent(JsonConvert.SerializeObject(new { Log.Topics, Log.Tags }));
+            StringContent log = new StringContent(JsonConvert.SerializeObject(new { Log.GetLog().Topics, Log.GetLog().Tags }));
 
             HttpResponseMessage response = await client.PostAsync("https://us-central1-joyleaf-c142c.cloudfunctions.net/update_logs?uid=" + GetAuth().User.LocalId, log);
             await response.Content.ReadAsStringAsync();

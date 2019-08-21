@@ -26,6 +26,19 @@ namespace Joyleaf.Helpers
             }
         }
 
+        public static string Log
+        {
+            get
+            {
+                return AppSettings.GetValueOrDefault("Log", "");
+            }
+
+            set
+            {
+                AppSettings.AddOrUpdateValue("Log", value);
+            }
+        }
+
         public static string FirebaseAuth
         {
             get

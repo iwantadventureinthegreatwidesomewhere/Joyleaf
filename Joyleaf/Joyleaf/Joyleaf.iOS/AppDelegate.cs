@@ -1,4 +1,5 @@
-﻿using Foundation;
+﻿using CarouselView.FormsPlugin.iOS;
+using Foundation;
 using Syncfusion.SfRating.XForms.iOS;
 using UIKit;
 
@@ -20,10 +21,13 @@ namespace Joyleaf.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             UITabBar.Appearance.TintColor = UIColor.FromRGB(51, 51, 51);
-            Rg.Plugins.Popup.Popup.Init();
-            new SfRatingRenderer();
 
             Xamarin.Forms.Forms.Init();
+            CarouselViewRenderer.Init();
+            Rg.Plugins.Popup.Popup.Init();
+
+            new SfRatingRenderer();
+
             LoadApplication(new App());
             return base.FinishedLaunching(app, options);
         }

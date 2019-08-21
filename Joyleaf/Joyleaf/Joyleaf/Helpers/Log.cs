@@ -1,41 +1,82 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 
 namespace Joyleaf.Helpers
 {
-    public static class Log
+    public class Log
     {
-        public static Dictionary<string, int> Topics = new Dictionary<string, int>();
-        public static Dictionary<string, int> Tags = new Dictionary<string, int>();
+        public Dictionary<string, int> Topics = new Dictionary<string, int>();
+        public Dictionary<string, int> Tags = new Dictionary<string, int>();
 
         public static void AddTopic(string str)
         {
-            if (Topics.ContainsKey(str))
+            Log log;
+
+            if (!Settings.Log.Equals(""))
             {
-                Topics[str] = Topics[str] + 1;
+                log = JsonConvert.DeserializeObject<Log>(Settings.Log);
             }
             else
             {
-                Topics.Add(str, 1);
+                log = new Log();
             }
+
+            if (str.Equals("Social"))
+            {
+                str = "Talkative";
+            }
+
+            if (log.Topics.ContainsKey(str))
+            {
+                log.Topics[str] = log.Topics[str] + 1;
+            }
+            else
+            {
+                log.Topics.Add(str, 1);
+            }
+
+            Settings.Log = JsonConvert.SerializeObject(log);
         }
 
         public static void AddTag(string str)
         {
-            if (Tags.ContainsKey(str))
+            Log log;
+
+            if (!Settings.Log.Equals(""))
             {
-                Tags[str] = Tags[str] + 1;
+                log = JsonConvert.DeserializeObject<Log>(Settings.Log);
             }
             else
             {
-                Tags.Add(str, 1);
+                log = new Log();
             }
+
+            if (log.Tags.ContainsKey(str))
+            {
+                log.Tags[str] = log.Tags[str] + 1;
+            }
+            else
+            {
+                log.Tags.Add(str, 1);
+            }
+
+            Settings.Log = JsonConvert.SerializeObject(log);
+        }
+
+        public static Log GetLog()
+        {
+            if (!Settings.Log.Equals(""))
+            {
+                return JsonConvert.DeserializeObject<Log>(Settings.Log);
+            }
+
+            return new Log();
         }
 
         public static void Reset()
         {
-            Topics.Clear();
-            Tags.Clear();
+            Settings.Log = "";
         }
     }
 }

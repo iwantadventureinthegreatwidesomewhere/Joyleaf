@@ -1,6 +1,7 @@
 ﻿using Android.App;
 using Android.Content.PM;
 using Android.OS;
+using CarouselView.FormsPlugin.Android;
 
 namespace Joyleaf.Droid
 {
@@ -15,9 +16,10 @@ namespace Joyleaf.Droid
 
             base.OnCreate(savedInstanceState);
 
-            Rg.Plugins.Popup.Popup.Init(this, savedInstanceState);
-
             Xamarin.Forms.Forms.Init(this, savedInstanceState);
+            CarouselViewRenderer.Init();
+            Rg.Plugins.Popup.Popup.Init(this, savedInstanceState);
+            
             LoadApplication(new App());
         }
 

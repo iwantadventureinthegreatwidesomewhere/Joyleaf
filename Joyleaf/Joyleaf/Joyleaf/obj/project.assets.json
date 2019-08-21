@@ -2,6 +2,15 @@
   "version": 3,
   "targets": {
     ".NETStandard,Version=v2.0": {
+      "CarouselView.FormsPlugin/5.2.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/CarouselView.FormsPlugin.Abstractions.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/CarouselView.FormsPlugin.Abstractions.dll": {}
+        }
+      },
       "FirebaseAuthentication.net/3.0.7": {
         "type": "package",
         "dependencies": {
@@ -1137,6 +1146,28 @@
     }
   },
   "libraries": {
+    "CarouselView.FormsPlugin/5.2.0": {
+      "sha512": "h849lqz0wvmpyiXqCrN7EW+cCGqK5chcefCfS55CkoGMMQx238QWNknUTOl/CvIdZ4bgs0Oztb7kamYXDlQ5mQ==",
+      "type": "package",
+      "path": "carouselview.formsplugin/5.2.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "carouselview.formsplugin.5.2.0.nupkg.sha512",
+        "carouselview.formsplugin.nuspec",
+        "lib/MonoAndroid/CarouselView.FormsPlugin.Abstractions.dll",
+        "lib/MonoAndroid/CarouselView.FormsPlugin.Android.dll",
+        "lib/UAP10/CarouselView.FormsPlugin.Abstractions.dll",
+        "lib/UAP10/CarouselView.FormsPlugin.UWP.dll",
+        "lib/UAP10/CarouselView.FormsPlugin.UWP.pri",
+        "lib/UAP10/CarouselView.FormsPlugin.UWP/CarouselView.FormsPlugin.UWP.xr.xml",
+        "lib/UAP10/FlipViewControl.xbf",
+        "lib/Xamarin.iOS10/CarouselView.FormsPlugin.Abstractions.dll",
+        "lib/Xamarin.iOS10/CarouselView.FormsPlugin.iOS.dll",
+        "lib/netstandard2.0/CarouselView.FormsPlugin.Abstractions.dll",
+        "lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid10+Xamarin.iOS10/CarouselView.FormsPlugin.Abstractions.dll"
+      ]
+    },
     "FirebaseAuthentication.net/3.0.7": {
       "sha512": "9eBbw+TTYd89ZWQNa+FlBueHKgxBTbDwfW/jkOie11/5pF66lq5FCXGTRjDtPIk3fO3DMwCDjCFppaCPGwRnxw==",
       "type": "package",
@@ -4441,6 +4472,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETStandard,Version=v2.0": [
+      "CarouselView.FormsPlugin >= 5.2.0",
       "FirebaseAuthentication.net >= 3.0.7",
       "FirebaseDatabase.net >= 3.3.3",
       "NETStandard.Library >= 2.0.3",
@@ -4492,6 +4524,10 @@
     "frameworks": {
       "netstandard2.0": {
         "dependencies": {
+          "CarouselView.FormsPlugin": {
+            "target": "Package",
+            "version": "[5.2.0, )"
+          },
           "FirebaseAuthentication.net": {
             "target": "Package",
             "version": "[3.0.7, )"
