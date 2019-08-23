@@ -20,7 +20,7 @@ namespace Joyleaf.Views
 
         private readonly StackLayout SuggestedStack;
 
-        private readonly ActivityIndicator LoadingActivityIndicator;
+        private readonly StackLayout LoadingStack;
         private readonly StackLayout NoResultsStack;
         private readonly Label NoResultsText;
         private readonly StackLayout ConnectionErrorStack;
@@ -130,19 +130,34 @@ namespace Joyleaf.Views
 
             ContentStack.Children.Add(SuggestedStack);
 
-            LoadingActivityIndicator = new ActivityIndicator
+            LoadingStack = new StackLayout
             {
-                Color = Color.Gray,
-                IsRunning = true,
                 IsVisible = false
             };
 
-            SearchRelativeLayout.Children.Add(LoadingActivityIndicator,
+            LoadingStack.Children.Add(new ActivityIndicator
+            {
+                Color = Color.Gray,
+                HorizontalOptions = LayoutOptions.CenterAndExpand,
+                IsRunning = true,
+                Margin = new Thickness(0, 0, 0, 3)
+            });
+
+            LoadingStack.Children.Add(new Label
+            {
+                FontSize = 15,
+                HorizontalOptions = LayoutOptions.CenterAndExpand,
+                HorizontalTextAlignment = TextAlignment.Center,
+                Text = "LOADING",
+                TextColor = Color.Gray
+            });
+
+            SearchRelativeLayout.Children.Add(LoadingStack,
                 Constraint.RelativeToParent(parent => (parent.Width / 2) - (getLoadingActivityIndicatorWidth(parent) / 2)),
                 Constraint.RelativeToParent(parent => (parent.Height / 2) - (getLoadingActivityIndicatorHeight(parent) / 2)));
 
-            double getLoadingActivityIndicatorWidth(RelativeLayout parent) => LoadingActivityIndicator.Measure(parent.Width, parent.Height).Request.Width;
-            double getLoadingActivityIndicatorHeight(RelativeLayout parent) => LoadingActivityIndicator.Measure(parent.Width, parent.Height).Request.Height;
+            double getLoadingActivityIndicatorWidth(RelativeLayout parent) => LoadingStack.Measure(parent.Width, parent.Height).Request.Width;
+            double getLoadingActivityIndicatorHeight(RelativeLayout parent) => LoadingStack.Measure(parent.Width, parent.Height).Request.Height;
 
             NoResultsStack = new StackLayout
             {
@@ -276,7 +291,7 @@ namespace Joyleaf.Views
 
                         ContentStack.Children.Clear();
 
-                        LoadingActivityIndicator.IsVisible = true;
+                        LoadingStack.IsVisible = true;
 
                         await Task.Delay(250);
 
@@ -296,7 +311,7 @@ namespace Joyleaf.Views
                             NoResultsStack.IsVisible = true;
                         }
 
-                        LoadingActivityIndicator.IsVisible = false;
+                        LoadingStack.IsVisible = false;
 
                         ClearButton.IsVisible = true;
                     }
@@ -306,13 +321,13 @@ namespace Joyleaf.Views
             }
             catch (OperationCanceledException)
             {
-                LoadingActivityIndicator.IsVisible = false;
+                LoadingStack.IsVisible = false;
 
                 ContentStack.Children.Clear();
             }
             catch (Exception)
             {
-                LoadingActivityIndicator.IsVisible = false;
+                LoadingStack.IsVisible = false;
 
                 searchBar.IsEnabled = true;
                 ContentStack.Children.Clear();
@@ -363,7 +378,7 @@ namespace Joyleaf.Views
                     CancellationTokenSource.Cancel();
                 }
 
-                LoadingActivityIndicator.IsVisible = false;
+                LoadingStack.IsVisible = false;
 
                 ClearButton.IsVisible = false;
 

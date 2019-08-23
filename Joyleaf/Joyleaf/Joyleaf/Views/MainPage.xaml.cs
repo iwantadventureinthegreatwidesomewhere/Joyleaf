@@ -19,7 +19,7 @@ namespace Joyleaf.Views
         private SearchPage searchPage;
         private AccountPage accountPage;
 
-        private readonly ActivityIndicator LoadingActivityIndicator;
+        private readonly StackLayout LoadingStack;
         private readonly StackLayout ConnectionErrorStack;
         private readonly StackLayout LoadingErrorStack;
         
@@ -47,19 +47,34 @@ namespace Joyleaf.Views
 
             Highfive.GestureRecognizers.Add(HighfiveTap);
 
-            LoadingActivityIndicator = new ActivityIndicator
+            LoadingStack = new StackLayout
             {
-                Color = Color.Gray,
-                IsRunning = true,
                 IsVisible = false
             };
 
-            ExploreRelativeLayout.Children.Add(LoadingActivityIndicator,
+            LoadingStack.Children.Add(new ActivityIndicator
+            {
+                Color = Color.Gray,
+                HorizontalOptions = LayoutOptions.CenterAndExpand,
+                IsRunning = true,
+                Margin = new Thickness(0, 0, 0, 3)
+            });
+
+            LoadingStack.Children.Add(new Label
+            {
+                FontSize = 15,
+                HorizontalOptions = LayoutOptions.CenterAndExpand,
+                HorizontalTextAlignment = TextAlignment.Center,
+                Text = "LOADING",
+                TextColor = Color.Gray
+            });
+
+            ExploreRelativeLayout.Children.Add(LoadingStack,
                 Constraint.RelativeToParent(parent => (parent.Width / 2) - (getLoadingActivityIndicatorWidth(parent) / 2)),
                 Constraint.RelativeToParent(parent => (parent.Height / 2) - (getLoadingActivityIndicatorHeight(parent) / 2)));
-            
-            double getLoadingActivityIndicatorWidth(RelativeLayout parent) => LoadingActivityIndicator.Measure(parent.Width, parent.Height).Request.Width;
-            double getLoadingActivityIndicatorHeight(RelativeLayout parent) => LoadingActivityIndicator.Measure(parent.Width, parent.Height).Request.Height;
+
+            double getLoadingActivityIndicatorWidth(RelativeLayout parent) => LoadingStack.Measure(parent.Width, parent.Height).Request.Width;
+            double getLoadingActivityIndicatorHeight(RelativeLayout parent) => LoadingStack.Measure(parent.Width, parent.Height).Request.Height;
 
             ConnectionErrorStack = new StackLayout
             {
@@ -167,14 +182,12 @@ namespace Joyleaf.Views
 
             ContentStack.Children.Clear();
 
-            LoadingActivityIndicator.IsVisible = true;
+            LoadingStack.IsVisible = true;
 
             await Task.Delay(250);
 
             try
-            {
-                await FirebaseBackend.SendLogAsync();
-                
+            {                
                 Content content = await FirebaseBackend.LoadContentAsync();
 
                 ContentStack.Children.Add(Highfive);
@@ -193,13 +206,13 @@ namespace Joyleaf.Views
                     }
                 }
 
-                LoadingActivityIndicator.IsVisible = false;
+                LoadingStack.IsVisible = false;
             }
             catch (Exception)
             {
                 FirebaseBackend.ResetContentTimer();
 
-                LoadingActivityIndicator.IsVisible = false;
+                LoadingStack.IsVisible = false;
 
                 ContentStack.Children.Clear();
 

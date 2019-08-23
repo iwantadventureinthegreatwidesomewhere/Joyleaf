@@ -41,7 +41,7 @@ namespace Joyleaf.Views
                     catch (Exception)
                     {
                         SendButton.IsBusy = false;
-                        await DisplayAlert("Error", "Whoops, looks like there's a problem on our end. Please try again later.", "OK");
+                        await DisplayAlert("Error", "Whoops, looks like there's a problem. Please try again later.", "OK");
                     }
                 }
                 else

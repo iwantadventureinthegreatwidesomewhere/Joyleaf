@@ -231,6 +231,10 @@
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_76pt%402x.png" />
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_83.5%402x.png" />
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\App Store.png" />
+    <ImageAsset Include="Assets.xcassets\ScrollMoreBig.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\ScrollMoreBig.imageset\ScrollMoreBig.png" />
+    <ImageAsset Include="Assets.xcassets\ScrollMoreBig.imageset\ScrollMoreBig%402x.png" />
+    <ImageAsset Include="Assets.xcassets\ScrollMoreBig.imageset\ScrollMoreBig%403x.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -297,5 +301,7 @@
     <Folder Include="Assets.xcassets\Terms.imageset\" />
     <Folder Include="Assets.xcassets\ResetPassword.imageset\" />
     <Folder Include="Assets.xcassets\Hand.imageset\" />
+    <Folder Include="Assets.xcassets\ScrollMoreBig.imageset\" />
+    <Folder Include="Assets.xcassets\ScrollMoreBig.imageset\" />
   </ItemGroup>
 </Project>

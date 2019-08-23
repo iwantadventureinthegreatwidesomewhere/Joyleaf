@@ -9,10 +9,9 @@
                              StartColor="#742BE4"
                              EndColor="#17D39B">
     
-    <RelativeLayout>
+    <RelativeLayout x:Name="HighfiveRelativeLayout">
         <StackLayout
             x:Name="HighfiveStack"
-            Margin="0,50"
             RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=1}"
             RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=1}">
         </StackLayout>

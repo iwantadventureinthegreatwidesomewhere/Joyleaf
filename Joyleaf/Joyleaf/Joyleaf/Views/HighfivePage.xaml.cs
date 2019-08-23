@@ -14,7 +14,9 @@ namespace Joyleaf.Views
     public partial class HighfivePage : GradientPage
     {
         private StackLayout WelcomeStack;
-        private ButtonWithBusyIndicator FindStrainsButton;
+        private Button FindStrainsButton;
+
+        private readonly StackLayout LoadingStack;
 
         public HighfivePage()
         {
@@ -22,10 +24,39 @@ namespace Joyleaf.Views
 
             InitializeComponent();
 
+            LoadingStack = new StackLayout
+            {
+                IsVisible = false
+            };
+
+            LoadingStack.Children.Add(new ActivityIndicator
+            {
+                Color = Color.White,
+                HorizontalOptions = LayoutOptions.CenterAndExpand,
+                IsRunning = true,
+                Margin = new Thickness(0, 0, 0, 3)
+            });
+
+            LoadingStack.Children.Add(new Label
+            {
+                FontSize = 15,
+                HorizontalOptions = LayoutOptions.CenterAndExpand,
+                HorizontalTextAlignment = TextAlignment.Center,
+                Text = "LOADING",
+                TextColor = Color.White
+            });
+
+            HighfiveRelativeLayout.Children.Add(LoadingStack,
+                Constraint.RelativeToParent(parent => (parent.Width / 2) - (getLoadingActivityIndicatorWidth(parent) / 2)),
+                Constraint.RelativeToParent(parent => (parent.Height / 2) - (getLoadingActivityIndicatorHeight(parent) / 2)));
+
+            double getLoadingActivityIndicatorWidth(RelativeLayout parent) => LoadingStack.Measure(parent.Width, parent.Height).Request.Width;
+            double getLoadingActivityIndicatorHeight(RelativeLayout parent) => LoadingStack.Measure(parent.Width, parent.Height).Request.Height;
+
             WelcomeStack = new StackLayout
             {
                 HorizontalOptions = LayoutOptions.FillAndExpand,
-                Margin = new Thickness(40, 20),
+                Margin = new Thickness(30, 70),
                 VerticalOptions = LayoutOptions.FillAndExpand
             };
 
@@ -42,14 +73,14 @@ namespace Joyleaf.Views
                 FontAttributes = FontAttributes.Bold,
                 FontSize = 33,
                 HorizontalOptions = LayoutOptions.CenterAndExpand,
-                Margin = new Thickness(0, 0, 0, 30),
+                Margin = new Thickness(0, 0, 0, 25),
                 Text = "Highfive",
                 TextColor = Color.White
             });
 
             WelcomeStack.Children.Add(new Label
             {
-                FontSize = 16,
+                FontSize = 17,
                 HorizontalTextAlignment = TextAlignment.Center,
                 Margin = new Thickness(0, 0, 0, 15),
                 Text = "Highfive searches our database of over 2,000 unique strains to instantly find you strains best suited to your interests.",
@@ -58,82 +89,133 @@ namespace Joyleaf.Views
 
             WelcomeStack.Children.Add(new Label
             {
-                FontSize = 16,
+                FontSize = 17,
                 HorizontalTextAlignment = TextAlignment.Center,
                 Text = "The more you use Joyleaf, the more personalized the results!",
                 TextColor = Color.White,
             });
 
-            FindStrainsButton = new ButtonWithBusyIndicator
+            FindStrainsButton = new Button
             {
+                BackgroundColor = Color.White,
+                CornerRadius = 23,
+                FontAttributes = FontAttributes.Bold,
+                FontSize = 15,
                 HeightRequest = 45,
                 HorizontalOptions = LayoutOptions.FillAndExpand,
                 Text = "GET STRAINS NOW",
+                TextColor = Color.FromHex("#333333"),
                 VerticalOptions = LayoutOptions.EndAndExpand
             };
 
             FindStrainsButton.Clicked += FindStrainsButtonClicked;
 
             WelcomeStack.Children.Add(FindStrainsButton);
-
             HighfiveStack.Children.Add(WelcomeStack);
         }
 
-        private async void FindStrainsButtonClicked(object sender, EventArgs e)         {             FindStrainsButton.IsBusy = true;
+        private async Task HighfiveAsync()
+        {
+            HighfiveStack.Children.Remove(WelcomeStack);
+            LoadingStack.IsVisible = true;
 
-            await Task.Delay(250);              if (CrossConnectivity.Current.IsConnected)
+            try
             {
-                try
+                await FirebaseBackend.SendLogAsync();
+                HighfiveResult highfiveResult = await FirebaseBackend.HighfiveAsync();
+
+                StackLayout ResultStack = new StackLayout
                 {
-                    HighfiveResult highfiveResult = await FirebaseBackend.HighfiveAsync();
+                    HorizontalOptions = LayoutOptions.FillAndExpand,
+                    VerticalOptions = LayoutOptions.CenterAndExpand
+                };
 
-                    CarouselViewControl Carousel = new CarouselViewControl
+                ResultStack.Children.Add(new Label
+                {
+                    FontAttributes = FontAttributes.Bold,
+                    FontSize = 27,
+                    HorizontalOptions = LayoutOptions.CenterAndExpand,
+                    Margin = new Thickness(17, 0, 17, 7),
+                    Text = "Congrats!",
+                    TextColor = Color.White
+                });
+
+                ResultStack.Children.Add(new Label
+                {
+                    FontSize = 20,
+                    HorizontalOptions = LayoutOptions.CenterAndExpand,
+                    HorizontalTextAlignment = TextAlignment.Center,
+                    Margin = new Thickness(17, 0, 17, 7),
+                    Text = "Here’s five strains we found just for you.",
+                    TextColor = Color.White
+                });
+
+                CarouselViewControl Carousel = new CarouselViewControl
+                {
+                    CurrentPageIndicatorTintColor = Color.White,
+                    HeightRequest = 425,
+                    HorizontalOptions = LayoutOptions.FillAndExpand,
+                    IndicatorsShape = IndicatorsShape.Circle,
+                    Orientation = CarouselViewOrientation.Horizontal,
+                    ShowIndicators = true
+                };
+
+                foreach (Result result in highfiveResult.Result)
+                {
+                    if (Carousel.ItemsSource != null)
                     {
-                        HorizontalOptions = LayoutOptions.FillAndExpand,
-                        HeightRequest = 600,
-
-                        ShowIndicators = true,
-                        IndicatorsShape = IndicatorsShape.Circle,
-                        CurrentPageIndicatorTintColor = Color.White,
-
-                        Orientation = CarouselViewOrientation.Horizontal
-                    };
-
-                    int position = 0;
-
-                    foreach (Result result in highfiveResult.Result)
-                    {
-                        position++;
-
-                        if(Carousel.ItemsSource != null)
-                        {
-                            List<object> list = Carousel.ItemsSource.GetList();
-                            list.Add(new HighfiveItem(result, position));
-                            Carousel.ItemsSource = list;
-                        }
-                        else
-                        {
-                            Carousel.ItemsSource = new List<HighfiveItem> { new HighfiveItem(result, position) };
-                        }
+                        List<object> list = Carousel.ItemsSource.GetList();
+                        list.Add(new HighfiveItem(result));
+                        Carousel.ItemsSource = list;
                     }
+                    else
+                    {
+                        Carousel.ItemsSource = new List<HighfiveItem> { new HighfiveItem(result) };
+                    }
+                }
 
-                    HighfiveStack.Children.Remove(WelcomeStack);
-                    HighfiveStack.Children.Add(Carousel);
-                    
-                    FindStrainsButton.IsBusy = false;
-                }
-                catch (Exception p)
+                RelativeLayout RelativeLayout = new RelativeLayout
                 {
-                    Console.WriteLine(p.Message);
-                    Console.WriteLine(p.StackTrace);
-                    FindStrainsButton.IsBusy = false;
-                    await DisplayAlert("Error", "Whoops, looks like there's a problem on our end. Please try again later.", "OK");
-                }
+                    HeightRequest = 425
+                };
+
+                RelativeLayout.Children.Add(Carousel,
+                    Constraint.RelativeToParent(parent => 0),
+                    Constraint.RelativeToParent(parent => 0),
+                    Constraint.RelativeToParent(parent => parent.Width),
+                    Constraint.Constant(425));
+
+                Image ScrollMoreBig = new Image
+                {
+                    HeightRequest = 95,
+                    Source = "ScrollMoreBig",
+                    WidthRequest = 48
+                };
+
+                RelativeLayout.Children.Add(ScrollMoreBig,
+                    Constraint.RelativeToParent(parent => parent.Width - 48),
+                    Constraint.RelativeToParent(parent => (((parent.Height - 125) / 2) + 34) - 48));
+
+                ResultStack.Children.Add(RelativeLayout);
+
+                LoadingStack.IsVisible = false;
+                HighfiveStack.Children.Add(ResultStack);
+            }
+            catch (Exception)
+            {
+                LoadingStack.IsVisible = false;
+                HighfiveStack.Children.Add(WelcomeStack);
+                await DisplayAlert("Error", "Whoops, looks like there's a problem. Please try again later.", "OK");
+            }
+        }
+
+        private void FindStrainsButtonClicked(object sender, EventArgs e)         {             if (CrossConnectivity.Current.IsConnected)
+            {
+                HighfiveAsync();
             }
             else
             {
-                FindStrainsButton.IsBusy = false;
-                await DisplayAlert("Connection error", "Please check your network connection, then try again.", "OK");
+                DisplayAlert("Connection error", "Please check your network connection, then try again.", "OK");
             }         }
 
         private async void BackButtonClicked(object sender, EventArgs e)
