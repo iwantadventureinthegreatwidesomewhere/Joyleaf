@@ -16,6 +16,7 @@ namespace Joyleaf.Views
     {
         private readonly Image Highfive;
 
+        private HighfivePage highfivePage;
         private SearchPage searchPage;
         private AccountPage accountPage;
 
@@ -160,7 +161,8 @@ namespace Joyleaf.Views
 
         private async void HighfiveClicked()
         {
-            await Navigation.PushAsync(new HighfivePage());
+            highfivePage = new HighfivePage();
+            await Navigation.PushAsync(highfivePage);
         }
 
         private async void SearchClicked(object sender, EventArgs e)
@@ -263,7 +265,12 @@ namespace Joyleaf.Views
                 }
             }
 
-            if(searchPage != null)
+            if (highfivePage != null)
+            {
+                highfivePage.HandleConnectivityChanged();
+            }
+
+            if (searchPage != null)
             {
                 searchPage.HandleConnectivityChanged();
             }

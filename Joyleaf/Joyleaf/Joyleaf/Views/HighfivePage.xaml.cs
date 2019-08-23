@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Threading;
 using System.Threading.Tasks;
 using CarouselView.FormsPlugin.Abstractions;
 using Joyleaf.CustomControls;
@@ -17,6 +18,8 @@ namespace Joyleaf.Views
         private Button FindStrainsButton;
 
         private readonly StackLayout LoadingStack;
+
+        private CancellationTokenSource CancellationTokenSource;
 
         public HighfivePage()
         {
@@ -121,8 +124,8 @@ namespace Joyleaf.Views
 
             try
             {
-                await FirebaseBackend.SendLogAsync();
-                HighfiveResult highfiveResult = await FirebaseBackend.HighfiveAsync();
+                await FirebaseBackend.SendLogAsync(CancellationTokenSource);
+                HighfiveResult highfiveResult = await FirebaseBackend.HighfiveAsync(CancellationTokenSource);
 
                 StackLayout ResultStack = new StackLayout
                 {
@@ -201,6 +204,11 @@ namespace Joyleaf.Views
                 LoadingStack.IsVisible = false;
                 HighfiveStack.Children.Add(ResultStack);
             }
+            catch (OperationCanceledException)
+            {
+                LoadingStack.IsVisible = false;
+                HighfiveStack.Children.Add(WelcomeStack);
+            }
             catch (Exception)
             {
                 LoadingStack.IsVisible = false;
@@ -211,6 +219,7 @@ namespace Joyleaf.Views
 
         private void FindStrainsButtonClicked(object sender, EventArgs e)         {             if (CrossConnectivity.Current.IsConnected)
             {
+                CancellationTokenSource = new CancellationTokenSource();
                 HighfiveAsync();
             }
             else
@@ -221,6 +230,21 @@ namespace Joyleaf.Views
         private async void BackButtonClicked(object sender, EventArgs e)
         {
             await Navigation.PopAsync();
+        }
+
+        public void HandleConnectivityChanged()
+        {
+            if (!CrossConnectivity.Current.IsConnected)
+            {
+                if (CancellationTokenSource != null)
+                {
+                    CancellationTokenSource.Cancel();
+                }
+
+                HighfiveStack.Children.Clear();
+                HighfiveStack.Children.Add(WelcomeStack);
+                DisplayAlert("Connection error", "Please check your network connection, then try again.", "OK");
+            }
         }
     }
 }
