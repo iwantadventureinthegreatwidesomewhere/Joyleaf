@@ -320,7 +320,7 @@ namespace Joyleaf.Views
                     FontSize = 17,
                     HorizontalTextAlignment = TextAlignment.Center,
                     Margin = new Thickness(17, 0, 17, 50),
-                    Text = "Use Highfive to get strains personalized to your interests on Joyleaf within seconds.",
+                    Text = "Use Highfive to get strains personalized to your interests within seconds.",
                     TextColor = Color.FromHex("#333333")
                 });
 

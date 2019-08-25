@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Threading;
 using System.Threading.Tasks;
 using CarouselView.FormsPlugin.Abstractions;
@@ -86,7 +85,7 @@ namespace Joyleaf.Views
                 FontSize = 17,
                 HorizontalTextAlignment = TextAlignment.Center,
                 Margin = new Thickness(0, 0, 0, 15),
-                Text = "Highfive searches our database of over 2,000 unique strains to instantly find you strains best suited to your interests.",
+                Text = "Highfive searches our database of over 2,000 unique strains to instantly find you five best suited to your interests.",
                 TextColor = Color.White,
             });
 
