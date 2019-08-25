@@ -52,6 +52,7 @@ namespace Joyleaf.Services
             Task.Run(() => firebaseClient.Child("users").Child(authLink.User.LocalId).PutAsync(account));
 
             SetAuth(authLink);
+            Settings.HasCompletedOnboarding = false;
             Application.Current.MainPage = new NavigationPage(new MainPage());
         }
 
@@ -80,16 +81,6 @@ namespace Joyleaf.Services
 
                 Application.Current.MainPage.DisplayAlert("Password reset email sent", "Follow the directions in the email to reset your password.", "OK");
             }
-        }
-
-        public static Account GetAccount()
-        {
-            FirebaseClient firebase = new FirebaseClient(
-                Constants.FIREBASE_DATABASE_URL,
-                new FirebaseOptions { AuthTokenAsyncFactory = () => Task.FromResult(GetAuth().FirebaseToken) }
-            );
-
-            return Task.Run(() => firebase.Child("users").Child(GetAuth().User.LocalId).OnceSingleAsync<Account>()).Result;
         }
 
         public static bool IsEmailAvailable(string email)

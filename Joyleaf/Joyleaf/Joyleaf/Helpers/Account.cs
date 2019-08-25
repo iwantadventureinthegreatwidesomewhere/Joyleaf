@@ -7,10 +7,10 @@ namespace Joyleaf.Helpers
         public readonly string name;
         public readonly string dateCreated;
 
-        public Account(string name)
+        public Account(string name, string dateCreated)
         {
             this.name = name;
-            dateCreated = DateTime.Now.ToString("MM/dd/yyyy");
+            this.dateCreated = dateCreated;
         }
     }
 }

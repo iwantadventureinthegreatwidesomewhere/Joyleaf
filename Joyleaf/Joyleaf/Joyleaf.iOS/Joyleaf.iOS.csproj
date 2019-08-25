@@ -232,9 +232,13 @@
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_83.5%402x.png" />
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\App Store.png" />
     <ImageAsset Include="Assets.xcassets\ScrollMoreBig.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\ScrollMoreBig.imageset\ScrollMoreBig.png" />
-    <ImageAsset Include="Assets.xcassets\ScrollMoreBig.imageset\ScrollMoreBig%402x.png" />
-    <ImageAsset Include="Assets.xcassets\ScrollMoreBig.imageset\ScrollMoreBig%403x.png" />
+    <ImageAsset Include="Assets.xcassets\ScrollMoreBig.imageset\ScrollMoreBig-1.png" />
+    <ImageAsset Include="Assets.xcassets\ScrollMoreBig.imageset\ScrollMoreBig%402x-1.png" />
+    <ImageAsset Include="Assets.xcassets\ScrollMoreBig.imageset\ScrollMoreBig%403x-1.png" />
+    <ImageAsset Include="Assets.xcassets\HighfiveOnboarding.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\HighfiveOnboarding.imageset\HighfiveOnboarding.png" />
+    <ImageAsset Include="Assets.xcassets\HighfiveOnboarding.imageset\HighfiveOnboarding%402x.png" />
+    <ImageAsset Include="Assets.xcassets\HighfiveOnboarding.imageset\HighfiveOnboarding%403x.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -303,5 +307,6 @@
     <Folder Include="Assets.xcassets\Hand.imageset\" />
     <Folder Include="Assets.xcassets\ScrollMoreBig.imageset\" />
     <Folder Include="Assets.xcassets\ScrollMoreBig.imageset\" />
+    <Folder Include="Assets.xcassets\HighfiveOnboarding.imageset\" />
   </ItemGroup>
 </Project>

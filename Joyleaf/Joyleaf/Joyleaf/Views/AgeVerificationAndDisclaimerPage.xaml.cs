@@ -36,7 +36,7 @@ namespace Joyleaf.Views
 
             if (CrossConnectivity.Current.IsConnected)
             {
-                Account account = new Account(name);
+                Account account = new Account(name, DateTime.Now.ToString("MM/dd/yyyy"));
 
                 try
                 {

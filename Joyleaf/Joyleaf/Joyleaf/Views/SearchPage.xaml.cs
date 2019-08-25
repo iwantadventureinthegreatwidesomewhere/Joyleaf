@@ -145,7 +145,7 @@ namespace Joyleaf.Views
 
             LoadingStack.Children.Add(new Label
             {
-                FontSize = 15,
+                FontSize = 13,
                 HorizontalOptions = LayoutOptions.CenterAndExpand,
                 HorizontalTextAlignment = TextAlignment.Center,
                 Text = "LOADING",

@@ -65,6 +65,19 @@ namespace Joyleaf.Helpers
             }
         }
 
+        public static bool HasCompletedOnboarding
+        {
+            get
+            {
+                return AppSettings.GetValueOrDefault("HasCompletedOnboarding", true);
+            }
+
+            set
+            {
+                AppSettings.AddOrUpdateValue("HasCompletedOnboarding", value);
+            }
+        }
+
         public static void ResetSettings()
         {
             Content = "";

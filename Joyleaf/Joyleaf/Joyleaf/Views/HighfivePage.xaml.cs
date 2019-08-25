@@ -42,7 +42,7 @@ namespace Joyleaf.Views
 
             LoadingStack.Children.Add(new Label
             {
-                FontSize = 15,
+                FontSize = 13,
                 HorizontalOptions = LayoutOptions.CenterAndExpand,
                 HorizontalTextAlignment = TextAlignment.Center,
                 Text = "LOADING",
@@ -148,7 +148,7 @@ namespace Joyleaf.Views
                     FontSize = 20,
                     HorizontalOptions = LayoutOptions.CenterAndExpand,
                     HorizontalTextAlignment = TextAlignment.Center,
-                    Margin = new Thickness(17, 0, 17, 7),
+                    Margin = new Thickness(17, 0, 17, 15),
                     Text = "Here’s five strains we found just for you.",
                     TextColor = Color.White
                 });
@@ -190,14 +190,14 @@ namespace Joyleaf.Views
 
                 Image ScrollMoreBig = new Image
                 {
-                    HeightRequest = 95,
+                    HeightRequest = 84,
                     Source = "ScrollMoreBig",
-                    WidthRequest = 48
+                    WidthRequest = 43
                 };
 
                 RelativeLayout.Children.Add(ScrollMoreBig,
-                    Constraint.RelativeToParent(parent => parent.Width - 48),
-                    Constraint.RelativeToParent(parent => (((parent.Height - 125) / 2) + 34) - 48));
+                    Constraint.RelativeToParent(parent => parent.Width - 43),
+                    Constraint.RelativeToParent(parent => (((parent.Height - 125) / 2) + 34) - 43));
 
                 ResultStack.Children.Add(RelativeLayout);
 
