@@ -25,6 +25,9 @@ namespace Joyleaf.Helpers
             if (str.Equals("Social"))
             {
                 str = "Talkative";
+            }else if (str.Equals("Spicy/Herbal"))
+            {
+                str = "Spicy";
             }
 
             if (log.Topics.ContainsKey(str))
