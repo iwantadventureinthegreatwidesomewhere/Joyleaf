@@ -5,13 +5,13 @@ using Joyleaf.Droid.CustomRenderers;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 
-[assembly: ExportRenderer(typeof(CustomEntry), typeof(CustomAndroidEntry))]
+[assembly: ExportRenderer(typeof(CustomEntry), typeof(AndroidCustomEntry))]
 
 namespace Joyleaf.Droid.CustomRenderers
 {
-    class CustomAndroidEntry : EntryRenderer
+    class AndroidCustomEntry : EntryRenderer
     {
-        public CustomAndroidEntry(Context context) : base(context)
+        public AndroidCustomEntry(Context context) : base(context)
         {
         }
 

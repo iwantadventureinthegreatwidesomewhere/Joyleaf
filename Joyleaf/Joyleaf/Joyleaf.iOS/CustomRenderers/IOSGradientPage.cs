@@ -1,9 +1,7 @@
 ﻿using CoreAnimation;
 using CoreGraphics;
-using Foundation;
 using Joyleaf.CustomControls;
 using Joyleaf.iOS.CustomRenderers;
-using UIKit;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
 
