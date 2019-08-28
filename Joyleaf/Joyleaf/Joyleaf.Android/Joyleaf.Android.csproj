@@ -214,9 +214,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <AndroidAsset Include="Assets\SF-Pro-Text-Bold.otf" />
     <AndroidAsset Include="Assets\SF-Pro-Text-Regular.otf" />
     <AndroidAsset Include="Assets\San Francisco Pro Font License.rtf" />
+    <AndroidAsset Include="Assets\SF-Pro-Text-Semibold.otf" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

@@ -3,4 +3,15 @@
 <Application xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Joyleaf.App">
+    
+    <Application.Resources>
+        <ResourceDictionary>
+            <OnPlatform x:TypeArguments="x:String" x:Key="SF-Bold">
+                <On Platform="Android" Value="SF-Pro-Text-Semibold.otf#SF Pro Text Semibold"/>
+            </OnPlatform>
+            <OnPlatform x:TypeArguments="x:String" x:Key="SF-Regular">
+                <On Platform="Android" Value="SF-Pro-Text-Regular.otf#SF Pro Text Regular"/>
+            </OnPlatform>
+        </ResourceDictionary>
+    </Application.Resources>
 </Application>

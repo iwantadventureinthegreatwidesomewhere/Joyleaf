@@ -13,6 +13,7 @@ namespace Joyleaf.CustomControls
                 BackgroundColor = Color.White,
                 CornerRadius = 23,
                 FontAttributes = FontAttributes.Bold,
+                FontFamily = (OnPlatform<string>)Application.Current.Resources["SF-Bold"],
                 FontSize = 15,
                 TextColor = Color.FromHex("#333333")
             };

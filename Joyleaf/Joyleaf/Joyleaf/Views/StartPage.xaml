@@ -22,6 +22,7 @@
         <StackLayout Grid.Row="1" VerticalOptions="Center">
             <Label
                 FontAttributes="Bold"
+                FontFamily="{StaticResource Key=SF-Bold}"
                 FontSize="23"
                 HorizontalOptions="Center"
                 Margin="0,0,0,20"
@@ -31,6 +32,7 @@
             
             <Label
                 FontAttributes="Bold"
+                FontFamily="{StaticResource Key=SF-Bold}"
                 FontSize="23"
                 HorizontalOptions="Center"
                 Margin="0,0,0,20"
@@ -40,6 +42,7 @@
             
             <Label
                 FontAttributes="Bold"
+                FontFamily="{StaticResource Key=SF-Bold}"
                 FontSize="23"
                 HorizontalOptions="Center"
                 Text="All totally free."
@@ -54,6 +57,7 @@
                 Clicked="SignUpButtonClicked"
                 CornerRadius="23"
                 FontAttributes="Bold"
+                FontFamily="{StaticResource Key=SF-Bold}"
                 FontSize="15"
                 Margin="0,0,0,10"
                 Text="SIGN UP FREE"
@@ -68,6 +72,7 @@
                 Clicked="LogInButtonClicked"
                 CornerRadius="23"
                 FontAttributes="Bold"
+                FontFamily="{StaticResource Key=SF-Bold}"
                 FontSize="15"
                 Text="LOG IN"
                 TextColor="#ffffff">

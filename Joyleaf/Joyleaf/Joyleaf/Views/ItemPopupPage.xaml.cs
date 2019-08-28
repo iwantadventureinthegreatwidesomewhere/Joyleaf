@@ -35,6 +35,7 @@ namespace Joyleaf.Views
             Stack.Children.Add(new Label
             {
                 FontAttributes = FontAttributes.Bold,
+                FontFamily = (OnPlatform<string>)Application.Current.Resources["SF-Bold"],
                 FontSize = 25,
                 Margin = new Thickness(0, 30, 0, 5),
                 Text = item.Info.Name,
@@ -60,6 +61,7 @@ namespace Joyleaf.Views
                 SpeciesStack.Children.Add(new Label
                 {
                     FontAttributes = FontAttributes.Bold,
+                    FontFamily = (OnPlatform<string>)Application.Current.Resources["SF-Bold"],
                     FontSize = 15,
                     Text = "SATIVA",
                     TextColor = Color.FromHex("#ffa742"),
@@ -79,6 +81,7 @@ namespace Joyleaf.Views
                 SpeciesStack.Children.Add(new Label
                 {
                     FontAttributes = FontAttributes.Bold,
+                    FontFamily = (OnPlatform<string>)Application.Current.Resources["SF-Bold"],
                     FontSize = 15,
                     Text = "INDICA",
                     TextColor = Color.FromHex("#774dff"),
@@ -98,6 +101,7 @@ namespace Joyleaf.Views
                 SpeciesStack.Children.Add(new Label
                 {
                     FontAttributes = FontAttributes.Bold,
+                    FontFamily = (OnPlatform<string>)Application.Current.Resources["SF-Bold"],
                     FontSize = 15,
                     Text = "HYBRID",
                     TextColor = Color.FromHex("#00b368"),
@@ -134,6 +138,7 @@ namespace Joyleaf.Views
 
             headerNumberOfRatings = new Label
             {
+                FontFamily = (OnPlatform<string>)Application.Current.Resources["SF-Regular"],
                 FontSize = 15,
                 HeightRequest = 15,
                 TextColor = Color.Gray,
@@ -148,6 +153,7 @@ namespace Joyleaf.Views
             {
                 Stack.Children.Add(new Label
                 {
+                    FontFamily = (OnPlatform<string>)Application.Current.Resources["SF-Regular"],
                     FontSize = 15,
                     Margin = new Thickness(0, 0, 0, 10),
                     Text = item.Info.Desc,
@@ -160,6 +166,7 @@ namespace Joyleaf.Views
                 Stack.Children.Add(new Label
                 {
                     FontAttributes = FontAttributes.Bold,
+                    FontFamily = (OnPlatform<string>)Application.Current.Resources["SF-Bold"],
                     FontSize = 17,
                     Text = "FLAVORS",
                     TextColor = Color.FromHex("#e349c2")
@@ -190,6 +197,7 @@ namespace Joyleaf.Views
                         BorderColor = Color.FromHex("#e349c2"),
                         Content = new Label
                         {
+                            FontFamily = (OnPlatform<string>)Application.Current.Resources["SF-Regular"],
                             FontSize = 15,
                             Margin = new Thickness(15, 5),
                             Text = entry.Value,
@@ -217,6 +225,7 @@ namespace Joyleaf.Views
                 Stack.Children.Add(new Label
                 {
                     FontAttributes = FontAttributes.Bold,
+                    FontFamily = (OnPlatform<string>)Application.Current.Resources["SF-Bold"],
                     FontSize = 17,
                     Text = "EFFECTS",
                     TextColor = Color.FromHex("#3269e6")
@@ -249,6 +258,7 @@ namespace Joyleaf.Views
                             BorderColor = Color.FromHex("#00b368"),
                             Content = new Label
                             {
+                                FontFamily = (OnPlatform<string>)Application.Current.Resources["SF-Regular"],
                                 FontSize = 15,
                                 Margin = new Thickness(15, 5),
                                 Text = entry.Value,
@@ -285,6 +295,7 @@ namespace Joyleaf.Views
                             BorderColor = Color.FromHex("#EC5B55"),
                             Content = new Label
                             {
+                                FontFamily = (OnPlatform<string>)Application.Current.Resources["SF-Regular"],
                                 FontSize = 15,
                                 Margin = new Thickness(15, 5),
                                 Text = entry.Value,
@@ -325,6 +336,7 @@ namespace Joyleaf.Views
                                 BorderColor = Color.FromHex("#3269e6"),
                                 Content = new Label
                                 {
+                                    FontFamily = (OnPlatform<string>)Application.Current.Resources["SF-Regular"],
                                     FontSize = 15,
                                     Margin = new Thickness(15, 5),
                                     Text = "Treats " + entry.Value,
@@ -359,6 +371,7 @@ namespace Joyleaf.Views
             Stack.Children.Add(new Label
             {
                 FontAttributes = FontAttributes.Bold,
+                FontFamily = (OnPlatform<string>)Application.Current.Resources["SF-Bold"],
                 FontSize = 23,
                 Text = "Ratings & Reviews",
                 TextColor = Color.FromHex("#333333"),
@@ -374,6 +387,7 @@ namespace Joyleaf.Views
             sectionRating = new Label
             {
                 FontAttributes = FontAttributes.Bold,
+                FontFamily = (OnPlatform<string>)Application.Current.Resources["SF-Bold"],
                 FontSize = 50,
                 TextColor = Color.Gray,
                 VerticalOptions = LayoutOptions.Center
@@ -392,6 +406,7 @@ namespace Joyleaf.Views
             scoreFooterStack.Children.Add(new Label
             {
                 FontAttributes = FontAttributes.Bold,
+                FontFamily = (OnPlatform<string>)Application.Current.Resources["SF-Bold"],
                 FontSize = 17,
                 HorizontalOptions = LayoutOptions.Start,
                 Text = "out of 5",
@@ -400,6 +415,7 @@ namespace Joyleaf.Views
 
             sectionNumberOfRatings = new Label
             {
+                FontFamily = (OnPlatform<string>)Application.Current.Resources["SF-Regular"],
                 FontSize = 13,
                 Margin = new Thickness(0, 0, 0, 3),
                 TextColor = Color.Gray,
@@ -459,6 +475,7 @@ namespace Joyleaf.Views
                 BackgroundColor = Color.FromHex("#00C88C"),
                 CornerRadius = 10,
                 FontAttributes = FontAttributes.Bold,
+                FontFamily = (OnPlatform<string>)Application.Current.Resources["SF-Bold"],
                 FontSize = 15,
                 HeightRequest = 30,
                 HorizontalOptions = LayoutOptions.EndAndExpand,
@@ -503,6 +520,7 @@ namespace Joyleaf.Views
             Stack.Children.Add(new Label
             {
                 FontAttributes = FontAttributes.Bold,
+                FontFamily = (OnPlatform<string>)Application.Current.Resources["SF-Bold"],
                 FontSize = 20,
                 Margin = new Thickness(0, 0, 0, 10),
                 Text = "Latest Reviews",
@@ -595,6 +613,7 @@ namespace Joyleaf.Views
                     nameAndRatingStack.Children.Add(new Label
                     {
                         FontAttributes = FontAttributes.Bold,
+                        FontFamily = (OnPlatform<string>)Application.Current.Resources["SF-Bold"],
                         FontSize = 15,
                         HorizontalOptions = LayoutOptions.Start,
                         Text = Truncate("By " + entry.Value.PosterName, 15),
@@ -612,6 +631,7 @@ namespace Joyleaf.Views
 
                     dateStack.Children.Add(new Label
                     {
+                        FontFamily = (OnPlatform<string>)Application.Current.Resources["SF-Regular"],
                         FontSize = 15,
                         HorizontalOptions = LayoutOptions.EndAndExpand,
                         Text = entry.Value.Timestamp,
@@ -631,6 +651,7 @@ namespace Joyleaf.Views
 
                     descStack.Children.Add(new Label
                     {
+                        FontFamily = (OnPlatform<string>)Application.Current.Resources["SF-Regular"],
                         FontSize = 15,
                         Text = entry.Value.Review,
                         TextColor = Color.Gray
@@ -647,7 +668,7 @@ namespace Joyleaf.Views
             {
                 latestReviews.Children.Add(new Label
                 {
-                    FontAttributes = FontAttributes.Italic,
+                    FontFamily = (OnPlatform<string>)Application.Current.Resources["SF-Regular"],
                     FontSize = 15,
                     Text = "There are no user reviews for this strain.",
                     TextColor = Color.Gray

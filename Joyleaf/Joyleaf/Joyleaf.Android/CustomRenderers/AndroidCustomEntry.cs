@@ -22,7 +22,7 @@ namespace Joyleaf.Droid.CustomRenderers
             if (Control != null)
             {
                 Control.SetBackgroundResource(Resource.Drawable.Entry);
-
+                
                 Control.SetPadding((int)(Control.PaddingLeft*4.1), (int)(Control.PaddingTop * 1.2), 0, 0);
 
                 CustomEntry entryReturnKey = (CustomEntry)Element;

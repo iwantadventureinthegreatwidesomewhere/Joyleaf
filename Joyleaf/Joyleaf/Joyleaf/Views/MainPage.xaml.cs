@@ -32,7 +32,6 @@ namespace Joyleaf.Views
 
         private readonly string[] PositiveEffects = { "Relaxed", "Hungry", "Euphoric", "Happy", "Creative", "Energetic", "Talkative", "Uplifted", "Tingly", "Sleepy", "Focused", "Giggly", "Aroused" };
 
-
         public MainPage()
         {
             InitializeComponent();
@@ -72,6 +71,7 @@ namespace Joyleaf.Views
 
             LoadingStack.Children.Add(new Label
             {
+                FontFamily = (OnPlatform<string>)Application.Current.Resources["SF-Regular"],
                 FontSize = 13,
                 HorizontalOptions = LayoutOptions.CenterAndExpand,
                 HorizontalTextAlignment = TextAlignment.Center,
@@ -94,6 +94,7 @@ namespace Joyleaf.Views
             ConnectionErrorStack.Children.Add(new Label
             {
                 FontAttributes = FontAttributes.Bold,
+                FontFamily = (OnPlatform<string>)Application.Current.Resources["SF-Bold"],
                 FontSize = 35,
                 HorizontalTextAlignment = TextAlignment.Center,
                 Text = "You're Offline",
@@ -102,6 +103,7 @@ namespace Joyleaf.Views
 
             ConnectionErrorStack.Children.Add(new Label
             {
+                FontFamily = (OnPlatform<string>)Application.Current.Resources["SF-Regular"],
                 FontSize = 23,
                 HorizontalTextAlignment = TextAlignment.Center,
                 Text = "Please check your network connection.",
@@ -123,6 +125,7 @@ namespace Joyleaf.Views
             LoadingErrorStack.Children.Add(new Label
             {
                 FontAttributes = FontAttributes.Bold,
+                FontFamily = (OnPlatform<string>)Application.Current.Resources["SF-Bold"],
                 FontSize = 27,
                 HorizontalTextAlignment = TextAlignment.Center,
                 Text = "Loading Error",
@@ -131,6 +134,7 @@ namespace Joyleaf.Views
 
             LoadingErrorStack.Children.Add(new Label
             {
+                FontFamily = (OnPlatform<string>)Application.Current.Resources["SF-Regular"],
                 FontSize = 23,
                 HorizontalTextAlignment = TextAlignment.Center,
                 Text = "Please tap to retry.",
@@ -180,6 +184,7 @@ namespace Joyleaf.Views
                 WelcomeStack.Children.Add(new Label
                 {
                     FontAttributes = FontAttributes.Bold,
+                    FontFamily = (OnPlatform<string>)Application.Current.Resources["SF-Bold"],
                     FontSize = 27,
                     HorizontalOptions = LayoutOptions.CenterAndExpand,
                     Margin = new Thickness(17, 0, 17, 7),
@@ -189,6 +194,7 @@ namespace Joyleaf.Views
 
                 WelcomeStack.Children.Add(new Label
                 {
+                    FontFamily = (OnPlatform<string>)Application.Current.Resources["SF-Regular"],
                     FontSize = 17,
                     HorizontalTextAlignment = TextAlignment.Center,
                     Margin = new Thickness(17, 0, 17, 50),
@@ -218,6 +224,7 @@ namespace Joyleaf.Views
                 SativaStack.Children.Add(new Label
                 {
                     FontAttributes = FontAttributes.Bold,
+                    FontFamily = (OnPlatform<string>)Application.Current.Resources["SF-Bold"],
                     FontSize = 17,
                     Text = "SATIVA",
                     TextColor = Color.FromHex("#ffa742"),
@@ -243,6 +250,7 @@ namespace Joyleaf.Views
                 IndicaStack.Children.Add(new Label
                 {
                     FontAttributes = FontAttributes.Bold,
+                    FontFamily = (OnPlatform<string>)Application.Current.Resources["SF-Bold"],
                     FontSize = 17,
                     Text = "INDICA",
                     TextColor = Color.FromHex("#774dff"),
@@ -268,6 +276,7 @@ namespace Joyleaf.Views
                 HybridStack.Children.Add(new Label
                 {
                     FontAttributes = FontAttributes.Bold,
+                    FontFamily = (OnPlatform<string>)Application.Current.Resources["SF-Bold"],
                     FontSize = 17,
                     Text = "HYBRID",
                     TextColor = Color.FromHex("#00b368"),
@@ -283,6 +292,7 @@ namespace Joyleaf.Views
                     BackgroundColor = Color.FromHex("#333333"),
                     CornerRadius = 18,
                     FontAttributes = FontAttributes.Bold,
+                    FontFamily = (OnPlatform<string>)Application.Current.Resources["SF-Bold"],
                     FontSize = 15,
                     HeightRequest = 35,
                     HorizontalOptions = LayoutOptions.CenterAndExpand,
@@ -308,6 +318,7 @@ namespace Joyleaf.Views
                 HighfiveStack.Children.Add(new Label
                 {
                     FontAttributes = FontAttributes.Bold,
+                    FontFamily = (OnPlatform<string>)Application.Current.Resources["SF-Bold"],
                     FontSize = 27,
                     HorizontalOptions = LayoutOptions.CenterAndExpand,
                     Margin = new Thickness(17, 0, 17, 7),
@@ -317,6 +328,7 @@ namespace Joyleaf.Views
 
                 HighfiveStack.Children.Add(new Label
                 {
+                    FontFamily = (OnPlatform<string>)Application.Current.Resources["SF-Regular"],
                     FontSize = 17,
                     HorizontalTextAlignment = TextAlignment.Center,
                     Margin = new Thickness(17, 0, 17, 50),
@@ -336,6 +348,7 @@ namespace Joyleaf.Views
                     BackgroundColor = Color.FromHex("#333333"),
                     CornerRadius = 18,
                     FontAttributes = FontAttributes.Bold,
+                    FontFamily = (OnPlatform<string>)Application.Current.Resources["SF-Bold"],
                     FontSize = 15,
                     HeightRequest = 35,
                     HorizontalOptions = LayoutOptions.CenterAndExpand,
@@ -361,6 +374,7 @@ namespace Joyleaf.Views
                 GetStartedStack.Children.Add(new Label
                 {
                     FontAttributes = FontAttributes.Bold,
+                    FontFamily = (OnPlatform<string>)Application.Current.Resources["SF-Bold"],
                     FontSize = 27,
                     HorizontalOptions = LayoutOptions.CenterAndExpand,
                     Margin = new Thickness(17, 0, 17, 7),
@@ -370,6 +384,7 @@ namespace Joyleaf.Views
 
                 GetStartedStack.Children.Add(new Label
                 {
+                    FontFamily = (OnPlatform<string>)Application.Current.Resources["SF-Regular"],
                     FontSize = 17,
                     HorizontalTextAlignment = TextAlignment.Center,
                     Margin = new Thickness(17, 0, 17, 50),
@@ -417,6 +432,7 @@ namespace Joyleaf.Views
                         BorderColor = color,
                         Content = new Label
                         {
+                            FontFamily = (OnPlatform<string>)Application.Current.Resources["SF-Regular"],
                             FontSize = 15,
                             Margin = new Thickness(15, 5),
                             Text = s,
@@ -469,6 +485,7 @@ namespace Joyleaf.Views
                     BackgroundColor = Color.FromHex("#333333"),
                     CornerRadius = 18,
                     FontAttributes = FontAttributes.Bold,
+                    FontFamily = (OnPlatform<string>)Application.Current.Resources["SF-Bold"],
                     FontSize = 15,
                     HeightRequest = 35,
                     HorizontalOptions = LayoutOptions.CenterAndExpand,

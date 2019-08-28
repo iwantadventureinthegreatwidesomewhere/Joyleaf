@@ -9,15 +9,11 @@
           <Node name="Joyleaf" expanded="True">
             <Node name="Joyleaf" expanded="True">
               <Node name="CustomControls" expanded="True" />
-              <Node name="Views" expanded="True" />
-            </Node>
-            <Node name="Joyleaf.Android" expanded="True">
-              <Node name="CustomRenderers" expanded="True">
-                <Node name="AndroidCustomEntry.cs" selected="True" />
+              <Node name="Views" expanded="True">
+                <Node name="SearchPage.xaml" expanded="True">
+                  <Node name="SearchPage.xaml.cs" selected="True" />
+                </Node>
               </Node>
-            </Node>
-            <Node name="Joyleaf.iOS" expanded="True">
-              <Node name="CustomRenderers" expanded="True" />
             </Node>
           </Node>
         </State>

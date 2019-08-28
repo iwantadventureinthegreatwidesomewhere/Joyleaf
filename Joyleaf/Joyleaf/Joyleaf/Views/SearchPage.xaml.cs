@@ -43,7 +43,7 @@ namespace Joyleaf.Views
             string[] merged = flavors.Concat(positiveEffects).Concat(medicalEffects).ToArray();
 
             Random random = new Random();
-            string[] shuffled = merged.OrderBy(x => random.Next()).Take(6).ToArray();
+            string[] shuffled = merged.OrderBy(x => random.Next()).Take(5).ToArray();
 
             SuggestedStack = new StackLayout
             {
@@ -55,6 +55,7 @@ namespace Joyleaf.Views
             SuggestedStack.Children.Add(new Label
             {
                 FontAttributes = FontAttributes.Bold,
+                FontFamily = (OnPlatform<string>)Application.Current.Resources["SF-Bold"],
                 FontSize = 22,
                 Margin = new Thickness(0, 0, 0, 10),
                 Text = "Suggested",
@@ -108,6 +109,7 @@ namespace Joyleaf.Views
 
                 TopicStack.Children.Add(new Label
                 {
+                    FontFamily = (OnPlatform<string>)Application.Current.Resources["SF-Regular"],
                     FontSize = 22,
                     HorizontalOptions = LayoutOptions.Start,
                     Margin = new Thickness(0, 10),
@@ -145,6 +147,7 @@ namespace Joyleaf.Views
 
             LoadingStack.Children.Add(new Label
             {
+                FontFamily = (OnPlatform<string>)Application.Current.Resources["SF-Regular"],
                 FontSize = 13,
                 HorizontalOptions = LayoutOptions.CenterAndExpand,
                 HorizontalTextAlignment = TextAlignment.Center,
@@ -167,6 +170,7 @@ namespace Joyleaf.Views
             NoResultsStack.Children.Add(new Label
             {
                 FontAttributes = FontAttributes.Bold,
+                FontFamily = (OnPlatform<string>)Application.Current.Resources["SF-Bold"],
                 FontSize = 35,
                 HorizontalTextAlignment = TextAlignment.Center,
                 Text = "No Results",
@@ -175,6 +179,7 @@ namespace Joyleaf.Views
 
             NoResultsText = new Label
             {
+                FontFamily = (OnPlatform<string>)Application.Current.Resources["SF-Regular"],
                 FontSize = 23,
                 HorizontalTextAlignment = TextAlignment.Center,
                 TextColor = Color.Gray
@@ -197,6 +202,7 @@ namespace Joyleaf.Views
             ConnectionErrorStack.Children.Add(new Label
             {
                 FontAttributes = FontAttributes.Bold,
+                FontFamily = (OnPlatform<string>)Application.Current.Resources["SF-Bold"],
                 FontSize = 35,
                 HorizontalTextAlignment = TextAlignment.Center,
                 Text = "You're Offline",
@@ -205,6 +211,7 @@ namespace Joyleaf.Views
 
             ConnectionErrorStack.Children.Add(new Label
             {
+                FontFamily = (OnPlatform<string>)Application.Current.Resources["SF-Regular"],
                 FontSize = 23,
                 HorizontalTextAlignment = TextAlignment.Center,
                 Text = "Please check your network connection.",
@@ -226,6 +233,7 @@ namespace Joyleaf.Views
             SearchErrorStack.Children.Add(new Label
             {
                 FontAttributes = FontAttributes.Bold,
+                FontFamily = (OnPlatform<string>)Application.Current.Resources["SF-Bold"],
                 FontSize = 27,
                 HorizontalTextAlignment = TextAlignment.Center,
                 Text = "Search Error",
@@ -234,6 +242,7 @@ namespace Joyleaf.Views
 
             SearchErrorStack.Children.Add(new Label
             {
+                FontFamily = (OnPlatform<string>)Application.Current.Resources["SF-Regular"],
                 FontSize = 23,
                 HorizontalTextAlignment = TextAlignment.Center,
                 Text = "Please tap to retry.",

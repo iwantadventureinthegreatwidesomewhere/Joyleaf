@@ -11,6 +11,7 @@ namespace Joyleaf.Helpers
             Children.Add(new Label
             {
                 FontAttributes = FontAttributes.Bold,
+                FontFamily = (OnPlatform<string>)Application.Current.Resources["SF-Bold"],
                 FontSize = 23,
                 Margin = new Thickness(25, 0, 25, 3),
                 Text = categoryData.Title,
@@ -19,6 +20,7 @@ namespace Joyleaf.Helpers
 
             Children.Add(new Label
             {
+                FontFamily = (OnPlatform<string>)Application.Current.Resources["SF-Regular"],
                 FontSize = 17,
                 Margin = new Thickness(25, 0, 25, 15),
                 Text = categoryData.Description,

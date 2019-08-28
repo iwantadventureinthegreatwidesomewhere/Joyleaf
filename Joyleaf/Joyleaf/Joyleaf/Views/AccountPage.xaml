@@ -29,6 +29,7 @@
                     
                     <Label
                         FontAttributes="Bold"
+                        FontFamily="{StaticResource Key=SF-Bold}"
                         FontSize="27"
                         HorizontalOptions="Start"
                         Text="Account"

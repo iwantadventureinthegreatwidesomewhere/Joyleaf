@@ -32,6 +32,7 @@ namespace Joyleaf.Helpers
             stack.Children.Add(new Label
             {
                 FontAttributes = FontAttributes.Bold,
+                FontFamily = (OnPlatform<string>)Application.Current.Resources["SF-Bold"],
                 FontSize = 23,
                 HorizontalOptions = LayoutOptions.Start,
                 Margin = new Thickness(0, 0, 0, 5),
@@ -58,6 +59,7 @@ namespace Joyleaf.Helpers
                 SpeciesStack.Children.Add(new Label
                 {
                     FontAttributes = FontAttributes.Bold,
+                    FontFamily = (OnPlatform<string>)Application.Current.Resources["SF-Bold"],
                     FontSize = 15,
                     Text = "SATIVA",
                     TextColor = Color.FromHex("#ffa742"),
@@ -77,6 +79,7 @@ namespace Joyleaf.Helpers
                 SpeciesStack.Children.Add(new Label
                 {
                     FontAttributes = FontAttributes.Bold,
+                    FontFamily = (OnPlatform<string>)Application.Current.Resources["SF-Bold"],
                     FontSize = 15,
                     Text = "INDICA",
                     TextColor = Color.FromHex("#774dff"),
@@ -96,6 +99,7 @@ namespace Joyleaf.Helpers
                 SpeciesStack.Children.Add(new Label
                 {
                     FontAttributes = FontAttributes.Bold,
+                    FontFamily = (OnPlatform<string>)Application.Current.Resources["SF-Bold"],
                     FontSize = 15,
                     Text = "HYBRID",
                     TextColor = Color.FromHex("#00b368"),
@@ -128,6 +132,7 @@ namespace Joyleaf.Helpers
             {
                 stack.Children.Add(new Label
                 {
+                    FontFamily = (OnPlatform<string>)Application.Current.Resources["SF-Regular"],
                     FontSize = 15,
                     HorizontalOptions = LayoutOptions.Start,
                     Margin = new Thickness(0, 10, 0, 0),
@@ -186,6 +191,7 @@ namespace Joyleaf.Helpers
                             BorderColor = color,
                             Content = new Label
                             {
+                                FontFamily = (OnPlatform<string>)Application.Current.Resources["SF-Regular"],
                                 FontSize = 15,
                                 Margin = new Thickness(15, 5),
                                 Text = entry.Value,

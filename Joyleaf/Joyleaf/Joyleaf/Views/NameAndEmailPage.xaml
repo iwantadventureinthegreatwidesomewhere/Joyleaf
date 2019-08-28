@@ -17,6 +17,7 @@
         
             <Label
                 FontAttributes="Bold"
+                FontFamily="{StaticResource Key=SF-Bold}"
                 FontSize="25"
                 HorizontalOptions="Center"
                 Margin="0,0,0,15"
@@ -26,6 +27,7 @@
             
             <Label
                 FontAttributes="Bold"
+                FontFamily="{StaticResource Key=SF-Bold}"
                 FontSize="18"
                 HorizontalOptions="Start"
                 Margin="15,0,0,5"
@@ -36,6 +38,7 @@
             <customControls:CustomEntry
                 x:Name="NameEntry"
                 FontAttributes="Bold"
+                FontFamily="{StaticResource Key=SF-Bold}"
                 FontSize="15"
                 HeightRequest="45"
                 HorizontalOptions="Fill"
@@ -47,6 +50,7 @@
         
             <Label
                 FontAttributes="Bold"
+                FontFamily="{StaticResource Key=SF-Bold}"
                 FontSize="18"
                 HorizontalOptions="Start"
                 Margin="15,0,0,5"
@@ -57,6 +61,7 @@
             <customControls:CustomEntry
                 x:Name="EmailEntry"
                 FontAttributes="Bold"
+                FontFamily="{StaticResource Key=SF-Bold}"
                 FontSize="15"
                 HeightRequest="45"
                 HorizontalOptions="Fill"
@@ -79,6 +84,7 @@
         </StackLayout>
         
         <Button
+            BackgroundColor="Transparent"
             Clicked="BackButtonClicked"
             HeightRequest="50"
             Image="BackButtonWhite"

@@ -19,6 +19,7 @@
             <StackLayout BackgroundColor="White" HorizontalOptions="FillAndExpand" Margin="25,10,12,10" Orientation="Horizontal">
                 <Label
                     FontAttributes="Bold"
+                    FontFamily="{StaticResource Key=SF-Bold}"
                     FontSize="27"
                     HorizontalOptions="Start"
                     Text="Explore"
@@ -27,6 +28,7 @@
                 
                 <StackLayout HorizontalOptions="EndAndExpand" Orientation="Horizontal">
                     <Button
+                        BackgroundColor="Transparent"
                         Clicked="SearchClicked"
                         HeightRequest="22"
                         HorizontalOptions="EndAndExpand"
@@ -36,6 +38,7 @@
                         WidthRequest="50"/>
                     
                     <Button
+                        BackgroundColor="Transparent"
                         Clicked="AccountClicked"
                         HeightRequest="27"
                         HorizontalOptions="EndAndExpand"

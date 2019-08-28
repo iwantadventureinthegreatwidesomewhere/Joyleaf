@@ -48,6 +48,7 @@ namespace Joyleaf.Views
 
             ResetPasswordStack.Children.Add(new Label
             {
+                FontFamily = (OnPlatform<string>)Application.Current.Resources["SF-Regular"],
                 FontSize = 17,
                 HorizontalOptions = LayoutOptions.Start,
                 Margin = new Thickness(0, 15),
@@ -109,6 +110,7 @@ namespace Joyleaf.Views
 
             ContactSupportStack.Children.Add(new Label
             {
+                FontFamily = (OnPlatform<string>)Application.Current.Resources["SF-Regular"],
                 FontSize = 17,
                 HorizontalOptions = LayoutOptions.Start,
                 Margin = new Thickness(0, 15),
@@ -163,6 +165,7 @@ namespace Joyleaf.Views
 
             TermsStack.Children.Add(new Label
             {
+                FontFamily = (OnPlatform<string>)Application.Current.Resources["SF-Regular"],
                 FontSize = 17,
                 HorizontalOptions = LayoutOptions.Start,
                 Margin = new Thickness(0, 15),
@@ -214,6 +217,7 @@ namespace Joyleaf.Views
 
             LogoutStack.Children.Add(new Label
             {
+                FontFamily = (OnPlatform<string>)Application.Current.Resources["SF-Regular"],
                 FontSize = 17,
                 HorizontalOptions = LayoutOptions.CenterAndExpand,
                 Margin = new Thickness(0, 15),

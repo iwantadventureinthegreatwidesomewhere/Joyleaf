@@ -30,6 +30,7 @@
                     
                     <Label
                         FontAttributes="Bold"
+                        FontFamily="{StaticResource Key=SF-Bold}"
                         FontSize="27"
                         HorizontalOptions="Start"
                         Text="Search"
@@ -40,6 +41,7 @@
                         x:Name="ClearButton"
                         BackgroundColor="Transparent"
                         Clicked="ClearSearch"
+                        FontFamily="{StaticResource Key=SF-Regular}"
                         FontSize="20"
                         HeightRequest="15"
                         HorizontalOptions="EndAndExpand"
@@ -52,6 +54,7 @@
                 
                 <customControls:CustomSearchBar
                     x:Name="searchBar"
+                    FontFamily="{StaticResource Key=SF-Regular}" 
                     HorizontalOptions="FillAndExpand"
                     Margin = "10,0"
                     Placeholder="Search strains, flavors, effects"
