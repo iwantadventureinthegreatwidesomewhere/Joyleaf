@@ -16,6 +16,7 @@
             RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=1}">
         </StackLayout>
         <Button
+            BackgroundColor="Transparent"
             Clicked="BackButtonClicked"
             HeightRequest="50"
             Image="BackButtonWhite"

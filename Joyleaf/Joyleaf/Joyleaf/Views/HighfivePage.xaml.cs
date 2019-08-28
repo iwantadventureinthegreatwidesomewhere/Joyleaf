@@ -41,6 +41,7 @@ namespace Joyleaf.Views
 
             LoadingStack.Children.Add(new Label
             {
+                FontFamily = (OnPlatform<string>)Application.Current.Resources["SF-Regular"],
                 FontSize = 13,
                 HorizontalOptions = LayoutOptions.CenterAndExpand,
                 HorizontalTextAlignment = TextAlignment.Center,
@@ -73,6 +74,7 @@ namespace Joyleaf.Views
             WelcomeStack.Children.Add(new Label
             {
                 FontAttributes = FontAttributes.Bold,
+                FontFamily = (OnPlatform<string>)Application.Current.Resources["SF-Bold"],
                 FontSize = 33,
                 HorizontalOptions = LayoutOptions.CenterAndExpand,
                 Margin = new Thickness(0, 0, 0, 25),
@@ -82,6 +84,7 @@ namespace Joyleaf.Views
 
             WelcomeStack.Children.Add(new Label
             {
+                FontFamily = (OnPlatform<string>)Application.Current.Resources["SF-Regular"],
                 FontSize = 17,
                 HorizontalTextAlignment = TextAlignment.Center,
                 Margin = new Thickness(0, 0, 0, 15),
@@ -91,6 +94,7 @@ namespace Joyleaf.Views
 
             WelcomeStack.Children.Add(new Label
             {
+                FontFamily = (OnPlatform<string>)Application.Current.Resources["SF-Regular"],
                 FontSize = 17,
                 HorizontalTextAlignment = TextAlignment.Center,
                 Text = "The more you use Joyleaf, the more personalized the results!",
@@ -102,6 +106,7 @@ namespace Joyleaf.Views
                 BackgroundColor = Color.White,
                 CornerRadius = 23,
                 FontAttributes = FontAttributes.Bold,
+                FontFamily = (OnPlatform<string>)Application.Current.Resources["SF-Bold"],
                 FontSize = 15,
                 HeightRequest = 45,
                 HorizontalOptions = LayoutOptions.FillAndExpand,
@@ -135,6 +140,7 @@ namespace Joyleaf.Views
                 ResultStack.Children.Add(new Label
                 {
                     FontAttributes = FontAttributes.Bold,
+                    FontFamily = (OnPlatform<string>)Application.Current.Resources["SF-Bold"],
                     FontSize = 27,
                     HorizontalOptions = LayoutOptions.CenterAndExpand,
                     Margin = new Thickness(17, 0, 17, 7),
@@ -144,6 +150,7 @@ namespace Joyleaf.Views
 
                 ResultStack.Children.Add(new Label
                 {
+                    FontFamily = (OnPlatform<string>)Application.Current.Resources["SF-Regular"],
                     FontSize = 20,
                     HorizontalOptions = LayoutOptions.CenterAndExpand,
                     HorizontalTextAlignment = TextAlignment.Center,
