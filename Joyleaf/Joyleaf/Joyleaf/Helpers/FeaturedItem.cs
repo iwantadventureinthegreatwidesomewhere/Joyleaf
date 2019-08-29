@@ -100,10 +100,10 @@ namespace Joyleaf.Helpers
 
             rating.RatingSettings.RatedFill = Color.FromHex("#ffa742");
             rating.RatingSettings.RatedStroke = Color.FromHex("#ffa742");
-            rating.RatingSettings.RatedStrokeWidth = 1;
+            rating.RatingSettings.RatedStrokeWidth = Device.RuntimePlatform == Device.iOS ? 1 : 3;
             rating.RatingSettings.UnRatedFill = Color.Transparent;
             rating.RatingSettings.UnRatedStroke = Color.FromHex("#ffa742");
-            rating.RatingSettings.UnRatedStrokeWidth = 1;
+            rating.RatingSettings.UnRatedStrokeWidth = Device.RuntimePlatform == Device.iOS ? 1 : 3;
 
             stack.Children.Add(rating);
 

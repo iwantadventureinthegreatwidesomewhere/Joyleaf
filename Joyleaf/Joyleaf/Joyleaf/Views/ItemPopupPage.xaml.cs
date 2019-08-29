@@ -129,10 +129,10 @@ namespace Joyleaf.Views
 
             headerRating.RatingSettings.RatedFill = Color.FromHex("#ffa742");
             headerRating.RatingSettings.RatedStroke = Color.FromHex("#ffa742");
-            headerRating.RatingSettings.RatedStrokeWidth = 1;
+            headerRating.RatingSettings.RatedStrokeWidth = Device.RuntimePlatform == Device.iOS ? 1 : 3;
             headerRating.RatingSettings.UnRatedFill = Color.Transparent;
             headerRating.RatingSettings.UnRatedStroke = Color.FromHex("#ffa742");
-            headerRating.RatingSettings.UnRatedStrokeWidth = 1;
+            headerRating.RatingSettings.UnRatedStrokeWidth = Device.RuntimePlatform == Device.iOS ? 1 : 3;
 
             RatingStack.Children.Add(headerRating);
 
@@ -463,10 +463,10 @@ namespace Joyleaf.Views
 
             writeReviewRating.RatingSettings.RatedFill = Color.FromHex("#ffa742");
             writeReviewRating.RatingSettings.RatedStroke = Color.FromHex("#ffa742");
-            writeReviewRating.RatingSettings.RatedStrokeWidth = 1;
+            writeReviewRating.RatingSettings.RatedStrokeWidth = Device.RuntimePlatform == Device.iOS ? 1 : 3;
             writeReviewRating.RatingSettings.UnRatedFill = Color.Transparent;
             writeReviewRating.RatingSettings.UnRatedStroke = Color.FromHex("#ffa742");
-            writeReviewRating.RatingSettings.UnRatedStrokeWidth = 1;
+            writeReviewRating.RatingSettings.UnRatedStrokeWidth = Device.RuntimePlatform == Device.iOS ? 1 : 3;
 
             headerReviewStack.Children.Add(writeReviewRating);
 
@@ -603,10 +603,10 @@ namespace Joyleaf.Views
 
                     reviewRating.RatingSettings.RatedFill = Color.FromHex("#ffa742");
                     reviewRating.RatingSettings.RatedStroke = Color.FromHex("#ffa742");
-                    reviewRating.RatingSettings.RatedStrokeWidth = 1;
+                    reviewRating.RatingSettings.RatedStrokeWidth = Device.RuntimePlatform == Device.iOS ? 1 : 3;
                     reviewRating.RatingSettings.UnRatedFill = Color.Transparent;
                     reviewRating.RatingSettings.UnRatedStroke = Color.FromHex("#ffa742");
-                    reviewRating.RatingSettings.UnRatedStrokeWidth = 1;
+                    reviewRating.RatingSettings.UnRatedStrokeWidth = Device.RuntimePlatform == Device.iOS ? 1 : 3;
 
                     nameAndRatingStack.Children.Add(reviewRating);
 
