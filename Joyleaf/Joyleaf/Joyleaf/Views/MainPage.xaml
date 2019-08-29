@@ -30,12 +30,23 @@
                     <Button
                         BackgroundColor="Transparent"
                         Clicked="SearchClicked"
-                        HeightRequest="22"
+                        HeightRequest="27"
                         HorizontalOptions="EndAndExpand"
                         Image="Search"
-                        Margin="0,0,10,0"
+                        Margin="0,1,10,0"
                         VerticalOptions="Center"
-                        WidthRequest="50"/>
+                        WidthRequest="50">
+                        <Button.HeightRequest>
+                            <OnPlatform x:TypeArguments="x:Double"
+                                Android="28"
+                                iOS="22"/>
+                        </Button.HeightRequest>
+                        <Button.Scale>
+                            <OnPlatform x:TypeArguments="x:Double"
+                                Android="0.80"
+                                iOS="1"/>
+                        </Button.Scale>
+                    </Button>
                     
                     <Button
                         BackgroundColor="Transparent"
