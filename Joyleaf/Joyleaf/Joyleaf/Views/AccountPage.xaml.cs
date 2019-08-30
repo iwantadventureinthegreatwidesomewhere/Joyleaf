@@ -51,8 +51,9 @@ namespace Joyleaf.Views
                 FontFamily = (OnPlatform<string>)Application.Current.Resources["SF-Regular"],
                 FontSize = 17,
                 HorizontalOptions = LayoutOptions.Start,
-                Margin = new Thickness(0, 15),
-                Text = "Reset Password"
+                Margin = Device.RuntimePlatform == Device.iOS ? new Thickness(0, 15) : new Thickness(0, 10),
+                Text = "Reset Password",
+                TextColor = Color.Black
             });
 
             ResetPasswordStack.Children.Add(new Image
@@ -113,8 +114,9 @@ namespace Joyleaf.Views
                 FontFamily = (OnPlatform<string>)Application.Current.Resources["SF-Regular"],
                 FontSize = 17,
                 HorizontalOptions = LayoutOptions.Start,
-                Margin = new Thickness(0, 15),
-                Text = "Contact Support"
+                Margin = Device.RuntimePlatform == Device.iOS ? new Thickness(0, 15) : new Thickness(0, 10),
+                Text = "Contact Support",
+                TextColor = Color.Black
             });
 
             ContactSupportStack.Children.Add(new Image
@@ -168,8 +170,9 @@ namespace Joyleaf.Views
                 FontFamily = (OnPlatform<string>)Application.Current.Resources["SF-Regular"],
                 FontSize = 17,
                 HorizontalOptions = LayoutOptions.Start,
-                Margin = new Thickness(0, 15),
-                Text = "Terms of Use & Privacy"
+                Margin = Device.RuntimePlatform == Device.iOS ? new Thickness(0, 15) : new Thickness(0, 10),
+                Text = "Terms of Use & Privacy",
+                TextColor = Color.Black
             });
 
             TermsStack.Children.Add(new Image
@@ -220,7 +223,7 @@ namespace Joyleaf.Views
                 FontFamily = (OnPlatform<string>)Application.Current.Resources["SF-Regular"],
                 FontSize = 17,
                 HorizontalOptions = LayoutOptions.CenterAndExpand,
-                Margin = new Thickness(0, 15),
+                Margin = Device.RuntimePlatform == Device.iOS ? new Thickness(0, 15) : new Thickness(0, 10),
                 Text = "Sign Out",
                 TextColor = Color.FromHex("#EC5B55")
             });

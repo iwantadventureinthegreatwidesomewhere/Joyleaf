@@ -3,10 +3,6 @@
     <MonoDevelop.MacDev.AppleDevelopmentTeam DeveloperId="3JMLWFAB2Y" TeamId="S86798AD2W" />
   </MonoDevelop.Ide.ItemProperties.Joyleaf.iOS>
   <MonoDevelop.Ide.Workbench>
-    <Files>
-      <File FileName="Joyleaf/Joyleaf/Views/MainPage.xaml" Line="39" Column="47" />
-      <File FileName="Joyleaf/Joyleaf/Views/ItemPopupPage.xaml.cs" Line="503" Column="91" />
-    </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
@@ -14,17 +10,12 @@
             <Node name="Joyleaf" expanded="True">
               <Node name="Helpers" expanded="True" />
               <Node name="Views" expanded="True">
+                <Node name="AccountPage.xaml" expanded="True" />
                 <Node name="ItemPopupPage.xaml" expanded="True">
                   <Node name="ItemPopupPage.xaml.cs" selected="True" />
                 </Node>
+                <Node name="SearchPage.xaml" expanded="True" />
               </Node>
-            </Node>
-            <Node name="Joyleaf.Android" expanded="True">
-              <Node name="CustomRenderers" expanded="True" />
-              <Node name="Resources" expanded="True" />
-            </Node>
-            <Node name="Joyleaf.iOS" expanded="True">
-              <Node name="CustomRenderers" expanded="True" />
             </Node>
           </Node>
         </State>

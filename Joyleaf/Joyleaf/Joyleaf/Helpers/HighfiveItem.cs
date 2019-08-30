@@ -192,7 +192,7 @@ namespace Joyleaf.Helpers
                             {
                                 FontFamily = (OnPlatform<string>)Application.Current.Resources["SF-Regular"],
                                 FontSize = 15,
-                                Margin = new Thickness(15, 5),
+                                Margin = Device.RuntimePlatform == Device.iOS ? new Thickness(15, 5) : new Thickness(15, 0),
                                 Text = entry.Value,
                                 TextColor = color
                             },

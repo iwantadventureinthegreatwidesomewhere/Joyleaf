@@ -199,7 +199,7 @@ namespace Joyleaf.Views
                         {
                             FontFamily = (OnPlatform<string>)Application.Current.Resources["SF-Regular"],
                             FontSize = 15,
-                            Margin = new Thickness(15, 5),
+                            Margin = Device.RuntimePlatform == Device.iOS ? new Thickness(15, 5) : new Thickness(15, 0),
                             Text = entry.Value,
                             TextColor = Color.FromHex("#e349c2")
                         },
@@ -260,7 +260,7 @@ namespace Joyleaf.Views
                             {
                                 FontFamily = (OnPlatform<string>)Application.Current.Resources["SF-Regular"],
                                 FontSize = 15,
-                                Margin = new Thickness(15, 5),
+                                Margin = Device.RuntimePlatform == Device.iOS ? new Thickness(15, 5) : new Thickness(15, 0),
                                 Text = entry.Value,
                                 TextColor = Color.FromHex("#00b368")
                             },
@@ -297,7 +297,7 @@ namespace Joyleaf.Views
                             {
                                 FontFamily = (OnPlatform<string>)Application.Current.Resources["SF-Regular"],
                                 FontSize = 15,
-                                Margin = new Thickness(15, 5),
+                                Margin = Device.RuntimePlatform == Device.iOS ? new Thickness(15, 5) : new Thickness(15, 0),
                                 Text = entry.Value,
                                 TextColor = Color.FromHex("#EC5B55")
                             },
@@ -338,7 +338,7 @@ namespace Joyleaf.Views
                                 {
                                     FontFamily = (OnPlatform<string>)Application.Current.Resources["SF-Regular"],
                                     FontSize = 15,
-                                    Margin = new Thickness(15, 5),
+                                    Margin = Device.RuntimePlatform == Device.iOS ? new Thickness(15, 5) : new Thickness(15, 0),
                                     Text = "Treats " + entry.Value,
                                     TextColor = Color.FromHex("#3269e6")
                                 },
@@ -409,7 +409,7 @@ namespace Joyleaf.Views
                 FontFamily = (OnPlatform<string>)Application.Current.Resources["SF-Bold"],
                 FontSize = 17,
                 HorizontalOptions = LayoutOptions.Start,
-                Margin = Device.RuntimePlatform == Device.iOS ? new Thickness(0) : new Thickness(0, 5, 0, 0),
+                Margin = Device.RuntimePlatform == Device.iOS ? new Thickness(0) : new Thickness(0, 3, 0, 0),
                 Text = "out of 5",
                 TextColor = Color.Gray
             });
