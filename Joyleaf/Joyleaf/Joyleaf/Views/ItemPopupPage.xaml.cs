@@ -500,6 +500,7 @@ namespace Joyleaf.Views
 
             writeReviewEditor = new Editor
             {
+                FontFamily = (OnPlatform<string>)Application.Current.Resources["SF-Regular"],
                 FontSize = 15,
                 HeightRequest = 75,
                 HorizontalOptions = LayoutOptions.FillAndExpand,
