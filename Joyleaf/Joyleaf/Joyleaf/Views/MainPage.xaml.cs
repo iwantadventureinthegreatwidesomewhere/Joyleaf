@@ -577,6 +577,14 @@ namespace Joyleaf.Views
             ContentStack.Children.Clear();
             LoadingStack.IsVisible = true;
 
+            if (FirebaseBackend.IsContentExpired())
+            {
+                if (PopupNavigation.Instance.PopupStack.Count > 0)
+                {
+                    PopupNavigation.Instance.PopAllAsync();
+                }
+            }
+
             await Task.Delay(250);
 
             try
