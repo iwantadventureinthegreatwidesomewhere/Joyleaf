@@ -572,11 +572,6 @@ namespace Joyleaf.Views
 
         private async Task GetContentAsync()
         {
-            ConnectionErrorStack.IsVisible = false;
-            LoadingErrorStack.IsVisible = false;
-            ContentStack.Children.Clear();
-            LoadingStack.IsVisible = true;
-
             if (FirebaseBackend.IsContentExpired())
             {
                 if (PopupNavigation.Instance.PopupStack.Count > 0)
@@ -584,6 +579,11 @@ namespace Joyleaf.Views
                     PopupNavigation.Instance.PopAllAsync();
                 }
             }
+
+            ConnectionErrorStack.IsVisible = false;
+            LoadingErrorStack.IsVisible = false;
+            ContentStack.Children.Clear();
+            LoadingStack.IsVisible = true;
 
             await Task.Delay(250);
 
