@@ -1,4 +1,5 @@
-﻿using Joyleaf.Helpers;
+﻿using Joyleaf.CustomControls;
+using Joyleaf.Helpers;
 using Joyleaf.Services;
 using Rg.Plugins.Popup.Pages;
 using Syncfusion.SfRating.XForms;
@@ -471,7 +472,7 @@ namespace Joyleaf.Views
 
             headerReviewStack.Children.Add(writeReviewRating);
 
-            postReviewButton = new Button
+            postReviewButton = new PostReviewButton
             {
                 BackgroundColor = Color.FromHex("#00C88C"),
                 CornerRadius = 10,
