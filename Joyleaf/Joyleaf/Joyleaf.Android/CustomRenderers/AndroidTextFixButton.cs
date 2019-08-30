@@ -5,13 +5,13 @@ using Joyleaf.Droid.CustomRenderers;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 
-[assembly: ExportRenderer(typeof(PostReviewButton), typeof(AndroidPostReviewButton))]
+[assembly: ExportRenderer(typeof(TextFixButton), typeof(AndroidTextFixButton))]
 
 namespace Joyleaf.Droid.CustomRenderers
 {
-    public class AndroidPostReviewButton : ButtonRenderer
+    public class AndroidTextFixButton : ButtonRenderer
     {
-        public AndroidPostReviewButton(Context context) : base(context)
+        public AndroidTextFixButton(Context context) : base(context)
         {
         }
 

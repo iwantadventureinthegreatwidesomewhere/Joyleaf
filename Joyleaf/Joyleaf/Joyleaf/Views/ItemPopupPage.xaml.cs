@@ -472,7 +472,7 @@ namespace Joyleaf.Views
 
             headerReviewStack.Children.Add(writeReviewRating);
 
-            postReviewButton = new PostReviewButton
+            postReviewButton = new TextFixButton
             {
                 BackgroundColor = Color.FromHex("#00C88C"),
                 CornerRadius = 10,

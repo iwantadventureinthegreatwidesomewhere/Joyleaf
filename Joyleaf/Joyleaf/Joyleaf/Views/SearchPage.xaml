@@ -37,13 +37,13 @@
                         TextColor="#333333"
                         VerticalOptions="Center"/>
                     
-                    <Button
+                    <customControls:TextFixButton
                         x:Name="ClearButton"
                         BackgroundColor="Transparent"
                         Clicked="ClearSearch"
                         FontFamily="{StaticResource Key=SF-Regular}"
                         FontSize="20"
-                        HeightRequest="15"
+                        HeightRequest="27"
                         HorizontalOptions="EndAndExpand"
                         IsVisible="false"
                         Margin="0,5,27,0"

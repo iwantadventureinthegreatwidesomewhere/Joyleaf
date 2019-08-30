@@ -59,7 +59,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="CustomRenderers\AndroidGradientPage.cs" />
     <Compile Include="CustomRenderers\AndroidShadowFrame.cs" />
-    <Compile Include="CustomRenderers\AndroidPostReviewButton.cs" />
+    <Compile Include="CustomRenderers\AndroidTextFixButton.cs" />
     <Compile Include="CustomRenderers\AndroidPostReviewEditor.cs" />
     <Compile Include="CustomRenderers\AndroidCustomSearchBar.cs" />
   </ItemGroup>

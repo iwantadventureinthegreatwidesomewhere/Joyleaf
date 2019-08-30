@@ -2,7 +2,7 @@
 
 namespace Joyleaf.CustomControls
 {
-    public class PostReviewButton : Button
+    public class TextFixButton : Button
     {
     }
 }
