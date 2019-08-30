@@ -499,7 +499,7 @@ namespace Joyleaf.Views
                 HeightRequest = 1,
             });
 
-            writeReviewEditor = new Editor
+            writeReviewEditor = new PostReviewEditor
             {
                 FontFamily = (OnPlatform<string>)Application.Current.Resources["SF-Regular"],
                 FontSize = 15,

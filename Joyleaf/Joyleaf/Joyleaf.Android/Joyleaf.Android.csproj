@@ -60,6 +60,7 @@
     <Compile Include="CustomRenderers\AndroidGradientPage.cs" />
     <Compile Include="CustomRenderers\AndroidShadowFrame.cs" />
     <Compile Include="CustomRenderers\AndroidPostReviewButton.cs" />
+    <Compile Include="CustomRenderers\AndroidPostReviewEditor.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
