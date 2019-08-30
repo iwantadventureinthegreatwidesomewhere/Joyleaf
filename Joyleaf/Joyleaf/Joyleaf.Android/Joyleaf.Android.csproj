@@ -61,6 +61,7 @@
     <Compile Include="CustomRenderers\AndroidShadowFrame.cs" />
     <Compile Include="CustomRenderers\AndroidPostReviewButton.cs" />
     <Compile Include="CustomRenderers\AndroidPostReviewEditor.cs" />
+    <Compile Include="CustomRenderers\AndroidCustomSearchBar.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -204,6 +205,11 @@
     <AndroidResource Include="Resources\drawable-xhdpi\BackButtonWhite.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\BackButtonWhite.png" />
     <AndroidResource Include="Resources\drawable-xxxhdpi\BackButtonWhite.png" />
+    <AndroidResource Include="Resources\drawable\SearchBar.xml" />
+    <AndroidResource Include="Resources\drawable-hdpi\SearchBar.xml" />
+    <AndroidResource Include="Resources\drawable-xhdpi\SearchBar.xml" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\SearchBar.xml" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\SearchBar.xml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Joyleaf\Joyleaf.csproj">
