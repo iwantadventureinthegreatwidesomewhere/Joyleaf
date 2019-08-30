@@ -140,7 +140,7 @@ namespace Joyleaf.Views
             {
                 FontFamily = (OnPlatform<string>)Application.Current.Resources["SF-Regular"],
                 FontSize = 15,
-                HeightRequest = 15,
+                MinimumHeightRequest = 15,
                 TextColor = Color.Gray,
                 VerticalOptions = LayoutOptions.Center
             };
@@ -409,6 +409,7 @@ namespace Joyleaf.Views
                 FontFamily = (OnPlatform<string>)Application.Current.Resources["SF-Bold"],
                 FontSize = 17,
                 HorizontalOptions = LayoutOptions.Start,
+                Margin = Device.RuntimePlatform == Device.iOS ? new Thickness(0) : new Thickness(0, 5, 0, 0),
                 Text = "out of 5",
                 TextColor = Color.Gray
             });

@@ -1,10 +1,11 @@
-﻿<Properties StartupConfiguration="{9BA44B81-8113-4346-99FB-94AE557221F4}|Default">
+﻿<Properties StartupConfiguration="{928BF896-B912-476D-86D7-5A6B2B2B065A}|Default">
   <MonoDevelop.Ide.ItemProperties.Joyleaf.iOS automaticSigning="True" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.AFAA1D33-384F-4B1E-8C69-A380D9C93468">
     <MonoDevelop.MacDev.AppleDevelopmentTeam DeveloperId="3JMLWFAB2Y" TeamId="S86798AD2W" />
   </MonoDevelop.Ide.ItemProperties.Joyleaf.iOS>
   <MonoDevelop.Ide.Workbench>
     <Files>
-      <File FileName="Joyleaf/Joyleaf/Views/MainPage.xaml" Line="46" Column="47" />
+      <File FileName="Joyleaf/Joyleaf/Views/MainPage.xaml" Line="39" Column="47" />
+      <File FileName="Joyleaf/Joyleaf/Views/ItemPopupPage.xaml.cs" Line="418" Column="14" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -13,8 +14,9 @@
             <Node name="Joyleaf" expanded="True">
               <Node name="Helpers" expanded="True" />
               <Node name="Views" expanded="True">
-                <Node name="ItemPopupPage.xaml" expanded="True" />
-                <Node name="MainPage.xaml" selected="True" />
+                <Node name="ItemPopupPage.xaml" expanded="True">
+                  <Node name="ItemPopupPage.xaml.cs" selected="True" />
+                </Node>
               </Node>
             </Node>
             <Node name="Joyleaf.Android" expanded="True">
