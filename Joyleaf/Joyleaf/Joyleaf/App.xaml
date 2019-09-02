@@ -9,6 +9,9 @@
             <OnPlatform x:TypeArguments="x:String" x:Key="SF-Bold">
                 <On Platform="Android" Value="SF-Pro-Text-Semibold.otf#SF Pro Text Semibold"/>
             </OnPlatform>
+            <OnPlatform x:TypeArguments="x:String" x:Key="SF-Italic">
+                <On Platform="Android" Value="SF-Pro-Text-RegularItalic.otf#SF Pro Text RegularItalic"/>
+            </OnPlatform>
             <OnPlatform x:TypeArguments="x:String" x:Key="SF-Regular">
                 <On Platform="Android" Value="SF-Pro-Text-Regular.otf#SF Pro Text Regular"/>
             </OnPlatform>

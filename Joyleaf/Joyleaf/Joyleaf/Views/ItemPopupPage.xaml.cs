@@ -671,7 +671,8 @@ namespace Joyleaf.Views
             {
                 latestReviews.Children.Add(new Label
                 {
-                    FontFamily = (OnPlatform<string>)Application.Current.Resources["SF-Regular"],
+                    FontAttributes = FontAttributes.Italic,
+                    FontFamily = (OnPlatform<string>)Application.Current.Resources["SF-Italic"],
                     FontSize = 15,
                     Text = "There are no user reviews for this strain.",
                     TextColor = Color.Gray

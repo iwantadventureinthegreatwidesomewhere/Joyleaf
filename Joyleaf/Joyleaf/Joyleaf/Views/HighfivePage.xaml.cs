@@ -97,7 +97,7 @@ namespace Joyleaf.Views
                 FontFamily = (OnPlatform<string>)Application.Current.Resources["SF-Regular"],
                 FontSize = 17,
                 HorizontalTextAlignment = TextAlignment.Center,
-                Text = "The more you use Joyleaf, the more personalized the results!",
+                Text = "The more you use Joyleaf, the more personalized the strains!",
                 TextColor = Color.White,
             });
 
