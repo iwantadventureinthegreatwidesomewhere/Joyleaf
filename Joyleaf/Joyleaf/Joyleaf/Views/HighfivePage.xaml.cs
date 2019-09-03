@@ -128,7 +128,6 @@ namespace Joyleaf.Views
 
             try
             {
-                await FirebaseBackend.SendLogAsync(CancellationTokenSource);
                 HighfiveResult highfiveResult = await FirebaseBackend.HighfiveAsync(CancellationTokenSource);
 
                 StackLayout ResultStack = new StackLayout

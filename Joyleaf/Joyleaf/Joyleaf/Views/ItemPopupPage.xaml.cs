@@ -362,6 +362,8 @@ namespace Joyleaf.Views
                 Stack.Children.Add(EffectsLayout);
             }
 
+            FirebaseBackend.SendLogAsync();
+
             Stack.Children.Add(new BoxView
             {
                 Color = Color.LightGray,

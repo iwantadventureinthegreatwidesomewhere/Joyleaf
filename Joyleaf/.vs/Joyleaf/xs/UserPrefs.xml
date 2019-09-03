@@ -3,21 +3,11 @@
     <MonoDevelop.MacDev.AppleDevelopmentTeam DeveloperId="3JMLWFAB2Y" TeamId="S86798AD2W" />
   </MonoDevelop.Ide.ItemProperties.Joyleaf.iOS>
   <MonoDevelop.Ide.Workbench>
-    <Files>
-      <File FileName="Joyleaf/Joyleaf/Views/ItemPopupPage.xaml.cs" Line="1" Column="1" />
-      <File FileName="Joyleaf/Joyleaf/Views/HighfivePage.xaml.cs" Line="100" Column="84" />
-    </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Joyleaf" expanded="True">
-            <Node name="Joyleaf" expanded="True">
-              <Node name="Views" expanded="True">
-                <Node name="HighfivePage.xaml" expanded="True">
-                  <Node name="HighfivePage.xaml.cs" selected="True" />
-                </Node>
-              </Node>
-            </Node>
+            <Node name="Joyleaf" expanded="True" />
           </Node>
         </State>
       </Pad>

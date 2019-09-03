@@ -5,7 +5,7 @@ using CarouselView.FormsPlugin.Android;
 
 namespace Joyleaf.Droid
 {
-    [Activity(Label = "Joyleaf", Icon = "@drawable/Logo", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+    [Activity(Label = "Joyleaf", Icon = "@drawable/ic_launcher_APP", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
 
     public class MainActivity : Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {

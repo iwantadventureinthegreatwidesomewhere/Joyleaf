@@ -83,6 +83,7 @@ namespace Joyleaf.Helpers
             Content = "";
             FirebaseAuth = "";
             LastContentUpdateTimestamp = -1;
+            Log = "";
         }
     }
 }

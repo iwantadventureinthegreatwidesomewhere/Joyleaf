@@ -27,6 +27,7 @@ namespace Joyleaf.Helpers
                 str = "Talkative";
             }else if (str.Equals("Spicy/Herbal"))
             {
+                Console.WriteLine("here");
                 str = "Spicy";
             }
 
@@ -53,6 +54,16 @@ namespace Joyleaf.Helpers
             else
             {
                 log = new Log();
+            }
+
+            if (str.Equals("Social"))
+            {
+                str = "Talkative";
+            }
+            else if (str.Equals("Spicy/Herbal"))
+            {
+                Console.WriteLine("here");
+                str = "Spicy";
             }
 
             if (log.Tags.ContainsKey(str))

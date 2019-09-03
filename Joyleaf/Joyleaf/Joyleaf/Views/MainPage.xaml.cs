@@ -510,8 +510,7 @@ namespace Joyleaf.Views
                                 Log.AddTopic(str);
                             }
 
-                            CancellationTokenSource CancellationTokenSource = new CancellationTokenSource();
-                            FirebaseBackend.SendLogAsync(CancellationTokenSource);
+                            FirebaseBackend.SendLogAsync();
 
                             VerifyAuthAsync();
                             GetContentAsync();
