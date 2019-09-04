@@ -1,25 +1,25 @@
-﻿<Properties StartupConfiguration="{9BA44B81-8113-4346-99FB-94AE557221F4}|Default">
-  <MonoDevelop.Ide.ItemProperties.Joyleaf.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget.7f6c676ffe6635747836a89a194d39f6c7f48766" />
+﻿<Properties StartupConfiguration="{928BF896-B912-476D-86D7-5A6B2B2B065A}|Default">
+  <MonoDevelop.Ide.ItemProperties.Joyleaf.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.A3A6C541-E628-48C6-90A6-DE87B1587751" />
   <MonoDevelop.Ide.Workbench>
     <Files>
       <File FileName="Joyleaf/Joyleaf.Android/MainActivity.cs" Line="8" Column="56" />
-      <File FileName="Joyleaf/Joyleaf.Android/Resources/mipmap-anydpi-v26/icon.xml" Line="4" Column="62" />
-      <File FileName="Joyleaf/Joyleaf.Android/Resources/values/colors.xml" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Joyleaf" expanded="True">
-            <Node name="Joyleaf" expanded="True" />
-            <Node name="Joyleaf.Android" expanded="True">
-              <Node name="Resources" expanded="True">
-                <Node name="mipmap-anydpi-v26" expanded="True" />
-                <Node name="mipmap-hdpi" expanded="True" />
-                <Node name="mipmap-mdpi" expanded="True" />
-                <Node name="mipmap-xhdpi" expanded="True" />
-                <Node name="mipmap-xxhdpi" expanded="True" />
-                <Node name="values" expanded="True" />
+            <Node name="Joyleaf" expanded="True">
+              <Node name="Helpers" expanded="True" />
+              <Node name="Views" expanded="True">
+                <Node name="AccountPage.xaml" expanded="True" />
+                <Node name="MainPage.xaml" expanded="True" />
+                <Node name="StartPage.xaml" expanded="True" />
+                <Node name="TermsPage.xaml" expanded="True" />
               </Node>
+            </Node>
+            <Node name="Joyleaf.Android" expanded="True">
+              <Node name="Resources" expanded="True" />
+              <Node name="MainActivity.cs" selected="True" />
             </Node>
           </Node>
         </State>
@@ -28,7 +28,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.ItemProperties.Joyleaf.Android PreferredExecutionTarget="Android.pixel" />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhone" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

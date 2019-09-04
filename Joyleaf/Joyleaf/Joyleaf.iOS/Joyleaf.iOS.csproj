@@ -238,6 +238,10 @@
     <ImageAsset Include="Assets.xcassets\HighfiveOnboarding.imageset\HighfiveOnboarding.png" />
     <ImageAsset Include="Assets.xcassets\HighfiveOnboarding.imageset\HighfiveOnboarding%402x.png" />
     <ImageAsset Include="Assets.xcassets\HighfiveOnboarding.imageset\HighfiveOnboarding%403x.png" />
+    <ImageAsset Include="Assets.xcassets\Privacy.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Privacy.imageset\Privacy.png" />
+    <ImageAsset Include="Assets.xcassets\Privacy.imageset\Privacy%402x.png" />
+    <ImageAsset Include="Assets.xcassets\Privacy.imageset\Privacy%403x.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -307,5 +311,6 @@
     <Folder Include="Assets.xcassets\ScrollMoreBig.imageset\" />
     <Folder Include="Assets.xcassets\ScrollMoreBig.imageset\" />
     <Folder Include="Assets.xcassets\HighfiveOnboarding.imageset\" />
+    <Folder Include="Assets.xcassets\Privacy.imageset\" />
   </ItemGroup>
 </Project>

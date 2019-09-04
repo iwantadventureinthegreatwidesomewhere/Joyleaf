@@ -44,6 +44,7 @@ namespace Joyleaf.Views
             {
                 Aspect = Aspect.AspectFit,
                 HorizontalOptions = LayoutOptions.FillAndExpand,
+                Margin = new Thickness(17, 0),
                 Source = "HighFive",
                 VerticalOptions = LayoutOptions.FillAndExpand
             };

@@ -215,6 +215,11 @@
     <AndroidResource Include="Resources\drawable-xxxhdpi\icon.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\icon.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\icon.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\Privacy.png" />
+    <AndroidResource Include="Resources\drawable\Privacy.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\Privacy.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\Privacy.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\Privacy.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Joyleaf\Joyleaf.csproj">

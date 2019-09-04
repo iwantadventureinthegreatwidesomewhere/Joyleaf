@@ -171,7 +171,7 @@ namespace Joyleaf.Views
                 FontSize = 17,
                 HorizontalOptions = LayoutOptions.Start,
                 Margin = Device.RuntimePlatform == Device.iOS ? new Thickness(0, 15) : new Thickness(0, 10),
-                Text = "Terms of Use & Privacy",
+                Text = "Terms and Conditions",
                 TextColor = Color.Black
             });
 
@@ -191,11 +191,69 @@ namespace Joyleaf.Views
                 TermsStack.BackgroundColor = Color.LightGray;
                 await Task.Delay(100);
                 TermsStack.BackgroundColor = Color.White;
+
+                Device.OpenUri(new Uri("http://joyleaf.ca/terms"));
             };
 
             TermsStack.GestureRecognizers.Add(TermsTap);
 
             MenuStack.Children.Add(TermsStack);
+
+            MenuStack.Children.Add(new BoxView
+            {
+                Color = Color.LightGray,
+                HeightRequest = 0.5,
+                HorizontalOptions = LayoutOptions.FillAndExpand
+            });
+
+            StackLayout PrivacyStack = new StackLayout
+            {
+                HorizontalOptions = LayoutOptions.FillAndExpand,
+                Orientation = StackOrientation.Horizontal
+            };
+
+            PrivacyStack.Children.Add(new Image
+            {
+                HeightRequest = 25,
+                Margin = new Thickness(25, 0, 7, 0),
+                Source = "Privacy",
+                VerticalOptions = LayoutOptions.Center,
+                WidthRequest = 25
+            });
+
+            PrivacyStack.Children.Add(new Label
+            {
+                FontFamily = (OnPlatform<string>)Application.Current.Resources["SF-Regular"],
+                FontSize = 17,
+                HorizontalOptions = LayoutOptions.Start,
+                Margin = Device.RuntimePlatform == Device.iOS ? new Thickness(0, 15) : new Thickness(0, 10),
+                Text = "Privacy Policy",
+                TextColor = Color.Black
+            });
+
+            PrivacyStack.Children.Add(new Image
+            {
+                HeightRequest = 15,
+                HorizontalOptions = LayoutOptions.EndAndExpand,
+                Margin = new Thickness(0, 0, 25, 0),
+                Source = "AccountArrow",
+                VerticalOptions = LayoutOptions.Center,
+                WidthRequest = 15
+            });
+
+            TapGestureRecognizer PrivacyTap = new TapGestureRecognizer();
+            PrivacyTap.Tapped += async (sender, e) =>
+            {
+                PrivacyStack.BackgroundColor = Color.LightGray;
+                await Task.Delay(100);
+                PrivacyStack.BackgroundColor = Color.White;
+
+                Device.OpenUri(new Uri("http://joyleaf.ca/privacy"));
+            };
+
+            PrivacyStack.GestureRecognizers.Add(PrivacyTap);
+
+            MenuStack.Children.Add(PrivacyStack);
 
             MenuStack.Children.Add(new BoxView
             {

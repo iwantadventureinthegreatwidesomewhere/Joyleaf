@@ -37,7 +37,7 @@
                         <Span Text="By creating an account, I agree to the "/>
                         <Span
                             x:Name="TermsSpan"
-                            Text="Terms of Use"
+                            Text="Terms and Conditions"
                             TextDecorations="Underline"
                             TextColor="White">
                         </Span>
