@@ -210,6 +210,11 @@
     <AndroidResource Include="Resources\drawable-xhdpi\SearchBar.xml" />
     <AndroidResource Include="Resources\drawable-xxhdpi\SearchBar.xml" />
     <AndroidResource Include="Resources\drawable-xxxhdpi\SearchBar.xml" />
+    <AndroidResource Include="Resources\drawable-hdpi\icon.png" />
+    <AndroidResource Include="Resources\drawable\icon.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\icon.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\icon.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\icon.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Joyleaf\Joyleaf.csproj">
