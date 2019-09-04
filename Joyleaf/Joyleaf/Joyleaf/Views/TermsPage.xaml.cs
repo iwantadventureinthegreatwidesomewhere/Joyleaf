@@ -8,11 +8,11 @@ using Xamarin.Forms;
 
 namespace Joyleaf.Views
 {
-    public partial class AgeVerificationAndDisclaimerPage : GradientPage
+    public partial class TermsPage : GradientPage
     {
         private readonly string name, email, password;
 
-        public AgeVerificationAndDisclaimerPage(string name, string email, string password)
+        public TermsPage(string name, string email, string password)
         {
             this.name = name;
             this.email = email;
@@ -21,6 +21,20 @@ namespace Joyleaf.Views
             NavigationPage.SetHasNavigationBar(this, false);
 
             InitializeComponent();
+
+            TapGestureRecognizer TermsSpanTap = new TapGestureRecognizer();
+            TermsSpanTap.Tapped += (s, e) => {
+                Device.OpenUri(new Uri("http://joyleaf.ca/terms"));
+            };
+
+            TermsSpan.GestureRecognizers.Add(TermsSpanTap);
+
+            TapGestureRecognizer PrivacySpanTap = new TapGestureRecognizer();
+            PrivacySpanTap.Tapped += (s, e) => {
+                Device.OpenUri(new Uri("http://joyleaf.ca/privacy"));
+            };
+
+            PrivacySpan.GestureRecognizers.Add(PrivacySpanTap);
         }
 
         private async void BackButtonClicked(object sender, EventArgs e)

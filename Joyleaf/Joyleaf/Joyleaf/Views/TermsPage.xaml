@@ -4,7 +4,7 @@
                              xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
                              xmlns:system="clr-namespace:System;assembly=netstandard"
                              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-                             x:Class="Joyleaf.Views.AgeVerificationAndDisclaimerPage"
+                             x:Class="Joyleaf.Views.TermsPage"
                              ios:Page.UseSafeArea="true"
                              StartColor="#742BE4"
                              EndColor="#17D39B">
@@ -18,21 +18,39 @@
             <Label
                 FontAttributes="Bold"
                 FontFamily="{StaticResource Key=SF-Bold}"
-                FontSize="20"
+                FontSize="23"
                 HorizontalOptions="Center"
                 Margin="8,0,8,15"
-                Text="Age Verification and Disclaimer"
+                Text="Terms and Privacy"
                 TextColor="White">
             </Label>
             
-            <Label
+            <Label 
                 FontAttributes="Bold"
                 FontFamily="{StaticResource Key=SF-Bold}"
                 FontSize="13"
                 HorizontalOptions="Start"
-                Margin="8,0,8,15"
-                Text="By tapping CREATE ACCOUNT you confirm that you are at least 21 years of age and you agree that neither Joyleaf nor its creators are liable for any injuries, deaths, or other consequences resulting from actions taken based on information provided on the Joyleaf mobile application. We make no guarantees on the credibility of the information provided on marijuana strains or their use. By using the Joyleaf mobile application the user assumes all risk."
+                Margin="8,0,8,25"
                 TextColor="White">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="By creating an account, I agree to the "/>
+                        <Span
+                            x:Name="TermsSpan"
+                            Text="Terms of Use"
+                            TextDecorations="Underline"
+                            TextColor="White">
+                        </Span>
+                        <Span Text=" and acknowledge that I have read the "/>
+                        <Span
+                            x:Name="PrivacySpan"
+                            Text="Privacy Policy"
+                            TextDecorations="Underline"
+                            TextColor="White">
+                        </Span>
+                        <Span Text="."/>
+                    </FormattedString>
+                </Label.FormattedText>
             </Label>
             
             <customControls:ButtonWithBusyIndicator

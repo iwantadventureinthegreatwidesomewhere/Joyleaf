@@ -46,7 +46,7 @@ namespace Joyleaf.Views
 
                             if (count >= 8)
                             {
-                                await Navigation.PushAsync(new AgeVerificationAndDisclaimerPage(name, email, PasswordEntry.Text));
+                                await Navigation.PushAsync(new TermsPage(name, email, PasswordEntry.Text));
                                 NextButton.IsBusy = false;
                             }
                             else

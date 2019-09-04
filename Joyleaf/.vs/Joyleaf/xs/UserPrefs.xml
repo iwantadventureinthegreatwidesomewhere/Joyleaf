@@ -1,13 +1,13 @@
-﻿<Properties StartupConfiguration="{928BF896-B912-476D-86D7-5A6B2B2B065A}|Default">
-  <MonoDevelop.Ide.ItemProperties.Joyleaf.iOS automaticSigning="True" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.AFAA1D33-384F-4B1E-8C69-A380D9C93468">
-    <MonoDevelop.MacDev.AppleDevelopmentTeam DeveloperId="3JMLWFAB2Y" TeamId="S86798AD2W" />
-  </MonoDevelop.Ide.ItemProperties.Joyleaf.iOS>
+﻿<Properties StartupConfiguration="{9BA44B81-8113-4346-99FB-94AE557221F4}|Default">
+  <MonoDevelop.Ide.ItemProperties.Joyleaf.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget.7f6c676ffe6635747836a89a194d39f6c7f48766" />
   <MonoDevelop.Ide.Workbench>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Joyleaf" expanded="True">
-            <Node name="Joyleaf" expanded="True" />
+            <Node name="Joyleaf" expanded="True">
+              <Node name="Views" expanded="True" />
+            </Node>
           </Node>
         </State>
       </Pad>
@@ -15,7 +15,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.ItemProperties.Joyleaf.Android PreferredExecutionTarget="Android.my_device" />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhone" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
