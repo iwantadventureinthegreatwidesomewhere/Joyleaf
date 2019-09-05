@@ -1,11 +1,13 @@
-﻿using Android.App;
+﻿using System.Threading.Tasks;
+using Android.App;
+using Android.Content;
 using Android.Content.PM;
 using Android.OS;
 using CarouselView.FormsPlugin.Android;
 
 namespace Joyleaf.Droid
 {
-    [Activity(Label = "Joyleaf", Icon = "@drawable/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+    [Activity(Label = "Joyleaf", Icon = "@drawable/icon", Theme = "@style/MyTheme.Splash", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
 
     public class MainActivity : Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {

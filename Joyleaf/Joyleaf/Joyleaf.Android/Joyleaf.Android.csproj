@@ -220,6 +220,7 @@
     <AndroidResource Include="Resources\drawable-xhdpi\Privacy.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\Privacy.png" />
     <AndroidResource Include="Resources\drawable-xxxhdpi\Privacy.png" />
+    <AndroidResource Include="Resources\drawable\splash.xml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Joyleaf\Joyleaf.csproj">

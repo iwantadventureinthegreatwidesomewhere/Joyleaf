@@ -1,8 +1,8 @@
-﻿<Properties StartupConfiguration="{928BF896-B912-476D-86D7-5A6B2B2B065A}|Default">
+﻿<Properties StartupConfiguration="{9BA44B81-8113-4346-99FB-94AE557221F4}|Default">
   <MonoDevelop.Ide.ItemProperties.Joyleaf.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.A3A6C541-E628-48C6-90A6-DE87B1587751" />
   <MonoDevelop.Ide.Workbench>
     <Files>
-      <File FileName="Joyleaf/Joyleaf.Android/MainActivity.cs" Line="8" Column="56" />
+      <File FileName="Joyleaf/Joyleaf.Android/Resources/drawable/splash.xml" Line="7" Column="5" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -18,8 +18,12 @@
               </Node>
             </Node>
             <Node name="Joyleaf.Android" expanded="True">
-              <Node name="Resources" expanded="True" />
-              <Node name="MainActivity.cs" selected="True" />
+              <Node name="Resources" expanded="True">
+                <Node name="drawable" expanded="True">
+                  <Node name="splash.xml" selected="True" />
+                </Node>
+                <Node name="values" expanded="True" />
+              </Node>
             </Node>
           </Node>
         </State>
