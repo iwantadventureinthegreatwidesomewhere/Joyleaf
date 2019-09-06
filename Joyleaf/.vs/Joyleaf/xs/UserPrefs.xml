@@ -1,10 +1,17 @@
-﻿<Properties StartupConfiguration="{9BA44B81-8113-4346-99FB-94AE557221F4}|Default">
-  <MonoDevelop.Ide.ItemProperties.Joyleaf.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.A3A6C541-E628-48C6-90A6-DE87B1587751" />
+﻿<Properties StartupConfiguration="{928BF896-B912-476D-86D7-5A6B2B2B065A}|Default">
+  <MonoDevelop.Ide.ItemProperties.Joyleaf.iOS automaticSigning="True" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.F73E3B7A-9737-4537-AF18-AA6C0EF47E3F">
+    <MonoDevelop.MacDev.AppleDevelopmentTeam DeveloperId="3JMLWFAB2Y" TeamId="S86798AD2W" />
+  </MonoDevelop.Ide.ItemProperties.Joyleaf.iOS>
   <MonoDevelop.Ide.Workbench>
+    <Files>
+      <File FileName="Joyleaf/Joyleaf.iOS/Info.plist" />
+    </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="Joyleaf" expanded="True" />
+          <Node name="Joyleaf" expanded="True">
+            <Node name="Joyleaf.iOS" expanded="True" selected="True" />
+          </Node>
         </State>
       </Pad>
     </Pads>
