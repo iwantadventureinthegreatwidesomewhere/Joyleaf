@@ -5,7 +5,9 @@
         <color android:color="@color/splash_background"/>
     </item>
     
-    <item>
+    <item
+        android:right="7dp"
+        android:bottom="100dp">
         <bitmap
             android:src="@drawable/Logo"
             android:tileMode="disabled"
