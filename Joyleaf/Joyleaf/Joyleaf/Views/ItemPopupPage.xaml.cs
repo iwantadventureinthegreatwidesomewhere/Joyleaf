@@ -143,7 +143,8 @@ namespace Joyleaf.Views
                 FontSize = 15,
                 MinimumHeightRequest = 15,
                 TextColor = Color.Gray,
-                VerticalOptions = LayoutOptions.Center
+                VerticalOptions = LayoutOptions.Center,
+                MinimumWidthRequest = 30
             };
 
             RatingStack.Children.Add(headerNumberOfRatings);
