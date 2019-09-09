@@ -1,4 +1,4 @@
-﻿<Properties StartupConfiguration="{9BA44B81-8113-4346-99FB-94AE557221F4}|Default">
+﻿<Properties StartupConfiguration="{928BF896-B912-476D-86D7-5A6B2B2B065A}|Default">
   <MonoDevelop.Ide.ItemProperties.Joyleaf.iOS automaticSigning="True" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.F73E3B7A-9737-4537-AF18-AA6C0EF47E3F">
     <MonoDevelop.MacDev.AppleDevelopmentTeam DeveloperId="3JMLWFAB2Y" TeamId="S86798AD2W" />
   </MonoDevelop.Ide.ItemProperties.Joyleaf.iOS>
@@ -7,7 +7,8 @@
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Joyleaf" expanded="True">
-            <Node name="Joyleaf.iOS" selected="True" />
+            <Node name="Joyleaf" expanded="True" />
+            <Node name="Joyleaf.iOS" expanded="True" />
           </Node>
         </State>
       </Pad>
@@ -15,7 +16,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.ItemProperties.Joyleaf.Android PreferredExecutionTarget="Android.Pixel_3_XL_API_28" />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release|iPhoneSimulator" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

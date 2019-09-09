@@ -15,6 +15,11 @@ namespace Joyleaf.iOS.CustomRenderers
         {
             base.OnElementChanged(args);
 
+            if (Control == null)
+            {
+                return;
+            }
+
             UISearchBar searchBar = (UISearchBar)this.Control;
 
             searchBar.BackgroundImage = new UIImage();
