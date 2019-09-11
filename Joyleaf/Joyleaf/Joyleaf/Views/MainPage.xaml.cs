@@ -1,4 +1,5 @@
 ﻿using CarouselView.FormsPlugin.Abstractions;
+using Joyleaf.CustomControls;
 using Joyleaf.Helpers;
 using Joyleaf.Services;
 using Plugin.Connectivity;
@@ -288,7 +289,7 @@ namespace Joyleaf.Views
 
                 WelcomeStack.Children.Add(SpeciesStack);
 
-                Button WelcomeButton = new Button
+                TextFixButton WelcomeButton = new TextFixButton
                 {
                     BackgroundColor = Color.FromHex("#333333"),
                     CornerRadius = 18,
@@ -344,7 +345,7 @@ namespace Joyleaf.Views
                     Source = "HighfiveOnboarding"
                 });
 
-                Button HighfiveButton = new Button
+                TextFixButton HighfiveButton = new TextFixButton
                 {
                     BackgroundColor = Color.FromHex("#333333"),
                     CornerRadius = 18,
@@ -435,7 +436,7 @@ namespace Joyleaf.Views
                         {
                             FontFamily = (OnPlatform<string>)Application.Current.Resources["SF-Regular"],
                             FontSize = 15,
-                            Margin = new Thickness(15, 5),
+                            Margin = Device.RuntimePlatform == Device.iOS ? new Thickness(15, 5) : new Thickness(15, 0),
                             Text = s,
                             TextColor = color
                         },
@@ -481,7 +482,7 @@ namespace Joyleaf.Views
 
                 GetStartedStack.Children.Add(TagLayout);
 
-                Button GetStartedButton = new Button
+                TextFixButton GetStartedButton = new TextFixButton
                 {
                     BackgroundColor = Color.FromHex("#333333"),
                     CornerRadius = 18,
