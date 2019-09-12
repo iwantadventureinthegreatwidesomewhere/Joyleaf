@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Joyleaf.Helpers
+﻿namespace Joyleaf.Helpers
 {
     public class Account
     {
