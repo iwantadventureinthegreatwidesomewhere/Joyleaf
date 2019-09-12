@@ -378,7 +378,10 @@ namespace Joyleaf.Views
 
                 searchBar.IsEnabled = true;
 
-                ContentStack.Children.Add(SuggestedStack);
+                if (!ClearButton.IsVisible)
+                {
+                    ContentStack.Children.Add(SuggestedStack);
+                }
             }
             else
             {

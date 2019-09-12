@@ -1,4 +1,4 @@
-﻿<Properties StartupConfiguration="{9BA44B81-8113-4346-99FB-94AE557221F4}|Default">
+﻿<Properties StartupConfiguration="{928BF896-B912-476D-86D7-5A6B2B2B065A}|Default">
   <MonoDevelop.Ide.ItemProperties.Joyleaf.iOS automaticSigning="True" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget">
     <MonoDevelop.MacDev.AppleDevelopmentTeam DeveloperId="3JMLWFAB2Y" TeamId="S86798AD2W" />
   </MonoDevelop.Ide.ItemProperties.Joyleaf.iOS>
@@ -6,7 +6,9 @@
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="Joyleaf" expanded="True" />
+          <Node name="Joyleaf" expanded="True">
+            <Node name="Joyleaf.Android" selected="True" />
+          </Node>
         </State>
       </Pad>
     </Pads>
