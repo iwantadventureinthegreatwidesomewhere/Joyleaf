@@ -39,17 +39,20 @@
                     
                     <customControls:TextFixButton
                         x:Name="ClearButton"
-                        BackgroundColor="Transparent"
+                        BackgroundColor="#00C88C"
+                        CornerRadius="13"
                         Clicked="ClearSearch"
-                        FontFamily="{StaticResource Key=SF-Regular}"
-                        FontSize="20"
+                        FontAttributes="Bold"
+                        FontFamily="{StaticResource Key=SF-Bold}"
+                        FontSize="13"
                         HeightRequest="27"
                         HorizontalOptions="EndAndExpand"
                         IsVisible="false"
-                        Margin="0,5,27,0"
-                        Text="Clear"
-                        TextColor="#00C88C"
-                        VerticalOptions="Center"/>
+                        Margin="0,0,20,0"
+                        Text="CLEAR"
+                        TextColor="#ffffff"
+                        VerticalOptions="Center"
+                        WidthRequest="75"/>
                 </StackLayout>
                 
                 <customControls:CustomSearchBar
