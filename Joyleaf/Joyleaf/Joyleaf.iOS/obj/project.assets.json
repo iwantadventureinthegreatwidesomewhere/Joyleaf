@@ -244,7 +244,7 @@
           "lib/Xamarin.iOS10/Plugin.Settings.dll": {}
         }
       },
-      "Xamarin.Forms/4.2.0.709249": {
+      "Xamarin.Forms/4.2.0.778463": {
         "type": "package",
         "compile": {
           "lib/Xamarin.iOS10/Xamarin.Forms.Core.dll": {},
@@ -623,7 +623,7 @@
           "lib/Xamarin.iOS10/Plugin.Settings.dll": {}
         }
       },
-      "Xamarin.Forms/4.2.0.709249": {
+      "Xamarin.Forms/4.2.0.778463": {
         "type": "package",
         "compile": {
           "lib/Xamarin.iOS10/Xamarin.Forms.Core.dll": {},
@@ -1002,7 +1002,7 @@
           "lib/Xamarin.iOS10/Plugin.Settings.dll": {}
         }
       },
-      "Xamarin.Forms/4.2.0.709249": {
+      "Xamarin.Forms/4.2.0.778463": {
         "type": "package",
         "compile": {
           "lib/Xamarin.iOS10/Xamarin.Forms.Core.dll": {},
@@ -1381,7 +1381,7 @@
           "lib/Xamarin.iOS10/Plugin.Settings.dll": {}
         }
       },
-      "Xamarin.Forms/4.2.0.709249": {
+      "Xamarin.Forms/4.2.0.778463": {
         "type": "package",
         "compile": {
           "lib/Xamarin.iOS10/Xamarin.Forms.Core.dll": {},
@@ -2258,10 +2258,10 @@
         "xam.plugins.settings.nuspec"
       ]
     },
-    "Xamarin.Forms/4.2.0.709249": {
-      "sha512": "3DWqPSn9kSKJW5mwjmICV/+4IpPQrequEN1VXUhsF0i9KKnfj49jFk9VbJnT9o2aesJAk00NED67XPbSmbxKjw==",
+    "Xamarin.Forms/4.2.0.778463": {
+      "sha512": "0dGuPOn9KrS65rmVgOrV5knDYHxWkWEm7c/CLp6AKSlvOpZ40+YrN+7oX5hHE6lpX+dizLCaOE/RvYS3ONy9/Q==",
       "type": "package",
-      "path": "xamarin.forms/4.2.0.709249",
+      "path": "xamarin.forms/4.2.0.778463",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -2500,7 +2500,7 @@
         "lib/uap10.0/Xamarin.Forms.Xaml.dll",
         "lib/uap10.0/Xamarin.Forms.Xaml.pdb",
         "lib/uap10.0/Xamarin.Forms.Xaml.xml",
-        "xamarin.forms.4.2.0.709249.nupkg.sha512",
+        "xamarin.forms.4.2.0.778463.nupkg.sha512",
         "xamarin.forms.nuspec"
       ]
     },
@@ -2513,7 +2513,7 @@
   "projectFileDependencyGroups": {
     "Xamarin.iOS,Version=v1.0": [
       "Joyleaf >= 1.0.0",
-      "Xamarin.Forms >= 4.2.0.709249"
+      "Xamarin.Forms >= 4.2.0.778463"
     ]
   },
   "packageFolders": {
@@ -2553,7 +2553,7 @@
         "dependencies": {
           "Xamarin.Forms": {
             "target": "Package",
-            "version": "[4.2.0.709249, )"
+            "version": "[4.2.0.778463, )"
           }
         }
       }
