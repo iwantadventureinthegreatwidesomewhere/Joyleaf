@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionName="1.0.5" package="com.joyleaf.Joyleaf" android:installLocation="auto" android:versionCode="6">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionName="1.0.6" package="com.joyleaf.Joyleaf" android:installLocation="auto" android:versionCode="7">
 	<uses-sdk android:minSdkVersion="19" android:targetSdkVersion="28" />
 	<application android:label="Joyleaf"></application>
 </manifest>

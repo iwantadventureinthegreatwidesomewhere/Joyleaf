@@ -272,6 +272,7 @@ namespace Joyleaf.Views
         private async Task SearchAsync(string s)
         {
             searchBar.IsEnabled = false;
+            ClearButton.IsVisible = false;
 
             try
             {
@@ -349,11 +350,11 @@ namespace Joyleaf.Views
         {
             ClearButton.IsVisible = false;
 
-            searchBar.Text = "";
-            ContentStack.Children.Clear();
-
             NoResultsStack.IsVisible = false;
             SearchErrorStack.IsVisible = false;
+
+            searchBar.Text = "";
+            ContentStack.Children.Clear();
 
             ContentStack.Children.Add(SuggestedStack);
         }
@@ -378,7 +379,7 @@ namespace Joyleaf.Views
 
                 searchBar.IsEnabled = true;
 
-                if (!ClearButton.IsVisible)
+                if (!ClearButton.IsVisible && !SearchErrorStack.IsVisible)
                 {
                     ContentStack.Children.Add(SuggestedStack);
                 }
