@@ -13,7 +13,7 @@ namespace Joyleaf
         {
             InitializeComponent();
 
-            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MTUzNTYzQDMxMzcyZTMzMmUzMGs3NUtVQ1ZFV1ZBNStXUi9IZHRoemdLbHNySGlpOVpsWGFjS1hxZGZqb009");
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MTE0NDI2QDMxMzYyZTM0MmUzME1zeXVBRGtQbE5wUVRJQ3hlLzVXcGRvWkJKczNvVlU1RHVpTGV6dTB0OVk9");
 
             if (string.IsNullOrEmpty(Settings.FirebaseAuth))
             {
