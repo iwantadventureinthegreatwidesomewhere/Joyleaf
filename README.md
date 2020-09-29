@@ -4,3 +4,5 @@ The cannabis industry is one of few that has severely lagged in tech, in large p
 Joyleaf is a strain finder app on iOS and Android that lets you discover over 2,000 unique marijuana strains from around the world so you can find cannabis perfect for you.
 
 In just one tap, you can use Joyleaf to instantly find strains personalized to you and your interests. Never again do you have to spend time looking for the right cannabis for you!
+
+<img src="preview.png" width="1000">
